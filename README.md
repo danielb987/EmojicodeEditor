@@ -15,3 +15,6 @@ and watch the status of the variables. The native compiler for Emojicode doesn't
 support debugging of the program at this point, so EmojicodeEditor has its own
 compiler and debugger.
 
+### Contribution
+If you want to contribute to the project, please create an Issue first. That will
+allow us to discuss the desired change before doing the work on the contribution.
