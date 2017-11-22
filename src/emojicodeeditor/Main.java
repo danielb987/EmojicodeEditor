@@ -44,10 +44,12 @@ public class Main {
         if (1==1) {
             /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
+                @Override
                 public void run() {
-//                    new JFrame_TestDebugger("test/emojicode_tests/compilation/hello.emojic").setVisible(true);
-////                    new JFrame_TestDebugger("test/emojicode_tests/compilation/extension.emojic").setVisible(true);
-                    new JFrame_TestDebugger("test/emojicode_tests/compilation/class.emojic").setVisible(true);
+//                    new JFrame_TestDebugger("emojicode_test/compilation/hello.emojic").setVisible(true);
+////                    new JFrame_TestDebugger("emojicode_test/compilation/extension.emojic").setVisible(true);
+//                    new JFrame_TestDebugger("emojicode_test/compilation/class.emojic").setVisible(true);
+                    new JFrame_TestDebugger("emojicode_test/compilation/class.emojic").setVisible(true);
                 }
             });
             return;

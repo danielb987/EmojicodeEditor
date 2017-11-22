@@ -1,0 +1,41 @@
+📦 files 🔴
+
+📜 🔤testsHelper.emojic🔤
+
+🏁 ➡️ 🚂 🍇
+  🍦 tester 🔷💯🆕
+  🏁 tester
+  🍎 👔 tester
+🍉
+
+🐇 💯 👈 🍇
+  ✒️ 🐖 🏁 🍇
+    🍦 readFile 🚇🔷📄📜 🔤fileTest_testFile.txt🔤
+
+    ⛔️🐕 😛 🍺 🔡 🚇 📓 readFile 5 🔤Lorem🔤 🔤Read test🔤
+
+    🔛 readFile 12
+
+    ⛔️🐕 😛 🍺 🔡 🚇 📓 readFile 5 🔤dolor🔤 🔤Read after seek🔤
+
+    🍩🔫📑 🔤fileTest_writeTest.txt🔤
+
+    🙅 readFile
+
+    🍦 file 🚇🔷📄📝 🔤fileTest_writeTest.txt🔤
+
+    ✏️  file 📇🔤Hello Theo.🔤
+    💧 file
+
+    ⛔️🐕 😛 🍺 🔡 🚇 🍩📇📄 🔤fileTest_writeTest.txt🔤 🔤Hello Theo.🔤 🔤Write succeeded🔤
+
+    🔛 file 6
+
+    ✏️ file 📇🔤Hubertus.🔤
+    💧 file
+
+    ⛔️🐕 😛 🍺 🔡 🚇 🍩📇📄 🔤fileTest_writeTest.txt🔤 🔤Hello Hubertus.🔤 🔤Seek and write succeeded🔤
+
+    🙅 file
+  🍉
+🍉
