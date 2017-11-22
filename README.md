@@ -8,7 +8,7 @@ emojis to use.
 The subject of this project is to create a text editor which fully understands
 Emojicode and supports the software developer in creating software with Emojicode.
 
-# Debugger
+### Debugger
 One important feature of IDE:s is to have a debugger. Therefore EmojicodeEditor
 includes a compiler and debugger to let the user run the program step by step
 and watch the status of the variables. The native compiler for Emojicode doesn't
