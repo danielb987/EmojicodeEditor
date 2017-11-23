@@ -73,7 +73,7 @@ public class CompilerTest {
     @Test
     public void testCompile() {
         
-        System.out.println("Daniel AAA");
+        System.out.println("Daniel AAA CC");
         // We need to turn tests of temporary to get generation of Javadoc
         // work until we have got the tests to work.
         if (1==1)
