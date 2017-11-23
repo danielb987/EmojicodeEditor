@@ -75,7 +75,7 @@ public class CompilerTest {
         
         // We need to turn tests of temporary to get generation of Javadoc
         // work until we have got the tests to work.
-        if (1==1)
+        if (1 == 1)
             return;
         
         int numTests = 0;
