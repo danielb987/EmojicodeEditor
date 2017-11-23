@@ -35,7 +35,7 @@ import static org.junit.Assert.*;
  *
  * @author Daniel Bergqvist
  */
-public class java {
+public class EmojicodeTest {
     
     @BeforeClass
     public static void setUpClass() {
