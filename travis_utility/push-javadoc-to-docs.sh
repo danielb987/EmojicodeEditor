@@ -10,23 +10,29 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
 #  cp -R dist/javadoc $HOME/javadoc-latest
 
+  pwd
+
   cd $HOME
   echo -e "AAA\n";
   git config --global user.email "travis@travis-ci.org"
   echo -e "BBB\n";
   git config --global user.name "travis-ci"
   echo -e "CCC\n";
+  pwd
   git clone --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor
+  pwd
 #  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor
 #  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor master > /dev/null
   echo -e "DDD\n";
 
+  pwd
   ls
 
   git rm -rf ./docs/javadoc
 
 #  ant javadoc
 
+  pwd
   echo -e "Publishing javadoc... AAAAAAAAAA\n"
 
   # cd gh-pages
