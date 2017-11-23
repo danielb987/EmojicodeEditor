@@ -71,6 +71,14 @@
 
     -->
     
+    <target name="-pre-init">
+        <echo message="AAA -pre-init"/>
+        <echo message="JUnit: ${junit.available}"/>
+        <property name="junit.available" value="true"/>
+        <echo message="JUnit: ${junit.available}"/>
+        <echo message="AAA -pre-init done"/>
+    </target>
+    
     <target depends="init,deps-jar,compile,-init-test-module-properties,-pre-pre-compile-test,-pre-compile-test,-compile-test-depend" if="have.tests" name="-do-compile-test">
         
         <!-- We need to add lib/junit_4/junit-4.12.jar and lib/hamcrest/hamcrest-core-1.3.jar to javac.test.classpath in order to get tests to work on Travis. -->
@@ -98,6 +106,7 @@
         <property name="junit.available" value="true"/>
         <echo message="JUnit: ${junit.available}"/>
         <echo message="run.test.classpath: ${run.test.classpath}"/>
+        <echo message="testng-available: ${testng.available}"/>
         <echo message="AAAAAAAAAAAAAAAAAAA"/>
         <j2seproject3:test includes="${includes}" testincludes="**/*Test.java"/>
 <!--        <j2seproject3:test includes="${includes}" testincludes="**/*Test.java"/> -->
