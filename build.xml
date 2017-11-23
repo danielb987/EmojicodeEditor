@@ -75,6 +75,8 @@
         <echo message="AAA -pre-init"/>
         <echo message="JUnit: ${junit.available}"/>
         <property name="junit.available" value="true"/>
+        <property name="libs.junit_4.classpath" value="lib/junit_4/junit-4.12.jar"/>
+        <property name="libs.hamcrest.classpath" value="lib/hamcrest/hamcrest-core-1.3.jar"/>
         <echo message="JUnit: ${junit.available}"/>
         <echo message="AAA -pre-init done"/>
     </target>
