@@ -16,7 +16,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "BBB\n";
   git config --global user.name "travis-ci"
   echo -e "CCC\n";
-  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
+  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor
 #  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor master > /dev/null
   echo -e "DDD\n";
 
