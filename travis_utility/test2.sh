@@ -10,5 +10,17 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   find
   
+  pwd
+
+  export DIR=$(pwd)
+
+  cd $HOME
+
+  pwd
+
+  cd $DIR
+
+  pwd
+
 fi
 
