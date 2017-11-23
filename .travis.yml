@@ -9,6 +9,7 @@ before_script:
     - echo -e "Testing Daniel\n"
     - echo -e "$GH_TOKEN\n"
     - echo -e "$(GH_TOKEN)\n"
+    - echo -e "Kalle\n"
     - composer self-update -q
     - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
     - if [ -z "$dependencies" ]; then composer install; fi;
