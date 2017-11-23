@@ -95,6 +95,8 @@
     <target depends="init,deps-jar,compile,-init-test-module-properties,-pre-pre-compile-test,-pre-compile-test,-compile-test-depend" if="have.tests" name="-do-compile-test">
         <echo message="Daniel testar 1234556789"/>
         
+        <echo message="Daniel: ${javac.test.classpath}"/>
+        
         <path id="build.classpath">
             <fileset dir="lib">
                 <include name="**/*.jar"/>
@@ -110,6 +112,7 @@
             </fileset>
         </path>
         
+        <echo message="Daniel: ${javac.test.classpath}"/>
         
         <path id="javac.test.classpath"> 
             <fileset dir="${javac.test.classpath}">
@@ -117,8 +120,12 @@
             </fileset>
         </path>
         
+        <property name="javac.test.classpath_emojicode" value="${javac.test.classpath}:lib/junit_4/junit-4.12.jar"/>
+        <echo message="Daniel: ${javac.test.classpath_emojicode}"/>
+        <property name="kalle" value="Hej"/>
+        <echo message="Daniel: ${kalle}"/>
         
-        <j2seproject3:javac apgeneratedsrcdir="${build.test.classes.dir}" classpath="${javac.test.classpath}" debug="true" destdir="${build.test.classes.dir}" modulepath="${javac.test.modulepath}" processorpath="${javac.test.processorpath}" srcdir="${test.src.dir}">
+        <j2seproject3:javac apgeneratedsrcdir="${build.test.classes.dir}" classpath="${javac.test.classpath_emojicode}" debug="true" destdir="${build.test.classes.dir}" modulepath="${javac.test.modulepath}" processorpath="${javac.test.processorpath}" srcdir="${test.src.dir}">
             <customize>
                 <compilerarg line="${javac.test.compilerargs}"/>
             </customize>
