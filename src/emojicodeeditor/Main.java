@@ -41,6 +41,11 @@ public class Main {
      */
     public static void main(String args[]) {
         
+        if (1==0) {
+            GenerateTests.generate();
+            System.exit(0);
+        }
+        
         if (1==1) {
             /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
