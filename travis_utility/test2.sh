@@ -38,6 +38,22 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "---------------------------------------------------------------\n"
   echo -e "---------------------------------------------------------------\n"
 
+  echo -e "${GH_TOKEN}\n"
+
+  echo -e "aaa\n"
+  cd docs
+  echo -e "bbb\n"
+  git rm -rf ./javadoc
+  echo -e "ccc\n"
+####  cp -Rf $HOME/javadoc-latest ./javadoc
+  echo -e "ddd\n"
+  git add -f .
+  echo -e "eee\n"
+  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
+  echo -e "fff\n"
+  git push -fq origin master > /dev/null
+  echo -e "ggg\n"
+
   ls
   echo -e "---------------------------------------------------------------\n"
   find
