@@ -72,9 +72,8 @@
     -->
     
     
-    <!-- We need to set these properties for junit and hamcrest since Travis will fail if not set. -->
+    <!-- We need to set class path properties for junit and hamcrest since Travis will fail if not set. -->
     <target name="-pre-init">
-<!--        <property name="junit.available" value="true"/> -->
         <property name="libs.junit_4.classpath" value="lib/junit_4/junit-4.12.jar"/>
         <property name="libs.hamcrest.classpath" value="lib/hamcrest/hamcrest-core-1.3.jar"/>
     </target>
