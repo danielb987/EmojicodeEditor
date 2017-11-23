@@ -70,14 +70,4 @@
     nbproject/build-impl.xml file. 
 
     -->
-    
-    <target name="-compile-test-depend">
-        <path id="build.classpath">
-            <fileset dir="lib">
-                <include name="**/*.jar"/>
-                <include name="**/*.zip"/>
-            </fileset>
-        </path>
-    </target>
-    
 </project>
