@@ -97,7 +97,8 @@
         <echo message="JUnit: ${junit.available}"/>
         <echo message="run.test.classpath: ${run.test.classpath}"/>
         <echo message="AAAAAAAAAAAAAAAAAAA"/>
-        <j2seproject3:test includes="${includes}" testincludes="**/*Test.java"/>
+        <j2seproject3:test includes="Blahaj" testincludes="**/*Test.java"/>
+<!--        <j2seproject3:test includes="${includes}" testincludes="**/*Test.java"/> -->
         <echo message="BBBBBBBBBBBBBBBBBBB"/>
     </target>
     
