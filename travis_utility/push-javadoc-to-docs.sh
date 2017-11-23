@@ -10,7 +10,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
 #  cp -R dist/javadoc $HOME/javadoc-latest
 
-#  cd $HOME
+  cd $HOME
   echo -e "AAA\n";
   git config --global user.email "travis@travis-ci.org"
   echo -e "BBB\n";
@@ -34,9 +34,9 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "EEE\n";
   git add -f .
   echo -e "FFF\n";
-  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
+#  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
   echo -e "GGG\n";
-  git push -fq origin master > /dev/null
+#  git push -fq origin master > /dev/null
   echo -e "HHH\n";
 
   echo -e "Published Javadoc to gh-pages.\n"
