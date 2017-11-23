@@ -28,7 +28,8 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   pwd
   ls
 
-  git rm -rf ./docs/javadoc
+  git rm -rf ./EmojicodeEditor/docs/javadoc
+#  git rm -rf ./docs/javadoc
 
 #  ant javadoc
 
@@ -39,7 +40,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 #  git rm -rf ./docs/javadoc
 #  cp -Rf $HOME/javadoc-latest ./docs/javadoc
   echo -e "EEE\n";
-  git add -f .
+  git add -f ./EmojicodeEditor
   echo -e "FFF\n";
 #  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
   echo -e "GGG\n";
