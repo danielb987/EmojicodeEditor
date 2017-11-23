@@ -78,4 +78,8 @@
         <property name="libs.hamcrest.classpath" value="lib/hamcrest/hamcrest-core-1.3.jar"/>
     </target>
     
+    <target name="-post-jar">
+        <antcall target="-javadoc-build"/>
+    </target>
+    
 </project>

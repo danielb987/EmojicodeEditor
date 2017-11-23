@@ -8,7 +8,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Publishing javadoc...\n"
 
-  cp -R build/docs/javadoc $HOME/javadoc-latest
+  cp -R dist/javadoc $HOME/javadoc-latest
 
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
