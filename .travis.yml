@@ -7,15 +7,6 @@ env:
 
 before_script:
     - echo -e "Testing Daniel\n"
-    - echo -e "$GH_TOKEN\n"
-    - echo -e "$(GH_TOKEN)\n"
-    - echo -e "Kalllllle\n"
-    - composer self-update -q
-    - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
-    - if [ -z "$dependencies" ]; then composer install; fi;
-    - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest -n; fi;
-    - if [ "$dependencies" = "highest" ]; then composer update -n; fi;
-    - composer show -i
 
 after_success: travis_utility/test3.sh
 # after_success: travis_utility/push-javadoc-to-docs.sh
