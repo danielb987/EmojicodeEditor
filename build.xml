@@ -110,6 +110,14 @@
             </fileset>
         </path>
         
+        
+        <path id="javac.test.classpath"> 
+            <fileset dir="${javac.test.classpath}">
+                <include name="lib/**/*.jar lib/junit_4/**/*.jar lib/hamcrest/**/*.jar"/>
+            </fileset>
+        </path>
+        
+        
         <j2seproject3:javac apgeneratedsrcdir="${build.test.classes.dir}" classpath="${javac.test.classpath}" debug="true" destdir="${build.test.classes.dir}" modulepath="${javac.test.modulepath}" processorpath="${javac.test.processorpath}" srcdir="${test.src.dir}">
             <customize>
                 <compilerarg line="${javac.test.compilerargs}"/>
