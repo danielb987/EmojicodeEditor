@@ -93,6 +93,7 @@
     
     <target depends="init,compile-test,-init-test-run-module-properties,-pre-test-run" if="have.tests" name="-do-test-run">
         <echo message="Emojicode: ${javac.test.classpath_emojicode}"/>
+        <echo message="Emojicode: ${includes}"/>
         <j2seproject3:test includes="${includes}" testincludes="**/*Test.java"/>
     </target>
     
