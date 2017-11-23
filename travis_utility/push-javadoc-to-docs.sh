@@ -21,7 +21,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   git rm -rf ./docs/javadoc
 
-  ant javadoc
+#  ant javadoc
 
   echo -e "Publishing javadoc...\n"
 
