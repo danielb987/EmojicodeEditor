@@ -46,10 +46,10 @@ public class Main {
             java.awt.EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-//                    new JFrame_TestDebugger("emojicode_test/compilation/hello.emojic").setVisible(true);
+                    new JFrame_TestDebugger("emojicode_test/compilation/hello.emojic").setVisible(true);
 ////                    new JFrame_TestDebugger("emojicode_test/compilation/extension.emojic").setVisible(true);
 //                    new JFrame_TestDebugger("emojicode_test/compilation/class.emojic").setVisible(true);
-                    new JFrame_TestDebugger("emojicode_test/compilation/class.emojic").setVisible(true);
+///////                    new JFrame_TestDebugger("emojicode_test/compilation/class.emojic").setVisible(true);
                 }
             });
             return;
