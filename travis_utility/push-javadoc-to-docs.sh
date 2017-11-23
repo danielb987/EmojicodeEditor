@@ -20,6 +20,8 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 #  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor master > /dev/null
   echo -e "DDD\n";
 
+  ls
+
   git rm -rf ./docs/javadoc
 
 #  ant javadoc
