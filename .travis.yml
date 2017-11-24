@@ -7,19 +7,6 @@ jdk: oraclejdk8
 
 before_install:
     - echo -e "================\n"
-    - echo "{ \"config\": { \"github-oauth\": { \"github.com\": \"$GH_TOKEN\" } } }" > ./composer.json
-    - echo -e "================\n"
-    cat ./composer.json
-    - echo -e "================\n"
-    - echo -e "Testing Daniel\n"
-    - echo -e "$GH_TOKEN\n"
-    - echo -e "Kalsssle\n"
-    - composer self-update -q
-    - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
-    - if [ -z "$dependencies" ]; then composer install; fi;
-    - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest -n; fi;
-    - if [ "$dependencies" = "highest" ]; then composer update -n; fi;
-    - composer show -i
 
 after_success: travis_utility/test3.sh
 # after_success: travis_utility/push-javadoc-to-docs.sh
