@@ -5,21 +5,5 @@ jdk: oraclejdk8
 #  global:
 #    secure: Pj2JwbiYzyI+DFX41KZqdEf2xcKoyFskFSsxmOqND2KFLXXoMx/CWtCnv5PYIv3EHgqPnfVQleEWGpsf9bG7lwjNqO0yl7V2sdluQw7K+3UKskOpINjA8FI41mJKOgWiHr+U7pOyES19pSEvB82ajHqzZdxU/YU0/s+dhOJM1LiZcDRyr85H+19z6pV3F0byacEYGdAkxpPTxsl/tyuyPZ6zR9imrSsWoxM2baPxA9sIZK4DA3hbgB2B48dGJ5ok6fDKmVUf9b2W2unMTNEuDhV9bMU4l5FK3WOdoSDyCz8PgShs6j1gMp1/769neW/xjg1CkTv6w/h9S8CjPO281wULFjGoXlLuHVAVcS/VdpIfCM5Fk6sbTDN7HtNKywXAk9GgyqRYKflORTPtY80FVYKxVYZBDStYppgFc+YWImRjnmWaaIns8OqYNyiMRqNgQvourYtpLJwBJlpqYTqM3ihN70FYSYREgzRnjEbSjlr/PwhML4Vpf7pdgH5WjbboN9T2ONnGAQvhYF5vLCuQonqZkMiALCejDmKNVlc9+9eqXlPa6q0OpGPeXgce7eXOilfhpuEECxNUqkn8utwoBorB8YCXvR2C32SowP9V+5QBD5+QTmI77cTI1iVqjnJ3RrVmI3NjEIcA/zp33yO6q/bxJYt4/BDnvbIg6idf6gM=
 
-before_install:
-    - echo -e "================\n"
-    - echo "{ \"config\": { \"github-oauth\": { \"github.com\": \"$GH_TOKEN\" } } }" > ./composer.json
-    - echo -e "================\n"
-    cat ./composer.json
-    - echo -e "================\n"
-    - echo -e "Testing Daniel\n"
-    - echo -e "$GH_TOKEN\n"
-    - echo -e "Kalsssle\n"
-    - composer self-update -q
-    - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
-    - if [ -z "$dependencies" ]; then composer install; fi;
-    - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest -n; fi;
-    - if [ "$dependencies" = "highest" ]; then composer update -n; fi;
-    - composer show -i
-
 after_success: travis_utility/test3.sh
 # after_success: travis_utility/push-javadoc-to-docs.sh
