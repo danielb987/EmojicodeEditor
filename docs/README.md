@@ -1,4 +1,4 @@
-# EmojicodeEditor
+# EmojicodeEditor AAA
 A text editor and IDE written in Java för Emojicode
 
 Emojicode is an open-source, full-blown programming language consisting of emojis.
