@@ -9,7 +9,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   mkdir dist
   mkdir dist/javadoc
-  echo "Test Javadoc" > dist/javadoc/index.html
+  echo "Test Javadoc XYZ" > dist/javadoc/index.html
 
   echo -e "Show file contents"
   cat dist/javadoc/index.html
