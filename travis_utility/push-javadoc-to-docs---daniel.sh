@@ -46,9 +46,9 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "AAA==========================================================="
   git add -f .
   echo -e "BBB==========================================================="
-  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
+  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
   echo -e "CCC==========================================================="
-  git push -fq origin master > /dev/null
+  git push -fq origin gh-pages > /dev/null
   echo -e "DDD==========================================================="
 #  echo -e "==========================================================="
 #  echo -e "==========================================================="
