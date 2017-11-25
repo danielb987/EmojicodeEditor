@@ -5,14 +5,14 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "AAAAAAAAAA"
   echo -e "Run javadoc"
 
-#  ant javadoc
+  ant javadoc
 
   mkdir dist
   mkdir dist/javadoc
-  echo "Test Javadoc XYZ" > dist/javadoc/index.html
+#  echo "Test Javadoc XYZ" > dist/javadoc/index.html
 
-  echo -e "Show file contents"
-  cat dist/javadoc/index.html
+#  echo -e "Show file contents"
+#  cat dist/javadoc/index.html
 
   echo -e "Publishing javadoc...\n"
 
@@ -29,16 +29,9 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   pwd
 
-  echo -e "AAA"
   git config --global user.email "travis@travis-ci.org"
-  echo -e "BBB"
   git config --global user.name "travis-ci"
-  echo -e "CCC"
-#  git clone --branch=gh-pages https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
-  echo -e "DDD"
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor > /dev/null
-#  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docsAAA > /dev/null
-  echo -e "EEE"
 
   echo -e "==========================================================="
   cd EmojicodeEditor
