@@ -37,7 +37,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "CCC"
 #  git clone --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
   echo -e "DDD"
-  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs > /dev/null
+  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docsAAA > /dev/null
   echo -e "EEE"
 
   echo -e "==========================================================="  
