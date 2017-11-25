@@ -25,6 +25,6 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   git add -f .
   git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
-  git pu sh -fq origin gh-pages > /dev/null
+  git push -fq origin gh-pages > /dev/null
 
 fi
