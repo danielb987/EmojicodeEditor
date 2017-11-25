@@ -2,6 +2,7 @@
 
 if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
+  echo -e "AAAAAAAAAA"
   echo -e "Run javadoc"
 
 #  ant javadoc
