@@ -25,8 +25,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   pwd
 
   mkdir temp
-  mkdir temp/EmojiCode
-  cd temp/EmojiCode
+  cd temp
 
   pwd
 
@@ -43,11 +42,11 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "==========================================================="  
   echo -e "AAA==========================================================="  
-#  git add -f .
+  git add -f .
   echo -e "BBB==========================================================="  
-#  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
+  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
   echo -e "CCC==========================================================="  
-#  git push -fq origin master > /dev/null
+  git push -fq origin master > /dev/null
   echo -e "DDD==========================================================="  
 #  echo -e "==========================================================="  
 #  echo -e "==========================================================="  
@@ -58,7 +57,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "List files"
   echo -e "-----------------------------------------------------------"
 
-  find
+#  find
 
   if false ; then
 
