@@ -52,6 +52,7 @@ public class CompilerTest {
     
     
     public CompilerTest() {
+        
     }
     
     @BeforeClass
