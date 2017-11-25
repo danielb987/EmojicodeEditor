@@ -6,12 +6,6 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "Run javadoc"
 
 #  ant javadoc
-
-#  echo "Test Javadoc" > dist/javadoc/index.html
-
-  echo -e "Show file contents"
-#  cat dist/javadoc/index.html
-
   echo -e "Publishing javadoc...\n"
 
   if false ; then
