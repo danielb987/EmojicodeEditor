@@ -29,9 +29,22 @@ package emojicodeeditor;
  */
 public class Version {
     
+    /**
+     * Major version number
+     */
     public static final int MAJOR_VERSION_NUMBER = 0;
+    
+    /**
+     * Minor version number
+     */
     public static final int MINOR_VERSION_NUMBER = 1;
     
+    /**
+     * Version string. Built of {@link #MAJOR_VERSION_NUMBER} and {@link #MINOR_VERSION_NUMBER}
+     */
     public static final String VERSION = String.format("%d.%d", MAJOR_VERSION_NUMBER, MINOR_VERSION_NUMBER);
+
+    private Version() {
+    }
     
 }

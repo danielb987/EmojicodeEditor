@@ -1,9 +1,24 @@
 language: java
 jdk: oraclejdk8
 
-#env:
-#  global:
-#    secure: Pj2JwbiYzyI+DFX41KZqdEf2xcKoyFskFSsxmOqND2KFLXXoMx/CWtCnv5PYIv3EHgqPnfVQleEWGpsf9bG7lwjNqO0yl7V2sdluQw7K+3UKskOpINjA8FI41mJKOgWiHr+U7pOyES19pSEvB82ajHqzZdxU/YU0/s+dhOJM1LiZcDRyr85H+19z6pV3F0byacEYGdAkxpPTxsl/tyuyPZ6zR9imrSsWoxM2baPxA9sIZK4DA3hbgB2B48dGJ5ok6fDKmVUf9b2W2unMTNEuDhV9bMU4l5FK3WOdoSDyCz8PgShs6j1gMp1/769neW/xjg1CkTv6w/h9S8CjPO281wULFjGoXlLuHVAVcS/VdpIfCM5Fk6sbTDN7HtNKywXAk9GgyqRYKflORTPtY80FVYKxVYZBDStYppgFc+YWImRjnmWaaIns8OqYNyiMRqNgQvourYtpLJwBJlpqYTqM3ihN70FYSYREgzRnjEbSjlr/PwhML4Vpf7pdgH5WjbboN9T2ONnGAQvhYF5vLCuQonqZkMiALCejDmKNVlc9+9eqXlPa6q0OpGPeXgce7eXOilfhpuEECxNUqkn8utwoBorB8YCXvR2C32SowP9V+5QBD5+QTmI77cTI1iVqjnJ3RrVmI3NjEIcA/zp33yO6q/bxJYt4/BDnvbIg6idf6gM=
+env:
+  global:
+    secure: QX94I5jTOjEUpIFfzrdEkrG2Xacci3wE92jAxcokRDNFI6hSL/4VjirShn1v/U6rmJIMQlwJVYSLpp/10S9cBCWVhVYtbRdhXZoRlzXPF9VSwEmUk+jT52Lf8AJHgwADwuSRHbLOPuFx9jEpQIYUFFc5VuFRaxWd8NY+vvQWd3umRP2ap2wEM3JAlB7BZKZO3rzCgcZWF/Cta1HbJdICR07unoCqwAF2eKjJQuRzz/wtPFzgAQ05hele6kyPjRwBSheeGHJmG8AXg6Q1m8jIeWP+AbF5gXbaeldUygS2WIM4LAw/N10ahGfrpGRihrqBVf8ozWnIymujFDwBU6wBa3HfjJEKZuV+06SyelNTb9bQyhqs5bN2qc9O28lKEp8dfdyxBA2z2+1mgCZhlh1A9F+tHqujNOaNU8ZQFYkLWy2TajtJOrRTYky6vMdasEmRcA0IXfC5ROXrsfe+UADzelooKCRYM1oONibvKaysFQPNdrbKNG2ZH3Nl9T8FgBCGvIyNcLwtwhMx+gVrPgyGaTlV+9wqKLMEcjCxQwHu20+eJPopIw7+io8zOD0IgcO10c7RukVDHpr0K7qnsgY7JCbfFGOaUvndnC2q19GDV9dxDxBnpwSHc3OyTg+VtepW/zP5gYFK6c1xrDiP/6xRevngoMqGgCiPCb8iuX3YPWM=
 
-# after_success: travis_utility/test3.sh
-# after_success: travis_utility/push-javadoc-to-docs.sh
+script: travis_utility/push-javadoc-to-docs.sh
+
+
+# If the token on GitHub needs to be changed:
+# On GitHub, create a personal access token.
+# https://github.com/settings/tokens
+#
+# Give it the text "A token so that Travis can send files to GitHub"
+# The token needs to have the scope "public_repo"
+#
+# Run the command "travis encrypt GH_TOKEN=<token> --add" on a linux box
+# This command needs to be run in the repository folder
+#
+# If travis is not installed, run first the command "gem install travis".
+#
+# See the file push-javadoc-to-docs.sh for how Travis commit to GitHub
+
