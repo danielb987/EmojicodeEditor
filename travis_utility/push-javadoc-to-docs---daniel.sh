@@ -16,6 +16,35 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Publishing javadoc...\n"
 
+  pwd
+
+  export DIR=$(pwd)
+
+  cd $HOME
+
+  pwd
+
+  mkdir temp
+  mkdir temp/EmojiCode
+  cd temp/EmojiCode
+
+  git config --global user.email "travis@travis-ci.org"
+  git config --global user.name "travis-ci"
+  git clone --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
+  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs > /dev/null
+
+  echo -e "==========================================================="  
+  echo -e "==========================================================="  
+  echo -e "==========================================================="  
+  echo -e "==========================================================="  
+  echo -e "==========================================================="  
+  echo -e "==========================================================="  
+
+  echo -e "List files"
+  echo -e "-----------------------------------------------------------"
+
+  find
+
   if false ; then
 
   echo -e "Test AAA\n"
