@@ -30,10 +30,15 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   pwd
 
+  echo -e "AAA"
   git config --global user.email "travis@travis-ci.org"
+  echo -e "BBB"
   git config --global user.name "travis-ci"
+  echo -e "CCC"
   git clone --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
+  echo -e "DDD"
   git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs > /dev/null
+  echo -e "EEE"
 
   echo -e "==========================================================="  
   echo -e "==========================================================="  
