@@ -8,7 +8,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Publishing javadoc...\n"
 
-  if [ false ]
+  if [ false ]; then
 
   echo -e "Test AAA\n"
 
