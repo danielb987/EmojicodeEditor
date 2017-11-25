@@ -35,16 +35,23 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "BBB"
   git config --global user.name "travis-ci"
   echo -e "CCC"
-#  git clone --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
+#  git clone --branch=gh-pages https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
   echo -e "DDD"
-  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docsAAA > /dev/null
+  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor > /dev/null
+#  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docsAAA > /dev/null
   echo -e "EEE"
 
   echo -e "==========================================================="  
-  echo -e "==========================================================="  
-  echo -e "==========================================================="  
-  echo -e "==========================================================="  
-  echo -e "==========================================================="  
+  echo -e "AAA==========================================================="  
+#  git add -f .
+  echo -e "BBB==========================================================="  
+#  git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to master"
+  echo -e "CCC==========================================================="  
+#  git push -fq origin master > /dev/null
+  echo -e "DDD==========================================================="  
+#  echo -e "==========================================================="  
+#  echo -e "==========================================================="  
+#  echo -e "==========================================================="  
   echo -e "==========================================================="  
 
   pwd
