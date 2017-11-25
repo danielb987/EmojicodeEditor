@@ -28,6 +28,8 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   mkdir temp/EmojiCode
   cd temp/EmojiCode
 
+  pwd
+
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"
   git clone --branch=master https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor docs
@@ -40,6 +42,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "==========================================================="  
   echo -e "==========================================================="  
 
+  pwd
   echo -e "List files"
   echo -e "-----------------------------------------------------------"
 
