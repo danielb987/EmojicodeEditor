@@ -18,3 +18,5 @@ compiler and debugger.
 ### Contribution
 If you want to contribute to the project, please create an Issue first. That will
 allow us to discuss the desired change before doing the work on the contribution.
+
+The documentation pages has [Javadoc for EmojicodeEditor] (https://danielb987.github.io/EmojicodeEditor/javadoc/).
