@@ -42,7 +42,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "==========================================================="
   cd EmojicodeEditor
-  echo "Hej" > docs/hej2.txt
+  echo "Hej" > docs/hej3.txt
   echo -e "AAA==========================================================="
   git add -f .
   echo -e "BBB==========================================================="
