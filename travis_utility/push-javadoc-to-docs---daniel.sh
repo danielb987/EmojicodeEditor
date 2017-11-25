@@ -42,6 +42,10 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "==========================================================="
   cd EmojicodeEditor
+
+  rm -Rf javadoc
+  cp -R {$DIR}/dist/javadoc .
+
   echo "Hej" > docs/hej3.txt
   echo -e "AAA==========================================================="
   git add -f .
