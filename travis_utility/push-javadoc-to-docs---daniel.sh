@@ -44,7 +44,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   cd EmojicodeEditor
 
   rm -Rf javadoc
-  cp -R {$DIR}/dist/javadoc .
+  cp -R $DIR/dist/javadoc .
 
   echo "Hej" > docs/hej3.txt
   echo -e "AAA==========================================================="
