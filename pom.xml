@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>EmojicodeEditor</name>
+    <groupId>se.emojicodeeditor</groupId>
+    <artifactId>emojicodeeditor</artifactId>
+    <version>0.1</version>
+<!-- DANIEL    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <release.build_user>${user.name}</release.build_user>
+        <release.build_date>${maven.build.timestamp}</release.build_date>
+        <!- it would be better to get current year from machine clock ->
+        <jmri.copyright.year>${project.inceptionYear}-${current.year}</jmri.copyright.year>
+        <!- dependency versions (its easier to include version in dependency
+        but if multiple dependencies are linked, use a property for single
+        dependency source) ->
+        <cucumber.version>1.2.5</cucumber.version>
+        <jetty.version>9.4.7.v20170914</jetty.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <jackson.version>2.8.5</jackson.version>
+        <jogamp.version>2.3.2</jogamp.version>
+        <openlcb.version>0.7.15</openlcb.version>
+        <netbeans.version>RELEASE82</netbeans.version>
+        <!- test environment ->
+        <jmri.path.program>${basedir}</jmri.path.program>
+        <jmri.prefsdir>${basedir}/temp</jmri.prefsdir>
+        <jinput.plugins>net.bobis.jinput.hidraw.HidRawEnvironmentPlugin</jinput.plugins>
+        <ant.version>1.10.1</ant.version>
+        <ant.jvm.args></ant.jvm.args>
+        <argLine>-Xmx1536m</argLine>
+        <powermock.version>1.6.6</powermock.version>
+        <surefire.version>2.20</surefire.version>
+    </properties>
+    <scm>
+        <connection>scm:git:https://github.com/JMRI/JMRI.git</connection>
+        <url>https://github.com/JMRI/JMRI.git</url>
+    </scm>
+    <inceptionYear>1997</inceptionYear>
+-->
+    <profiles>
+<!-- DANIEL        
+        <profile>
+            <id>travis-headless</id>
+            <properties>
+                <findbugs.skip>true</findbugs.skip>
+                <java.awt.headless>true</java.awt.headless>
+            </properties>
+        </profile>
+-->
+        <profile>
+            <id>travis-coverage</id>
+            <properties>
+                <findbugs.skip>true</findbugs.skip>
+            </properties>
+            <build>
+                <plugins>
+                    <!-- use surefire for all test
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <id>test</id>
+                                <phase>test</phase>
+                                <configuration>
+                                    <target>
+                                        <property name="jvm.args">${ant.jvm.args}</property>
+                                        <ant antfile="${basedir}/build.xml">
+                                            <target name="travis-ci-coverage"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    -->
+                    <!-- use surefire (maven default test harness) only for line endings
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire.version}</version>
+                        <configuration>
+                            <test>jmri.util.FileLineEndingsTest</test>
+                        </configuration>
+                    </plugin>
+                    -->
+                    <plugin>
+                        <groupId>org.eluder.coveralls</groupId>
+                        <artifactId>coveralls-maven-plugin</artifactId>
+                        <version>4.3.0</version>
+                        <configuration>
+                            <sourceDirectories>
+                                <!-- Additional source directories -->
+                                <File>java/tmp</File>
+                                <File>target/generated-sources/javacc</File>
+                                <File>target/generated-sources/jjtree</File>
+                            </sourceDirectories>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+<!-- DANIEL        
+        <profile>
+            <id>appveyor</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <id>test</id>
+                                <phase>test</phase>
+                                <configuration>
+                                    <target>
+                                        <ant antfile="${basedir}/build.xml">
+                                            <target name="appveyor"/>
+                                        </ant>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!- use surefire (maven default test harness) only for line endings ->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire.version}</version>
+                        <configuration>
+                            <test>jmri.util.FileLineEndingsTest</test>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+-->
+<!-- DANIEL - Kolla denna!!!!        
+        <profile>
+            <id>travis-findbugs</id>
+            <build>
+                <plugins>
+                    <!- prevent surefire (maven default test harness) from running tests ->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire.version}</version>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>findbugs-maven-plugin</artifactId>
+                        <version>3.0.4</version>
+                        <!- configured to fail on High priority bugs during test phase ->
+                        <executions>
+                            <execution>
+                                <id>failing-on-high</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <configuration>
+                                    <excludeFilterFile>.findbugs.xml</excludeFilterFile>
+                                    <effort>Max</effort>
+                                    <threshold>High</threshold>
+                                    <maxHeap>1536</maxHeap>
+                                    <timeout>1200000</timeout><!- 20 minutes ->
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+-->        
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>findbugs-annotations</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+    </dependencies>
+
+</project>
