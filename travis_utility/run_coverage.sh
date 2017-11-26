@@ -4,6 +4,10 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Run coverage"
 
+  cd jacoco
+
+  pwd
+
 #  ant javadoc
 
 fi
