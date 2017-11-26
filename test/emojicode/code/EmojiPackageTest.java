@@ -23,6 +23,7 @@
  */
 package emojicode.code;
 
+import emojicodeeditor.Bundle;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -61,6 +62,8 @@ public class EmojiPackageTest {
      */
     @Test
     public void testGetPackage() {
+        
+        Bundle.getInstance().getMessage("Test");
         System.out.println("getPackage");
         EmojiPackage instance = null;
         EmojiPackage expResult = null;
