@@ -235,10 +235,6 @@
                 </excludes>
             </testResource>
         </testResources>
-        <filters>
-            <filter>${basedir}/release.properties</filter>
-            <filter>${project.build.directory}/generated/build-metadata/build.properties</filter>
-        </filters>
 
         <plugins>
             <plugin>
