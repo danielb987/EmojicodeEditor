@@ -13,6 +13,7 @@
     </properties>
     
     <build>
+        <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
