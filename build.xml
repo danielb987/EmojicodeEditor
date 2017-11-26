@@ -7,7 +7,7 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="EmojicodeEditor" default="default" basedir="." xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3">
+<project name="EmojicodeEditor" default="default" basedir="." xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jacoco="antlib:org.jacoco.ant">
     <description>Builds, tests, and runs the project EmojicodeEditor.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
@@ -89,6 +89,11 @@
     <property name="jacoco_result.classes.dir" location="${jacoco_result.dir}/classes" />
     <property name="jacoco_result.report.dir" location="${jacoco_result.dir}/site/jacoco" />
     <property name="jacoco_result.exec.file" location="${jacoco_result.dir}/jacoco.exec" />
+
+    <!-- Step 1: Import JaCoCo Ant tasks -->
+    <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+        <classpath path="../../../lib/jacocoant.jar" />
+    </taskdef>
 
     <target name="jacoco_test" depends="compile">
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
