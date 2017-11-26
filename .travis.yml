@@ -8,7 +8,7 @@ env:
 script:
   - ant test
   - travis_utility/run_coverage.sh
-#  - travis_utility/push-javadoc-to-docs.sh
+  - travis_utility/push-javadoc-to-docs.sh
 
 # after_success:
 #   travis_utility/run_coverage.sh
