@@ -63,6 +63,8 @@ public class EmojiPackageTest {
     @Test
     public void testGetPackage() {
         
+        System.out.println("Daniel Testar 123 ABC qwe");
+        System.out.format("Bundle: %s\n", Bundle.getInstance().getMessage("Test"));
         Bundle.getInstance().getMessage("Test");
         System.out.println("getPackage");
         EmojiPackage instance = null;
