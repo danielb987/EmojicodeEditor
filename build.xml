@@ -99,6 +99,9 @@
         <echo message="javac.debug: ${javac.debug}" />
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
+            <java classname="emojicode.code.EmojiPackageTest" fork="true">
+                <classpath path="${jacoco_result.classes.dir}" />
+            </java>
 <!--            
             <java classname="org.jacoco.examples.parser.Main" fork="true">
                 <classpath path="${jacoco_result.classes.dir}" />
