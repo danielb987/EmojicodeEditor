@@ -99,7 +99,6 @@
         <echo message="javac.debug: ${javac.debug}" />
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
-<!--            <antcall target="test" /> -->
 <!--            
             <java classname="org.jacoco.examples.parser.Main" fork="true">
                 <classpath path="${jacoco_result.classes.dir}" />
@@ -110,7 +109,7 @@
                 <arg value="1 + 2 + 3 + 4"/>
                 <arg value="2 * 3 + 2 * 5"/>
             </java>
--->            
+-->                
         </jacoco:coverage>
     </target>
 
