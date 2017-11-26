@@ -4,13 +4,15 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Run coverage"
 
-  cd jacoco
+  ant jacoco_rebuild
 
-  pwd
+#  cd jacoco
+
+#  pwd
 
 #  mkdir target
 
-  ant clean
+#  ant clean
 #  ant compile
 #  ant test
 #  ant report
