@@ -8,6 +8,11 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   pwd
 
-#  ant javadoc
+#  mkdir target
+
+  ant clean
+#  ant compile
+#  ant test
+#  ant report
 
 fi
