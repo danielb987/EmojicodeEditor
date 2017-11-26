@@ -85,8 +85,10 @@
     
     
     
-    <property name="jacoco_result.dir" location="./target" />
+<!--    <property name="jacoco_result.dir" location="./target" /> -->
+    <property name="jacoco_result.dir" location="./build" />
     <property name="jacoco_result.classes.dir" location="${jacoco_result.dir}/classes" />
+    <property name="jacoco_result.test_classes.dir" location="${jacoco_result.dir}/test/classes" />
     <property name="jacoco_result.report.dir" location="${jacoco_result.dir}/site/jacoco" />
     <property name="jacoco_result.exec.file" location="${jacoco_result.dir}/jacoco.exec" />
 
@@ -101,7 +103,8 @@
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
             <java classname="emojicode.code.EmojiPackageTest" fork="true">
-                <classpath path="${jacoco_result.classes.dir}" />
+<!--                <classpath path="${jacoco_result.classes.dir}" /> -->
+                <classpath path="${jacoco_result.test_classes.dir}" />
             </java>
 <!--            
             <java classname="org.jacoco.examples.parser.Main" fork="true">

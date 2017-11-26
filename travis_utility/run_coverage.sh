@@ -12,6 +12,8 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "==========================="
   ls /home/travis/build/danielb987/EmojicodeEditor/target/classes
+  find -iname "*.class"
+  find -iname "*.jar"
   find -iname "EmojiPackageTest.*"
   echo -e "==========================="
 
