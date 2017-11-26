@@ -85,6 +85,7 @@
     
     
     
+    <property name="jacoco_src.dir" location="./src/emojicodeeditor" />
 <!--    <property name="jacoco_result.dir" location="./target" /> -->
     <property name="jacoco_result.dir" location="./build" />
     <property name="jacoco_result.classes.dir" location="${jacoco_result.dir}/classes" />
