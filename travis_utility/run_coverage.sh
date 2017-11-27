@@ -26,7 +26,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   find -iname "EmojiPackageTest.*"
   echo -e "==========================="
 
-  ant -v -d jacoco_rebuild
+  ant -v jacoco_rebuild
 
   pwd
 # find
