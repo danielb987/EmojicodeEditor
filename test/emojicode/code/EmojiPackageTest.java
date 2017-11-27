@@ -38,6 +38,7 @@ import static org.junit.Assert.*;
  */
 public class EmojiPackageTest {
     
+    public static int main() { return 0; }
     public EmojiPackageTest() {
     }
     
