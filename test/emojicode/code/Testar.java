@@ -23,14 +23,44 @@
  */
 package emojicode.code;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 /**
  *
  * @author Daniel Bergqvist
  */
 public class Testar {
     
-    public static void main(String[] args) {
-        System.out.println("Hejsan 123456789");
+    public Testar() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of getPackage method, of class EmojiPackage.
+     */
+    @Test
+    public void testGetPackage() {
+        
     }
     
 }
