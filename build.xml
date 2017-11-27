@@ -99,7 +99,7 @@
     <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
 <!--        <classpath>
         </classpath> -->
-<!--        <classpath path="jacoco/lib/jacocoant.jar" /> -->
+        <classpath path="./jacoco/lib/jacocoant.jar" />
 <!--        <classpath path="./lib:./lib/jacocoant.jar" /> -->
     </taskdef>
 
