@@ -110,8 +110,7 @@
 <!--            <java classname="emojicode.code.Testar" fork="true"> -->
 <!--                <classpath path="${jacoco_result.classes.dir}" /> -->
                 <classpath>
-                    <pathelement path="${jacoco_result.classes.dir}"/>
-                    <pathelement path="${jacoco_result.test_classes.dir}"/>
+                    <pathelement path="${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}"/>
                     <pathelement path="lib/junit_4/junit-4.12.jar"/>
                 </classpath>
 <!--                <classpath path="./lib/junit_4:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" /> -->
