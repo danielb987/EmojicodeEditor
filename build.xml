@@ -106,7 +106,7 @@
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
             <junit fork="true" forkmode="once">
 <!--                <test name="emojicode.code.EmojiPackageTest"/> -->
-                <test name="emojicode.code.Testar"/>
+                <test name="emojicode.code.TestarQQQ"/>
 <!--            <java classname="emojicode.code.Testar" fork="true"> -->
 <!--                <classpath path="${jacoco_result.classes.dir}" /> -->
                 <classpath>
