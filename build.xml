@@ -104,9 +104,9 @@
         <echo message="jacoco_result.classes.dir: ${jacoco_result.test_classes.dir}" />
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
-            <junit fork="true" forkmode="once">
+            <junit fork="true" includeAntRuntime="true">
 <!--                <test name="emojicode.code.EmojiPackageTest"/> -->
-                <test name="emojicode.code.TestarQQQ"/>
+                <test name="emojicode.code.Testar"/>
 <!--            <java classname="emojicode.code.Testar" fork="true"> -->
 <!--                <classpath path="${jacoco_result.classes.dir}" /> -->
                 <classpath>
