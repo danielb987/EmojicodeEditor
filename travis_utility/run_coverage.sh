@@ -42,4 +42,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 # Disable publish coverage report until we can run the test
 #  mvn coveralls:report
 
+
+  ant -version
+
 fi
