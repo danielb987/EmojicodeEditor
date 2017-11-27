@@ -29,9 +29,8 @@ package emojicode.code;
  */
 public class Testar {
     
-    public static int main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Hejsan 123456789");
-        return 1;
     }
     
 }
