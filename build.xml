@@ -106,7 +106,8 @@
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
             <java classname="emojicode.code.EmojiPackageTest" fork="true">
 <!--                <classpath path="${jacoco_result.classes.dir}" /> -->
-                <classpath path="${jacoco_result.test_classes.dir}" />
+                <classpath path="${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
+<!--                <classpath path="${jacoco_result.test_classes.dir}" /> -->
             </java>
 <!--            
             <java classname="org.jacoco.examples.parser.Main" fork="true">
