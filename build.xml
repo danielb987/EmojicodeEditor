@@ -95,7 +95,8 @@
 
     <!-- Step 1: Import JaCoCo Ant tasks -->
     <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-        <classpath path="./lib/jacocoant.jar" />
+        <classpath path="./jacoco-0.7.9.zip" />
+<!--        <classpath path="./lib/jacocoant.jar" /> -->
     </taskdef>
 
     <target name="jacoco_test" depends="compile,test">
