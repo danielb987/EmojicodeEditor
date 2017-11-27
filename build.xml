@@ -94,7 +94,7 @@
     <property name="jacoco_result.exec.file" location="${jacoco_result.dir}/jacoco.exec" />
 
     <!-- Step 1: Import JaCoCo Ant tasks -->
-    <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/anBBBBBtlib.xml">
+    <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
         <classpath path="./lib/jacocoant.jar" />
     </taskdef>
 
