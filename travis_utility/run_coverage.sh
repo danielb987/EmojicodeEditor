@@ -34,6 +34,9 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "ls ./lib/junit_4"
   ls ./lib/junit_4
 
+  echo -e "ls ./lib/jacocoant.jar"
+  ls ./lib/jacocoant.jar
+
 # Disable publish coverage report until we can run the test
 #  mvn coveralls:report
 
