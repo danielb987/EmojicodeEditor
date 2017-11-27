@@ -36,7 +36,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "ls ./lib/jacocoant.jar"
   ls ./lib/jacocoant.jar
-  ls ./jacoco/lib/jacocoant.jar
+  ls -al ./jacoco/lib/jacocoant.jar
   ls
 
 # Disable publish coverage report until we can run the test
