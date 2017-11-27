@@ -4,9 +4,9 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Run coverage"
 
-  wget http://search.maven.org/remotecontent?filepath=org/jacoco/jacoco/0.7.9/jacoco-0.7.9.zip -O jacoco-0.7.9.zip 2> /dev/null
+#  wget http://search.maven.org/remotecontent?filepath=org/jacoco/jacoco/0.7.9/jacoco-0.7.9.zip -O jacoco-0.7.9.zip 2> /dev/null
 
-  unzip jacoco-0.7.9.zip
+#  unzip jacoco-0.7.9.zip
 
   ant compile
 
@@ -26,7 +26,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   find -iname "EmojiPackageTest.*"
   echo -e "==========================="
 
-  ant -v jacoco_rebuild
+  ant -v -d jacoco_rebuild
 
   pwd
 # find
