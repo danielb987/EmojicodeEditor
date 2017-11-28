@@ -113,7 +113,6 @@
             <junit fork="true" includeAntRuntime="true">
 <!--                <test name="emojicode.code.EmojiPackageTest"/> -->
                 <test name="emojicode.code.Testar"/>
-<!--                <test name="emojicode.code.Testar"/> -->
 <!--            <java classname="emojicode.code.Testar" fork="true"> -->
 <!--                <classpath path="${jacoco_result.classes.dir}" /> -->
                 <classpath>
