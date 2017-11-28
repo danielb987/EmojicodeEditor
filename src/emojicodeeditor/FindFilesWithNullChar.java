@@ -42,12 +42,12 @@ import java.util.logging.Logger;
  */
 public class FindFilesWithNullChar {
     
-    public static void find() {
-        find(".");
+    public static boolean find() {
+        return find(".");
     }
     
     
-    public static void find(String folder) {
+    public static boolean find(String folder) {
         
         final Set<String> fileExtensionsToIgnore = new HashSet<>();
         
@@ -79,13 +79,15 @@ public class FindFilesWithNullChar {
         });
         
         if (matchingFiles == null)
-            return;
+            return false;
         
         for (File file : matchingFiles) {
             scanFile(file.getAbsolutePath());
 //            testFile(file.getAbsolutePath());
 //            testFile_other(file.getAbsolutePath());
         }
+        
+        return true;
     }
     
     
