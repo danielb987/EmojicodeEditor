@@ -125,7 +125,7 @@
 -->            
             
             <java classname="emojicode.code.Testar" fork="true">
-                <classpath path="${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
+                <classpath path="./lib/junit_4:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
             </java>
             
 <!--            
