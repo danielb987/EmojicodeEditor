@@ -27,9 +27,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,15 +45,23 @@ public class Bundle {
     private final List<String> keys = new ArrayList<>();
     private final Map<String, String> map = new HashMap<>();
     
-    private static Bundle bundle;
+    private static volatile Bundle bundle;
     private static final Object lock = new Object();
     
+    // We need to chech bundle outside the synchronized block for performance
+    // issues since synchronize is slow and we only need to do synchronize the
+    // first time then we want to create the instance.
+    // And we need to check bundle inside the synchronized block since
+    // another thread may already have created the instance.
+    @SuppressWarnings("DoubleCheckedLocking")
     public static Bundle getInstance() {
-        synchronized(lock) {
-            if (bundle == null)
-                bundle = new Bundle();
-            return bundle;
+        if (bundle == null) {
+            synchronized(lock) {
+                if (bundle == null)
+                    bundle = new Bundle();
+            }
         }
+        return bundle;
     }
     
     private Bundle() {

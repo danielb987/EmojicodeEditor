@@ -173,5 +173,8 @@
         <node name="Javac_OVERRIDES">
             <attribute name="enabled" value="true"/>
         </node>
+        <node name="org.netbeans.modules.java.hints.suggestions.ConstantNameHint">
+            <attribute name="enabled" value="false"/>
+        </node>
     </tool>
 </configuration>
