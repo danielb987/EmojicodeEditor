@@ -23,6 +23,7 @@
  */
 package emojicode.code;
 
+import emojicodeeditor.Bundle;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,6 +41,11 @@ public class Testar {
     }
     
     public static void main(String[] args) {
+        System.out.println("Test Bundle");
+        String str = Bundle.getInstance().getMessage("Testar");
+        System.out.format("Str: %s\n", str);
+        str = Bundle.getInstance().getMessage("ToolbarGroup_Operators");
+        System.out.format("Str: %s\n", str);
         System.out.println("Hejsan ABC DEF");
     }
     
