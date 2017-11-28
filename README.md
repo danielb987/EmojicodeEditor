@@ -15,6 +15,10 @@ and watch the status of the variables. The native compiler for Emojicode doesn't
 support debugging of the program at this point, so EmojicodeEditor has its own
 compiler and debugger.
 
+### Download
+The lastest development version [EmojicodeEditor.jar](https://danielb987.github.io/EmojicodeEditor/distribution/EmojicodeEditor.jar) is generated on every new commit.
+There is no stable version yet.
+
 ### Contribution
 If you want to contribute to the project, please create an Issue first. That will
 allow us to discuss the desired change before doing the work on the contribution.
