@@ -192,7 +192,7 @@
         </jacoco:report>
     </target>
     
-<!--    <target name="jacoco_rebuild" depends="clean,compile,jacoco_test,jacoco_report" /> --
+<!--    <target name="jacoco_rebuild" depends="clean,compile,jacoco_test,jacoco_report" /> -->
     <target name="jacoco_rebuild" depends="clean,compile,jacoco_test_daniel" />
     
 </project>
