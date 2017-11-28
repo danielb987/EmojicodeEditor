@@ -48,6 +48,11 @@ public class Bundle {
     private static volatile Bundle bundle;
     private static final Object lock = new Object();
     
+    /**
+     * Get an instance of Bundle.
+     * 
+     * @return instance
+     */
     // We need to chech bundle outside the synchronized block for performance
     // issues since synchronize is slow and we only need to do synchronize the
     // first time then we want to create the instance.
@@ -112,6 +117,11 @@ public class Bundle {
         return getMessage(Locale.getDefault(), key);
     }
 */    
+    /**
+     * Get a message from the bundle
+     * @param key the key to the message
+     * @return the message
+     */
     public String getMessage(String key) {
         return map.get(key);
     }
