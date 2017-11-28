@@ -39,6 +39,10 @@ public class Testar {
     public Testar() {
     }
     
+    public void main(String[] args) {
+        System.out.println("Hejsan ABC DEF");
+    }
+    
     @BeforeClass
     public static void setUpClass() {
     }
