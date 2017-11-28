@@ -106,7 +106,7 @@
     <target name="jacoco_test" depends="compile,test">
         <echo message="javac.debug: ${javac.debug}" />
         <echo message="jacoco_result.classes.dir: ${jacoco_result.classes.dir}" />
-        <echo message="jacoco_result.classes.dir: ${jacoco_result.test_classes.dir}" />
+        <echo message="jacoco_result.test_classes.dir: ${jacoco_result.test_classes.dir}" />
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
             
