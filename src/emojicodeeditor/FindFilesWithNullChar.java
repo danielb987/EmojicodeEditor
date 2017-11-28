@@ -81,32 +81,33 @@ public class FindFilesWithNullChar {
         if (matchingFiles == null)
             return false;
         
+        boolean foundError = false;
         for (File file : matchingFiles) {
-            scanFile(file.getAbsolutePath());
+            foundError |= scanFile(file.getAbsolutePath());
 //            testFile(file.getAbsolutePath());
 //            testFile_other(file.getAbsolutePath());
         }
         
-        return true;
+        return foundError;
     }
     
     
-    private static void scanFile(String filename) {
+    private static boolean scanFile(String filename) {
         
 //        System.out.format("File: %s\n", filename);
-        boolean found = false;
+        boolean foundError = false;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filename), StandardCharsets.UTF_8))) {
             
             String line;
             int lineNo = 1;
             while ((line = reader.readLine()) != null) {
                 if (line.indexOf(0) >= 0) {
-                    if (! found)
+                    if (! foundError)
                         System.out.format("File: %s\n", filename);
 //                    String line2 = line.replaceAll("/\\000/", "###");
                     String line2 = line.replaceAll("\\000", "§§§§§");
                     System.out.format("%d: %s\n", lineNo, line2);
-                    found = true;
+                    foundError = true;
                 }
                 lineNo++;
             }
@@ -115,9 +116,12 @@ public class FindFilesWithNullChar {
         } catch (IOException ex) {
             Logger.getLogger(FindFilesWithNullChar.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        return foundError;
     }
     
 
     private FindFilesWithNullChar() {
     }
+    
 }
