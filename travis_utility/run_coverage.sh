@@ -35,7 +35,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   ls ./lib/junit_4
 
   echo -e "ls ./lib/jacocoant.jar"
-  ls ./lib/jacocoant.jar
+#  ls ./lib/jacocoant.jar
   ls -al ./jacoco/lib/jacocoant.jar
   ls
 
