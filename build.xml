@@ -121,7 +121,7 @@
                     <pathelement path="lib/junit_4/junit-4.12.jar"/>
                 </classpath>
 -->                                
-                <classpath path="./lib/junit_4:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
+                <classpath path="./lib/junit_4/junit-4.12.jar:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
 <!--                <classpath path="${jacoco_result.test_classes.dir}" /> -->
             </junit>
             
