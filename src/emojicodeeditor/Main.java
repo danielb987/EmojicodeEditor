@@ -41,6 +41,13 @@ public class Main {
      */
     public static void main(String args[]) {
         
+        args = new String[]{"findnull"};
+        
+        if ((args.length == 1) && (args[0].toLowerCase().equals("findnull"))) {
+            FindFilesWithNullChar.find();
+            System.exit(0);
+        }
+        
         if (1==0) {
             GenerateTests.generate();
             System.exit(0);
