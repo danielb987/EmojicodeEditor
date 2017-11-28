@@ -298,11 +298,23 @@ public interface Emojicode {
     
     static final List<Integer> EMOJI_WHITESPACES_LIST = Arrays.asList(EMOJI_WHITESPACES_ARRAY);
     
+    /**
+     * Return a string containing of the unicode character. This method is used
+     * since a single unicode character may consist of two java characters
+     * @param codepoint the codepoint to convert to a unicode character
+     * @return a string with a unicode character. This string may contain two java characters.
+     */
     static String codepointToChars(int codepoint)
     {
         return new String(Character.toChars(codepoint));
     }
     
+    
+    /**
+     * Checks if a codepoint is a white space
+     * @param codePoint the codepoint to check
+     * @return true if the codepoint is a white space
+     */
     public static boolean isWhitespace(int codePoint) {
         return EMOJI_WHITESPACES_LIST.contains(codePoint);
     }
