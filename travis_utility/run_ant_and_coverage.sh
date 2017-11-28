@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ant test && travis_utility/run_coverage.sh
+ant test && push-javadoc-to-docs.sh && travis_utility/run_coverage.sh
