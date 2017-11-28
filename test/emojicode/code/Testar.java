@@ -25,7 +25,6 @@ package emojicode.code;
 
 // import emojicode.ATest;
 // import emojicodeeditor.Bundle;
-import emojicode.ATest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,8 +43,6 @@ public class Testar {
     
     public static void main(String[] args) {
         System.out.println("Test Bundle");
-        ATest aTest = new ATest("HejABC");
-        System.out.println("ATest.get(): "+aTest.get());
 /*        
         String str = Bundle.getInstance().getMessage("Testar");
         System.out.format("Str: %s\n", str);
@@ -77,8 +74,6 @@ public class Testar {
     @Test
     public void testGetPackage() {
         
-        ATest aTest = new ATest("HejXYZ");
-        System.out.println("ATest.get(): "+aTest.get());
     }
     
 }

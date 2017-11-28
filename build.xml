@@ -119,8 +119,14 @@
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
             <junit fork="true" includeAntRuntime="true"          showoutput="true" printsummary="on" enabletestlistenerevents="true">
+                
+                <batchtest>
+                  <fileset dir="${jacoco_result.test_classes.dir}">
+                    <include name="**/*Test.class"/>
+                  </fileset>
+                </batchtest>
 <!--                <test name="emojicode.code.EmojiPackageTest"/> -->
-                <test name="emojicode.code.Testar"/>
+<!-- AAAA                <test name="emojicode.code.Testar"/> -->
 <!--            <java classname="emojicode.code.Testar" fork="true"> -->
 <!--                <classpath path="${jacoco_result.classes.dir}" /> -->
 
