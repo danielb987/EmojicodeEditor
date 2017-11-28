@@ -103,7 +103,7 @@
 <!--        <classpath path="./lib:./lib/jacocoant.jar" /> -->
     </taskdef>
     
-    <target name="jacoco_test_daniel" depends="compile,test">
+    <target name="jacoco_test_daniel" depends="-pre-init,compile,test">
         <echo message="Testar Daniel" />
         <junit fork="true" includeAntRuntime="true"          showoutput="true" printsummary="on" enabletestlistenerevents="true">
             <test name="emojicode.code.ATestAAA"/>
@@ -112,7 +112,7 @@
         </junit>
     </target>
     
-    <target name="jacoco_test" depends="compile,test">
+    <target name="jacoco_test" depends="-pre-init,compile,test">
         <echo message="javac.debug: ${javac.debug}" />
         <echo message="jacoco_result.classes.dir: ${jacoco_result.classes.dir}" />
         <echo message="jacoco_result.test_classes.dir: ${jacoco_result.test_classes.dir}" />
