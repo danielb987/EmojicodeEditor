@@ -10,7 +10,10 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   echo -e "ls dist"
   ls dist
 
-  ant javadoc
+  # Create jar file and javadoc
+  ant jar
+
+#  ant javadoc
 
   echo -e "Publishing javadoc...\n"
 
@@ -25,6 +28,10 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/danielb987/EmojicodeEditor > /dev/null
 
   cd EmojicodeEditor
+
+  rm -Rf distribution
+  mkdir distribution
+  cp $DIR/dist/*.jar distribution/
 
   rm -Rf javadoc
   cp -R $DIR/dist/javadoc .
