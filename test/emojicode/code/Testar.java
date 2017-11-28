@@ -76,6 +76,8 @@ public class Testar {
     @Test
     public void testGetPackage() {
         
+        ATest aTest = new ATest("HejXYZ");
+        System.out.println("ATest.get(): "+aTest.get());
     }
     
 }
