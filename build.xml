@@ -109,25 +109,25 @@
         <echo message="jacoco_result.classes.dir: ${jacoco_result.test_classes.dir}" />
         <!-- Step 2: Wrap test execution with the JaCoCo coverage task -->
         <jacoco:coverage destfile="${jacoco_result.exec.file}">
-<!--            
+            
             <junit fork="true" includeAntRuntime="true">
-<!-                <test name="emojicode.code.EmojiPackageTest"/> ->
+<!--                <test name="emojicode.code.EmojiPackageTest"/> -->
                 <test name="emojicode.code.Testar"/>
-<!-            <java classname="emojicode.code.Testar" fork="true"> ->
-<!-                <classpath path="${jacoco_result.classes.dir}" /> ->
+<!--            <java classname="emojicode.code.Testar" fork="true"> -->
+<!--                <classpath path="${jacoco_result.classes.dir}" /> -->
                 <classpath>
                     <pathelement path="${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}"/>
                     <pathelement path="lib/junit_4/junit-4.12.jar"/>
                 </classpath>
-<!-                <classpath path="./lib/junit_4:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" /> ->
-<!-                <classpath path="${jacoco_result.test_classes.dir}" /> ->
+<!--                <classpath path="./lib/junit_4:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" /> -->
+<!--                <classpath path="${jacoco_result.test_classes.dir}" /> -->
             </junit>
--->            
             
+<!--            
             <java classname="emojicode.code.Testar" fork="true">
                 <classpath path="${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
             </java>
-            
+-->            
 <!--            
             <java classname="org.jacoco.examples.parser.Main" fork="true">
                 <classpath path="${jacoco_result.classes.dir}" />
