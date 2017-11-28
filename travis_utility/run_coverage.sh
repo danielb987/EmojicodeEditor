@@ -8,7 +8,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
 #  unzip jacoco-0.7.9.zip
 
-  ant compile
+#  ant compile
 
   echo -e "==========================="
   ls /home/travis/build/danielb987/EmojicodeEditor/target/classes
@@ -26,7 +26,10 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   find -iname "EmojiPackageTest.*"
   echo -e "==========================="
 
-  ant -v jacoco_rebuild
+  # Generate report
+  ant -v jacoco_report
+
+#  ant -v jacoco_rebuild
 
   pwd
 # find
@@ -39,11 +42,12 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   ls -al ./jacoco/lib/jacocoant.jar
   ls
 
-# Disable publish coverage report until we can run the test
+
+  # Publish coverage report
   mvn coveralls:report
 
 
-  ant -version
+#  ant -version
 
 
   ls -al /home/travis/build/danielb987/EmojicodeEditor/build/test/classes
