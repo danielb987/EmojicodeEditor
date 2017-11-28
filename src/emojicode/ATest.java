@@ -21,61 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package emojicode.code;
-
-import emojicode.ATest;
-import emojicodeeditor.Bundle;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+package emojicode;
 
 /**
  *
  * @author Daniel Bergqvist
  */
-public class Testar {
+public class ATest {
     
-    public Testar() {
+    String str;
+    
+    public ATest(String str) {
+        this.str = str;
     }
     
-    public static void main(String[] args) {
-        System.out.println("Test Bundle");
-        ATest aTest = new ATest("HejABC");
-        System.out.println("ATest.get(): "+aTest.get());
-/*        
-        String str = Bundle.getInstance().getMessage("Testar");
-        System.out.format("Str: %s\n", str);
-        str = Bundle.getInstance().getMessage("ToolbarGroup_Operators");
-        System.out.format("Str: %s\n", str);
-*/        
-        System.out.println("Hejsan ABC DEF");
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getPackage method, of class EmojiPackage.
-     */
-    @Test
-    public void testGetPackage() {
-        
+    public String get() {
+        return str+","+str;
     }
     
 }
