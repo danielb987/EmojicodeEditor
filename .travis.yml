@@ -9,8 +9,9 @@ before-script:
   - ant clean
   
 script:
-  - ant test
-  - travis_utility/run_coverage.sh
+#  - ant test
+#  - travis_utility/run_coverage.sh
+  - travis_utility/run_ant_and_coverage.sh
 #  - travis_utility/push-javadoc-to-docs.sh  // Disable while setting up jacoco
 
 # after_success:
