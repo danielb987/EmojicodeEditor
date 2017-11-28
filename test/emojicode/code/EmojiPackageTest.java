@@ -69,6 +69,7 @@ public class EmojiPackageTest {
         System.out.println("getPackage");
         EmojiPackage instance = null;
         EmojiPackage expResult = null;
+        fail("The test case is a prototype.");
 //DANIEL        EmojiPackage result = instance.getPackage();
 //DANIEL        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

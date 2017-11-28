@@ -86,7 +86,6 @@
     
     
     <property name="jacoco_src.dir" location="./src/emojicodeeditor" />
-<!--    <property name="jacoco_result.dir" location="./target" /> -->
     <property name="jacoco_result.dir" location="./build" />
     <property name="jacoco_result.classes.dir" location="${jacoco_result.dir}/classes" />
     <property name="jacoco_result.test_classes.dir" location="${jacoco_result.dir}/test/classes" />
@@ -97,20 +96,8 @@
     
     <!-- Step 1: Import JaCoCo Ant tasks -->
     <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-<!--        <classpath>
-        </classpath> -->
         <classpath path="./jacoco/lib/jacocoant.jar" />
-<!--        <classpath path="./lib:./lib/jacocoant.jar" /> -->
     </taskdef>
-    
-    <target name="jacoco_test_daniel" depends="compile,test">
-        <echo message="Testar Daniel" />
-        <junit fork="true" includeAntRuntime="true"          showoutput="true" printsummary="on" enabletestlistenerevents="true">
-            <test name="emojicode.code.Testar"/>
-            <classpath path="./lib/junit_4/junit-4.12.jar:lib/hamcrest/hamcrest-core-1.3.jar:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
-            <formatter type="plain" usefile="false" /> <!-- to screen -->
-        </junit>
-    </target>
     
     <target name="jacoco_test" depends="compile,test">
         <echo message="javac.debug: ${javac.debug}" />
@@ -125,10 +112,6 @@
                     <include name="**/*Test.class"/>
                   </fileset>
                 </batchtest>
-<!--                <test name="emojicode.code.EmojiPackageTest"/> -->
-<!-- AAAA                <test name="emojicode.code.Testar"/> -->
-<!--            <java classname="emojicode.code.Testar" fork="true"> -->
-<!--                <classpath path="${jacoco_result.classes.dir}" /> -->
 
                 <classpath>
                     <pathelement path="${jacoco_result.classes.dir}"/>
@@ -138,44 +121,11 @@
                     <pathelement path="./jacoco/lib/jacocoant.jar"/>
                 </classpath>
                                 
-<!--                <classpath path="./lib/junit_4/junit-4.12.jar:lib/hamcrest/hamcrest-core-1.3.jar:./jacoco/lib/jacocoant.jar:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" /> -->
-<!--                <classpath path="${jacoco_result.test_classes.dir}" /> -->
             </junit>
             
-<!--            
-            <java classname="emojicode.code.Testar" fork="true">
-                <classpath path="${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
-            </java>
--->           
-<!--            
-            <java classname="org.jacoco.examples.parser.Main" fork="true">
-                <classpath path="${jacoco_result.classes.dir}" />
-                <arg value="2 * 3 + 4"/>
-                <arg value="2 + 3 * 4"/>
-                <arg value="(2 + 3) * 4"/>
-                <arg value="2 * 2 * 2 * 2"/>
-                <arg value="1 + 2 + 3 + 4"/>
-                <arg value="2 * 3 + 2 * 5"/>
-            </java>
--->                
         </jacoco:coverage>
     </target>
-<!--
-    <target name="jacoco_test__wrong" depends="compile">
-        <!- Step 2: Wrap test execution with the JaCoCo coverage task ->
-        <jacoco:coverage destfile="${jacoco_result.exec.file}">
-            <java classname="org.jacoco.examples.parser.Main" fork="true">
-                <classpath path="${jacoco_result.classes.dir}" />
-                <arg value="2 * 3 + 4"/>
-                <arg value="2 + 3 * 4"/>
-                <arg value="(2 + 3) * 4"/>
-                <arg value="2 * 2 * 2 * 2"/>
-                <arg value="1 + 2 + 3 + 4"/>
-                <arg value="2 * 3 + 2 * 5"/>
-            </java>
-        </jacoco:coverage>
-    </target>
--->
+    
     <target name="jacoco_report" depends="jacoco_test">
         <!-- Step 3: Create coverage report -->
         <jacoco:report>
@@ -203,6 +153,5 @@
     </target>
     
     <target name="jacoco_rebuild" depends="clean,compile,jacoco_test,jacoco_report" />
-<!--    <target name="jacoco_rebuild" depends="clean,compile,jacoco_test_daniel" /> -->
     
 </project>
