@@ -25,6 +25,7 @@ package emojicode.code;
 
 // import emojicode.ATest;
 // import emojicodeeditor.Bundle;
+import emojicode.ATest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,7 +41,7 @@ public class Testar {
     
     public Testar() {
     }
-/*    
+    
     public static void main(String[] args) {
         System.out.println("Test Bundle");
         ATest aTest = new ATest("HejABC");
@@ -50,10 +51,10 @@ public class Testar {
         System.out.format("Str: %s\n", str);
         str = Bundle.getInstance().getMessage("ToolbarGroup_Operators");
         System.out.format("Str: %s\n", str);
-*./        
+*/        
         System.out.println("Hejsan ABC DEF");
     }
-*/    
+    
     @BeforeClass
     public static void setUpClass() {
     }

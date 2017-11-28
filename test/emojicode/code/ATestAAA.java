@@ -27,6 +27,6 @@ package emojicode.code;
  *
  * @author Daniel Bergqvist
  */
-public class ATest {
+public class ATestAAA {
     
 }
