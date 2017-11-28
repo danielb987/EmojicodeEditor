@@ -107,7 +107,7 @@
         <echo message="Testar Daniel" />
         <junit fork="true" includeAntRuntime="true"          showoutput="true" printsummary="on" enabletestlistenerevents="true">
             <test name="emojicode.code.ATestAAA"/>
-            <classpath path="./lib/junit_4/junit-4.12.jar:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
+            <classpath path="./lib/junit_4/junit-4.12.jar:lib/hamcrest/hamcrest-core-1.3.jar:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
             <formatter type="plain" usefile="false" /> <!-- to screen -->
         </junit>
     </target>
