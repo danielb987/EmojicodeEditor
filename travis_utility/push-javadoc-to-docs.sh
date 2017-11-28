@@ -4,6 +4,12 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Run javadoc"
 
+  echo -e "ls"
+  ls
+
+  echo -e "ls dist"
+  ls dist
+
   ant javadoc
 
   echo -e "Publishing javadoc...\n"
@@ -26,8 +32,5 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   git add -f .
   git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
   git push -fq origin gh-pages > /dev/null
-
-  echo -e "AAAAAAAAAAAAAAAAAAAAAAAAA\n"
-  pwd
 
 fi

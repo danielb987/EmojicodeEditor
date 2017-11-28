@@ -4,9 +4,6 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Run coverage"
 
-  echo -e "BBBBBBBBBBBBBBBBBBBBBBBBB\n"
-  pwd
-
 #  wget http://search.maven.org/remotecontent?filepath=org/jacoco/jacoco/0.7.9/jacoco-0.7.9.zip -O jacoco-0.7.9.zip 2> /dev/null
 
 #  unzip jacoco-0.7.9.zip
