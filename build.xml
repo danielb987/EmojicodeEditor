@@ -123,13 +123,16 @@
                 <test name="emojicode.code.Testar"/>
 <!--            <java classname="emojicode.code.Testar" fork="true"> -->
 <!--                <classpath path="${jacoco_result.classes.dir}" /> -->
-<!--
+
                 <classpath>
-                    <pathelement path="${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}"/>
-                    <pathelement path="lib/junit_4/junit-4.12.jar"/>
+                    <pathelement path="${jacoco_result.classes.dir}"/>
+                    <pathelement path="${jacoco_result.test_classes.dir}"/>
+                    <pathelement path="./lib/junit_4/junit-4.12.jar"/>
+                    <pathelement path="./lib/hamcrest/hamcrest-core-1.3.jar"/>
+                    <pathelement path="./jacoco/lib/jacocoant.jar"/>
                 </classpath>
--->                                
-                <classpath path="./lib/junit_4/junit-4.12.jar:./jacoco/lib/jacocoant.jar:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" />
+                                
+<!--                <classpath path="./lib/junit_4/junit-4.12.jar:lib/hamcrest/hamcrest-core-1.3.jar:./jacoco/lib/jacocoant.jar:${jacoco_result.classes.dir}:${jacoco_result.test_classes.dir}" /> -->
 <!--                <classpath path="${jacoco_result.test_classes.dir}" /> -->
             </junit>
             
