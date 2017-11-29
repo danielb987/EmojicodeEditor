@@ -4,53 +4,10 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
 
   echo -e "Run coverage"
 
-#  wget http://search.maven.org/remotecontent?filepath=org/jacoco/jacoco/0.7.9/jacoco-0.7.9.zip -O jacoco-0.7.9.zip 2> /dev/null
-
-#  unzip jacoco-0.7.9.zip
-
-#  ant compile
-
-  echo -e "==========================="
-  ls /home/travis/build/danielb987/EmojicodeEditor/target/classes
-  echo -e "A==========================="
-  echo -e "A==========================="
-  echo -e "A==========================="
-  echo -e "A==========================="
-  ls /home/travis/build/danielb987/EmojicodeEditor/build/test/classes
-  find /home/travis/build/danielb987/EmojicodeEditor/build/test/classes
-  echo -e "A==========================="
-  echo -e "A==========================="
-  echo -e "A==========================="
-  find -iname "*.class"
-  find -iname "*.jar"
-  find -iname "EmojiPackageTest.*"
-  echo -e "==========================="
-
   # Generate report
   ant -v jacoco_report
 
-#  ant -v jacoco_rebuild
-
-  pwd
-# find
-
-  echo -e "ls ./lib/junit_4"
-  ls ./lib/junit_4
-
-  echo -e "ls ./lib/jacocoant.jar"
-#  ls ./lib/jacocoant.jar
-  ls -al ./jacoco/lib/jacocoant.jar
-  ls
-
-
   # Publish coverage report
   mvn coveralls:report
-
-
-#  ant -version
-
-
-  ls -al /home/travis/build/danielb987/EmojicodeEditor/build/test/classes
-  ls -al /home/travis/build/danielb987/EmojicodeEditor/build/test/classes/emojicode/code
 
 fi
