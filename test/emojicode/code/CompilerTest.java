@@ -118,8 +118,12 @@ public class CompilerTest {
         
         if (! failureMessage.isEmpty() && false)
             fail(failureMessage + result);
-        else
+        else {
+            if (! failureMessage.isEmpty())
+                System.out.println(failureMessage);
+        
             System.out.println(result);
+        }
     }
     
     
