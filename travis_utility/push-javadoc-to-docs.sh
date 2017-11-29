@@ -9,7 +9,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   # Create jar file and javadoc
   ant jar
 
-#  ant javadoc
+  ant javadoc
 
   echo -e "Publishing javadoc...\n"
 
