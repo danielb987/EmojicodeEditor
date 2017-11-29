@@ -89,7 +89,7 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
         });
         
         if (1==1) {
-            jTextPane_SourceCode.setText("Testar");
+            jTextPane_SourceCode.setText("Testar Daniel 123123");
             return;
         }
         
