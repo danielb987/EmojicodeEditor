@@ -45,7 +45,7 @@ public class FindFilesWithNullChar {
     
     
     /**
-     * Find text files with 0 character in the current directory and sub directories
+     * Find text files with ascii 0 character in the current directory and sub directories
      * 
      * @return true if any text file with ascii 0 character is found
      */
