@@ -77,7 +77,7 @@ public class CompilerTest {
         System.out.println("Daniel AAA CC DD");
         // We need to turn tests of temporary to get generation of Javadoc
         // work until we have got the tests to work.
-        if (1==1)
+        if (1==0)
             return;
         System.out.println("Daniel BBB");
         
