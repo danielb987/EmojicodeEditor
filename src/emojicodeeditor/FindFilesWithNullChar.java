@@ -37,7 +37,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Find text files that has a ascii 0 character.
+ * 
  * @author Daniel Bergqvist
  */
 public class FindFilesWithNullChar {
