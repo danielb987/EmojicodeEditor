@@ -29,7 +29,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * The types of tokens that the compiler can handle
+ * 
  * @author Daniel Bergqvist
  */
 public enum TokenType {
@@ -69,6 +70,10 @@ public enum TokenType {
     New(Emojicode.E_NEW_SIGN),
     This(Emojicode.E_DOG);
     
+    
+    /**
+     * A map between unicode codepoint and token type
+     */
     private static Map<Integer, TokenType> map;
     
     
@@ -96,6 +101,11 @@ public enum TokenType {
     }
     
     
+    /**
+     * Get all emojis that are operators
+     * 
+     * @return a list of all emojis that are operators
+     */
     private static String[] getOperatorEmojis() {
         String[] operatorEmojis = {
                                         Emojicode.E_HEAVY_PLUS_SIGN,
@@ -122,7 +132,13 @@ public enum TokenType {
     }
     
     
-    public static final TokenType getToken(int codePoint) {
+    /**
+     * Get the token type of the unicode codepoint
+     * 
+     * @param codePoint the codepoint for which to get the token type
+     * @return the token type
+     */
+    public static final TokenType getTokenType(int codePoint) {
         return map.get(codePoint);
     }
 }

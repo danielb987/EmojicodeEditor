@@ -64,7 +64,7 @@ public class Lexer {
     /// @returns True if the token continues (e.g. a string) or false if the token ended (i.e. it only consits of this
     /// single code point).
     boolean beginToken(Token token) {
-        TokenType it = TokenType.getToken(codePoint());
+        TokenType it = TokenType.getTokenType(codePoint());
         if (it != null) {
 //            System.out.format("Begin token. Token: %s\n", it.toString());
             token.type = it;
