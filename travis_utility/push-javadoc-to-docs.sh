@@ -4,11 +4,12 @@
 
 if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
-  echo -e "Run javadoc"
+  echo -e "Create jar file and run javadoc"
 
-  # Create jar file and javadoc
+  # Create jar file
   ant jar
 
+  # Create javadoc
   ant javadoc
 
   echo -e "Publishing javadoc...\n"
