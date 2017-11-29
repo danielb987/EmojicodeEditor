@@ -30,6 +30,7 @@ import org.junit.Test;
 
 /**
  * Run the test that find text files with ascii 0 character.
+ * 
  * @author Daniel Bergqvist
  */
 public class FindFileWithNullCharTest {
