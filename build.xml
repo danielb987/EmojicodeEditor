@@ -78,13 +78,8 @@
         <property name="libs.hamcrest.classpath" value="lib/hamcrest/hamcrest-core-1.3.jar"/>
     </target>
     
-    <target name="-post-jar">
-        <antcall target="-javadoc-build"/>
-    </target>
     
-    
-    
-    
+    <!-- Setup properties for jacoco -->
     <property name="jacoco_src.dir" location="./src/emojicodeeditor" />
     <property name="jacoco_result.dir" location="./build" />
     <property name="jacoco_result.classes.dir" location="${jacoco_result.dir}/classes" />
@@ -99,7 +94,9 @@
         <classpath path="./jacoco/lib/jacocoant.jar" />
     </taskdef>
     
-    <target name="jacoco_test" depends="compile,test">
+<!--    <target name="jacoco_test" depends="compile,test"> -->
+
+    <target name="jacoco_test" depends="compile">
         <echo message="javac.debug: ${javac.debug}" />
         <echo message="jacoco_result.classes.dir: ${jacoco_result.classes.dir}" />
         <echo message="jacoco_result.test_classes.dir: ${jacoco_result.test_classes.dir}" />
