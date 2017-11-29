@@ -40,6 +40,7 @@ public class FindFileWithNullCharTest {
      */
     @Test
     public void find() {
+        System.out.println("FindFileWithNullCharTest");
         if (FindFilesWithNullChar.find())
             Assert.fail("There is files with null chars");
     }
