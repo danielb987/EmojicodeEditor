@@ -34,6 +34,9 @@ import java.util.List;
  */
 public interface Emojicode {
     
+    //CHECKSTYLE.OFF: JavadocVariableCheck - No need for individual Javadoc
+    // comments for all these constants
+    
     // These are fetched from the source code of the Emoji compiler
     // https://github.com/emojicode/emojicode/blob/master/Compiler/Emojis.h
     String E_HOUSE_BUILDING = "🏠";    // 0x1F3E0
@@ -264,6 +267,9 @@ public interface Emojicode {
     int E_RIGHT_FACING_FIST_CODEPOINT = 0x1F91C;    // 🤜, 0x1F91C
     int E_LEFT_FACING_FIST_CODEPOINT = 0x1F91B;    // 🤛, 0x1F91B
     int E_NEW_SIGN_CODEPOINT = 0x1F195;    // 🆕, 0x1F195
+    
+    //CHECKSTYLE.ON: JavadocVariableCheck
+    
     
     static String[] EMOJI_ARRAY = {
         "🏠", "🍇", "🍬", "🔶", "↩", "🍰", "🍮", "🍌", "🍪", "🍨", "🍯", "🍆", "🍊",
