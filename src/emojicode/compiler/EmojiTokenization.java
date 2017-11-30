@@ -37,7 +37,7 @@ public class EmojiTokenization {
     }
     
     //CHECKSTYLE.OFF: LineLengthCheck - Allow long lines
-    public static boolean isEmoji(int ch) {
+    public static boolean isEmoji(final int ch) {
         return (/* ch == 0x0023 || ch == 0x002A || (0x0030 <= ch && ch <= 0x0039) || */
                    ch == 0x00A9 || ch == 0x00AE || ch == 0x203C
                 || ch == 0x2049 || ch == 0x2122 || ch == 0x2139
@@ -113,7 +113,7 @@ public class EmojiTokenization {
     
     
     //CHECKSTYLE.OFF: LineLengthCheck - Allow long lines
-    public static boolean isEmojiModifierBase(int ch) {
+    public static boolean isEmojiModifierBase(final int ch) {
         return (ch == 0x261D || ch == 0x26F9 || (0x270A <= ch && ch <= 0x270B)
                 || (0x270C <= ch && ch <= 0x270D) || ch == 0x1F385 || (0x1F3C2 <= ch && ch <= 0x1F3C4)
                 || ch == 0x1F3C7 || ch == 0x1F3CA || (0x1F3CB <= ch && ch <= 0x1F3CC)
@@ -129,15 +129,15 @@ public class EmojiTokenization {
     }
     //CHECKSTYLE.ON: LineLengthCheck
     
-    public static boolean isEmojiModifier(int ch) {
+    public static boolean isEmojiModifier(final int ch) {
         return 0x1F3FB <= ch && ch <= 0x1F3FF;
     }
     
-    public static boolean isRegionalIndicator(int ch) {
+    public static boolean isRegionalIndicator(final int ch) {
         return 0x1F1E6 <= ch && ch <= 0x1F1FF;
     }
     
-    public static boolean isValidEmoji(String str) {
+    public static boolean isValidEmoji(final String str) {
         if (str.length() == 1) {
             return !isRegionalIndicator(str.codePointAt(0));
         }
