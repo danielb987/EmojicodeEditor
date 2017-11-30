@@ -33,6 +33,8 @@ public class EmojiTokenization {
         // This class should never be instanced
     }
     
+    //CHECKSTYLE.OFF: MagicNumberCheck - No need for individual constants for
+    // all these values.
     public static boolean isEmoji(int ch) {
         return (/* ch == 0x0023 || ch == 0x002A || (0x0030 <= ch && ch <= 0x0039) || */
                    ch == 0x00A9 || ch == 0x00AE || ch == 0x203C
@@ -105,7 +107,11 @@ public class EmojiTokenization {
                 || (0x1F940 <= ch && ch <= 0x1F945) || (0x1F947 <= ch && ch <= 0x1F94B) || (0x1F950 <= ch && ch <= 0x1F95E)
                 || (0x1F980 <= ch && ch <= 0x1F984) || (0x1F985 <= ch && ch <= 0x1F991) || ch == 0x1F9C0);
     }
-
+    //CHECKSTYLE.ON: MagicNumberCheck
+    
+    
+    //CHECKSTYLE.OFF: MagicNumberCheck - No need for individual constants for
+    // all these values.
     public static boolean isEmojiModifierBase(int ch) {
         return (ch == 0x261D || ch == 0x26F9 || (0x270A <= ch && ch <= 0x270B)
                 || (0x270C <= ch && ch <= 0x270D) || ch == 0x1F385 || (0x1F3C2 <= ch && ch <= 0x1F3C4)
@@ -120,6 +126,7 @@ public class EmojiTokenization {
                 || ch == 0x1F91E || ch == 0x1F926 || ch == 0x1F930
                 || (0x1F933 <= ch && ch <= 0x1F939) || (0x1F93D <= ch && ch <= 0x1F93E));
     }
+    //CHECKSTYLE.ON: MagicNumberCheck
     
     public static boolean isEmojiModifier(int ch) {
         return 0x1F3FB <= ch && ch <= 0x1F3FF;
