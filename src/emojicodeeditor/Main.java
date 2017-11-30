@@ -78,8 +78,9 @@ public class Main {
 //                new TestCompiler().testFile_new("test/emojicode_tests/compilation/hello.emojic");
 ////////////////////                new TestCompiler().testCompileAndRun("test/emojicode_tests/compilation/hello.emojic");
 //                new TestCompiler().testFile("test/emojicode_tests/compilation/hello.emojic");
-                if (1 == 0)
+                if (1 == 0) {
                     throw new IOException("");
+                }
 //////                new TestCompiler().testAllFiles("test/emojicode_tests/compilation");
 //                new TestCompiler().testAllFiles("test/emojicode_tests/reject");
 //            } catch (CompilerError | LogicError | IOException ex) {
