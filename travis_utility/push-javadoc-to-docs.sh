@@ -47,6 +47,9 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   mkdir checkstyle
   cp $DIR/build/checkstyle_errors.xml checkstyle/
 
+  echo -e "ls -al checkstyle"
+  ls -al checkstyle/
+
   # Upload the distribution and javadoc to the gh-pages branch at GitHub
   git add -f .
   git commit -m "Latest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
