@@ -73,19 +73,19 @@ public class Lexer {
         }
 
         switch (codePoint()) {
-            case Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS__CODEPOINT:
+            case Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT:
                 token.type = TokenType.String;
                 return true;
-            case Emojicode.E_OLDER_WOMAN__CODEPOINT:
+            case Emojicode.E_OLDER_WOMAN_CODEPOINT:
                 token.type = TokenType.MultilineComment;
                 return true;
-            case Emojicode.E_OLDER_MAN__CODEPOINT:
+            case Emojicode.E_OLDER_MAN_CODEPOINT:
                 token.type = TokenType.SinglelineComment;
                 return true;
-            case Emojicode.E_TACO__CODEPOINT:
+            case Emojicode.E_TACO_CODEPOINT:
                 token.type = TokenType.DocumentationComment;
                 return true;
-            case Emojicode.E_KEYCAP_10__CODEPOINT:
+            case Emojicode.E_KEYCAP_10_CODEPOINT:
                 token.type = TokenType.Symbol;
                 return true;
         }
@@ -135,12 +135,12 @@ public class Lexer {
                 }
                 return TokenState.Continues;
             case MultilineComment:
-                if (codePoint() == Emojicode.E_OLDER_WOMAN__CODEPOINT) {
+                if (codePoint() == Emojicode.E_OLDER_WOMAN_CODEPOINT) {
                     return TokenState.Discard;
                 }
                 return TokenState.Continues;
             case DocumentationComment:
-                if (codePoint() == Emojicode.E_TACO__CODEPOINT) {
+                if (codePoint() == Emojicode.E_TACO_CODEPOINT) {
                     return TokenState.Ended;
                 }
                 token.append(codePoint());
@@ -148,8 +148,8 @@ public class Lexer {
             case String:
                 if (escapeSequence_) {
                     switch (codePoint()) {
-                        case Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS__CODEPOINT:
-                        case Emojicode.E_CROSS_MARK__CODEPOINT:
+                        case Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT:
+                        case Emojicode.E_CROSS_MARK_CODEPOINT:
                             token.append(codePoint());
                             break;
                         case 'n':
@@ -171,11 +171,11 @@ public class Lexer {
 
                     escapeSequence_ = false;
                 }
-                else if (codePoint() == Emojicode.E_CROSS_MARK__CODEPOINT) {
+                else if (codePoint() == Emojicode.E_CROSS_MARK_CODEPOINT) {
                     escapeSequence_ = true;
                     return TokenState.Continues;
                 }
-                else if (codePoint() == Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS__CODEPOINT) {
+                else if (codePoint() == Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT) {
                     return TokenState.Ended;
                 }
 
