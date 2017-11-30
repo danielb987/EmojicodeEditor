@@ -103,13 +103,14 @@ public class WrapLayout extends FlowLayout {
     * @param preferred should preferred size be calculated
     * @return the dimension to layout the target container
     */
-    private Dimension layoutSize(   final Container target,
-                                    final boolean preferred) {
+    private Dimension layoutSize(final Container target,
+                                 final boolean preferred) {
         
         synchronized (target.getTreeLock()) {
-            //  Each row must fit with the width allocated to the containter.
-            //  When the container width = 0, the preferred width of the container
-            //  has not yet been calculated so lets ask for the maximum.
+            //  Each row must fit with the width allocated to the
+            // containter.When the container width = 0, the preferred
+            // width of the container has not yet been calculated so
+            // lets ask for the maximum.
 
 //            int targetWidth = target.getSize().width;
             
@@ -121,13 +122,16 @@ public class WrapLayout extends FlowLayout {
 
             int targetWidth = container.getSize().width;
 
-            if (targetWidth == 0)
+            if (targetWidth == 0) {
                 targetWidth = Integer.MAX_VALUE;
+            }
 
             int hgap = getHgap();
             int vgap = getVgap();
             Insets insets = target.getInsets();
-            int horizontalInsetsAndGap = insets.left + insets.right + (hgap * 2);
+            int horizontalInsetsAndGap = insets.left +
+                                         insets.right +
+                                         (hgap * 2);
             int maxWidth = targetWidth - horizontalInsetsAndGap;
 
             //  Fit components into the allowed width
