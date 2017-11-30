@@ -27,23 +27,28 @@ package emojicodeeditor;
  *
  * @author Daniel Bergqvist
  */
-public class Version {
+public final class Version {
     
     /**
-     * Major version number
+     * Major version number.
      */
     public static final int MAJOR_VERSION_NUMBER = 0;
     
     /**
-     * Minor version number
+     * Minor version number.
      */
     public static final int MINOR_VERSION_NUMBER = 1;
     
     /**
-     * Version string. Built of {@link #MAJOR_VERSION_NUMBER} and {@link #MINOR_VERSION_NUMBER}
+     * Version string. Built of {@link #MAJOR_VERSION_NUMBER} and
+     * {@link #MINOR_VERSION_NUMBER}
      */
-    public static final String VERSION = String.format("%d.%d", MAJOR_VERSION_NUMBER, MINOR_VERSION_NUMBER);
+    public static final String VERSION =
+            String.format("%d.%d", MAJOR_VERSION_NUMBER, MINOR_VERSION_NUMBER);
 
+    /**
+     * Private constructor since this class should never be instansiated.
+     */
     private Version() {
     }
     
