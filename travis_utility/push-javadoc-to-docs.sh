@@ -12,6 +12,9 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   # Create javadoc
   ant javadoc
 
+  # Check if this project's javadoc follows coding standard
+  ant checkstyle
+
   echo -e "Publishing javadoc...\n"
 
   export DIR=$(pwd)

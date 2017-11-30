@@ -148,4 +148,24 @@
         </jacoco:report>
     </target>
     
+    
+    
+    <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
+             classpath="./lib/checkstyle-8.5-all.jar"/>
+    
+    
+    <target name="checkstyle" description="Generates a report of code convention violations.">
+        <!--    <checkstyle config="/path/to/site/sun_checks.xml"> -->
+        <checkstyle>
+            <fileset dir="src/checkstyle" includes="./src/**/*.java"/>
+
+            <!-- Location of cache-file. Something that is project specific -->
+            <property key="checkstyle.cache.file" file="target/cachefile"/>
+
+            <formatter type="plain"/>
+            <formatter type="xml" toFile="build/checkstyle_errors.xml"/>
+        </checkstyle>
+    </target>
+    
+    
 </project>
