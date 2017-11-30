@@ -52,8 +52,10 @@ public interface Emojicode {
     String E_LEMON = "🍋";    // 0x1F34B
     String E_STRAWBERRY = "🍓";    // 0x1F353
     String E_WATERMELON = "🍉";    // 0x1F349
-    String E_CLOCKWISE_RIGHTWARDS_AND_LEFTWARDS_OPEN_CIRCLE_ARROWS = "🔁";    // 0x1F501
-    String E_CLOCKWISE_RIGHTWARDS_AND_LEFTWARDS_OPEN_CIRCLE_ARROWS_WITH_CIRCLED_ONE_OVERLAY = "🔂";    // 0x1F502
+    String E_CLOCKWISE_RIGHT_AND_LEFTWARDS_OPEN_CIRCLE_ARROWS = "🔁"; // 0x1F501
+    String
+     E_CLOCKWISE_RIGHT_AND_LEFTWARDS_OPEN_CIRCLE_ARROWS_WITH_CIRCLED_ONE_OVERLAY
+            = "🔂";    // 0x1F502
     String E_DOG = "🐕";    // 0x1F415
     String E_LARGE_BLUE_DIAMOND = "🔷";    // 0x1F537
     String E_HIGH_VOLTAGE_SIGN = "⚡";    // 0x26A1
@@ -112,7 +114,8 @@ public interface Emojicode {
     String E_LOLLIPOP = "🍭";    // 0x1F36D
     String E_SOFT_ICE_CREAM = "🍦";    // 0x1F366
     String E_CHIPMUNK = "🐿";    // 0x1F43F
-    String E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE_WITH_VERTICAL_BAR = "⏭";    // 0x23ED
+    String E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE_WITH_VERTICAL_BAR = "⏭";
+                // 0x23ED
     String E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE = "⏩";    // 0x23E9
     String E_WARNING_SIGN = "⚠";    // 0x26A0
     String E_SCROLL = "📜";    // 0x1F4DC
@@ -162,8 +165,10 @@ public interface Emojicode {
     int E_LEMON_CODEPOINT = 0x1F34B;    // 🍋, 0x1F34B
     int E_STRAWBERRY_CODEPOINT = 0x1F353;    // 🍓, 0x1F353
     int E_WATERMELON_CODEPOINT = 0x1F349;    // 🍉, 0x1F349
-    int E_CLOCKWISE_RIGHTWARDS_AND_LEFTWARDS_OPEN_CIRCLE_ARROWS_CODEPOINT = 0x1F501;    // 🔁, 0x1F501
-    int E_CLOCKWISE_RIGHTWARDS_AND_LEFTWARDS_OPEN_CIRCLE_ARROWS_WITH_CIRCLED_ONE_OVERLAY_CODEPOINT = 0x1F502;    // 🔂, 0x1F502
+    int E_CLOCKWISE_RIGHTWARDS_AND_LEFTWARDS_OPEN_CIRCLE_ARROWS_CODEPOINT
+            = 0x1F501;    // 🔁, 0x1F501
+    int E_CLKWISE_RIGHT_LEFTWARDS_OPEN_CIRCLE_ARROWS_W_CIRCLED_OVERLAY_CODEPOINT
+            = 0x1F502;    // 🔂, 0x1F502
     int E_DOG_CODEPOINT = 0x1F415;    // 🐕, 0x1F415
     int E_LARGE_BLUE_DIAMOND_CODEPOINT = 0x1F537;    // 🔷, 0x1F537
     int E_HIGH_VOLTAGE_SIGN_CODEPOINT = 0x26A1;    // ⚡, 0x26A1
@@ -185,7 +190,8 @@ public interface Emojicode {
     int E_BLACK_NIB_CODEPOINT = 0x2712;    // ✒, 0x2712
     int E_KEY_CODEPOINT = 0x1F511;    // 🔑, 0x1F511
     int E_PACKAGE_CODEPOINT = 0x1F4E6;    // 📦, 0x1F4E6
-    int E_FACE_WITH_STUCK_OUT_TONGUE_AND_WINKING_EYE_CODEPOINT = 0x1F61C;    // 😜, 0x1F61C
+    int E_FACE_WITH_STUCK_OUT_TONGUE_AND_WINKING_EYE_CODEPOINT = 0x1F61C;
+            // 😜, 0x1F61C
     int E_GOAT_CODEPOINT = 0x1F410;    // 🐐, 0x1F410
     int E_BLACK_SQUARE_BUTTON_CODEPOINT = 0x1F532;    // 🔲, 0x1F532
     int E_BEER_MUG_CODEPOINT = 0x1F37A;    // 🍺, 0x1F37A
@@ -222,8 +228,10 @@ public interface Emojicode {
     int E_LOLLIPOP_CODEPOINT = 0x1F36D;    // 🍭, 0x1F36D
     int E_SOFT_ICE_CREAM_CODEPOINT = 0x1F366;    // 🍦, 0x1F366
     int E_CHIPMUNK_CODEPOINT = 0x1F43F;    // 🐿, 0x1F43F
-    int E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE_WITH_VERTICAL_BAR_CODEPOINT = 0x23ED;    // ⏭, 0x23ED
-    int E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE_CODEPOINT = 0x23E9;    // ⏩, 0x23E9
+    int E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE_WITH_VERTICAL_BAR_CODEPOINT
+            = 0x23ED;    // ⏭, 0x23ED
+    int E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE_CODEPOINT = 0x23E9;
+            // ⏩, 0x23E9
     int E_WARNING_SIGN_CODEPOINT = 0x26A0;    // ⚠, 0x26A0
     int E_SCROLL_CODEPOINT = 0x1F4DC;    // 📜, 0x1F4DC
     int E_EARTH_GLOBE_EUROPE_AFRICA_CODEPOINT = 0x1F30D;    // 🌍, 0x1F30D
@@ -251,7 +259,8 @@ public interface Emojicode {
     int E_TRIANGLE_POINTED_DOWN_CODEPOINT = 0x1F53B;    // 🔻, 0x1F53B
     int E_RED_EXCLAMATION_MARK_CODEPOINT = 0x2757;    // ❗, 0x2757
     int E_WHITE_EXCLAMATION_MARK_CODEPOINT = 0x2755;    // ❕, 0x2755
-    int E_RED_EXCLAMATION_MARK_AND_QUESTION_MARK_CODEPOINT = 0x2049;    // ⁉, 0x2049
+    int E_RED_EXCLAMATION_MARK_AND_QUESTION_MARK_CODEPOINT = 0x2049;
+            // ⁉, 0x2049
     int E_RIGHT_FACING_FIST_CODEPOINT = 0x1F91C;    // 🤜, 0x1F91C
     int E_LEFT_FACING_FIST_CODEPOINT = 0x1F91B;    // 🤛, 0x1F91B
     int E_NEW_SIGN_CODEPOINT = 0x1F195;    // 🆕, 0x1F195
@@ -297,13 +306,15 @@ public interface Emojicode {
         0xFE0F
     };
     
-    final List<Integer> EMOJI_WHITESPACES_LIST = Arrays.asList(EMOJI_WHITESPACES_ARRAY);
+    final List<Integer> EMOJI_WHITESPACES_LIST =
+                            Arrays.asList(EMOJI_WHITESPACES_ARRAY);
     
     /**
      * Return a string containing of the unicode character. This method is used
      * since a single unicode character may consist of two java characters
      * @param codepoint the codepoint to convert to a unicode character
-     * @return a string with a unicode character. This string may contain two java characters.
+     * @return a string with a unicode character. This string may contain two
+     * java characters.
      */
     static String codepointToChars(int codepoint) {
         return new String(Character.toChars(codepoint));
