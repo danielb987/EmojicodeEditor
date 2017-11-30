@@ -2,8 +2,6 @@
 
 # Don't create javadoc and EmojicodeEditor.jar if the repository is a fork, or if it is a pull request or if the branch is not master
 
-echo -e "1122334455"
-
 if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
   echo -e "Create jar file and run javadoc"
