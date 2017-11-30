@@ -33,6 +33,7 @@ public class EmojiTokenization {
         // This class should never be instanced
     }
     
+    //CHECKSTYLE.OFF: LineLengthCheck - Allow long lines
     //CHECKSTYLE.OFF: MagicNumberCheck - No need for individual constants for
     // all these values.
     public static boolean isEmoji(int ch) {
@@ -108,8 +109,10 @@ public class EmojiTokenization {
                 || (0x1F980 <= ch && ch <= 0x1F984) || (0x1F985 <= ch && ch <= 0x1F991) || ch == 0x1F9C0);
     }
     //CHECKSTYLE.ON: MagicNumberCheck
+    //CHECKSTYLE.OFF: LineLengthCheck
     
     
+    //CHECKSTYLE.OFF: LineLengthCheck - Allow long lines
     //CHECKSTYLE.OFF: MagicNumberCheck - No need for individual constants for
     // all these values.
     public static boolean isEmojiModifierBase(int ch) {
@@ -127,6 +130,7 @@ public class EmojiTokenization {
                 || (0x1F933 <= ch && ch <= 0x1F939) || (0x1F93D <= ch && ch <= 0x1F93E));
     }
     //CHECKSTYLE.ON: MagicNumberCheck
+    //CHECKSTYLE.OFF: LineLengthCheck
     
     public static boolean isEmojiModifier(int ch) {
         return 0x1F3FB <= ch && ch <= 0x1F3FF;
