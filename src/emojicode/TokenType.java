@@ -35,6 +35,9 @@ import java.util.Map;
  */
 public enum TokenType {
     
+    //CHECKSTYLE.OFF: JavadocVariableCheck - No need for individual Javadoc
+    // comments for all these enums
+    
     NoType,
     String,
     MultilineComment,
@@ -70,6 +73,8 @@ public enum TokenType {
     New(Emojicode.E_NEW_SIGN),
     This(Emojicode.E_DOG);
     
+    //CHECKSTYLE.ON: JavadocVariableCheck
+    
     
     /**
      * A map between unicode codepoint and token type
@@ -77,11 +82,13 @@ public enum TokenType {
     private static Map<Integer, TokenType> map;
     
     
-    private static void put(int codePoint, TokenType type) {
-        if (type == null)
+    private static void put(final int codePoint, final TokenType type) {
+        if (type == null) {
             throw new IllegalArgumentException("Argument type must not be null");
-        if (map == null)
+        }
+        if (map == null) {
             map = new HashMap<>();
+        }
         map.put(codePoint, type);
     }
     
@@ -90,14 +97,15 @@ public enum TokenType {
     }
     
     
-    private TokenType(String emojicode) {
+    private TokenType(final String emojicode) {
         put(emojicode.codePointAt(0), this);
     }
     
     
-    private TokenType(String[] emojicodeList) {
-        for (String emojicode : emojicodeList)
+    private TokenType(final String[] emojicodeList) {
+        for (String emojicode : emojicodeList) {
             put(emojicode.codePointAt(0), this);
+        }
     }
     
     
