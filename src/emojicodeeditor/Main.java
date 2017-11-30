@@ -23,9 +23,6 @@
  */
 package emojicodeeditor;
 
-import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,43 +35,50 @@ import java.util.logging.Logger;
 public class Main {
     
     /**
+     * Private constructor since this class should never be instanced.
+     */
+    private Main() {
+    }
+    
+    /**
      * The starting point of the program.
      * 
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         
         if ((args.length == 1) && (args[0].toLowerCase().equals("findnull"))) {
             FindFilesWithNullChar.find();
             System.exit(0);
         }
         
-        if (1==0) {
+        if (1 == 0) {
             GenerateTests.generate();
             System.exit(0);
         }
         
-        if (1==1) {
+        if (1 == 1) {
             /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    new JFrame_TestDebugger("emojicode_test/compilation/hello.emojic").setVisible(true);
-////                    new JFrame_TestDebugger("emojicode_test/compilation/extension.emojic").setVisible(true);
-//                    new JFrame_TestDebugger("emojicode_test/compilation/class.emojic").setVisible(true);
-///////                    new JFrame_TestDebugger("emojicode_test/compilation/class.emojic").setVisible(true);
+                    String filename = "emojicode_test/compilation/hello.emojic";
+//                    filename = "emojicode_test/compilation/extension.emojic";
+//                    filename = "emojicode_test/compilation/class.emojic";
+////                    filename = "emojicode_test/compilation/class.emojic";
+                    new JFrame_TestDebugger(filename).setVisible(true);
                 }
             });
             return;
         }
-        if (1==1) {
+        if (1 == 1) {
             try {
 //                int code = "🔡".codePointAt(0);
 //                System.out.format("🔡 : 0x%X\n", code);
 //                new TestCompiler().testFile_new("test/emojicode_tests/compilation/hello.emojic");
 ////////////////////                new TestCompiler().testCompileAndRun("test/emojicode_tests/compilation/hello.emojic");
 //                new TestCompiler().testFile("test/emojicode_tests/compilation/hello.emojic");
-                if (1==0)
+                if (1 == 0)
                     throw new IOException("");
 //////                new TestCompiler().testAllFiles("test/emojicode_tests/compilation");
 //                new TestCompiler().testAllFiles("test/emojicode_tests/reject");
@@ -85,17 +89,7 @@ public class Main {
                 System.exit(0);
             }
         }
-/*        
-        try (emojicode.parser.Parser parser = new emojicode.parser.Parser("examples/greeter.emojic")) {
-            ;
-//            parser.testParser();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.exit(0);
-*/        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

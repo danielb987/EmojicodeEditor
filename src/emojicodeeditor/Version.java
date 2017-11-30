@@ -47,7 +47,7 @@ public final class Version {
             String.format("%d.%d", MAJOR_VERSION_NUMBER, MINOR_VERSION_NUMBER);
 
     /**
-     * Private constructor since this class should never be instansiated.
+     * Private constructor since this class should never be instanced.
      */
     private Version() {
     }
