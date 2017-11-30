@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author daniel
  */
-public class Lexer {
+public final class Lexer {
     
     private final String string;
     
@@ -59,10 +59,15 @@ public class Lexer {
     enum TokenState {
         Continues, Ended, NextBegun, Discard
     }
-
-    /// Called if a new code point is available.
-    /// @returns True if the token continues (e.g. a string) or false if the token ended (i.e. it only consits of this
-    /// single code point).
+    
+    
+    /**
+     * Called if a new code point is available.
+     * 
+     * @param token Used to return the token to the caller.
+     * @return true if the token continues (e.g. a string) or false if the
+     * token ended (i.e. it only consists of this single code point).
+     */
     boolean beginToken(Token token) {
         TokenType it = TokenType.getTokenType(codePoint());
         if (it != null) {
@@ -105,9 +110,15 @@ public class Lexer {
         return true;
     }
     
-    /// Called if a new code point is available and beginToken returned true and all previous calls for this token
-    /// returned TokenState.Continues.
-    TokenState continueToken(Token token) throws LogicError, CompilerError {
+    
+    /**
+     * Called if a new code point is available and beginToken returned true and all previous calls for this token returned TokenState.Continues.
+     * 
+     * @param token the current token.
+     * @return the state of the current token.
+     * @throws CompilerError compiler error
+     */
+    TokenState continueToken(Token token) throws CompilerError {
         switch (token.type) {
             case Identifier:
                 if (foundZWJ_ && EmojiTokenization.isEmoji(codePoint())) {
@@ -221,7 +232,7 @@ public class Lexer {
                 token.append(codePoint());
                 return TokenState.Ended;
             default:
-                throw new LogicError("Lexer: Token continued but not handled.");
+                throw new RuntimeException("Lexer: Token continued but not handled.");
         }
     }
     
