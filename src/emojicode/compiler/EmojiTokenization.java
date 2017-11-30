@@ -27,7 +27,7 @@ package emojicode.compiler;
  *
  * @author Daniel Bergqvist
  */
-public class EmojiTokenization {
+public final class EmojiTokenization {
     
     //CHECKSTYLE.OFF: MagicNumberCheck - No need for individual constants for
     // all these values.
