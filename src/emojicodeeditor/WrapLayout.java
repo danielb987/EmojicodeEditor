@@ -50,7 +50,7 @@ public class WrapLayout extends FlowLayout {
     * or <code>WrapLayout</code>.
     * @param align the alignment value
     */
-    public WrapLayout(int align) {
+    public WrapLayout(final int align) {
         super(align);
     }
 
@@ -65,7 +65,7 @@ public class WrapLayout extends FlowLayout {
     * @param hgap the horizontal gap between components
     * @param vgap the vertical gap between components
     */
-    public WrapLayout(int align, int hgap, int vgap) {
+    public WrapLayout(final int align, final int hgap, final int vgap) {
         super(align, hgap, vgap);
     }
 
@@ -77,7 +77,7 @@ public class WrapLayout extends FlowLayout {
     * subcomponents of the specified container
     */
     @Override
-    public Dimension preferredLayoutSize(Container target) {
+    public Dimension preferredLayoutSize(final Container target) {
         return layoutSize(target, true);
     }
 
@@ -89,7 +89,7 @@ public class WrapLayout extends FlowLayout {
     * subcomponents of the specified container
     */
     @Override
-    public Dimension minimumLayoutSize(Container target) {
+    public Dimension minimumLayoutSize(final Container target) {
         Dimension minimum = layoutSize(target, false);
         minimum.width -= (getHgap() + 1);
         return minimum;
@@ -103,7 +103,7 @@ public class WrapLayout extends FlowLayout {
     * @param preferred should preferred size be calculated
     * @return the dimension to layout the target container
     */
-    private Dimension layoutSize(Container target, boolean preferred) {
+    private Dimension layoutSize(final Container target, final boolean preferred) {
         
         synchronized (target.getTreeLock()) {
             //  Each row must fit with the width allocated to the containter.
@@ -190,7 +190,7 @@ public class WrapLayout extends FlowLayout {
      *  @param rowWidth the width of the row to add
      *  @param rowHeight the height of the row to add
      */
-    private void addRow(Dimension dim, int rowWidth, int rowHeight) {
+    private void addRow(final Dimension dim, final int rowWidth, final int rowHeight) {
         dim.width = Math.max(dim.width, rowWidth);
 
         if (dim.height > 0) {
