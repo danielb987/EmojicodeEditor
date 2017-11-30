@@ -97,7 +97,7 @@ public final class Lexer {
 
         if (('0' <= codePoint() && codePoint() <= '9') || codePoint() == '-' || codePoint() == '+') {
             token.type = TokenType.Integer;
-            isHex_ = false;
+            isHex = false;
         }
         else if (EmojiTokenization.isEmoji(codePoint())) {
             token.type = TokenType.Identifier;
@@ -121,9 +121,9 @@ public final class Lexer {
     TokenState continueToken(Token token) throws CompilerError {
         switch (token.type) {
             case Identifier:
-                if (foundZWJ_ && EmojiTokenization.isEmoji(codePoint())) {
+                if (foundZWJ && EmojiTokenization.isEmoji(codePoint())) {
                     token.append(codePoint());
-                    foundZWJ_ = false;
+                    foundZWJ = false;
                     return TokenState.Continues;
                 }
                 if ((EmojiTokenization.isEmojiModifier(codePoint()) && EmojiTokenization.isEmojiModifierBase(StringHelper.getLastUnicodeChar(token.toString()))) ||
@@ -133,7 +133,7 @@ public final class Lexer {
                  }
                 if (codePoint() == 0x200D) {
                     token.append(codePoint());
-                    foundZWJ_ = true;
+                    foundZWJ = true;
                     return TokenState.Continues;
                 }
                 if (codePoint() == 0xFE0F) {  // Emojicode ignores the Emoji modifier behind an emoji character
@@ -157,7 +157,7 @@ public final class Lexer {
                 token.append(codePoint());
                 return TokenState.Continues;
             case String:
-                if (escapeSequence_) {
+                if (escapeSequence) {
                     switch (codePoint()) {
                         case Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT:
                         case Emojicode.E_CROSS_MARK_CODEPOINT:
@@ -180,10 +180,10 @@ public final class Lexer {
                         }
                     }
 
-                    escapeSequence_ = false;
+                    escapeSequence = false;
                 }
                 else if (codePoint() == Emojicode.E_CROSS_MARK_CODEPOINT) {
-                    escapeSequence_ = true;
+                    escapeSequence = true;
                     return TokenState.Continues;
                 }
                 else if (codePoint() == Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT) {
@@ -204,7 +204,7 @@ public final class Lexer {
                 token.append(codePoint());
                 return TokenState.Continues;
             case Integer:
-                if (('0' <= codePoint() && codePoint() <= '9') || (((64 < codePoint() && codePoint() < 71) || (96 < codePoint() && codePoint() < 103)) && isHex_)) {
+                if (('0' <= codePoint() && codePoint() <= '9') || (((64 < codePoint() && codePoint() < 71) || (96 < codePoint() && codePoint() < 103)) && isHex)) {
                     token.append(codePoint());
                     return TokenState.Continues;
                 }
@@ -214,7 +214,7 @@ public final class Lexer {
                     return TokenState.Continues;
                 }
                 else if ((codePoint() == 'x' || codePoint() == 'X') && token.toString().length() == 1 && token.toString().charAt(0) == '0') {
-                    isHex_ = true;
+                    isHex = true;
                     token.append(codePoint());
                     return TokenState.Continues;
                 }
@@ -232,7 +232,8 @@ public final class Lexer {
                 token.append(codePoint());
                 return TokenState.Ended;
             default:
-                throw new RuntimeException("Lexer: Token continued but not handled.");
+                throw new RuntimeException(
+                                "Lexer: Token continued but not handled.");
         }
     }
     
@@ -240,21 +241,16 @@ public final class Lexer {
     /// Lexes the string and returns a TokenStream
     public TokenStream lex() throws CompilerError, LogicError {
         nextCharOrEnd();
-        while (continue_) {
+        while (continueToken) {
             if (detectWhitespace()) {
                 nextCharOrEnd();
                 continue;
             }
             
-//            Token token = new Token(new SourcePosition(index,line,column,filename));
             Token token = new Token(lastSourcePosition);
             token.endPosition = new SourcePosition(index,line,column,filename);
             tokens.add(token);
             readToken(token);
-            
-//            tokens.add(new Token(new SourcePosition(index,line,character,filename)));
-////            tokens.emplace_back(sourcePosition_);
-//            readToken(tokens.get(tokens.size()-1));
         }
 
         return new TokenStream(tokens);
@@ -265,7 +261,13 @@ public final class Lexer {
     /// This method calls nextChar() as necessary. On return, .codePoint() already returns the next code point for
     /// another call to beginToken(), if .continue_ is true.
     void readToken(Token token) throws CompilerError, LogicError {
-        TokenState state = beginToken(token) ? TokenState.Continues : TokenState.Ended;
+        TokenState state;
+        if (beginToken(token)) {
+            state = TokenState.Continues;
+        } else {
+            state =  TokenState.Ended;
+        }
+        
         while (true) {
             if (state == TokenState.Ended) {
                 token.validate();
@@ -279,10 +281,11 @@ public final class Lexer {
                 return;
             }
             nextChar();
-            if (Emojicode.isWhitespace(codePoint))
+            if (Emojicode.isWhitespace(codePoint)) {
                 token.endPosition = lastSourcePosition;
-            else
+            } else {
                 token.endPosition = new SourcePosition(index,line,column,filename);
+            }
             state = continueToken(token);
             if (state == TokenState.NextBegun) {
                 token.validate();
@@ -316,18 +319,16 @@ public final class Lexer {
             nextChar();
         }
         else {
-            continue_ = false;
+            continueToken = false;
         }
     }
     
     int codePoint() { return codePoint; }
 
-    boolean isHex_ = false;
-    boolean escapeSequence_ = false;
-    boolean foundZWJ_ = false;
+    boolean isHex = false;
+    boolean escapeSequence = false;
+    boolean foundZWJ = false;
 
-    boolean continue_ = true;
-
-//    Map<int, TokenType> singleTokens_;    // This is TokenType.map
+    boolean continueToken = true;
 
 }
