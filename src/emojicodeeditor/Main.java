@@ -31,12 +31,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * The starting point of the program.
+ * 
  * @author Daniel Bergqvist
  */
 public class Main {
     
     /**
+     * The starting point of the program.
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {

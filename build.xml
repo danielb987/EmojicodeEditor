@@ -142,8 +142,8 @@
             </structure>
 
             <!-- to produce reports in different formats. -->
-            <html destdir="${jacoco_result.report.dir}" />
-            <csv destfile="${jacoco_result.report.dir}/report.csv" />
+            <!-- <html destdir="${jacoco_result.report.dir}" /> -->
+            <!-- <csv destfile="${jacoco_result.report.dir}/report.csv" /> -->
             <xml destfile="${jacoco_result.report.dir}/report.xml" />
         </jacoco:report>
     </target>
