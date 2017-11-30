@@ -837,15 +837,10 @@
 <error line="30" severity="error" message="Class EmojiTokenization should be declared as final." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
 <error line="35" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="40" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="40" column="35" severity="error" message="Parameter ch should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="116" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="116" column="47" severity="error" message="Parameter ch should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="132" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="132" column="43" severity="error" message="Parameter ch should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="136" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="136" column="47" severity="error" message="Parameter ch should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="140" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="140" column="40" severity="error" message="Parameter str should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/compiler/Lexer.java">
 <error line="21" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
