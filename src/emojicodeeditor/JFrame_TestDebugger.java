@@ -307,7 +307,7 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
             emojiPackage.parse();
         } catch (CompilerError ex) {
             ex.printStackTrace(StandardIO.getInstance().getOutput());
-            jTextPane_SourceCode.setCaretPosition(ex.sourcePosition.index);
+            jTextPane_SourceCode.setCaretPosition(ex.sourcePosition.getIndex());
             jTextPane_SourceCode.requestFocusInWindow();
             throw new RuntimeException(ex);
         } catch (LogicError ex) {
@@ -361,9 +361,9 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
                 AttributeSet attrBlack = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.BLACK);
                 Token token = testTokenStream.consumeToken();
                 sourceCodeDocument.setCharacterAttributes(0, sourceCodeDocument.getLength(), defaultStyle, true);
-                int length = token.endPosition.index - token.startPosition.index;
+                int length = token.endPosition.getIndex() - token.startPosition.getIndex();
 //                System.out.format("Token: %s, %s. Start: %d, end: %d\n", token.type.name(), token.toString(), token.startPosition.index, token.endPosition.index);
-                sourceCodeDocument.setCharacterAttributes(token.startPosition.index,length,attr,false);
+                sourceCodeDocument.setCharacterAttributes(token.startPosition.getIndex(),length,attr,false);
 //                sourceCodeDocument.setCharacterAttributes(token.startPosition.index,2,attr,false);
 //                sourceCodeDocument.setCharacterAttributes(token.startPosition.index,20,attr,false);
 //                sourceCodeDocument.setCharacterAttributes(11,3,attrBlack,false);
@@ -460,10 +460,10 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
         AttributeSet attrTail = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.YELLOW);
         sourceCodeDocument.setCharacterAttributes(0, sourceCodeDocument.getLength(), defaultStyle, true);
 //        System.out.format("%d, %d, %d\n", startPosition.index, middlePosition.index, endPosition.index);
-        int lengthHead = middlePosition.index - startPosition.index;
-        int lengthTail = endPosition.index - middlePosition.index;
-        sourceCodeDocument.setCharacterAttributes(startPosition.index,lengthHead,attrHead,false);
-        sourceCodeDocument.setCharacterAttributes(middlePosition.index,lengthTail,attrTail,false);
+        int lengthHead = middlePosition.getIndex() - startPosition.getIndex();
+        int lengthTail = endPosition.getIndex() - middlePosition.getIndex();
+        sourceCodeDocument.setCharacterAttributes(startPosition.getIndex(),lengthHead,attrHead,false);
+        sourceCodeDocument.setCharacterAttributes(middlePosition.getIndex(),lengthTail,attrTail,false);
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

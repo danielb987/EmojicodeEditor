@@ -150,7 +150,7 @@ public class Debugger {
         if (stopProgram)
             throw new StopProgramException();
         
-        if (pauseOnEveryStep || ((runToCursor >= 0) && runToCursor == startPosition.index)) {
+        if (pauseOnEveryStep || ((runToCursor >= 0) && runToCursor == startPosition.getIndex())) {
             debugActions.next(parent, startPosition, middlePosition, endPosition);
             
             doWait();

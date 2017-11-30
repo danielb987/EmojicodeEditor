@@ -31,16 +31,36 @@ package emojicode;
  */
 public final class SourcePosition {
     
-    public final int index;        // Index in string
-    public final int line;         // Line number in string
-    public final int column;       // Column in string
-    public final String fileName;  // Filename
+    private final int index;        // Index in string
+    private final int line;         // Line number in string
+    private final int column;       // Column in string
+    private final String filename;  // Filename
     
     public SourcePosition(int index, int line, int column, String fileName) {
         this.index = index;
         this.line = line;
         this.column = column;
-        this.fileName = fileName;
+        this.filename = fileName;
+    }
+    
+    
+    public int getIndex() {
+        return index;
+    }
+    
+    
+    public int getLine() {
+        return line;
+    }
+    
+    
+    public int getColumn() {
+        return column;
+    }
+    
+    
+    public String getFilename() {
+        return filename;
     }
     
 }
