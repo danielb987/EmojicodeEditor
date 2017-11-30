@@ -116,7 +116,8 @@ public class WrapLayout extends FlowLayout {
             
             Container container = target;
 
-            while (container.getSize().width == 0 && container.getParent() != null) {
+            while (container.getSize().width == 0
+                   && container.getParent() != null) {
                 container = container.getParent();
             }
 
@@ -129,9 +130,9 @@ public class WrapLayout extends FlowLayout {
             int hgap = getHgap();
             int vgap = getVgap();
             Insets insets = target.getInsets();
-            int horizontalInsetsAndGap = insets.left +
-                                         insets.right +
-                                         (hgap * 2);
+            int horizontalInsetsAndGap = insets.left
+                                         + insets.right
+                                         + (hgap * 2);
             int maxWidth = targetWidth - horizontalInsetsAndGap;
 
             //  Fit components into the allowed width
@@ -146,7 +147,12 @@ public class WrapLayout extends FlowLayout {
                 Component m = target.getComponent(i);
 
                 if (m.isVisible()) {
-                    Dimension d = preferred ? m.getPreferredSize() : m.getMinimumSize();
+                    Dimension d;
+                    if (preferred) {
+                        d = m.getPreferredSize();
+                    } else {
+                        d = m.getMinimumSize();
+                    }
 
                     //  Can't add the component to current row. Start a new row.
 
@@ -172,12 +178,13 @@ public class WrapLayout extends FlowLayout {
             dim.width += horizontalInsetsAndGap;
             dim.height += insets.top + insets.bottom + vgap * 2;
 
-            //	When using a scroll pane or the DecoratedLookAndFeel we need to
-            //  make sure the preferred size is less than the size of the
-            //  target containter so shrinking the container size works
-            //  correctly. Removing the horizontal gap is an easy way to do this.
+            // When using a scroll pane or the DecoratedLookAndFeel we need
+            // to make sure the preferred size is less than the size of the
+            // target containter so shrinking the container size works
+            // correctly. Removing the horizontal gap is an easy way to do this.
 
-            Container scrollPane = SwingUtilities.getAncestorOfClass(JScrollPane.class, target);
+            Container scrollPane =
+                SwingUtilities.getAncestorOfClass(JScrollPane.class, target);
 
             if (scrollPane != null && target.isValid()) {
                 dim.width -= (hgap + 1);
@@ -195,7 +202,9 @@ public class WrapLayout extends FlowLayout {
      *  @param rowWidth the width of the row to add
      *  @param rowHeight the height of the row to add
      */
-    private void addRow(final Dimension dim, final int rowWidth, final int rowHeight) {
+    private void addRow(final Dimension dim,
+                        final int rowWidth,
+                        final int rowHeight) {
         dim.width = Math.max(dim.width, rowWidth);
 
         if (dim.height > 0) {
