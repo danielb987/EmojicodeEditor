@@ -63,11 +63,12 @@ public final class Token {
                     throw new CompilerError(startPosition, endPosition, "Invalid emoji.");
                 }
             default:
+                // No need to validate anything here.
                 break;
         }
     }
     
-    public boolean isIdentifier(int ch) {
+    public boolean isIdentifier(final int ch) {
         return (type == TokenType.Identifier) && (value.length() == 1) && (value.codePointAt(0) == ch);
     }
     
@@ -76,21 +77,21 @@ public final class Token {
     }
     
     
-    public void append(String string) {
+    public void append(final String string) {
 //        System.out.format("Token.append string: %s\n", string);
         value.append(string);
         valueString = null;
     }
     
     
-    public void append(char[] chars) {
+    public void append(final char[] chars) {
         value.append(chars);
         valueString = null;
 //        System.out.format("Token.append chars: %s. After: %s\n", new String(chars), value.toString());
     }
     
     
-    public void append(int codePoint) {
+    public void append(final int codePoint) {
         value.append(Character.toChars(codePoint));
         valueString = null;
 //        System.out.format("Token.append codePoint: %s. After: %s\n", new String(Character.toChars(codePoint)), value.toString());
