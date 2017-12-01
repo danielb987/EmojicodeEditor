@@ -23,23 +23,14 @@
  */
 package emojicode.code;
 
-import java.util.List;
-
 /**
  *
  * @author Daniel Bergqvist
  */
-public abstract class EmojiMethod_Predefined extends EmojiMethod {
+public class EmojiPackagePredifinied extends EmojiPackage {
     
-    public EmojiMethod_Predefined(  DocumentationComment documentationComment,
-                                    Parent parent,
-                                    MethodType methodType,
-                                    String name,
-                                    List<EmojiMethodArgumentType> genericArgumentTypes,
-                                    List<EmojiMethodArgumentType> argumentTypes,
-                                    EmojiArgument returnType
-                                    ) {
-        super(documentationComment, parent, methodType, name, genericArgumentTypes, argumentTypes, returnType);
+    public EmojiPackagePredifinied(String name) {
+        super(name);
     }
     
 }

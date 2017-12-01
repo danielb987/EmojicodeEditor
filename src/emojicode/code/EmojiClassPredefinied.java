@@ -27,9 +27,9 @@ package emojicode.code;
  *
  * @author Daniel Bergqvist
  */
-public abstract class EmojiClass_Predefinied extends EmojiClass {
+public abstract class EmojiClassPredefinied extends EmojiClass {
     
-    public EmojiClass_Predefinied(String name, Parent parent) {
+    public EmojiClassPredefinied(String name, Parent parent) {
         super(name, parent);
     }
     

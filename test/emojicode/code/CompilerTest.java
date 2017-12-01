@@ -24,7 +24,7 @@
 package emojicode.code;
 
 import emojicode.test_templates.*;
-import emojicode.code.EmojiPackage_UserDefinied;
+import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.LogicError;
 import java.io.File;
@@ -130,7 +130,7 @@ public class CompilerTest {
     public void testCompileFile(String filename) throws IOException, CompilerError, LogicError {
 //        System.out.println("testCompile: "+filename);
         String source = readFile(filename);
-        EmojiPackage_UserDefinied emojiPackage = new EmojiPackage_UserDefinied("daniel", filename, source);
+        EmojiPackageUserDefinied emojiPackage = new EmojiPackageUserDefinied("daniel", filename, source);
         emojiPackage.parse();
     }
     

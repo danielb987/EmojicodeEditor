@@ -23,7 +23,7 @@
  */
 package emojicode.test_templates;
 
-import emojicode.code.EmojiPackage_UserDefinied;
+import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.LogicError;
 import org.junit.After;
@@ -66,7 +66,7 @@ public class TestCompilerTemplate {
     @Test
     public void testCompile() {
         System.out.println("testCompile: "+this.getClass().getName());
-        EmojiPackage_UserDefinied emojiPackage = new EmojiPackage_UserDefinied("daniel", SOURCE_FILENAME, SOURCE_CODE);
+        EmojiPackageUserDefinied emojiPackage = new EmojiPackageUserDefinied("daniel", SOURCE_FILENAME, SOURCE_CODE);
         try {
             emojiPackage.parse();
         } catch (CompilerError ex) {

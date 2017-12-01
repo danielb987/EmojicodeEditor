@@ -48,7 +48,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextPane" name="jTextPane_SourceCode">
+        <Component class="javax.swing.JTextPane" name="jTextPaneSourceCode">
         </Component>
       </SubComponents>
     </Container>
@@ -59,21 +59,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton_Compile" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCompile" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton_Run" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonRun" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton_RunToCursor" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonRunToCursor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton_StepInto" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonStepInto" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonStepOver" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonBreakpoint" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="105" max="32767" attributes="0"/>
-                  <Component id="jButton_Tokens" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonTokens" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton_StopProgram" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonStopProgram" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -83,14 +83,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton_Run" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton_StepInto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton_Compile" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton_StopProgram" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton_Tokens" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton_RunToCursor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRun" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonStepInto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonStepOver" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonBreakpoint" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonCompile" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonStopProgram" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonTokens" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRunToCursor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -98,62 +98,62 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton_Run">
+        <Component class="javax.swing.JButton" name="jButtonRun">
           <Properties>
             <Property name="text" type="java.lang.String" value="Run"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_RunActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRunActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton_StepInto">
+        <Component class="javax.swing.JButton" name="jButtonStepInto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Step into"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_StepIntoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStepIntoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="jButtonStepOver">
           <Properties>
             <Property name="text" type="java.lang.String" value="Step over"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="jButtonBreakpoint">
           <Properties>
             <Property name="text" type="java.lang.String" value="Breakpoint"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton_Compile">
+        <Component class="javax.swing.JButton" name="jButtonCompile">
           <Properties>
             <Property name="text" type="java.lang.String" value="Compile"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_CompileActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCompileActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton_StopProgram">
+        <Component class="javax.swing.JButton" name="jButtonStopProgram">
           <Properties>
             <Property name="text" type="java.lang.String" value="Stop program"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_StopProgramActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStopProgramActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton_Tokens">
+        <Component class="javax.swing.JButton" name="jButtonTokens">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tokens"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_TokensActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonTokensActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton_RunToCursor">
+        <Component class="javax.swing.JButton" name="jButtonRunToCursor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Run to cursor"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_RunToCursorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRunToCursorActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -165,7 +165,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea_Output">
+        <Component class="javax.swing.JTextArea" name="jTextAreaOutput">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>

@@ -25,7 +25,7 @@ package emojicodeeditor;
 
 import emojicode.SourcePosition;
 import emojicode.Token;
-import emojicode.code.EmojiPackage_UserDefinied;
+import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.code.Parent;
 import emojicode.code.predifined_packages.s.StandardIO;
 import emojicode.compiler.CompilerError;
@@ -55,7 +55,7 @@ import javax.swing.text.StyleContext;
  * 
  * @author Daniel Bergqvist
  */
-public final class JFrame_TestDebugger extends javax.swing.JFrame implements Debugger.DebugActions {
+public final class TestDebuggerWindow extends javax.swing.JFrame implements Debugger.DebugActions {
     
     private final Style defaultStyle = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
     private final DefaultStyledDocument sourceCodeDocument = new DefaultStyledDocument();
@@ -72,11 +72,11 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
      * 
      * @param filename
      */
-    public JFrame_TestDebugger(String filename) {
+    public TestDebuggerWindow(String filename) {
         initComponents();
         
-        jTextPane_SourceCode.setEditorKit(new EmojiStyledEditorKit());
-        jTextPane_SourceCode.setDocument(sourceCodeDocument);
+        jTextPaneSourceCode.setEditorKit(new EmojiStyledEditorKit());
+        jTextPaneSourceCode.setDocument(sourceCodeDocument);
         
         enableDebugButtons(true);
         
@@ -84,12 +84,12 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
         
         StandardIO.getInstance().setOutput((String string) -> {
             java.awt.EventQueue.invokeLater(() -> {
-                jTextArea_Output.append(string);
+                jTextAreaOutput.append(string);
             });
         });
         
         if (1==1) {
-            jTextPane_SourceCode.setText("Testar Daniel 123123");
+            jTextPaneSourceCode.setText("Testar Daniel 123123");
             return;
         }
         
@@ -97,11 +97,13 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
             byte[] encoded;
             encoded = Files.readAllBytes(Paths.get(filename));
             source = new String(encoded, Charset.forName("UTF-8"));
-            jTextPane_SourceCode.setText(source);
-            jTextPane_SourceCode.setCaretPosition(0);
+            jTextPaneSourceCode.setText(source);
+            jTextPaneSourceCode.setCaretPosition(0);
         } catch (IOException ex) {
-            Logger.getLogger(JFrame_TestDebugger.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestDebuggerWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+//        testStyle();
         
 //        testStyle();
     }
@@ -114,7 +116,7 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
         
         System.out.println("Testar");
         
-        jTextPane_SourceCode.setCaretPosition(0);
+        jTextPaneSourceCode.setCaretPosition(0);
         
         sourceCodeDocument.setCharacterAttributes(0, sourceCodeDocument.getLength(), defaultStyle, true);
         
@@ -145,66 +147,66 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane_SourceCode = new javax.swing.JTextPane();
+        jTextPaneSourceCode = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton_Run = new javax.swing.JButton();
-        jButton_StepInto = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton_Compile = new javax.swing.JButton();
-        jButton_StopProgram = new javax.swing.JButton();
-        jButton_Tokens = new javax.swing.JButton();
-        jButton_RunToCursor = new javax.swing.JButton();
+        jButtonRun = new javax.swing.JButton();
+        jButtonStepInto = new javax.swing.JButton();
+        jButtonStepOver = new javax.swing.JButton();
+        jButtonBreakpoint = new javax.swing.JButton();
+        jButtonCompile = new javax.swing.JButton();
+        jButtonStopProgram = new javax.swing.JButton();
+        jButtonTokens = new javax.swing.JButton();
+        jButtonRunToCursor = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea_Output = new javax.swing.JTextArea();
+        jTextAreaOutput = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(jTextPane_SourceCode);
+        jScrollPane1.setViewportView(jTextPaneSourceCode);
 
-        jButton_Run.setText("Run");
-        jButton_Run.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRun.setText("Run");
+        jButtonRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RunActionPerformed(evt);
+                jButtonRunActionPerformed(evt);
             }
         });
 
-        jButton_StepInto.setText("Step into");
-        jButton_StepInto.addActionListener(new java.awt.event.ActionListener() {
+        jButtonStepInto.setText("Step into");
+        jButtonStepInto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_StepIntoActionPerformed(evt);
+                jButtonStepIntoActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Step over");
+        jButtonStepOver.setText("Step over");
 
-        jButton4.setText("Breakpoint");
+        jButtonBreakpoint.setText("Breakpoint");
 
-        jButton_Compile.setText("Compile");
-        jButton_Compile.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCompile.setText("Compile");
+        jButtonCompile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_CompileActionPerformed(evt);
+                jButtonCompileActionPerformed(evt);
             }
         });
 
-        jButton_StopProgram.setText("Stop program");
-        jButton_StopProgram.addActionListener(new java.awt.event.ActionListener() {
+        jButtonStopProgram.setText("Stop program");
+        jButtonStopProgram.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_StopProgramActionPerformed(evt);
+                jButtonStopProgramActionPerformed(evt);
             }
         });
 
-        jButton_Tokens.setText("Tokens");
-        jButton_Tokens.addActionListener(new java.awt.event.ActionListener() {
+        jButtonTokens.setText("Tokens");
+        jButtonTokens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_TokensActionPerformed(evt);
+                jButtonTokensActionPerformed(evt);
             }
         });
 
-        jButton_RunToCursor.setText("Run to cursor");
-        jButton_RunToCursor.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRunToCursor.setText("Run to cursor");
+        jButtonRunToCursor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_RunToCursorActionPerformed(evt);
+                jButtonRunToCursorActionPerformed(evt);
             }
         });
 
@@ -214,21 +216,21 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton_Compile)
+                .addComponent(jButtonCompile)
                 .addGap(18, 18, 18)
-                .addComponent(jButton_Run)
+                .addComponent(jButtonRun)
                 .addGap(18, 18, 18)
-                .addComponent(jButton_RunToCursor)
+                .addComponent(jButtonRunToCursor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_StepInto)
+                .addComponent(jButtonStepInto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(jButtonStepOver)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(jButtonBreakpoint)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addComponent(jButton_Tokens)
+                .addComponent(jButtonTokens)
                 .addGap(18, 18, 18)
-                .addComponent(jButton_StopProgram)
+                .addComponent(jButtonStopProgram)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -236,20 +238,20 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Run)
-                    .addComponent(jButton_StepInto)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton_Compile)
-                    .addComponent(jButton_StopProgram)
-                    .addComponent(jButton_Tokens)
-                    .addComponent(jButton_RunToCursor))
+                    .addComponent(jButtonRun)
+                    .addComponent(jButtonStepInto)
+                    .addComponent(jButtonStepOver)
+                    .addComponent(jButtonBreakpoint)
+                    .addComponent(jButtonCompile)
+                    .addComponent(jButtonStopProgram)
+                    .addComponent(jButtonTokens)
+                    .addComponent(jButtonRunToCursor))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextArea_Output.setColumns(20);
-        jTextArea_Output.setRows(5);
-        jScrollPane2.setViewportView(jTextArea_Output);
+        jTextAreaOutput.setColumns(20);
+        jTextAreaOutput.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaOutput);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,9 +274,9 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_RunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RunActionPerformed
+    private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
         
-        emojicode.code.EmojiPackage_UserDefinied emojiPackage;
+        emojicode.code.EmojiPackageUserDefinied emojiPackage;
         
         enableDebugButtons(false);
         startProgram(false);
@@ -298,24 +300,24 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
             ex.printStackTrace(StandardIO.getInstance().getOutput());
         }
 */        
-    }//GEN-LAST:event_jButton_RunActionPerformed
+    }//GEN-LAST:event_jButtonRunActionPerformed
 
-    private void jButton_CompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CompileActionPerformed
+    private void jButtonCompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCompileActionPerformed
         try {
-            jTextArea_Output.setText("");
-            emojicode.code.EmojiPackage_UserDefinied emojiPackage = new emojicode.code.EmojiPackage_UserDefinied("daniel", filename, source);
+            jTextAreaOutput.setText("");
+            emojicode.code.EmojiPackageUserDefinied emojiPackage = new emojicode.code.EmojiPackageUserDefinied("daniel", filename, source);
             emojiPackage.parse();
         } catch (CompilerError ex) {
             ex.printStackTrace(StandardIO.getInstance().getOutput());
-            jTextPane_SourceCode.setCaretPosition(ex.sourcePosition.getIndex());
-            jTextPane_SourceCode.requestFocusInWindow();
+            jTextPaneSourceCode.setCaretPosition(ex.sourcePosition.getIndex());
+            jTextPaneSourceCode.requestFocusInWindow();
             throw new RuntimeException(ex);
         } catch (LogicError ex) {
             ex.printStackTrace(StandardIO.getInstance().getOutput());
         }
-    }//GEN-LAST:event_jButton_CompileActionPerformed
+    }//GEN-LAST:event_jButtonCompileActionPerformed
 
-    private void jButton_StepIntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StepIntoActionPerformed
+    private void jButtonStepIntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStepIntoActionPerformed
         
         Debugger debugger = Debugger.getInstance();
         
@@ -333,14 +335,14 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
             ex.printStackTrace(StandardIO.getInstance().getOutput());
         }
 */
-    }//GEN-LAST:event_jButton_StepIntoActionPerformed
+    }//GEN-LAST:event_jButtonStepIntoActionPerformed
 
-    private void jButton_StopProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_StopProgramActionPerformed
+    private void jButtonStopProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStopProgramActionPerformed
         System.out.println("AAA");
         Debugger.getInstance().stopDebugger();
-    }//GEN-LAST:event_jButton_StopProgramActionPerformed
+    }//GEN-LAST:event_jButtonStopProgramActionPerformed
 
-    private void jButton_TokensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TokensActionPerformed
+    private void jButtonTokensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTokensActionPerformed
         
         if (testTokenStream == null) {
             Lexer lexer = new Lexer(source, filename);
@@ -375,11 +377,11 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
         } else {
             testTokenStream = null;
         }
-    }//GEN-LAST:event_jButton_TokensActionPerformed
+    }//GEN-LAST:event_jButtonTokensActionPerformed
 
-    private void jButton_RunToCursorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RunToCursorActionPerformed
+    private void jButtonRunToCursorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunToCursorActionPerformed
         
-        int runToCursor = jTextPane_SourceCode.getSelectionStart();
+        int runToCursor = jTextPaneSourceCode.getSelectionStart();
 //        System.out.format("Cursor: %d\n", runToCursor);
 //        if (1==1)
 //            return;
@@ -390,31 +392,31 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
             debugger.continueRunToCursor(runToCursor);
         else
             startProgram(false, runToCursor);
-    }//GEN-LAST:event_jButton_RunToCursorActionPerformed
+    }//GEN-LAST:event_jButtonRunToCursorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton_Compile;
-    private javax.swing.JButton jButton_Run;
-    private javax.swing.JButton jButton_RunToCursor;
-    private javax.swing.JButton jButton_StepInto;
-    private javax.swing.JButton jButton_StopProgram;
-    private javax.swing.JButton jButton_Tokens;
+    private javax.swing.JButton jButtonBreakpoint;
+    private javax.swing.JButton jButtonCompile;
+    private javax.swing.JButton jButtonRun;
+    private javax.swing.JButton jButtonRunToCursor;
+    private javax.swing.JButton jButtonStepInto;
+    private javax.swing.JButton jButtonStepOver;
+    private javax.swing.JButton jButtonStopProgram;
+    private javax.swing.JButton jButtonTokens;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea_Output;
-    private javax.swing.JTextPane jTextPane_SourceCode;
+    private javax.swing.JTextArea jTextAreaOutput;
+    private javax.swing.JTextPane jTextPaneSourceCode;
     // End of variables declaration//GEN-END:variables
     
     
     private void enableDebugButtons(boolean enable) {
-        jButton_Run.setEnabled(enable);
-        jButton_Compile.setEnabled(enable);
-        jButton_StepInto.setEnabled(enable);
-        jButton_StopProgram.setEnabled(! enable);
+        jButtonRun.setEnabled(enable);
+        jButtonCompile.setEnabled(enable);
+        jButtonStepInto.setEnabled(enable);
+        jButtonStopProgram.setEnabled(! enable);
     }
     
     
@@ -424,12 +426,12 @@ public final class JFrame_TestDebugger extends javax.swing.JFrame implements Deb
     
     
     private void startProgram(boolean pauseOnEveryStep, int runToCursor) {
-        emojicode.code.EmojiPackage_UserDefinied emojiPackage;
+        emojicode.code.EmojiPackageUserDefinied emojiPackage;
         
         enableDebugButtons(false);
         try {
-            jTextArea_Output.setText("");
-            emojiPackage = new emojicode.code.EmojiPackage_UserDefinied("daniel", filename, source);
+            jTextAreaOutput.setText("");
+            emojiPackage = new emojicode.code.EmojiPackageUserDefinied("daniel", filename, source);
             emojiPackage.parse();
 //            emojiPackage.run();
         } catch (CompilerError | LogicError ex) {

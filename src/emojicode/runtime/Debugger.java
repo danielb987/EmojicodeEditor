@@ -25,7 +25,7 @@ package emojicode.runtime;
 
 import emojicode.SourcePosition;
 import emojicode.code.EmojiPackage;
-import emojicode.code.EmojiPackage_UserDefinied;
+import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.code.Parent;
 import emojicode.code.predifined_packages.s.StandardIO;
 import java.io.IOException;
@@ -104,7 +104,7 @@ public class Debugger {
     }
     
     
-    public void runProgram(EmojiPackage_UserDefinied emojiPackage, DebugActions debugActions) throws DebuggerException {
+    public void runProgram(EmojiPackageUserDefinied emojiPackage, DebugActions debugActions) throws DebuggerException {
         if (programIsRunning)
             throw new DebuggerException.DebuggerException_ProgramIsRunning();
         this.debugActions = debugActions;
@@ -122,7 +122,7 @@ public class Debugger {
     }
     
     
-    public void runProgramToCursor(EmojiPackage_UserDefinied emojiPackage, DebugActions debugActions, int runToCursor) throws DebuggerException {
+    public void runProgramToCursor(EmojiPackageUserDefinied emojiPackage, DebugActions debugActions, int runToCursor) throws DebuggerException {
         if (programIsRunning)
             throw new DebuggerException.DebuggerException_ProgramIsRunning();
         this.debugActions = debugActions;

@@ -23,13 +23,13 @@
  */
 package emojicode.code.predifined_packages.s;
 
-import emojicode.code.EmojiClass_Predefinied;
+import emojicode.code.EmojiClassPredefinied;
 import emojicode.code.EmojiMethod;
 import emojicode.code.EmojiPackage;
 import emojicode.code.EmojiArgument;
 import emojicode.code.EmojiClassInstance;
 import emojicode.code.EmojiMethodArgumentType;
-import emojicode.code.EmojiMethod_Predefined;
+import emojicode.code.EmojiMethodPredefined;
 import emojicode.code.EmojiReturnValue;
 import emojicode.code.Parent;
 import emojicode.compiler.CompilerError;
@@ -45,12 +45,12 @@ import java.util.logging.Logger;
  *
  * @author Daniel Bergqvist
  */
-public final class EmojiString extends EmojiClass_Predefinied {
+public final class EmojiString extends EmojiClassPredefinied {
     
     private static EmojiString instance;
     
     
-    public static EmojiString createInstance(EmojiPackage emojiPackage) throws CompilerError {
+    public static EmojiString createInstance(EmojiPackage emojiPackage) {
         instance = new EmojiString(emojiPackage);
         return instance;
     }
@@ -61,30 +61,35 @@ public final class EmojiString extends EmojiClass_Predefinied {
     }
     
     
-    private EmojiString(EmojiPackage emojiPackage) throws CompilerError {
+    private EmojiString(EmojiPackage emojiPackage) {
         super(getStringClassEmoji(), emojiPackage);
         
         registerMethods();
     }
     
-    void registerMethods() throws CompilerError {
-        // Initializer
-        // Prompts the user for input. (via the standard input/output)
-        addInitializerOrMethod(new EmojiMethod_Predefined(null, this, EmojiMethod.MethodType.INITIALIZER, "😯", new ArrayList<>(), new ArrayList<>(), null) {
-            @Override
-            public void execute(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
-                prompts_the_user_for_input(instance, arguments, returnValue);
-            }
-        }, null, null);
+    void registerMethods() {
+        try {
+            // Initializer
+            // Prompts the user for input. (via the standard input/output)
+            addInitializerOrMethod(new EmojiMethodPredefined(null, this, EmojiMethod.MethodType.INITIALIZER, "😯", new ArrayList<>(), new ArrayList<>(), null) {
+                @Override
+                public void execute(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
+                    prompts_the_user_for_input(instance, arguments, returnValue);
+                }
+            }, null, null);
+
+            // Puts this 🔡 to the standard output
+            addInitializerOrMethod(new EmojiMethodPredefined(null, this, EmojiMethod.MethodType.METHOD, "😀", new ArrayList<>(), Collections.singletonList(EmojiMethodArgumentType.StringArgument), null) {
+                @Override
+                public void execute(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
+                    puts_this_string_to_the_standard_output(instance, arguments, returnValue);
+                }
+            }, null, null);
         
-        // Puts this 🔡 to the standard output
-        addInitializerOrMethod(new EmojiMethod_Predefined(null, this, EmojiMethod.MethodType.METHOD, "😀", new ArrayList<>(), Collections.singletonList(EmojiMethodArgumentType.StringArgument), null) {
-            @Override
-            public void execute(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
-                puts_this_string_to_the_standard_output(instance, arguments, returnValue);
-            }
-        }, null, null);
-        
+        } catch (CompilerError e) {
+            // If we get a CompilerError exception, we have a bug the program.
+            throw new RuntimeException("Failed to register methods", e);
+        }
     }
     
     

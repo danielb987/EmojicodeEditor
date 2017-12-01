@@ -21,21 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package emojicode.code.predifined_packages.s;
+package emojicode.code;
 
-import emojicode.code.EmojiPackage;
-import emojicode.compiler.CompilerError;
+import java.util.List;
 
 /**
  *
  * @author Daniel Bergqvist
  */
-public class _RegisterClasses {
+public abstract class EmojiMethodPredefined extends EmojiMethod {
     
-    public static void register() throws CompilerError {
-        EmojiPackage emojiPackage = new EmojiPackage("s");
-        emojiPackage.add(EmojiString.createInstance(emojiPackage));
-        EmojiPackage.add(emojiPackage);
+    public EmojiMethodPredefined(  DocumentationComment documentationComment,
+                                    Parent parent,
+                                    MethodType methodType,
+                                    String name,
+                                    List<EmojiMethodArgumentType> genericArgumentTypes,
+                                    List<EmojiMethodArgumentType> argumentTypes,
+                                    EmojiArgument returnType
+                                    ) {
+        super(documentationComment, parent, methodType, name, genericArgumentTypes, argumentTypes, returnType);
     }
     
 }

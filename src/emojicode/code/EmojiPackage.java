@@ -48,11 +48,7 @@ public class EmojiPackage extends Parent {
     
     // Read all predifined packages
     static {
-        try {
-            emojicode.code.predifined_packages.s._RegisterClasses.register();
-        } catch (CompilerError ex) {
-            Logger.getLogger(EmojiPackage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        emojicode.code.predifined_packages.s.RegisterClasses.register();
     }
     
     

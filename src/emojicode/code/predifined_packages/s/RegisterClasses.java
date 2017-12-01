@@ -21,16 +21,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package emojicode.code;
+package emojicode.code.predifined_packages.s;
+
+import emojicode.code.EmojiPackage;
+import emojicode.compiler.CompilerError;
 
 /**
  *
  * @author Daniel Bergqvist
  */
-public class EmojiPackage_Predifinied extends EmojiPackage {
+public class RegisterClasses {
     
-    public EmojiPackage_Predifinied(String name) {
-        super(name);
+    /**
+     * Register the standard classes that are emulated by EmojicodeEditor.
+     */
+    public static void register() {
+        EmojiPackage emojiPackage = new EmojiPackage("s");
+        emojiPackage.add(EmojiString.createInstance(emojiPackage));
+        EmojiPackage.add(emojiPackage);
+    }
+
+    private RegisterClasses() {
     }
     
 }

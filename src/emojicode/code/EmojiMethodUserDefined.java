@@ -41,12 +41,12 @@ import java.util.List;
  * 
  * @author Daniel Bergqvist
  */
-public class EmojiMethod_UserDefined extends EmojiMethod {
+public class EmojiMethodUserDefined extends EmojiMethod {
     
     private final CodeBlock codeBlock;
     
     
-    public EmojiMethod_UserDefined( DocumentationComment documentationComment,
+    public EmojiMethodUserDefined( DocumentationComment documentationComment,
                                     Parent parent,
                                     MethodType methodType,
                                     String name,

@@ -66,7 +66,7 @@ public class Main {
 //                    filename = "emojicode_test/compilation/extension.emojic";
 //                    filename = "emojicode_test/compilation/class.emojic";
 ////                    filename = "emojicode_test/compilation/class.emojic";
-                    new JFrame_TestDebugger(filename).setVisible(true);
+                    new TestDebuggerWindow(filename).setVisible(true);
                 }
             });
             return;
@@ -104,7 +104,7 @@ public class Main {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrame_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         
@@ -114,7 +114,7 @@ public class Main {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new JFrame_Main().setVisible(true);
+                new MainWindow().setVisible(true);
             }
         });
     }

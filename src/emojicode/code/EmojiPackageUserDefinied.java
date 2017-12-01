@@ -35,7 +35,7 @@ import emojicode.compiler.TokenStream;
  *
  * @author Daniel Bergqvist
  */
-public class EmojiPackage_UserDefinied extends EmojiPackage {
+public class EmojiPackageUserDefinied extends EmojiPackage {
     
     final String filename;
     final String source;
@@ -45,7 +45,7 @@ public class EmojiPackage_UserDefinied extends EmojiPackage {
     DocumentationComment lastDocumentationComment = null;
     
     
-    public EmojiPackage_UserDefinied(String name, String filename, String source) {
+    public EmojiPackageUserDefinied(String name, String filename, String source) {
         super(name);
         this.filename = filename;
         this.source = source;
@@ -83,7 +83,7 @@ public class EmojiPackage_UserDefinied extends EmojiPackage {
                     case Emojicode.E_RABBIT:    // 🐇 - class = define a class
                         tokenStream.consumeToken();
                         Token classIdentifierToken = tokenStream.consumeToken(TokenType.Identifier);
-                        EmojiClass_UserDefined emojiClass = new EmojiClass_UserDefined(classIdentifierToken.toString(), lastDocumentationComment, this);
+                        EmojiClassUserDefined emojiClass = new EmojiClassUserDefined(classIdentifierToken.toString(), lastDocumentationComment, this);
                         emojiClass.parse(tokenStream);
                         classes.put(emojiClass.name, emojiClass);
 //                        mainBlock = new MainBlock(lastDocumentationComment, this);

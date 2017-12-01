@@ -40,7 +40,7 @@ import javax.swing.Timer;
  */
 public final class EmojiTextPane extends JTextPane implements MouseListener, MouseMotionListener {
     
-    private final JFrame_Main jFrameMain;
+    private final MainWindow jFrameMain;
     private final Timer timer;
 //    private final EditorToolTip editorToolTip;
     private final JPopupMenu popup;
@@ -49,7 +49,7 @@ public final class EmojiTextPane extends JTextPane implements MouseListener, Mou
     private final Point lastMousePos = new Point();
     
     
-    EmojiTextPane(JFrame_Main jFrameMain) {
+    EmojiTextPane(MainWindow jFrameMain) {
         this.jFrameMain = jFrameMain;
 //        this.setFont(new Font(Font.DIALOG, Font.PLAIN, 12));
 //        this.setFont(new Font(Font.DIALOG, Font.PLAIN, 14));

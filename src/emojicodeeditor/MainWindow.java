@@ -46,12 +46,14 @@ import javax.swing.ToolTipManager;
  *
  * @author daniel
  */
-public final class JFrame_Main extends javax.swing.JFrame {
+public final class MainWindow extends javax.swing.JFrame {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * Creates new form JFrame_Main
      */
-    public JFrame_Main() {
+    public MainWindow() {
         initComponents();
         
         ToolTipManager.sharedInstance().setDismissDelay(10000);
@@ -62,22 +64,22 @@ public final class JFrame_Main extends javax.swing.JFrame {
         
         java.awt.Container pane = getContentPane();
         pane.setLayout(new java.awt.BorderLayout());
-        pane.add(jPanel_Toolbar, java.awt.BorderLayout.PAGE_START);
-        pane.add(jSplitPane_Tree,java.awt.BorderLayout.CENTER);
-        jSplitPane_Tree.setDividerLocation(0.3);
-        jSplitPane_Output.setDividerLocation(0.5);
+        pane.add(jPanelToolbar, java.awt.BorderLayout.PAGE_START);
+        pane.add(jSplitPaneTree,java.awt.BorderLayout.CENTER);
+        jSplitPaneTree.setDividerLocation(0.3);
+        jSplitPaneOutput.setDividerLocation(0.5);
         
-        jPanel_Toolbar.setLayout(new WrapLayout());
-        jPanel_Toolbar.setSize(500,500);
+        jPanelToolbar.setLayout(new WrapLayout());
+        jPanelToolbar.setSize(500,500);
         
         // This label is only to make the toolbar panel visible in the Netbeans GUI design
-        jPanel_Toolbar.remove(jLabel_MakeToolbarVisible);
+        jPanelToolbar.remove(jLabelMakeToolbarVisible);
         
         this.addComponentListener(new java.awt.event.ComponentListener() {
             @Override
             public void componentResized(ComponentEvent e) {
-                jSplitPane_Tree.setDividerLocation(200);
-                jSplitPane_Output.setDividerLocation(0.8);
+                jSplitPaneTree.setDividerLocation(200);
+                jSplitPaneOutput.setDividerLocation(0.8);
 //                jSplitPane_Output.setDividerLocation(jSplitPane_Output.getHeight()-200);
             }
 
@@ -169,14 +171,14 @@ public final class JFrame_Main extends javax.swing.JFrame {
         byte[] encoded;
         try {
             encoded = Files.readAllBytes(Paths.get("greeter.emojic"));
-            jTextPane_Editor.setText(new String(encoded, Charset.forName("UTF-8")));
-            String text = jTextPane_Editor.getText();
+            jTextPaneEditor.setText(new String(encoded, Charset.forName("UTF-8")));
+            String text = jTextPaneEditor.getText();
             for (int i = 0; i < text.length(); i++) {
                 String str = text.substring(i, i + Character.charCount(text.codePointAt(i)));
                 System.out.format("%d: %d, %s\n", i, text.codePointAt(i), str);
             }
         } catch (IOException ex) {
-            Logger.getLogger(JFrame_Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -189,67 +191,67 @@ public final class JFrame_Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel_Toolbar = new javax.swing.JPanel();
-        jLabel_MakeToolbarVisible = new javax.swing.JLabel();
-        jSplitPane_Tree = new javax.swing.JSplitPane();
-        jSplitPane_Output = new javax.swing.JSplitPane();
-        jPanel_Output = new javax.swing.JPanel();
+        jPanelToolbar = new javax.swing.JPanel();
+        jLabelMakeToolbarVisible = new javax.swing.JLabel();
+        jSplitPaneTree = new javax.swing.JSplitPane();
+        jSplitPaneOutput = new javax.swing.JSplitPane();
+        jPanelOutput = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaOutput = new javax.swing.JTextArea();
         jSplitPane1 = new javax.swing.JSplitPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane_Editor = new EmojiTextPane(this);
+        jTextPaneEditor = new EmojiTextPane(this);
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu_Compile = new javax.swing.JMenu();
+        jMenuBarMainMenu = new javax.swing.JMenuBar();
+        jMenuFile = new javax.swing.JMenu();
+        jMenuEdit = new javax.swing.JMenu();
+        jMenuCompile = new javax.swing.JMenu();
         jMenuItem_Compile = new javax.swing.JMenuItem();
         jMenuItem_Run = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EmojicodeEditor");
 
-        jLabel_MakeToolbarVisible.setText("Label to show toolbar panel");
+        jLabelMakeToolbarVisible.setText("Label to show toolbar panel");
 
-        javax.swing.GroupLayout jPanel_ToolbarLayout = new javax.swing.GroupLayout(jPanel_Toolbar);
-        jPanel_Toolbar.setLayout(jPanel_ToolbarLayout);
-        jPanel_ToolbarLayout.setHorizontalGroup(
-            jPanel_ToolbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_ToolbarLayout.createSequentialGroup()
-                .addComponent(jLabel_MakeToolbarVisible)
+        javax.swing.GroupLayout jPanelToolbarLayout = new javax.swing.GroupLayout(jPanelToolbar);
+        jPanelToolbar.setLayout(jPanelToolbarLayout);
+        jPanelToolbarLayout.setHorizontalGroup(
+            jPanelToolbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelToolbarLayout.createSequentialGroup()
+                .addComponent(jLabelMakeToolbarVisible)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel_ToolbarLayout.setVerticalGroup(
-            jPanel_ToolbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_MakeToolbarVisible)
+        jPanelToolbarLayout.setVerticalGroup(
+            jPanelToolbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelMakeToolbarVisible)
         );
 
-        jSplitPane_Output.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPaneOutput.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        jPanel_Output.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
+        jPanelOutput.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jTextAreaOutput.setColumns(20);
+        jTextAreaOutput.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaOutput);
 
-        javax.swing.GroupLayout jPanel_OutputLayout = new javax.swing.GroupLayout(jPanel_Output);
-        jPanel_Output.setLayout(jPanel_OutputLayout);
-        jPanel_OutputLayout.setHorizontalGroup(
-            jPanel_OutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelOutputLayout = new javax.swing.GroupLayout(jPanelOutput);
+        jPanelOutput.setLayout(jPanelOutputLayout);
+        jPanelOutputLayout.setHorizontalGroup(
+            jPanelOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
         );
-        jPanel_OutputLayout.setVerticalGroup(
-            jPanel_OutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelOutputLayout.setVerticalGroup(
+            jPanelOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
         );
 
-        jSplitPane_Output.setRightComponent(jPanel_Output);
+        jSplitPaneOutput.setRightComponent(jPanelOutput);
 
-        jScrollPane1.setViewportView(jTextPane_Editor);
+        jScrollPane1.setViewportView(jTextPaneEditor);
 
         jTabbedPane1.addTab("tab4", jScrollPane1);
 
@@ -268,21 +270,21 @@ public final class JFrame_Main extends javax.swing.JFrame {
 
         jSplitPane1.setRightComponent(jPanel1);
 
-        jSplitPane_Output.setLeftComponent(jSplitPane1);
+        jSplitPaneOutput.setLeftComponent(jSplitPane1);
 
-        jSplitPane_Tree.setRightComponent(jSplitPane_Output);
+        jSplitPaneTree.setRightComponent(jSplitPaneOutput);
 
         jScrollPane3.setViewportView(jTree1);
 
-        jSplitPane_Tree.setLeftComponent(jScrollPane3);
+        jSplitPaneTree.setLeftComponent(jScrollPane3);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jMenuFile.setText("File");
+        jMenuBarMainMenu.add(jMenuFile);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jMenuEdit.setText("Edit");
+        jMenuBarMainMenu.add(jMenuEdit);
 
-        jMenu_Compile.setText("Compile");
+        jMenuCompile.setText("Compile");
 
         jMenuItem_Compile.setText("Compile");
         jMenuItem_Compile.addActionListener(new java.awt.event.ActionListener() {
@@ -290,7 +292,7 @@ public final class JFrame_Main extends javax.swing.JFrame {
                 jMenuItem_CompileActionPerformed(evt);
             }
         });
-        jMenu_Compile.add(jMenuItem_Compile);
+        jMenuCompile.add(jMenuItem_Compile);
 
         jMenuItem_Run.setText("Run");
         jMenuItem_Run.addActionListener(new java.awt.event.ActionListener() {
@@ -298,28 +300,28 @@ public final class JFrame_Main extends javax.swing.JFrame {
                 jMenuItem_RunActionPerformed(evt);
             }
         });
-        jMenu_Compile.add(jMenuItem_Run);
+        jMenuCompile.add(jMenuItem_Run);
 
-        jMenuBar1.add(jMenu_Compile);
+        jMenuBarMainMenu.add(jMenuCompile);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBarMainMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel_Toolbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelToolbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(jSplitPane_Tree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSplitPaneTree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_Toolbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelToolbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSplitPane_Tree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSplitPaneTree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
 
@@ -340,17 +342,17 @@ public final class JFrame_Main extends javax.swing.JFrame {
 //            writer.close();
             String line;
             while ((line = reader.readLine()) != null) {
-                jTextArea1.append(line);
-                jTextArea1.append(System.lineSeparator());
+                jTextAreaOutput.append(line);
+                jTextAreaOutput.append(System.lineSeparator());
 //                System.out.println(line);
             }
             while ((line = error.readLine()) != null) {
-                jTextArea1.append(line);
-                jTextArea1.append(System.lineSeparator());
+                jTextAreaOutput.append(line);
+                jTextAreaOutput.append(System.lineSeparator());
 //                System.out.println(line);
             }
         } catch (IOException ex) {
-            Logger.getLogger(JFrame_Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItem_CompileActionPerformed
 
@@ -368,17 +370,17 @@ public final class JFrame_Main extends javax.swing.JFrame {
 //            writer.close();
             String line;
             while ((line = reader.readLine()) != null) {
-                jTextArea1.append(line);
-                jTextArea1.append(System.lineSeparator());
+                jTextAreaOutput.append(line);
+                jTextAreaOutput.append(System.lineSeparator());
 //                System.out.println(line);
             }
             while ((line = error.readLine()) != null) {
-                jTextArea1.append(line);
-                jTextArea1.append(System.lineSeparator());
+                jTextAreaOutput.append(line);
+                jTextAreaOutput.append(System.lineSeparator());
 //                System.out.println(line);
             }
         } catch (IOException ex) {
-            Logger.getLogger(JFrame_Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItem_RunActionPerformed
 
@@ -426,25 +428,25 @@ public final class JFrame_Main extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel_MakeToolbarVisible;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jLabelMakeToolbarVisible;
+    private javax.swing.JMenuBar jMenuBarMainMenu;
+    private javax.swing.JMenu jMenuCompile;
+    private javax.swing.JMenu jMenuEdit;
+    private javax.swing.JMenu jMenuFile;
     private javax.swing.JMenuItem jMenuItem_Compile;
     private javax.swing.JMenuItem jMenuItem_Run;
-    private javax.swing.JMenu jMenu_Compile;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel_Output;
-    private javax.swing.JPanel jPanel_Toolbar;
+    private javax.swing.JPanel jPanelOutput;
+    private javax.swing.JPanel jPanelToolbar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JSplitPane jSplitPane_Output;
-    private javax.swing.JSplitPane jSplitPane_Tree;
+    private javax.swing.JSplitPane jSplitPaneOutput;
+    private javax.swing.JSplitPane jSplitPaneTree;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextPane jTextPane_Editor;
+    private javax.swing.JTextArea jTextAreaOutput;
+    private javax.swing.JTextPane jTextPaneEditor;
     private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }

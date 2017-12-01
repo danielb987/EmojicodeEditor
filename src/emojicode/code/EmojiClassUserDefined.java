@@ -38,18 +38,18 @@ import java.util.List;
  *
  * @author Daniel Bergqvist
  */
-public class EmojiClass_UserDefined extends EmojiClass {
+public class EmojiClassUserDefined extends EmojiClass {
     
     
     private Token tokenSuperClass;
     
     
-    public EmojiClass_UserDefined(String name, Parent parent) {
+    public EmojiClassUserDefined(String name, Parent parent) {
         super(name, parent);
     }
     
     
-    public EmojiClass_UserDefined(String name, DocumentationComment documentationComment, Parent parent) {
+    public EmojiClassUserDefined(String name, DocumentationComment documentationComment, Parent parent) {
         super(name, parent);
     }
     
@@ -100,7 +100,7 @@ public class EmojiClass_UserDefined extends EmojiClass {
         codeBlock.parse(tokenStream);
         
         addInitializerOrMethod(
-                new EmojiMethod_UserDefined(
+                new EmojiMethodUserDefined(
                         documentationComment,
                         this,
                         methodType,
