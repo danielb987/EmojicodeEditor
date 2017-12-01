@@ -29,8 +29,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The types of tokens that the compiler can handle
- * 
+ * The types of tokens that the compiler can handle.
+ *
  * @author Daniel Bergqvist
  */
 public enum TokenType {
