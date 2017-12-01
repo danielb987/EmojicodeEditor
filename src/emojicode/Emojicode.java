@@ -271,7 +271,7 @@ public interface Emojicode {
     //CHECKSTYLE.ON: JavadocVariableCheck
     
     
-    static String[] EMOJI_ARRAY = {
+    String[] EMOJI_ARRAY = {
         "🏠", "🍇", "🍬", "🔶", "↩", "🍰", "🍮", "🍌", "🍪", "🍨", "🍯", "🍆",
         "🍊", "🍋", "🍓", "🍉", "🔁", "🔂", "🐕", "🔷", "⚡", "☁", "🐚", "📻",
         "➡", "🐊", "🐖", "🏁", "🦃", "🐋", "🔮", "🐇", "🔏", "🔓", "🔒", "🔐",
@@ -284,7 +284,7 @@ public interface Emojicode {
         "🆕"
     };
     
-    static final Integer[] EMOJI_WHITESPACES_ARRAY = {
+    final Integer[] EMOJI_WHITESPACES_ARRAY = {
         0x9,
         0xA,
         0xB,
@@ -313,8 +313,8 @@ public interface Emojicode {
         0xFE0F
     };
     
-    final List<Integer> EMOJI_WHITESPACES_LIST =
-                            Arrays.asList(EMOJI_WHITESPACES_ARRAY);
+    List<Integer> EMOJI_WHITESPACES_LIST =
+                    Arrays.asList(EMOJI_WHITESPACES_ARRAY);
     
     /**
      * Return a string containing of the unicode character. This method is used
@@ -329,7 +329,7 @@ public interface Emojicode {
     
     
     /**
-     * Checks if a codepoint is a white space
+     * Checks if a codepoint is a white space.
      * @param codePoint the codepoint to check
      * @return true if the codepoint is a white space
      */
