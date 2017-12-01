@@ -93,16 +93,16 @@ public enum TokenType {
     }
     
     
-    private TokenType() {
+    TokenType() {
     }
     
     
-    private TokenType(final String emojicode) {
+    TokenType(final String emojicode) {
         put(emojicode.codePointAt(0), this);
     }
     
     
-    private TokenType(final String[] emojicodeList) {
+    TokenType(final String[] emojicodeList) {
         for (String emojicode : emojicodeList) {
             put(emojicode.codePointAt(0), this);
         }
@@ -111,7 +111,7 @@ public enum TokenType {
     
     /**
      * Get all emojis that are operators.
-     * 
+     *
      * @return a list of all emojis that are operators
      */
     private static String[] getOperatorEmojis() {
@@ -142,11 +142,11 @@ public enum TokenType {
     
     /**
      * Get the token type of the unicode codepoint.
-     * 
+     *
      * @param codePoint the codepoint for which to get the token type
      * @return the token type
      */
-    public static final TokenType getTokenType(int codePoint) {
+    public static final TokenType getTokenType(final int codePoint) {
         return map.get(codePoint);
     }
 }
