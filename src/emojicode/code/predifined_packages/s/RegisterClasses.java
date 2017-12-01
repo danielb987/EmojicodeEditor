@@ -24,13 +24,12 @@
 package emojicode.code.predifined_packages.s;
 
 import emojicode.code.EmojiPackage;
-import emojicode.compiler.CompilerError;
 
 /**
  *
  * @author Daniel Bergqvist
  */
-public class RegisterClasses {
+public final class RegisterClasses {
     
     /**
      * Register the standard classes that are emulated by EmojicodeEditor.
@@ -40,7 +39,11 @@ public class RegisterClasses {
         emojiPackage.add(EmojiString.createInstance(emojiPackage));
         EmojiPackage.add(emojiPackage);
     }
-
+    
+    
+    /**
+     * Private constructor since this class should never be instanced.
+     */
     private RegisterClasses() {
     }
     

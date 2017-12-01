@@ -44,7 +44,7 @@ import java.util.List;
  */
 public final class EmojiString extends EmojiClassPredefinied {
     
-    private static final int stringEmojiCode = 0x1F521;    // 🔡
+    private static final int STRING_EMOJI_CODEPOINT = 0x1F521;    // 🔡
     
     private static EmojiString instance;
     
@@ -125,7 +125,7 @@ public final class EmojiString extends EmojiClassPredefinied {
                                                  final EmojiReturnValue returnValue) {
         if (aInstance instanceof EmojiClassInstanceString) {
             PrintWriter output = StandardIO.getInstance().getOutput();
-            output.println(((EmojiClassInstanceString)aInstance).get());
+            output.println(((EmojiClassInstanceString) aInstance).get());
             output.flush();
         } else {
             throw new RuntimeException(
@@ -141,7 +141,7 @@ public final class EmojiString extends EmojiClassPredefinied {
     
     
     public static String getStringClassEmoji() {
-        return new String(Character.toChars(stringEmojiCode));
+        return new String(Character.toChars(STRING_EMOJI_CODEPOINT));
     }
     
 /*
@@ -157,15 +157,15 @@ public final class EmojiString extends EmojiClassPredefinied {
     
     
     
-    private class EmojiClassInstanceString implements EmojiClassInstance {
+    private final class EmojiClassInstanceString implements EmojiClassInstance {
         
         private String string;
         
         private EmojiClassInstanceString() {
         }
         
-        private EmojiClassInstanceString(final String string) {
-            this.string = string;
+        private EmojiClassInstanceString(final String aString) {
+            this.string = aString;
         }
         
         String get() {
