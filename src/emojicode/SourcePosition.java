@@ -55,16 +55,16 @@ public final class SourcePosition {
     /**
      * Create an instance
      * 
-     * @param index the unicode codepoint index in the string that is compiled
-     * @param line the line number
-     * @param column the column number
-     * @param fileName the file name
+     * @param _index the unicode codepoint index in the string that is compiled
+     * @param _line the line number
+     * @param _column the column number
+     * @param _fileName the file name
      */
-    public SourcePosition(int index, int line, int column, String fileName) {
-        this.index = index;
-        this.line = line;
-        this.column = column;
-        this.filename = fileName;
+    public SourcePosition(final int _index, final int _line, final int _column, final String _fileName) {
+        this.index = _index;
+        this.line = _line;
+        this.column = _column;
+        this.filename = _fileName;
     }
     
     
