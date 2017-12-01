@@ -31,11 +31,35 @@ package emojicode;
  */
 public final class SourcePosition {
     
-    private final int index;        // Index in string
-    private final int line;         // Line number in string
-    private final int column;       // Column in string
-    private final String filename;  // Filename
+    /**
+     * The unicode codepoint index in the string that is compiled
+     */
+    private final int index;
     
+    /**
+     * The line number
+     */
+    private final int line;
+    
+    /**
+     * The column number
+     */
+    private final int column;
+    
+    /**
+     * The file name
+     */
+    private final String filename;
+    
+    
+    /**
+     * Create an instance
+     * 
+     * @param index the unicode codepoint index in the string that is compiled
+     * @param line the line number
+     * @param column the column number
+     * @param fileName the file name
+     */
     public SourcePosition(int index, int line, int column, String fileName) {
         this.index = index;
         this.line = line;
@@ -44,21 +68,41 @@ public final class SourcePosition {
     }
     
     
+    /**
+     * Get the unicode codepoint index in the string that is compiled
+     * 
+     * @return the codepoint index
+     */
     public int getIndex() {
         return index;
     }
     
     
+    /**
+     * Get the line number
+     * 
+     * @return the line number
+     */
     public int getLine() {
         return line;
     }
     
     
+    /**
+     * Get the column number
+     * 
+     * @return the column number
+     */
     public int getColumn() {
         return column;
     }
     
     
+    /**
+     * Get the file name
+     * 
+     * @return the file name
+     */
     public String getFilename() {
         return filename;
     }
