@@ -41,8 +41,8 @@ public final class Token {
     private final StringBuilder value = new StringBuilder();   // The value of this token
     private String valueString;    // The value of this token
     
-    public Token(SourcePosition startPosition) {
-        this.startPosition = startPosition;
+    public Token(final SourcePosition aStartPosition) {
+        this.startPosition = aStartPosition;
     }
     
     
@@ -50,12 +50,16 @@ public final class Token {
         switch (type) {
             case Integer:
                 if (StringHelper.getLastUnicodeChar(toString()) == 'x') {
-                    throw new CompilerError(startPosition, endPosition, "Expected a digit after integer literal prefix.");
+                    throw new CompilerError(startPosition,
+                                            endPosition,
+                                            "Expected a digit after integer literal prefix.");
                 }
                 break;
             case Double:
                 if (StringHelper.getLastUnicodeChar(toString()) == '.') {
-                    throw new CompilerError(startPosition, endPosition, "Expected a digit after decimal seperator.");
+                    throw new CompilerError(startPosition,
+                                            endPosition,
+                                            "Expected a digit after decimal seperator.");
                 }
                 break;
             case Identifier:
@@ -69,7 +73,9 @@ public final class Token {
     }
     
     public boolean isIdentifier(final int ch) {
-        return (type == TokenType.Identifier) && (value.length() == 1) && (value.codePointAt(0) == ch);
+        return (type == TokenType.Identifier)
+                && (value.length() == 1)
+                && (value.codePointAt(0) == ch);
     }
     
     public int getFirstChar() {
@@ -87,14 +93,16 @@ public final class Token {
     public void append(final char[] chars) {
         value.append(chars);
         valueString = null;
-//        System.out.format("Token.append chars: %s. After: %s\n", new String(chars), value.toString());
+//        System.out.format("Token.append chars: %s. After: %s\n", new String(chars),
+//                value.toString());
     }
     
     
     public void append(final int codePoint) {
         value.append(Character.toChars(codePoint));
         valueString = null;
-//        System.out.format("Token.append codePoint: %s. After: %s\n", new String(Character.toChars(codePoint)), value.toString());
+//        System.out.format("Token.append codePoint: %s. After: %s\n",
+//                new String(Character.toChars(codePoint)), value.toString());
     }
     
     
