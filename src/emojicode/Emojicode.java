@@ -284,7 +284,7 @@ public interface Emojicode {
         "🆕"
     };
     
-    final Integer[] EMOJI_WHITESPACES_ARRAY = {
+    Integer[] EMOJI_WHITESPACES_ARRAY = {
         0x9,
         0xA,
         0xB,
