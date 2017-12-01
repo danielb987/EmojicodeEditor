@@ -31,15 +31,12 @@ import emojicode.code.EmojiClassInstance;
 import emojicode.code.EmojiMethodArgumentType;
 import emojicode.code.EmojiMethodPredefined;
 import emojicode.code.EmojiReturnValue;
-import emojicode.code.Parent;
 import emojicode.compiler.CompilerError;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -50,7 +47,7 @@ public final class EmojiString extends EmojiClassPredefinied {
     private static EmojiString instance;
     
     
-    public static EmojiString createInstance(EmojiPackage emojiPackage) {
+    public static EmojiString createInstance(final EmojiPackage emojiPackage) {
         instance = new EmojiString(emojiPackage);
         return instance;
     }
@@ -61,7 +58,7 @@ public final class EmojiString extends EmojiClassPredefinied {
     }
     
     
-    private EmojiString(EmojiPackage emojiPackage) {
+    private EmojiString(final EmojiPackage emojiPackage) {
         super(getStringClassEmoji(), emojiPackage);
         
         registerMethods();
@@ -93,7 +90,9 @@ public final class EmojiString extends EmojiClassPredefinied {
     }
     
     
-    public void prompts_the_user_for_input(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
+    public void prompts_the_user_for_input(final EmojiClassInstance instance,
+                                           final List<EmojiArgument> arguments,
+                                           final EmojiReturnValue returnValue) {
         try {
             String line = StandardIO.getInstance().getInput().readLine();
         } catch (IOException ex) {
@@ -102,10 +101,12 @@ public final class EmojiString extends EmojiClassPredefinied {
     }
     
     
-    public void puts_this_string_to_the_standard_output(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
-        if (instance instanceof EmojiClassInstance_String) {
+    public void puts_this_string_to_the_standard_output(final EmojiClassInstance instance,
+                                                        final List<EmojiArgument> arguments,
+                                                        final EmojiReturnValue returnValue) {
+        if (instance instanceof EmojiClassInstanceString) {
             PrintWriter output = StandardIO.getInstance().getOutput();
-            output.println(((EmojiClassInstance_String)instance).string);
+            output.println(((EmojiClassInstanceString)instance).string);
             output.flush();
         } else {
             throw new RuntimeException(String.format("Instance %s is not instance of EmojiClassInstance_String", instance.getClass().getName()));
@@ -130,20 +131,20 @@ public final class EmojiString extends EmojiClassPredefinied {
     }
 */    
     
-    public EmojiClassInstance createInstance(String string) {
-        return new EmojiClassInstance_String(string);
+    public EmojiClassInstance createInstance(final String string) {
+        return new EmojiClassInstanceString(string);
     }
     
     
     
-    private class EmojiClassInstance_String implements EmojiClassInstance {
+    private class EmojiClassInstanceString implements EmojiClassInstance {
         
         private String string;
         
-        private EmojiClassInstance_String() {
+        private EmojiClassInstanceString() {
         }
         
-        private EmojiClassInstance_String(String string) {
+        private EmojiClassInstanceString(final String string) {
             this.string = string;
         }
     }
