@@ -49,7 +49,7 @@ public class Parent {
      * Get the package.
      * This method must be overridden by EmojiPackage class.
      * This method must not be overridden by any other class than EmojiPackage class.
-     * @return 
+     * @return the package
      */
     protected EmojiPackage getPackage() {
         if (parent != null) {
