@@ -33,7 +33,7 @@ import emojicode.compiler.StringHelper;
  *
  * @author Daniel Bergqvist
  */
-public class Token {
+public final class Token {
     
     public TokenType type;
     public final SourcePosition startPosition;
@@ -99,8 +99,9 @@ public class Token {
     
     @Override
     public String toString() {
-        if (valueString == null)
+        if (valueString == null) {
             valueString = value.toString();
+        }
         return valueString;
     }
     

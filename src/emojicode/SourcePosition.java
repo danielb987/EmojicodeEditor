@@ -32,45 +32,48 @@ package emojicode;
 public final class SourcePosition {
     
     /**
-     * The unicode codepoint index in the string that is compiled
+     * The unicode codepoint index in the string that is compiled.
      */
     private final int index;
     
     /**
-     * The line number
+     * The line number.
      */
     private final int line;
     
     /**
-     * The column number
+     * The column number.
      */
     private final int column;
     
     /**
-     * The file name
+     * The file name.
      */
     private final String filename;
     
     
     /**
-     * Create an instance
-     * 
-     * @param _index the unicode codepoint index in the string that is compiled
-     * @param _line the line number
-     * @param _column the column number
-     * @param _fileName the file name
+     * Create an instance.
+     *
+     * @param aIndex the unicode codepoint index in the string that is compiled
+     * @param aLine the line number
+     * @param aColumn the column number
+     * @param aFileName the file name
      */
-    public SourcePosition(final int _index, final int _line, final int _column, final String _fileName) {
-        this.index = _index;
-        this.line = _line;
-        this.column = _column;
-        this.filename = _fileName;
+    public SourcePosition(final int aIndex,
+                          final int aLine,
+                          final int aColumn,
+                          final String aFileName) {
+        this.index = aIndex;
+        this.line = aLine;
+        this.column = aColumn;
+        this.filename = aFileName;
     }
     
     
     /**
-     * Get the unicode codepoint index in the string that is compiled
-     * 
+     * Get the unicode codepoint index in the string that is compiled.
+     *
      * @return the codepoint index
      */
     public int getIndex() {
@@ -79,8 +82,8 @@ public final class SourcePosition {
     
     
     /**
-     * Get the line number
-     * 
+     * Get the line number.
+     *
      * @return the line number
      */
     public int getLine() {
@@ -89,8 +92,8 @@ public final class SourcePosition {
     
     
     /**
-     * Get the column number
-     * 
+     * Get the column number.
+     *
      * @return the column number
      */
     public int getColumn() {
@@ -99,8 +102,8 @@ public final class SourcePosition {
     
     
     /**
-     * Get the file name
-     * 
+     * Get the file name.
+     *
      * @return the file name
      */
     public String getFilename() {
