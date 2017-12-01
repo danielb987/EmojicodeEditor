@@ -45,6 +45,12 @@ public class Parent {
     }
     
     
+    /**
+     * Get the package.
+     * This method must be overridden by EmojiPackage class.
+     * This method must not be overridden by any other class than EmojiPackage class.
+     * @return 
+     */
     protected EmojiPackage getPackage() {
         if (parent != null) {
             return parent.getPackage();
@@ -54,33 +60,33 @@ public class Parent {
     }
     
     
-    protected void addVariable(final SourcePosition startPosition,
-                               final SourcePosition endPosition,
-                               final Variable variable)
+    protected final void addVariable(final SourcePosition aStartPosition,
+                                     final SourcePosition aEndPosition,
+                                     final Variable variable)
             throws CompilerError {
         
         if (variables.putIfAbsent(variable.name, variable) != null) {
-            throw new CompilerError(startPosition,
-                                    endPosition,
+            throw new CompilerError(aStartPosition,
+                                    aEndPosition,
                                     String.format("Variable %s already exists in this context",
                                             variable.name));
         }
     }
     
     
-    protected Variable getVariable(final SourcePosition startPosition,
-                                   final SourcePosition endPosition,
-                                   final String name)
+    protected final Variable getVariable(final SourcePosition aStartPosition,
+                                         final SourcePosition aEndPosition,
+                                         final String name)
             throws CompilerError {
         
         Variable variable = variables.get(name);
         
         if ((variable == null) && (parent != null)) {
-            variable = parent.getVariable(startPosition, endPosition, name);
+            variable = parent.getVariable(aStartPosition, aEndPosition, name);
         }
         if (variable == null) {
-            throw new CompilerError(startPosition,
-                                    endPosition,
+            throw new CompilerError(aStartPosition,
+                                    aEndPosition,
                                     String.format("Variable %s does not exists", name));
         }
         return variable;
