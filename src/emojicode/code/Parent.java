@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * Rot class of the emojicode code tree.
  * @author Daniel Bergqvist
  */
 public class Parent {
@@ -40,43 +40,60 @@ public class Parent {
     protected SourcePosition endPosition;
     private final Map<String, Variable> variables = new HashMap<>();
     
-    protected Parent(Parent parent) {
-        this.parent = parent;
+    protected Parent(final Parent aParent) {
+        this.parent = aParent;
     }
     
     
     protected EmojiPackage getPackage() {
-        if (parent != null)
+        if (parent != null) {
             return parent.getPackage();
+        }
         
         throw new RuntimeException("Root parent must be a package");
     }
     
     
-    protected void addVariable(SourcePosition startPosition, SourcePosition endPosition, Variable variable) throws CompilerError {
-        if (variables.putIfAbsent(variable.name, variable) != null)
-            throw new CompilerError(startPosition, endPosition, String.format("Variable %s already exists in this context", variable.name));
+    protected void addVariable(final SourcePosition startPosition,
+                               final SourcePosition endPosition,
+                               final Variable variable)
+            throws CompilerError {
+        
+        if (variables.putIfAbsent(variable.name, variable) != null) {
+            throw new CompilerError(startPosition,
+                                    endPosition,
+                                    String.format("Variable %s already exists in this context",
+                                            variable.name));
+        }
     }
     
-    protected Variable getVariable(SourcePosition startPosition, SourcePosition endPosition, String name) throws CompilerError {
+    
+    protected Variable getVariable(final SourcePosition startPosition,
+                                   final SourcePosition endPosition,
+                                   final String name)
+            throws CompilerError {
+        
         Variable variable = variables.get(name);
+        
         if ((variable == null) && (parent != null)) {
             variable = parent.getVariable(startPosition, endPosition, name);
         }
         if (variable == null) {
-            throw new CompilerError(startPosition, endPosition, String.format("Variable %s does not exists", name));
+            throw new CompilerError(startPosition,
+                                    endPosition,
+                                    String.format("Variable %s does not exists", name));
         }
         return variable;
     }
     
     
-    public class Variable {
+    public static final class Variable {
         public final String name;
         public final EmojiClassInstance instance;
         
-        public Variable(String name, EmojiClassInstance instance) {
-            this.name = name;
-            this.instance = instance;
+        public Variable(final String aName, final EmojiClassInstance aInstance) {
+            this.name = aName;
+            this.instance = aInstance;
         }
     }
     
