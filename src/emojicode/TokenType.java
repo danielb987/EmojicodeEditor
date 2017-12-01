@@ -77,7 +77,7 @@ public enum TokenType {
     
     
     /**
-     * A map between unicode codepoint and token type
+     * A map between unicode codepoint and token type.
      */
     private static Map<Integer, TokenType> map;
     
@@ -110,7 +110,7 @@ public enum TokenType {
     
     
     /**
-     * Get all emojis that are operators
+     * Get all emojis that are operators.
      * 
      * @return a list of all emojis that are operators
      */
@@ -141,7 +141,7 @@ public enum TokenType {
     
     
     /**
-     * Get the token type of the unicode codepoint
+     * Get the token type of the unicode codepoint.
      * 
      * @param codePoint the codepoint for which to get the token type
      * @return the token type
