@@ -68,18 +68,35 @@ public final class EmojiString extends EmojiClassPredefinied {
         try {
             // Initializer
             // Prompts the user for input. (via the standard input/output)
-            addInitializerOrMethod(new EmojiMethodPredefined(null, this, EmojiMethod.MethodType.INITIALIZER, "😯", new ArrayList<>(), new ArrayList<>(), null) {
+            addInitializerOrMethod(
+                    new EmojiMethodPredefined(null,
+                                              this,
+                                              EmojiMethod.MethodType.INITIALIZER,
+                                              "😯",
+                                              new ArrayList<>(),
+                                              new ArrayList<>(), null) {
                 @Override
-                public void execute(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
-                    prompts_the_user_for_input(instance, arguments, returnValue);
+                public void execute(final EmojiClassInstance aInstance,
+                                    final List<EmojiArgument> arguments,
+                                    final EmojiReturnValue returnValue) {
+                    prompts_the_user_for_input(aInstance, arguments, returnValue);
                 }
             }, null, null);
 
             // Puts this 🔡 to the standard output
-            addInitializerOrMethod(new EmojiMethodPredefined(null, this, EmojiMethod.MethodType.METHOD, "😀", new ArrayList<>(), Collections.singletonList(EmojiMethodArgumentType.StringArgument), null) {
+            addInitializerOrMethod(
+                    new EmojiMethodPredefined(null,
+                                              this,
+                                              EmojiMethod.MethodType.METHOD,
+                                              "😀", new ArrayList<>(),
+                                              Collections.singletonList(
+                                                      EmojiMethodArgumentType.StringArgument),
+                                              null) {
                 @Override
-                public void execute(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
-                    puts_this_string_to_the_standard_output(instance, arguments, returnValue);
+                public void execute(final EmojiClassInstance aInstance,
+                                    final List<EmojiArgument> arguments,
+                                    final EmojiReturnValue returnValue) {
+                    puts_this_string_to_the_standard_output(aInstance, arguments, returnValue);
                 }
             }, null, null);
         
@@ -109,7 +126,9 @@ public final class EmojiString extends EmojiClassPredefinied {
             output.println(((EmojiClassInstanceString)instance).string);
             output.flush();
         } else {
-            throw new RuntimeException(String.format("Instance %s is not instance of EmojiClassInstance_String", instance.getClass().getName()));
+            throw new RuntimeException(
+                    String.format("Instance %s is not instance of EmojiClassInstance_String",
+                            instance.getClass().getName()));
         }
 //        try {
 //            String line = StandardIO.getInstance().getInput().readLine();
