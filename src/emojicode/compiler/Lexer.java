@@ -103,7 +103,7 @@ public final class Lexer {
                 // Do nothing
         }
 
-        if ( ('0' <= codePoint() && codePoint() <= '9')
+        if (('0' <= codePoint() && codePoint() <= '9')
                 || codePoint() == '-'
                 || codePoint() == '+') {
             token.type = TokenType.Integer;
@@ -195,21 +195,19 @@ public final class Lexer {
                         case 'r':
                             token.append('\r');
                             break;
-                        default: {
-                            throw new CompilerError(token.startPosition, token.endPosition, "Unrecognized escape sequence ���" +
-                                                new String(Character.toChars(codePoint())) + ".");
-//                            throw new CompilerError(new SourcePosition(index,line,character,filename), "Unrecognized escape sequence ���" +
-//                                                new String(Character.toChars(codePoint())) + ".");
-                        }
+                        default:
+                            throw new CompilerError(token.startPosition,
+                                                    token.endPosition,
+                                                    "Unrecognized escape sequence ���"
+                                                        + new String(
+                                                            Character.toChars(codePoint())) + ".");
                     }
 
                     escapeSequence = false;
-                }
-                else if (codePoint() == Emojicode.E_CROSS_MARK_CODEPOINT) {
+                } else if (codePoint() == Emojicode.E_CROSS_MARK_CODEPOINT) {
                     escapeSequence = true;
                     return TokenState.Continues;
-                }
-                else if (codePoint() == Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT) {
+                } else if (codePoint() == Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT) {
                     return TokenState.Ended;
                 }
 
@@ -219,8 +217,10 @@ public final class Lexer {
                 return TokenState.Continues;
                 
             case Variable:
-                // A variable can consist of everything except for whitespaces and identifiers (that is emojis)
-                // isWhitespace used here because if it is whitespace, the detection will take place below
+                // A variable can consist of everything except for whitespaces and identifiers
+                // (that is emojis).
+                // isWhitespace used here because if it is whitespace, the detection will take
+                // place below.
                 if (Emojicode.isWhitespace(codePoint()) || EmojiTokenization.isEmoji(codePoint())) {
                     return TokenState.NextBegun;
                 }
@@ -229,7 +229,10 @@ public final class Lexer {
                 return TokenState.Continues;
                 
             case Integer:
-                if (('0' <= codePoint() && codePoint() <= '9') || (((64 < codePoint() && codePoint() < 71) || (96 < codePoint() && codePoint() < 103)) && isHex)) {
+                if (('0' <= codePoint() && codePoint() <= '9')
+                        || (((64 < codePoint() && codePoint() < 71)
+                        || (96 < codePoint() && codePoint() < 103))
+                        && isHex)) {
                     token.append(codePoint());
                     return TokenState.Continues;
                 }
@@ -238,7 +241,9 @@ public final class Lexer {
                     token.append(codePoint());
                     return TokenState.Continues;
                 }
-                else if ((codePoint() == 'x' || codePoint() == 'X') && token.toString().length() == 1 && token.toString().charAt(0) == '0') {
+                else if ((codePoint() == 'x' || codePoint() == 'X')
+                        && token.toString().length() == 1
+                        && token.toString().charAt(0) == '0') {
                     isHex = true;
                     token.append(codePoint());
                     return TokenState.Continues;
