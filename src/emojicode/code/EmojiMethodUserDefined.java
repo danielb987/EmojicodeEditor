@@ -42,7 +42,7 @@ public class EmojiMethodUserDefined extends EmojiMethod {
     private final CodeBlock codeBlock;
     
     
-    //CHECKSTYLE.ON: ParameterNumberCheck - Eight parameters to the method is too many, but the
+    //CHECKSTYLE.OFF: ParameterNumberCheck - Eight parameters to the method is too many, but the
     // method is used in one place and almost all the parameters have different
     // types which reduces the risk of the parameters to be sent in the wrong order.
     
@@ -75,8 +75,9 @@ public class EmojiMethodUserDefined extends EmojiMethod {
         
         this.codeBlock = aCodeBlock;
     }
-    //CHECKSTYLE.ON: ParameterNumberCheck - This class has several magic numbers which is only
-    // used in this class.
+    //CHECKSTYLE.ON: ParameterNumberCheck - Eight parameters to the method is too many, but the
+    // method is used in one place and almost all the parameters have different
+    // types which reduces the risk of the parameters to be sent in the wrong order.
     
 /*
     public EmojiMethod_UserDefined(DocumentationComment documentationComment, Parent parent) {
