@@ -25,7 +25,6 @@ package emojicodeeditor;
 
 import emojicode.SourcePosition;
 import emojicode.Token;
-import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.code.Parent;
 import emojicode.code.predifined_packages.s.StandardIO;
 import emojicode.compiler.CompilerError;
@@ -41,7 +40,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.text.AbstractDocument;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.MutableAttributeSet;
@@ -56,6 +54,8 @@ import javax.swing.text.StyleContext;
  * @author Daniel Bergqvist
  */
 public final class TestDebuggerWindow extends javax.swing.JFrame implements Debugger.DebugActions {
+
+    private static final long serialVersionUID = 1L;
     
     private final Style defaultStyle = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
     private final DefaultStyledDocument sourceCodeDocument = new DefaultStyledDocument();
@@ -68,11 +68,11 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     
     /**
-     * Creates new form TestDebugger
+     * Creates new form TestDebugger.
      * 
-     * @param filename
+     * @param aFilename
      */
-    public TestDebuggerWindow(String filename) {
+    public TestDebuggerWindow(final String aFilename) {
         initComponents();
         
         jTextPaneSourceCode.setEditorKit(new EmojiStyledEditorKit());
@@ -80,7 +80,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         
         enableDebugButtons(true);
         
-        this.filename = filename;
+        this.filename = aFilename;
         
         StandardIO.getInstance().setOutput((String string) -> {
             java.awt.EventQueue.invokeLater(() -> {
@@ -95,7 +95,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         
         try {
             byte[] encoded;
-            encoded = Files.readAllBytes(Paths.get(filename));
+            encoded = Files.readAllBytes(Paths.get(aFilename));
             source = new String(encoded, Charset.forName("UTF-8"));
             jTextPaneSourceCode.setText(source);
             jTextPaneSourceCode.setCaretPosition(0);
@@ -110,7 +110,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     
     /**
-     * Test different styles
+     * Test different styles.
      */
     void testStyle() {
         
@@ -412,7 +412,11 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     // End of variables declaration//GEN-END:variables
     
     
-    private void enableDebugButtons(boolean enable) {
+    /**
+     * Turn on or off the buttons for debugging.
+     * @param enable true if buttons should be turned on, false otherwise
+     */
+    private void enableDebugButtons(final boolean enable) {
         jButtonRun.setEnabled(enable);
         jButtonCompile.setEnabled(enable);
         jButtonStepInto.setEnabled(enable);
@@ -420,12 +424,22 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     }
     
     
-    private void startProgram(boolean pauseOnEveryStep) {
+    /**
+     * Start the emojicode program.
+     * @param pauseOnEveryStep true if the debugger shall stop the program after every program step
+     */
+    private void startProgram(final boolean pauseOnEveryStep) {
         startProgram(pauseOnEveryStep, -1);
     }
     
     
-    private void startProgram(boolean pauseOnEveryStep, int runToCursor) {
+    /**
+     * Start the emojicode program
+     * @param pauseOnEveryStep true if the debugger shall stop the program after every program step
+     * @param runToCursor if >= 0, run the program to the point in the emojicode, measured in
+     * unicode codepoints
+     */
+    private void startProgram(final boolean pauseOnEveryStep, final int runToCursor) {
         emojicode.code.EmojiPackageUserDefinied emojiPackage;
         
         enableDebugButtons(false);
@@ -454,8 +468,19 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     }
     
     
+    /**
+     * Step to next part in the emojicode program.
+     * @param parent
+     * @param startPosition
+     * @param middlePosition
+     * @param endPosition 
+     */
     @Override
-    public void next(Parent parent, SourcePosition startPosition, SourcePosition middlePosition, SourcePosition endPosition) {
+    public void next(final Parent parent,
+                     final SourcePosition startPosition,
+                     final SourcePosition middlePosition,
+                     final SourcePosition endPosition) {
+        
         enableDebugButtons(true);
         StyleContext cont = StyleContext.getDefaultStyleContext();
         AttributeSet attrHead = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
@@ -468,19 +493,32 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         sourceCodeDocument.setCharacterAttributes(middlePosition.getIndex(),lengthTail,attrTail,false);
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
+    /**
+     * Called then the emojicode program ends.
+     */
     @Override
     public void programEnded() {
         enableDebugButtons(true);
         sourceCodeDocument.setCharacterAttributes(0, sourceCodeDocument.getLength(), defaultStyle, true);
     }
-
+    
+    
+    /**
+     * Called then the emojicode program is aborted.
+     * @param position the position there the program was aborted
+     */
     @Override
     public void programAborted(SourcePosition position) {
         enableDebugButtons(true);
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    
+    /**
+     * Called then the emojicode program has a runtime error
+     */
     @Override
     public void programError(SourcePosition position) {
         enableDebugButtons(true);
