@@ -1017,7 +1017,7 @@
 <error line="167" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="167" column="21" severity="error" message="Parameter aWriter should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="171" column="9" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="188" severity="error" message="Line is longer than 100 characters (found 121)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="188" severity="error" message="Line is longer than 100 characters (found 117)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="189" severity="error" message="Line is longer than 100 characters (found 110)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="201" severity="error" message="Line is longer than 100 characters (found 147)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="202" severity="error" message="Line is longer than 100 characters (found 128)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
