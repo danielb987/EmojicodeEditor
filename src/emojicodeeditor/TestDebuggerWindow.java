@@ -582,6 +582,9 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     }
     
     
+    //CHECKSTYLE.OFF: WhitespaceAroundCheck - Several methods in this class is created by the
+    // NetBeans IDE and we cannot change them.
+    
     //CHECKSTYLE.ON: FinalParametersCheck - Several methods in this class is created by the
     // NetBeans IDE and we cannot change them.
 }
