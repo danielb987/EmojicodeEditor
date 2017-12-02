@@ -91,8 +91,7 @@ public final class EmojiString extends EmojiClassPredefinied {
                                               this,
                                               EmojiMethod.MethodType.METHOD,
                                               "😀", new ArrayList<>(),
-                                              Collections.singletonList(
-                                                      EmojiMethodArgumentType.StringArgument),
+                                              Collections.singletonList(EmojiMethodArgumentType.STRING_ARGUMENT),
                                               null) {
                 @Override
                 public void execute(final EmojiClassInstance aInstance,

@@ -32,9 +32,10 @@ import java.util.List;
  */
 public class EmojiMethodArgumentType {
     
-    public static final EmojiMethodArgumentType StringArgument = new EmojiMethodArgumentType_String();
+    public static final EmojiMethodArgumentType STRING_ARGUMENT =
+            new EmojiMethodArgumentType_String();
     
-    public List<MethodCallArgument> parseArguments(Parent parent) {
+    public List<MethodCallArgument> parseArguments(final Parent parent) {
         List<MethodCallArgument> arguments = new ArrayList<>();
         return arguments;
     }
