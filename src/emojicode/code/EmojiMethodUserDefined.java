@@ -36,9 +36,27 @@ import java.util.List;
  */
 public class EmojiMethodUserDefined extends EmojiMethod {
     
+    /**
+     * The code of the method.
+     */
     private final CodeBlock codeBlock;
     
     
+    //CHECKSTYLE.ON: ParameterNumberCheck - Eight parameters to the method is too many, but the
+    // method is used in one place and almost all the parameters have different
+    // types which reduces the risk of the parameters to be sent in the wrong order.
+    
+    /**
+     * Create an instance.
+     * @param documentationComment the documentation comment if it exists, else null
+     * @param parent the parent
+     * @param methodType the type of method
+     * @param name the name of the method
+     * @param genericArgumentTypes generic arguments
+     * @param argumentTypes arguments
+     * @param returnType the return type
+     * @param aCodeBlock the code of the method
+     */
     public EmojiMethodUserDefined(final DocumentationComment documentationComment,
                                   final Parent parent,
                                   final MethodType methodType,
@@ -57,6 +75,8 @@ public class EmojiMethodUserDefined extends EmojiMethod {
         
         this.codeBlock = aCodeBlock;
     }
+    //CHECKSTYLE.ON: MagicNumberCheck - This class has several magic numbers which is only
+    // used in this class.
     
 /*
     public EmojiMethod_UserDefined(DocumentationComment documentationComment, Parent parent) {
@@ -102,6 +122,12 @@ public class EmojiMethodUserDefined extends EmojiMethod {
     }
 */
     
+    /**
+     * Execute the method.
+     * @param instance the instance of the class, or null if this is a class method
+     * @param arguments the arguments to the method
+     * @param returnValue the return value of the method
+     */
     @Override
     public void execute(final EmojiClassInstance instance,
                         final List<EmojiArgument> arguments,
