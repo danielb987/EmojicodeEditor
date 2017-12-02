@@ -23,22 +23,15 @@
  */
 package emojicode.code;
 
-import emojicode.Emojicode;
-import emojicode.Token;
-import emojicode.TokenType;
-import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
-import emojicode.compiler.TokenStream;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Method
  * http://www.emojicode.org/docs/reference/classes-valuetypes.html
- * 
+ *
  * A type method is a method that is called on the type rather than on the
  * instance of the type.
- * 
+ *
  * @author Daniel Bergqvist
  */
 public class EmojiMethodUserDefined extends EmojiMethod {
@@ -46,15 +39,14 @@ public class EmojiMethodUserDefined extends EmojiMethod {
     private final CodeBlock codeBlock;
     
     
-    public EmojiMethodUserDefined( DocumentationComment documentationComment,
-                                    Parent parent,
-                                    MethodType methodType,
-                                    String name,
-                                    List<EmojiMethodArgumentType> genericArgumentTypes,
-                                    List<EmojiMethodArgumentType> argumentTypes,
-                                    EmojiArgument returnType,
-                                    CodeBlock codeBlock
-                                    ) {
+    public EmojiMethodUserDefined(final DocumentationComment documentationComment,
+                                  final Parent parent,
+                                  final MethodType methodType,
+                                  final String name,
+                                  final List<EmojiMethodArgumentType> genericArgumentTypes,
+                                  final List<EmojiMethodArgumentType> argumentTypes,
+                                  final EmojiArgument returnType,
+                                  final CodeBlock codeBlock) {
         super(documentationComment, parent, methodType, name, genericArgumentTypes, argumentTypes, returnType);
         
         this.codeBlock = codeBlock;
@@ -62,7 +54,10 @@ public class EmojiMethodUserDefined extends EmojiMethod {
     
 /*    
     public EmojiMethod_UserDefined(DocumentationComment documentationComment, Parent parent) {
-        super(documentationComment, parent, new ArrayList<EmojiMethodArgumentType>(), new ArrayList<EmojiMethodArgumentType>());
+        super(documentationComment,
+              parent,
+              new ArrayList<EmojiMethodArgumentType>(),
+              new ArrayList<EmojiMethodArgumentType>());
     }
     
     
@@ -87,11 +82,13 @@ public class EmojiMethodUserDefined extends EmojiMethod {
         
         System.out.println("Enumeration");
         while (tokenStream.consumeTokenIdentifierIf(Emojicode.E_RADIO_BUTTON)) {
-            System.out.format("Next token: %s, %s\n", tokenStream.nextToken().type.name(), tokenStream.nextToken().toString());
+            System.out.format("Next token: %s, %s\n", tokenStream.nextToken().type.name(),
+                tokenStream.nextToken().toString());
             enumerationValues.add(tokenStream.getIdentifierToken());
         }
         
-        System.out.format("\n\nNext token: %s, %s\n", tokenStream.nextToken().type.name(), tokenStream.nextToken().toString());
+        System.out.format("\n\nNext token: %s, %s\n", tokenStream.nextToken().type.name(),
+            tokenStream.nextToken().toString());
 //        while (tokenStream.hasMoreTokens()) {
 //            Token token = tokenStream.nextToken();
 //        }
@@ -100,8 +97,10 @@ public class EmojiMethodUserDefined extends EmojiMethod {
 */    
     
     @Override
-    public void execute(EmojiClassInstance instance, List<EmojiArgument> arguments, EmojiReturnValue returnValue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void execute(final EmojiClassInstance instance,
+                        final List<EmojiArgument> arguments,
+                        final EmojiReturnValue returnValue) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }
