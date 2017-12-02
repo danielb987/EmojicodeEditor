@@ -32,7 +32,7 @@ import java.util.List;
  *
  * @author Daniel Bergqvist
  */
-public class TokenStream {
+public final class TokenStream {
     
     public static final String UNEXPECTED_END_OF_PROGRAM_STRING = "Unexpected end of program";
     
@@ -67,12 +67,13 @@ public class TokenStream {
         
         Token token = nextToken();
         
-        if (token.type != tokenType)
+        if (token.type != tokenType) {
             throw new CompilerError(
                     token.startPosition,
                     token.endPosition,
                     String.format("Expected %s but instead found %s (%s).",
                             tokenType.name(), nextToken().type.name(), nextToken().toString()));
+        }
         
         index++;
         
@@ -189,13 +190,14 @@ public class TokenStream {
     
     public String getIdentifierToken() throws CompilerError {
         Token token = consumeToken();
-        if (token.type != TokenType.Identifier)
+        if (token.type != TokenType.Identifier) {
             throw new CompilerError(token.startPosition,
                                     token.endPosition,
                                     "Unexpected token. Expected token "
                                             + TokenType.Identifier.name()
                                             + " but found token "
                                             + token.type.name());
+        }
         
         return token.toString();
     }
@@ -203,21 +205,23 @@ public class TokenStream {
     
     public Token consumeIdentifierToken(final String identifier) throws CompilerError {
         Token token = consumeToken();
-        if (token.type != TokenType.Identifier)
+        if (token.type != TokenType.Identifier) {
             throw new CompilerError(token.startPosition,
                                     token.endPosition,
                                     "Unexpected token. Expected token "
                                             + TokenType.Identifier.name()
                                             + " but found token "
                                             + token.type.name());
+        }
         
-        if (! token.toString().equals(identifier))
+        if (! token.toString().equals(identifier)) {
             throw new CompilerError(token.startPosition,
                                     token.endPosition,
                                     "Unexpected identifier. Expected identifier "
                                             + identifier
                                             + " but found token "
                                             + token.toString());
+        }
         
         return token;
     }
