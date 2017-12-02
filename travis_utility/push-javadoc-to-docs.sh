@@ -16,7 +16,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   ant checkstyle
 
   # Get a summary of the checkstyle report
-  java -jar dist/EmojicodeEditor.jar checkstyle build/checkstyle_errors.xml
+  java -jar dist/EmojicodeEditor.jar checkstyle build/checkstyle_errors.xml build/checkstyle_report.html
 
   echo -e "Publishing javadoc...\n"
 
@@ -49,6 +49,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   rm -Rf checkstyle
   mkdir checkstyle
   cp $DIR/build/checkstyle_errors.xml checkstyle/
+  cp $DIR/build/checkstyle_report.html checkstyle/
 
   echo -e "ls -al checkstyle"
   ls -al checkstyle/

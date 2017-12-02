@@ -47,8 +47,8 @@ public class Main {
      */
     public static void main(final String args[]) {
         
-        if ((args.length == 2) && (args[0].toLowerCase().equals("checkstyle"))) {
-            new CheckStyleAnalyzer(args[1]).analyze();
+        if ((args.length == 3) && (args[0].toLowerCase().equals("checkstyle"))) {
+            new CheckStyleAnalyzer(args[1],args[2]).analyze();
             System.exit(0);
         }
         

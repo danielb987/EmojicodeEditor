@@ -24,10 +24,13 @@
 package emojicodeeditor;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -48,20 +51,22 @@ import org.xml.sax.helpers.DefaultHandler;
 public class CheckStyleAnalyzer {
     
     private final String filename;
+    private final String reportFilename;
     
     
-    public CheckStyleAnalyzer(String aFilename) {
+    public CheckStyleAnalyzer(String aFilename, String aReportFilename) {
         this.filename = aFilename;
+        this.reportFilename = aReportFilename;
     }
     
     
     public void analyze() {
         
-        try {
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(reportFilename)))) {
             File inputFile = new File(filename);
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
-            UserHandler userhandler = new UserHandler();
+            UserHandler userhandler = new UserHandler(writer);
             saxParser.parse(inputFile, userhandler);
             userhandler.createReport();
         } catch (Exception e) {
@@ -142,29 +147,36 @@ public class CheckStyleAnalyzer {
     
     
     private static class UserHandler extends DefaultHandler {
-
-        String currentFilename = "";
-        String currentError = "";
-        AtomicInteger currentFileTotalErrorCount;
         
-        int numFiles = 0;
-        int numErrors = 0;
+        private final PrintWriter writer;
         
-        Map<String, String> errorMessages = new HashMap<>();
-        Map<String, AtomicInteger> totalErrorCount = new HashMap<>();
-        Map<String, AtomicInteger> fileTotalErrorCount = new HashMap<>();
-        Map<String, Map<String, AtomicInteger>> fileErrorCount = new HashMap<>();
-        Map<String, AtomicInteger> currentFileErrorCount = new HashMap<>();
+        private String currentFilename = "";
+        private String currentError = "";
+        private AtomicInteger currentFileTotalErrorCount;
+        
+        private int numFiles = 0;
+        private int numErrors = 0;
+        
+        private final Map<String, String> errorMessages = new HashMap<>();
+        private final Map<String, AtomicInteger> totalErrorCount = new HashMap<>();
+        private final Map<String, AtomicInteger> fileTotalErrorCount = new HashMap<>();
+        private final Map<String, Map<String, AtomicInteger>> fileErrorCount = new HashMap<>();
+        private Map<String, AtomicInteger> currentFileErrorCount = new HashMap<>();
         
         
-        boolean bFirstName = false;
-        boolean bLastName = false;
-        boolean bNickName = false;
-        boolean bMarks = false;
-        String rollNo = null;
-        
+        UserHandler(PrintWriter aWriter) {
+            this.writer = aWriter;
+        }
         
         public void createReport() {
+            
+            writer.println("<!DOCTYPE html>");
+            writer.println("<html dir=\"ltr\" lang=\"en\">");
+            writer.println("<head>");
+            writer.println("<meta charset=\"utf-8\" />");
+            writer.println("<title>Checkstyle report</title>");
+            writer.println("</head>");
+            writer.println("<body>");
             
             System.out.format("%d errors in %d files\n", numErrors, numFiles);
             
@@ -174,6 +186,9 @@ public class CheckStyleAnalyzer {
                     System.out.format("Error: %s, count: %d\n", subEntry.getKey(), subEntry.getValue().get());
                 }
             }
+            
+            writer.println("</body>");
+            writer.println("</html>");
         }
         
         /**
@@ -241,31 +256,10 @@ public class CheckStyleAnalyzer {
         @Override
         public void endElement(
                 String uri, String localName, String qName) throws SAXException {
-
-            if (qName.equalsIgnoreCase("student")) {
-                if (("393").equals(rollNo) && qName.equalsIgnoreCase("student")) {
-                    System.out.println("End Element :" + qName);
-                }
-            }
         }
 
         @Override
         public void characters(char ch[], int start, int length) throws SAXException {
-
-            if (bFirstName && ("393").equals(rollNo)) {
-                //age element, set Employee age
-                System.out.println("First Name: " + new String(ch, start, length));
-                bFirstName = false;
-            } else if (bLastName && ("393").equals(rollNo)) {
-                System.out.println("Last Name: " + new String(ch, start, length));
-                bLastName = false;
-            } else if (bNickName && ("393").equals(rollNo)) {
-                System.out.println("Nick Name: " + new String(ch, start, length));
-                bNickName = false;
-            } else if (bMarks && ("393").equals(rollNo)) {
-                System.out.println("Marks: " + new String(ch, start, length));
-                bMarks = false;
-            }
         }
     }
     
