@@ -28,13 +28,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -45,7 +47,7 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public class CheckStyleAnalyzer {
     
-    private String filename;
+    private final String filename;
     
     
     public CheckStyleAnalyzer(String aFilename) {
@@ -61,6 +63,7 @@ public class CheckStyleAnalyzer {
             SAXParser saxParser = factory.newSAXParser();
             UserHandler userhandler = new UserHandler();
             saxParser.parse(inputFile, userhandler);
+            userhandler.createReport();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -140,11 +143,38 @@ public class CheckStyleAnalyzer {
     
     private static class UserHandler extends DefaultHandler {
 
+        String currentFilename = "";
+        String currentError = "";
+        AtomicInteger currentFileTotalErrorCount;
+        
+        int numFiles = 0;
+        int numErrors = 0;
+        
+        Map<String, String> errorMessages = new HashMap<>();
+        Map<String, AtomicInteger> totalErrorCount = new HashMap<>();
+        Map<String, AtomicInteger> fileTotalErrorCount = new HashMap<>();
+        Map<String, Map<String, AtomicInteger>> fileErrorCount = new HashMap<>();
+        Map<String, AtomicInteger> currentFileErrorCount = new HashMap<>();
+        
+        
         boolean bFirstName = false;
         boolean bLastName = false;
         boolean bNickName = false;
         boolean bMarks = false;
         String rollNo = null;
+        
+        
+        public void createReport() {
+            
+            System.out.format("%d errors in %d files\n", numErrors, numFiles);
+            
+            for (Map.Entry<String, Map<String, AtomicInteger>> entry : fileErrorCount.entrySet()) {
+                System.out.format("Filename: %s\n", entry.getKey());
+                for (Map.Entry<String, AtomicInteger> subEntry : entry.getValue().entrySet()) {
+                    System.out.format("Error: %s, count: %d\n", subEntry.getKey(), subEntry.getValue().get());
+                }
+            }
+        }
         
         /**
          * Receive notification of the start of an element.
@@ -160,30 +190,51 @@ public class CheckStyleAnalyzer {
                 String uri, String localName, String qName, Attributes attributes)
                 throws SAXException {
             
+//            System.out.println();
+            
+//            for (int i=0;  i < attributes.getLength(); i++) {
+//                System.out.format("%s: %s: %s\n", qName, attributes.getQName(i), attributes.getValue(i));
+//            }
+            
             if ("checkstyle".equalsIgnoreCase(qName)) {
-                System.out.format("checkstyle tag\n");
+//                System.out.format("checkstyle tag\n");
             }
             if ("file".equalsIgnoreCase(qName)) {
-                System.out.format("file tag\n");
+//                System.out.format("file tag\n");
+                numFiles++;
+                currentFilename = attributes.getValue("name");
+                currentFileErrorCount = new HashMap<>();
+                fileErrorCount.put(currentFilename, currentFileErrorCount);
+                currentFileTotalErrorCount = new AtomicInteger(0);
+                fileTotalErrorCount.put(currentFilename, currentFileTotalErrorCount);
             }
             if ("error".equalsIgnoreCase(qName)) {
-                System.out.format("error tag\n");
-            }
-            if (qName.equalsIgnoreCase("student")) {
-                rollNo = attributes.getValue("rollno");
-            }
-            if (("393").equals(rollNo)
-                    && qName.equalsIgnoreCase("student")) {
-                System.out.println("Start Element :" + qName);
-            }
-            if (qName.equalsIgnoreCase("firstname")) {
-                bFirstName = true;
-            } else if (qName.equalsIgnoreCase("lastname")) {
-                bLastName = true;
-            } else if (qName.equalsIgnoreCase("nickname")) {
-                bNickName = true;
-            } else if (qName.equalsIgnoreCase("marks")) {
-                bMarks = true;
+//                System.out.format("error tag\n");
+                numErrors++;
+                String error = attributes.getValue("source");
+                String errorMessage = attributes.getValue("message");
+                if (error == null) {
+                    System.out.println("Error is null");
+                    for (int i=0;  i < attributes.getLength(); i++) {
+                        System.out.format("-- %s: %s\n", attributes.getQName(i), attributes.getValue(i));
+                        System.exit(0);
+                    }
+                }
+//                System.out.format("File: %s, error: %s, message: %s\n", currentFilename, error, errorMessage);
+                
+                currentFileTotalErrorCount.addAndGet(1);
+                
+                errorMessages.putIfAbsent(error, errorMessage);
+                AtomicInteger value = totalErrorCount.putIfAbsent(error, new AtomicInteger(1));
+                if (value != null) {
+                    value.addAndGet(1);
+                }
+                
+//                currentFileErrorCount = new HashMap<>();
+                value = currentFileErrorCount.putIfAbsent(error, new AtomicInteger(1));
+                if (value != null) {
+                    value.addAndGet(1);
+                }
             }
         }
 
