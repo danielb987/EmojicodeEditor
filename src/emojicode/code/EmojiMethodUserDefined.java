@@ -75,7 +75,7 @@ public class EmojiMethodUserDefined extends EmojiMethod {
         
         this.codeBlock = aCodeBlock;
     }
-    //CHECKSTYLE.ON: MagicNumberCheck - This class has several magic numbers which is only
+    //CHECKSTYLE.ON: ParameterNumberCheck - This class has several magic numbers which is only
     // used in this class.
     
 /*
