@@ -57,7 +57,9 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
 
     private static final long serialVersionUID = 1L;
     
-    private final Style defaultStyle = StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
+    private final Style defaultStyle =
+                    StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
+    
     private final DefaultStyledDocument sourceCodeDocument = new DefaultStyledDocument();
     
     String source;
@@ -69,8 +71,8 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     /**
      * Creates new form TestDebugger.
-     * 
-     * @param aFilename
+     *
+     * @param aFilename the file name of the emojicode source file
      */
     public TestDebuggerWindow(final String aFilename) {
         initComponents();
@@ -88,7 +90,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
             });
         });
         
-        if (1==1) {
+        if (1 == 1) {
             jTextPaneSourceCode.setText("Testar Daniel 123123");
             return;
         }
@@ -127,17 +129,17 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         
         MutableAttributeSet attr = new SimpleAttributeSet();
         attr.addAttribute("strike-color", Color.black);
-        sourceCodeDocument.setCharacterAttributes(5,10,attr,false);
+        sourceCodeDocument.setCharacterAttributes(5, 10, attr, false);
         
         MutableAttributeSet attr2 = new SimpleAttributeSet();
         attr2.addAttribute("underline-color", Color.red);
-        sourceCodeDocument.setCharacterAttributes(25,31,attr2,false);
+        sourceCodeDocument.setCharacterAttributes(25, 31, attr2, false);
         
         AttributeSet attrHead =
                 cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
         AttributeSet attrTail =
                 cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.YELLOW);
-        sourceCodeDocument.setCharacterAttributes(10,10,attrHead,false);
+        sourceCodeDocument.setCharacterAttributes(10, 10, attrHead, false);
     }
     
     
@@ -327,11 +329,12 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         
         Debugger debugger = Debugger.getInstance();
         
-        if (debugger.isProgramRunning())
+        if (debugger.isProgramRunning()) {
             debugger.continueRun();
-        else
+        } else {
             startProgram(true);
-/*        
+        }
+/*
         try {
             jTextArea_Output.setText("");
             emojicode.code.EmojiPackage_UserDefinied emojiPackage =
@@ -381,8 +384,12 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
                                                           true);
                 
                 int length = token.endPosition.getIndex() - token.startPosition.getIndex();
-//                System.out.format("Token: %s, %s. Start: %d, end: %d\n", token.type.name(), token.toString(), token.startPosition.index, token.endPosition.index);
-                sourceCodeDocument.setCharacterAttributes(token.startPosition.getIndex(),length,attr,false);
+//                System.out.format("Token: %s, %s. Start: %d, end: %d\n", token.type.name(),
+//                    token.toString(), token.startPosition.index, token.endPosition.index);
+                sourceCodeDocument.setCharacterAttributes(token.startPosition.getIndex(),
+                                                          length,
+                                                          attr,
+                                                          false);
 //                sourceCodeDocument.setCharacterAttributes(token.startPosition.index,2,attr,false);
 //                sourceCodeDocument.setCharacterAttributes(token.startPosition.index,20,attr,false);
 //                sourceCodeDocument.setCharacterAttributes(11,3,attrBlack,false);
@@ -500,15 +507,31 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         
         enableDebugButtons(true);
         StyleContext cont = StyleContext.getDefaultStyleContext();
-        AttributeSet attrHead = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
-        AttributeSet attrTail = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.YELLOW);
-        sourceCodeDocument.setCharacterAttributes(0, sourceCodeDocument.getLength(), defaultStyle, true);
-//        System.out.format("%d, %d, %d\n", startPosition.index, middlePosition.index, endPosition.index);
+        AttributeSet attrHead =
+                cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
+        AttributeSet attrTail =
+                cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.YELLOW);
+        sourceCodeDocument.setCharacterAttributes(0,
+                                                  sourceCodeDocument.getLength(),
+                                                  defaultStyle,
+                                                  true);
+//        System.out.format("%d, %d, %d\n",
+//                          startPosition.index,
+//                          middlePosition.index,
+//                          endPosition.index);
+        
         int lengthHead = middlePosition.getIndex() - startPosition.getIndex();
         int lengthTail = endPosition.getIndex() - middlePosition.getIndex();
-        sourceCodeDocument.setCharacterAttributes(startPosition.getIndex(),lengthHead,attrHead,false);
-        sourceCodeDocument.setCharacterAttributes(middlePosition.getIndex(),lengthTail,attrTail,false);
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        sourceCodeDocument.setCharacterAttributes(startPosition.getIndex(),
+                                                  lengthHead,
+                                                  attrHead,
+                                                  false);
+        
+        sourceCodeDocument.setCharacterAttributes(middlePosition.getIndex(),
+                                                  lengthTail,
+                                                  attrTail,
+                                                  false);
     }
     
     
@@ -524,10 +547,10 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     /**
      * Called then the emojicode program is aborted.
-     * @param position the position there the program was aborted
+     * @param position The position in the source code there the program was aborted
      */
     @Override
-    public void programAborted(SourcePosition position) {
+    public void programAborted(final SourcePosition position) {
         enableDebugButtons(true);
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -535,9 +558,10 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     /**
      * Called then the emojicode program has a runtime error
+     * @param position The position in the source code there the error occurs
      */
     @Override
-    public void programError(SourcePosition position) {
+    public void programError(final SourcePosition position) {
         enableDebugButtons(true);
         throw new UnsupportedOperationException("Not supported yet.");
     }
