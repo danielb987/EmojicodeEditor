@@ -183,7 +183,7 @@ public final class TokenStream {
     
     
     public void assumeHasMoreTokens() throws CompilerError {
-        if (! hasMoreTokens()) {
+        if (!hasMoreTokens()) {
             throw new CompilerError(lastPosition, lastPosition, UNEXPECTED_END_OF_PROGRAM_STRING);
         }
     }
