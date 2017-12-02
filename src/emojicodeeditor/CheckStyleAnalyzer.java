@@ -110,9 +110,11 @@ public class CheckStyleAnalyzer {
                 public int compare(Map.Entry<String, AtomicInteger> o1, Map.Entry<String, AtomicInteger> o2) {
                     int a = o1.getValue().get();
                     int b = o2.getValue().get();
+                    
+                    // Sort reverse order
                     if (a > b) {
                         return -1;
-                    } else if (b < a) {
+                    } else if (a < b) {
                         return 1;
                     } else {
                         return 0;
