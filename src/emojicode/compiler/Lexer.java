@@ -20,7 +20,7 @@ public final class Lexer {
     
     private final String string;
     
-    int codePoint = 0;
+    private int codePoint = 0;
     private int index;        // Index in string
     private int line;         // Line number in string
     private int column;       // Column in string
@@ -29,11 +29,15 @@ public final class Lexer {
     
     private final List<Token> tokens = new ArrayList<>();
     
-    boolean isHex = false;
-    boolean escapeSequence = false;
-    boolean foundZWJ = false;
+    private boolean isHex = false;
+    private boolean escapeSequence = false;
+    private boolean foundZWJ = false;
 
-    boolean continueToken = true;
+    private boolean continueToken = true;
+    
+    
+    //CHECKSTYLE.OFF: MagicNumberCheck - This class has several magic numbers which is only
+    // used in this class.
     
     
     public Lexer(final String aString, final String aFilename) {
@@ -370,5 +374,9 @@ public final class Lexer {
     int codePoint() {
         return codePoint;
     }
+    
+    
+    //CHECKSTYLE.ON: MagicNumberCheck - This class has several magic numbers which is only
+    // used in this class.
     
 }
