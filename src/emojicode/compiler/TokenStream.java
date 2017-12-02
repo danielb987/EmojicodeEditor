@@ -52,14 +52,14 @@ public class TokenStream {
         return tokens.get(index++);
     }
     
-/*    
+/*
     public Token consumeToken() throws CompilerError {
         if (! hasMoreTokens()) {
             throw new CompilerError(nextToken().position, "Unexpected end of program");
         }
         return tokens.get(index++);
     }
-*/    
+*/
     
     public Token consumeToken(final TokenType tokenType) throws CompilerError {
         
@@ -79,7 +79,7 @@ public class TokenStream {
         return token;
     }
     
-/*    
+/*
     public Token consumeToken(TokenType tokenType) throws CompilerError {
         if (! hasMoreTokens()) {
             throw new CompilerError(nextToken().position, "Unexpected end of program");
@@ -93,7 +93,7 @@ public class TokenStream {
         
         return tokens.get(index++);
     }
-*/    
+*/
     
     public boolean hasMoreTokens() {
         return (index < tokens.size());
