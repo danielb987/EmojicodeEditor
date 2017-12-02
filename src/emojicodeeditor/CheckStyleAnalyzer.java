@@ -181,14 +181,14 @@ public class CheckStyleAnalyzer {
             System.out.format("%d errors in %d files\n", numErrors, numFiles);
             
             for (Map.Entry<String, Map<String, AtomicInteger>> entry : fileErrorCount.entrySet()) {
-                System.out.println("<table>");
-                System.out.format("<tr><td colspan=\"2\">%s</td></tr>\n", entry.getKey());
+                writer.println("<table>");
+                writer.format("<tr><td colspan=\"2\">%s</td></tr>\n", entry.getKey());
                 System.out.format("Filename: %s\n", entry.getKey());
                 for (Map.Entry<String, AtomicInteger> subEntry : entry.getValue().entrySet()) {
-                    System.out.format("<tr><td>%s</td><td>%d</td></tr>\n", subEntry.getKey(), subEntry.getValue().get());
+                    writer.format("<tr><td>%s</td><td>%d</td></tr>\n", subEntry.getKey(), subEntry.getValue().get());
                     System.out.format("Error: %s, count: %d\n", subEntry.getKey(), subEntry.getValue().get());
                 }
-                System.out.println("</table>");
+                writer.println("</table>");
             }
             
             writer.println("</body>");
