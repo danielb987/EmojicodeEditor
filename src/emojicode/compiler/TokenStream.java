@@ -41,8 +41,8 @@ public class TokenStream {
     private SourcePosition lastPosition;
     
     
-    public TokenStream(List<Token> tokens) {
-        this.tokens = tokens;
+    public TokenStream(final List<Token> tokenList) {
+        this.tokens = tokenList;
     }
     
     
@@ -61,7 +61,7 @@ public class TokenStream {
     }
 */    
     
-    public Token consumeToken(TokenType tokenType) throws CompilerError {
+    public Token consumeToken(final TokenType tokenType) throws CompilerError {
         
         assumeHasMoreTokens();
         
@@ -100,42 +100,49 @@ public class TokenStream {
     }
     
     
-    public boolean nextTokenIs(TokenType tokenType) {
+    public boolean nextTokenIs(final TokenType tokenType) {
         return (hasMoreTokens() && nextToken().type == tokenType);
     }
     
     
-    public boolean nextTokenIs(int ch) {
+    public boolean nextTokenIs(final int ch) {
         return nextTokenIs(ch, TokenType.Identifier);
     }
     
     
-    public boolean nextTokenIs(String identifier) {
-        return (identifier.length() == 1) && nextTokenIs(identifier.codePointAt(0), TokenType.Identifier);
+    public boolean nextTokenIs(final String identifier) {
+        return (identifier.length() == 1)
+                && nextTokenIs(identifier.codePointAt(0), TokenType.Identifier);
     }
     
     
-    public boolean nextTokenIs(int ch, TokenType tokenType) {
-        return (hasMoreTokens() && (nextToken().type == tokenType) && (nextToken().getFirstChar() == ch));
+    public boolean nextTokenIs(final int ch, final TokenType tokenType) {
+        return hasMoreTokens()
+                && (nextToken().type == tokenType)
+                && (nextToken().getFirstChar() == ch);
     }
     
     
-    public boolean nextTokenOperatorIs(String operator) {
-        return (hasMoreTokens() && (nextToken().type == TokenType.Operator) && (nextToken().toString().equals(operator)));
+    public boolean nextTokenOperatorIs(final String operator) {
+        return hasMoreTokens()
+                && (nextToken().type == TokenType.Operator)
+                && (nextToken().toString().equals(operator));
     }
     
     
-    public boolean nextTokenIsEverythingBut(TokenType tokenType) {
-        return (hasMoreTokens() && (nextToken().type != tokenType));
+    public boolean nextTokenIsEverythingBut(final TokenType tokenType) {
+        return hasMoreTokens() && (nextToken().type != tokenType);
     }
     
     
-    public boolean nextTokenIsEverythingBut(int ch, TokenType tokenType) {
-        return (hasMoreTokens() && (! (nextToken().type == tokenType) && (nextToken().getFirstChar() == ch)) );
+    public boolean nextTokenIsEverythingBut(final int ch, final TokenType tokenType) {
+        return hasMoreTokens()
+                && (! (nextToken().type == tokenType)
+                && (nextToken().getFirstChar() == ch));
     }
     
     
-    public boolean consumeTokenIf(TokenType tokenType) {
+    public boolean consumeTokenIf(final TokenType tokenType) {
         if (nextTokenIs(tokenType)) {
             index++;
             return true;
@@ -144,7 +151,7 @@ public class TokenStream {
     }
     
     
-    public boolean consumeTokenIdentifierIf(String identifier) {
+    public boolean consumeTokenIdentifierIf(final String identifier) {
         if (nextTokenIs(TokenType.Identifier) && nextToken().toString().equals(identifier)) {
             index++;
             return true;
@@ -153,12 +160,12 @@ public class TokenStream {
     }
     
     
-    public boolean consumeTokenIf(int ch) {
+    public boolean consumeTokenIf(final int ch) {
         return consumeTokenIf(ch, TokenType.Identifier);
     }
     
     
-    public boolean consumeTokenIf(int ch, TokenType tokenType) {
+    public boolean consumeTokenIf(final int ch, final TokenType tokenType) {
         if (nextTokenIs(ch, tokenType)) {
             index++;
             return true;
@@ -179,20 +186,38 @@ public class TokenStream {
             throw new CompilerError(lastPosition, lastPosition, UNEXPECTED_END_OF_PROGRAM_STRING);
     }
     
+    
     public String getIdentifierToken() throws CompilerError {
         Token token = consumeToken();
         if (token.type != TokenType.Identifier)
-            throw new CompilerError(token.startPosition, token.endPosition, "Unexpected token. Expected token "+TokenType.Identifier.name()+" but found token "+token.type.name());
+            throw new CompilerError(token.startPosition,
+                                    token.endPosition,
+                                    "Unexpected token. Expected token "
+                                            + TokenType.Identifier.name()
+                                            + " but found token "
+                                            + token.type.name());
+        
         return token.toString();
     }
     
-    public Token consumeIdentifierToken(String identifier) throws CompilerError {
+    
+    public Token consumeIdentifierToken(final String identifier) throws CompilerError {
         Token token = consumeToken();
         if (token.type != TokenType.Identifier)
-            throw new CompilerError(token.startPosition, token.endPosition, "Unexpected token. Expected token "+TokenType.Identifier.name()+" but found token "+token.type.name());
+            throw new CompilerError(token.startPosition,
+                                    token.endPosition,
+                                    "Unexpected token. Expected token "
+                                            + TokenType.Identifier.name()
+                                            + " but found token "
+                                            + token.type.name());
         
         if (! token.toString().equals(identifier))
-            throw new CompilerError(token.startPosition, token.endPosition, "Unexpected identifier. Expected identifier "+identifier+" but found token "+token.toString());
+            throw new CompilerError(token.startPosition,
+                                    token.endPosition,
+                                    "Unexpected identifier. Expected identifier "
+                                            + identifier
+                                            + " but found token "
+                                            + token.toString());
         
         return token;
     }
