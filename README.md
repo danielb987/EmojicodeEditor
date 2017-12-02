@@ -27,5 +27,5 @@ The documentation pages has [Javadoc for EmojicodeEditor](https://danielb987.git
 
 [![Build Status](https://travis-ci.org/danielb987/EmojicodeEditor.svg?branch=master)](https://travis-ci.org/danielb987/EmojicodeEditor) [![Coverage Status](https://coveralls.io/repos/github/danielb987/EmojicodeEditor/badge.svg?branch=master)](https://coveralls.io/github/danielb987/EmojicodeEditor?branch=master)
 
-[Checkstyle](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_errors.xml)
+[Checkstyle](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_errors.xml) -
 [Checkstyle summary](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_report.html)
