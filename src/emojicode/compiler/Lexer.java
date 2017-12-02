@@ -29,6 +29,12 @@ public final class Lexer {
     
     private final List<Token> tokens = new ArrayList<>();
     
+    boolean isHex = false;
+    boolean escapeSequence = false;
+    boolean foundZWJ = false;
+
+    boolean continueToken = true;
+    
     
     public Lexer(final String aString, final String aFilename) {
         this.string = aString;
@@ -52,9 +58,9 @@ public final class Lexer {
         return Emojicode.isWhitespace(codePoint());
     }
 
-    static boolean ends_with(final String value, final String ending) {
-        return value.endsWith(ending);
-    }
+//    static boolean ends_with(final String value, final String ending) {
+//        return value.endsWith(ending);
+//    }
 
     enum TokenState {
         Continues, Ended, NextBegun, Discard
@@ -63,7 +69,7 @@ public final class Lexer {
     
     /**
      * Called if a new code point is available.
-     * 
+     *
      * @param token Used to return the token to the caller.
      * @return true if the token continues (e.g. a string) or false if the
      * token ended (i.e. it only consists of this single code point).
@@ -97,25 +103,27 @@ public final class Lexer {
                 // Do nothing
         }
 
-        if (('0' <= codePoint() && codePoint() <= '9') || codePoint() == '-' || codePoint() == '+') {
+        if ( ('0' <= codePoint() && codePoint() <= '9')
+                || codePoint() == '-'
+                || codePoint() == '+') {
             token.type = TokenType.Integer;
             isHex = false;
-        }
-        else if (EmojiTokenization.isEmoji(codePoint())) {
+        } else if (EmojiTokenization.isEmoji(codePoint())) {
             token.type = TokenType.Identifier;
-        }
-        else {
+        } else {
             token.type = TokenType.Variable;
         }
-//        System.out.format("Begin token. Append chars: %s. Codepoint: %d\n", new String(Character.toChars(codePoint())), codePoint());
+//        System.out.format("Begin token. Append chars: %s. Codepoint: %d\n",
+//                new String(Character.toChars(codePoint())), codePoint());
         token.append(Character.toChars(codePoint()));
         return true;
     }
     
     
     /**
-     * Called if a new code point is available and beginToken returned true and all previous calls for this token returned TokenState.Continues.
-     * 
+     * Called if a new code point is available and beginToken returned true and all previous
+     * calls for this token returned TokenState.Continues.
+     *
      * @param token the current token.
      * @return the state of the current token.
      * @throws CompilerError compiler error
@@ -128,36 +136,49 @@ public final class Lexer {
                     foundZWJ = false;
                     return TokenState.Continues;
                 }
-                if ((EmojiTokenization.isEmojiModifier(codePoint()) && EmojiTokenization.isEmojiModifierBase(StringHelper.getLastUnicodeChar(token.toString()))) ||
-                    (EmojiTokenization.isRegionalIndicator(codePoint()) && token.toString().length() == 1 && EmojiTokenization.isRegionalIndicator(token.toString().codePointAt(0)))) {
+                
+                if ((EmojiTokenization.isEmojiModifier(codePoint())
+                        && EmojiTokenization.isEmojiModifierBase(
+                                StringHelper.getLastUnicodeChar(token.toString())))
+                        || (EmojiTokenization.isRegionalIndicator(codePoint())
+                                && token.toString().length() == 1
+                                && EmojiTokenization.isRegionalIndicator(
+                                        token.toString().codePointAt(0)))) {
                      token.append(codePoint());
                      return TokenState.Continues;
-                 }
+                }
+                
                 if (codePoint() == 0x200D) {
                     token.append(codePoint());
                     foundZWJ = true;
                     return TokenState.Continues;
                 }
-                if (codePoint() == 0xFE0F) {  // Emojicode ignores the Emoji modifier behind an emoji character
+                
+                // Emojicode ignores the Emoji modifier behind an emoji character
+                if (codePoint() == 0xFE0F) {
                     return TokenState.Continues;
                 }
                 return TokenState.NextBegun;
+                
             case SinglelineComment:
                 if (isNewline()) {
                     return TokenState.Discard;
                 }
                 return TokenState.Continues;
+                
             case MultilineComment:
                 if (codePoint() == Emojicode.E_OLDER_WOMAN_CODEPOINT) {
                     return TokenState.Discard;
                 }
                 return TokenState.Continues;
+                
             case DocumentationComment:
                 if (codePoint() == Emojicode.E_TACO_CODEPOINT) {
                     return TokenState.Ended;
                 }
                 token.append(codePoint());
                 return TokenState.Continues;
+                
             case String:
                 if (escapeSequence) {
                     switch (codePoint()) {
@@ -196,6 +217,7 @@ public final class Lexer {
 //                System.out.println("Token string: "+token.toString());
 //                token.endPosition = lastSourcePosition;
                 return TokenState.Continues;
+                
             case Variable:
                 // A variable can consist of everything except for whitespaces and identifiers (that is emojis)
                 // isWhitespace used here because if it is whitespace, the detection will take place below
@@ -205,6 +227,7 @@ public final class Lexer {
 
                 token.append(codePoint());
                 return TokenState.Continues;
+                
             case Integer:
                 if (('0' <= codePoint() && codePoint() <= '9') || (((64 < codePoint() && codePoint() < 71) || (96 < codePoint() && codePoint() < 103)) && isHex)) {
                     token.append(codePoint());
@@ -224,18 +247,20 @@ public final class Lexer {
                     return TokenState.Continues;
                 }
                 return TokenState.NextBegun;
+                
             case Double:
                 if ('0' <= codePoint() && codePoint() <= '9') {
                     token.append(codePoint());
                     return TokenState.Continues;
                 }
                 return TokenState.NextBegun;
+                
             case Symbol:
                 token.append(codePoint());
                 return TokenState.Ended;
+                
             default:
-                throw new RuntimeException(
-                                "Lexer: Token continued but not handled.");
+                throw new RuntimeException("Lexer: Token continued but not handled.");
         }
     }
     
@@ -259,9 +284,14 @@ public final class Lexer {
     }
     
     
-    /// Reads exactly one token.
-    /// This method calls nextChar() as necessary. On return, .codePoint() already returns the next code point for
-    /// another call to beginToken(), if .continue_ is true.
+    /**
+     * Read exactly one token.
+     * This method calls nextChar() as necessary. On return, .codePoint() already returns the
+     * next code point for another call to beginToken(), if .continue_ is true.
+     * @param token used to return the token to the caller
+     * @throws CompilerError
+     * @throws LogicError 
+     */
     void readToken(final Token token) throws CompilerError, LogicError {
         TokenState state;
         if (beginToken(token)) {
@@ -293,19 +323,26 @@ public final class Lexer {
                 token.validate();
                 return;
             }
-            // Whitespace must be detected here so that this method returns on NextBegun without calling detectWhitespace()
-            // as the detectWhitespace() would otherwise be called twice for the same character. (Here and in lex())
+            // Whitespace must be detected here so that this method returns on NextBegun
+            // without calling detectWhitespace() as the detectWhitespace() would otherwise
+            // be called twice for the same character. (Here and in lex())
             detectWhitespace();
         }
     }
-
-    boolean isNewline() { return codePoint() == 0x0A || codePoint() == 0x2028 || codePoint() == 0x2029; }
-
+    
+    
+    boolean isNewline() {
+        return codePoint() == 0x0A || codePoint() == 0x2028 || codePoint() == 0x2029;
+    }
+    
+    
     void nextChar() throws CompilerError {
+        
         if (!hasMoreChars()) {
             SourcePosition position = new SourcePosition(index,line,column,filename);
             throw new CompilerError(position, position, "Unexpected end of file.");
-//            throw new CompilerError(new SourcePosition(index,line,character,filename), "Unexpected end of file.");
+//            throw new CompilerError(new SourcePosition(index,line,character,filename),
+//                    "Unexpected end of file.");
 //            throw CompilerError(tokens_.back().position(), "Unexpected end of file.");
         }
         lastSourcePosition = new SourcePosition(index,line,column,filename);
@@ -314,7 +351,11 @@ public final class Lexer {
         index += Character.charCount(codePoint);
     }
     
-    boolean hasMoreChars() { return index < string.length(); }
+    
+    boolean hasMoreChars() {
+        return index < string.length();
+    }
+    
     
     void nextCharOrEnd() throws CompilerError {
         if (hasMoreChars()) {
@@ -325,12 +366,9 @@ public final class Lexer {
         }
     }
     
-    int codePoint() { return codePoint; }
-
-    boolean isHex = false;
-    boolean escapeSequence = false;
-    boolean foundZWJ = false;
-
-    boolean continueToken = true;
-
+    
+    int codePoint() {
+        return codePoint;
+    }
+    
 }
