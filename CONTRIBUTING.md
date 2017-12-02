@@ -1,5 +1,13 @@
 # Contribution
 
+## Code checking
+The EmojicodeEditor project uses Travis CI to run some tests and code validation
+to ensure the quality of the code. These tests are:
+- JUnit tests: Run the tests in the test packages.
+- Jacoco: Checks how much of the code that is covered by tests. The result is
+published on Coverall.
+- Checkstyle: Check the coding style.
+
 ## Coding style
 EmojicodeEditor uses [checkstyle](http://checkstyle.sourceforge.net/) to enforce
 [Sun coding style](http://checkstyle.sourceforge.net/sun_style.html).
