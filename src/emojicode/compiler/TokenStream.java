@@ -138,7 +138,7 @@ public final class TokenStream {
     
     public boolean nextTokenIsEverythingBut(final int ch, final TokenType tokenType) {
         return hasMoreTokens()
-                && (! (nextToken().type == tokenType)
+                && (!(nextToken().type == tokenType)
                 && (nextToken().getFirstChar() == ch));
     }
     
@@ -183,8 +183,9 @@ public final class TokenStream {
     
     
     public void assumeHasMoreTokens() throws CompilerError {
-        if (! hasMoreTokens())
+        if (! hasMoreTokens()) {
             throw new CompilerError(lastPosition, lastPosition, UNEXPECTED_END_OF_PROGRAM_STRING);
+        }
     }
     
     
@@ -214,7 +215,7 @@ public final class TokenStream {
                                             + token.type.name());
         }
         
-        if (! token.toString().equals(identifier)) {
+        if (!token.toString().equals(identifier)) {
             throw new CompilerError(token.startPosition,
                                     token.endPosition,
                                     "Unexpected identifier. Expected identifier "
