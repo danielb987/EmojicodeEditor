@@ -203,7 +203,6 @@
 <error line="42" severity="error" message="Line is longer than 100 characters (found 111)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/EmojiMethodUserDefined.java">
-<error line="60" column="12" severity="error" message="More than 7 parameters (found 8)." source="com.puppycrawl.tools.checkstyle.checks.sizes.ParameterNumberCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/EmojiPackage.java">
 <error line="26" column="8" severity="error" message="Unused import - emojicode.compiler.CompilerError." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
