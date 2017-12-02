@@ -182,7 +182,7 @@ public class CheckStyleAnalyzer {
             
             for (Map.Entry<String, Map<String, AtomicInteger>> entry : fileErrorCount.entrySet()) {
                 writer.println("<table>");
-                writer.format("<tr><td colspan=\"2\">%s</td></tr>\n", entry.getKey());
+                writer.format("<tr><td>%s</td><td>%d</td></tr>\n", entry.getKey(), fileTotalErrorCount.get(entry.getKey()).get());
                 System.out.format("Filename: %s\n", entry.getKey());
                 for (Map.Entry<String, AtomicInteger> subEntry : entry.getValue().entrySet()) {
                     writer.format("<tr><td>%s</td><td>%d</td></tr>\n", subEntry.getKey(), subEntry.getValue().get());
