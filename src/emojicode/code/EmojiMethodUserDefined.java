@@ -26,7 +26,7 @@ package emojicode.code;
 import java.util.List;
 
 /**
- * Method
+ * Type method or method.
  * http://www.emojicode.org/docs/reference/classes-valuetypes.html
  *
  * A type method is a method that is called on the type rather than on the
@@ -124,7 +124,7 @@ public class EmojiMethodUserDefined extends EmojiMethod {
     
     /**
      * Execute the method.
-     * @param instance the instance of the class, or null if this is a class method
+     * @param instance the instance of the class, or null if this is a type method
      * @param arguments the arguments to the method
      * @param returnValue the return value of the method
      */
