@@ -46,13 +46,19 @@ public class EmojiMethodUserDefined extends EmojiMethod {
                                   final List<EmojiMethodArgumentType> genericArgumentTypes,
                                   final List<EmojiMethodArgumentType> argumentTypes,
                                   final EmojiArgument returnType,
-                                  final CodeBlock codeBlock) {
-        super(documentationComment, parent, methodType, name, genericArgumentTypes, argumentTypes, returnType);
+                                  final CodeBlock aCodeBlock) {
+        super(documentationComment,
+              parent,
+              methodType,
+              name,
+              genericArgumentTypes,
+              argumentTypes,
+              returnType);
         
-        this.codeBlock = codeBlock;
+        this.codeBlock = aCodeBlock;
     }
     
-/*    
+/*
     public EmojiMethod_UserDefined(DocumentationComment documentationComment, Parent parent) {
         super(documentationComment,
               parent,
@@ -68,14 +74,14 @@ public class EmojiMethodUserDefined extends EmojiMethod {
         tokenStream.consumeIdentifierToken(Emojicode.E_PIG);     // 🐖 - method
         
 //        typeIdentifier = tokenStream.getIdentifierToken();          // Type identifier
-/.*        
+/.*
         while (tokenStream.nextTokenIs(TokenType.Variable)) {
             Token token = tokenStream.consumeToken();
             System.out.println("Parameter: "+token.toString());
             parameters.add(token.toString());
         }
-*./        
-/.*        
+*./
+/.*
         tokenStream.consumeToken(TokenType.BlockBegin);
         
         tokenStream.assumeHasMoreTokens();
@@ -92,9 +98,9 @@ public class EmojiMethodUserDefined extends EmojiMethod {
 //        while (tokenStream.hasMoreTokens()) {
 //            Token token = tokenStream.nextToken();
 //        }
-*./        
+*./
     }
-*/    
+*/
     
     @Override
     public void execute(final EmojiClassInstance instance,
