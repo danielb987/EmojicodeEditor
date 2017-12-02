@@ -47,6 +47,11 @@ public class Main {
      */
     public static void main(final String args[]) {
         
+        if ((args.length == 2) && (args[0].toLowerCase().equals("checkstyle"))) {
+            new CheckStyleAnalyzer(args[1]).analyze();
+            System.exit(0);
+        }
+        
         if ((args.length == 1) && (args[0].toLowerCase().equals("findnull"))) {
             FindFilesWithNullChar.find();
             System.exit(0);
