@@ -235,20 +235,17 @@ public final class Lexer {
                         && isHex)) {
                     token.append(codePoint());
                     return TokenState.Continues;
-                }
-                else if (codePoint() == '.') {
+                } else if (codePoint() == '.') {
                     token.type = TokenType.Double;
                     token.append(codePoint());
                     return TokenState.Continues;
-                }
-                else if ((codePoint() == 'x' || codePoint() == 'X')
+                } else if ((codePoint() == 'x' || codePoint() == 'X')
                         && token.toString().length() == 1
                         && token.toString().charAt(0) == '0') {
                     isHex = true;
                     token.append(codePoint());
                     return TokenState.Continues;
-                }
-                else if (codePoint() == '_') {
+                } else if (codePoint() == '_') {
                     return TokenState.Continues;
                 }
                 return TokenState.NextBegun;
@@ -280,11 +277,11 @@ public final class Lexer {
             }
             
             Token token = new Token(lastSourcePosition);
-            token.endPosition = new SourcePosition(index,line,column,filename);
+            token.endPosition = new SourcePosition(index, line, column, filename);
             tokens.add(token);
             readToken(token);
         }
-
+        
         return new TokenStream(tokens);
     }
     
@@ -295,14 +292,14 @@ public final class Lexer {
      * next code point for another call to beginToken(), if .continue_ is true.
      * @param token used to return the token to the caller
      * @throws CompilerError
-     * @throws LogicError 
+     * @throws LogicError
      */
     void readToken(final Token token) throws CompilerError, LogicError {
         TokenState state;
         if (beginToken(token)) {
             state = TokenState.Continues;
         } else {
-            state =  TokenState.Ended;
+            state = TokenState.Ended;
         }
         
         while (true) {
@@ -312,7 +309,7 @@ public final class Lexer {
                 return;
             }
             if (state == TokenState.Discard) {
-                tokens.remove(tokens.size()-1);
+                tokens.remove(tokens.size() - 1);
 //                tokens_.pop_back();
                 nextCharOrEnd();
                 return;
@@ -344,13 +341,13 @@ public final class Lexer {
     void nextChar() throws CompilerError {
         
         if (!hasMoreChars()) {
-            SourcePosition position = new SourcePosition(index,line,column,filename);
+            SourcePosition position = new SourcePosition(index, line, column, filename);
             throw new CompilerError(position, position, "Unexpected end of file.");
 //            throw new CompilerError(new SourcePosition(index,line,character,filename),
 //                    "Unexpected end of file.");
 //            throw CompilerError(tokens_.back().position(), "Unexpected end of file.");
         }
-        lastSourcePosition = new SourcePosition(index,line,column,filename);
+        lastSourcePosition = new SourcePosition(index, line, column, filename);
         codePoint = string.codePointAt(index);
         column++;
         index += Character.charCount(codePoint);
@@ -365,8 +362,7 @@ public final class Lexer {
     void nextCharOrEnd() throws CompilerError {
         if (hasMoreChars()) {
             nextChar();
-        }
-        else {
+        } else {
             continueToken = false;
         }
     }
