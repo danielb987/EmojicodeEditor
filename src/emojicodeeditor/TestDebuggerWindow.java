@@ -49,8 +49,8 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 
 /**
- * Tests the debugger
- * 
+ * Tests the debugger.
+ *
  * @author Daniel Bergqvist
  */
 public final class TestDebuggerWindow extends javax.swing.JFrame implements Debugger.DebugActions {
@@ -118,7 +118,10 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         
         jTextPaneSourceCode.setCaretPosition(0);
         
-        sourceCodeDocument.setCharacterAttributes(0, sourceCodeDocument.getLength(), defaultStyle, true);
+        sourceCodeDocument.setCharacterAttributes(0,
+                                                  sourceCodeDocument.getLength(),
+                                                  defaultStyle,
+                                                  true);
         
         StyleContext cont = StyleContext.getDefaultStyleContext();
         
@@ -130,8 +133,10 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         attr2.addAttribute("underline-color", Color.red);
         sourceCodeDocument.setCharacterAttributes(25,31,attr2,false);
         
-        AttributeSet attrHead = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
-        AttributeSet attrTail = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.YELLOW);
+        AttributeSet attrHead =
+                cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
+        AttributeSet attrTail =
+                cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.YELLOW);
         sourceCodeDocument.setCharacterAttributes(10,10,attrHead,false);
     }
     
@@ -283,7 +288,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
 /*        
         try {
             jTextArea_Output.setText("");
-            emojiPackage = new emojicode.code.EmojiPackage_UserDefinied("daniel", filename, source);
+            emojiPackage = new emojicode.code.EmojiPackage_UserDefinied("daniel",filename,source);
             emojiPackage.parse();
 //            emojiPackage.run();
         } catch (CompilerError | LogicError ex) {
@@ -305,7 +310,8 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     private void jButtonCompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCompileActionPerformed
         try {
             jTextAreaOutput.setText("");
-            emojicode.code.EmojiPackageUserDefinied emojiPackage = new emojicode.code.EmojiPackageUserDefinied("daniel", filename, source);
+            emojicode.code.EmojiPackageUserDefinied emojiPackage =
+                    new emojicode.code.EmojiPackageUserDefinied("daniel", filename, source);
             emojiPackage.parse();
         } catch (CompilerError ex) {
             ex.printStackTrace(StandardIO.getInstance().getOutput());
@@ -328,7 +334,8 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
 /*        
         try {
             jTextArea_Output.setText("");
-            emojicode.code.EmojiPackage_UserDefinied emojiPackage = new emojicode.code.EmojiPackage_UserDefinied("daniel", filename, source);
+            emojicode.code.EmojiPackage_UserDefinied emojiPackage =
+                new emojicode.code.EmojiPackage_UserDefinied("daniel", filename, source);
             emojiPackage.parse();
         } catch (CompilerError | LogicError ex) {
             Debugger.getInstance().stopDebugger();
@@ -357,12 +364,22 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         if (testTokenStream.hasMoreTokens()) {
             try {
                 StyleContext cont = StyleContext.getDefaultStyleContext();
-//                AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.RED);
-                AttributeSet attr = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
-//                AttributeSet attrBlack = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.BLACK);
-                AttributeSet attrBlack = cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.BLACK);
+//                AttributeSet attr =
+//                    cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.RED);
+                AttributeSet attr =
+                    cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.RED);
+//                AttributeSet attrBlack =
+//                    cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.BLACK);
+                AttributeSet attrBlack =
+                    cont.addAttribute(cont.getEmptySet(), StyleConstants.Background, Color.BLACK);
+                
                 Token token = testTokenStream.consumeToken();
-                sourceCodeDocument.setCharacterAttributes(0, sourceCodeDocument.getLength(), defaultStyle, true);
+                
+                sourceCodeDocument.setCharacterAttributes(0,
+                                                          sourceCodeDocument.getLength(),
+                                                          defaultStyle,
+                                                          true);
+                
                 int length = token.endPosition.getIndex() - token.startPosition.getIndex();
 //                System.out.format("Token: %s, %s. Start: %d, end: %d\n", token.type.name(), token.toString(), token.startPosition.index, token.endPosition.index);
                 sourceCodeDocument.setCharacterAttributes(token.startPosition.getIndex(),length,attr,false);
@@ -434,7 +451,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     
     /**
-     * Start the emojicode program
+     * Start the emojicode program.
      * @param pauseOnEveryStep true if the debugger shall stop the program after every program step
      * @param runToCursor if >= 0, run the program to the point in the emojicode, measured in
      * unicode codepoints
@@ -512,7 +529,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     @Override
     public void programAborted(SourcePosition position) {
         enableDebugButtons(true);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     
@@ -522,7 +539,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     @Override
     public void programError(SourcePosition position) {
         enableDebugButtons(true);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     
