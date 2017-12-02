@@ -42,7 +42,7 @@ import javax.swing.ToolTipManager;
 
 /**
  *
- * @author daniel
+ * @author Daniel Bergqvist
  */
 public final class MainWindow extends javax.swing.JFrame {
 
