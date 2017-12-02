@@ -24,18 +24,18 @@ public final class Lexer {
     private int index;        // Index in string
     private int line;         // Line number in string
     private int column;       // Column in string
-    private String filename;  // Filename
+    private final String filename;  // Filename
     private SourcePosition lastSourcePosition;
     
     private final List<Token> tokens = new ArrayList<>();
     
     
-    public Lexer(String string, String filename) {
-        this.string = string;
+    public Lexer(final String aString, final String aFilename) {
+        this.string = aString;
         index = 0;
         line = 1;
         column = 0;
-        this.filename = filename;
+        this.filename = aFilename;
     }
     
     
@@ -52,7 +52,7 @@ public final class Lexer {
         return Emojicode.isWhitespace(codePoint());
     }
 
-    boolean ends_with(String value, String ending) {
+    static boolean ends_with(final String value, final String ending) {
         return value.endsWith(ending);
     }
 
@@ -68,7 +68,7 @@ public final class Lexer {
      * @return true if the token continues (e.g. a string) or false if the
      * token ended (i.e. it only consists of this single code point).
      */
-    boolean beginToken(Token token) {
+    boolean beginToken(final Token token) {
         TokenType it = TokenType.getTokenType(codePoint());
         if (it != null) {
 //            System.out.format("Begin token. Token: %s\n", it.toString());
@@ -93,6 +93,8 @@ public final class Lexer {
             case Emojicode.E_KEYCAP_10_CODEPOINT:
                 token.type = TokenType.Symbol;
                 return true;
+            default:
+                // Do nothing
         }
 
         if (('0' <= codePoint() && codePoint() <= '9') || codePoint() == '-' || codePoint() == '+') {
@@ -118,7 +120,7 @@ public final class Lexer {
      * @return the state of the current token.
      * @throws CompilerError compiler error
      */
-    TokenState continueToken(Token token) throws CompilerError {
+    TokenState continueToken(final Token token) throws CompilerError {
         switch (token.type) {
             case Identifier:
                 if (foundZWJ && EmojiTokenization.isEmoji(codePoint())) {
@@ -260,7 +262,7 @@ public final class Lexer {
     /// Reads exactly one token.
     /// This method calls nextChar() as necessary. On return, .codePoint() already returns the next code point for
     /// another call to beginToken(), if .continue_ is true.
-    void readToken(Token token) throws CompilerError, LogicError {
+    void readToken(final Token token) throws CompilerError, LogicError {
         TokenState state;
         if (beginToken(token)) {
             state = TokenState.Continues;
