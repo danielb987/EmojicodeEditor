@@ -135,7 +135,7 @@ public class CheckStyleAnalyzer {
                 
                 Map<String, AtomicInteger> entry = fileErrorCount.get(item.getKey());
                 writer.println("<table>");
-                writer.format("<tr><td style=\"{background-color: coral;}\">%d</td><td style=\"{background-color: coral;}\">%s</td></tr>\n", fileTotalErrorCount.get(item.getKey()).get(), item.getKey());
+                writer.format("<tr style=\"background-color: coral;\"><td>%d</td><td>%s</td></tr>\n", fileTotalErrorCount.get(item.getKey()).get(), item.getKey());
                 System.out.format("Filename: %s\n", item.getKey());
                 for (Map.Entry<String, AtomicInteger> subEntry : entry.entrySet()) {
                     writer.format("<tr><td>%d</td><td>%s</td></tr>\n", subEntry.getValue().get(), subEntry.getKey());
