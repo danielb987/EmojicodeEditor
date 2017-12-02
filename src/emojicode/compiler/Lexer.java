@@ -291,10 +291,9 @@ public final class Lexer {
      * This method calls nextChar() as necessary. On return, .codePoint() already returns the
      * next code point for another call to beginToken(), if .continue_ is true.
      * @param token used to return the token to the caller
-     * @throws CompilerError
-     * @throws LogicError
+     * @throws CompilerError a compiler error exception
      */
-    void readToken(final Token token) throws CompilerError, LogicError {
+    void readToken(final Token token) throws CompilerError {
         TokenState state;
         if (beginToken(token)) {
             state = TokenState.Continues;
@@ -318,7 +317,7 @@ public final class Lexer {
             if (Emojicode.isWhitespace(codePoint)) {
                 token.endPosition = lastSourcePosition;
             } else {
-                token.endPosition = new SourcePosition(index,line,column,filename);
+                token.endPosition = new SourcePosition(index, line, column, filename);
             }
             state = continueToken(token);
             if (state == TokenState.NextBegun) {
