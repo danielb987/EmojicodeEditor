@@ -1,4 +1,9 @@
 # Contribution
+Contributions are welcome.
+
+# Code contributions
+If you want to add new features, please open an Issue there you describe the
+feature you would like to add.
 
 ## Code checking
 The EmojicodeEditor project uses Travis CI to run some tests and code validation
