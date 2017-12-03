@@ -6,6 +6,9 @@ If you want to add new features, please open an Issue there you describe the
 feature you would like to add. That will allow us to discuss the desired change
 before doing the work on the contribution.
 
+### Javadoc
+The documentation pages has [Javadoc for EmojicodeEditor](https://danielb987.github.io/EmojicodeEditor/javadoc/).
+
 ## Code checking
 The EmojicodeEditor project uses Travis CI to run some tests and code validation
 to ensure the quality of the code. These tests are:
