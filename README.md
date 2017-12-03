@@ -20,11 +20,12 @@ The lastest development version [EmojicodeEditor.jar](https://danielb987.github.
 is generated on every new commit. There is no stable version yet.
 
 ### Contribution
-If you want to contribute to the project, please create an Issue first. That will
-allow us to discuss the desired change before doing the work on the contribution.
+Contributions are welcome. Please read the [contribution](https://github.com/danielb987/EmojicodeEditor/blob/master/CONTRIBUTING.md) page before contribution to the project.
 
+### Javadoc
 The documentation pages has [Javadoc for EmojicodeEditor](https://danielb987.github.io/EmojicodeEditor/javadoc/).
 
+### Status checks
 [![Build Status](https://travis-ci.org/danielb987/EmojicodeEditor.svg?branch=master)](https://travis-ci.org/danielb987/EmojicodeEditor) [![Coverage Status](https://coveralls.io/repos/github/danielb987/EmojicodeEditor/badge.svg?branch=master)](https://coveralls.io/github/danielb987/EmojicodeEditor?branch=master)
 
 [Checkstyle](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_errors.xml) -
