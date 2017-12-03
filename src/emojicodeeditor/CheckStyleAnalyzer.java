@@ -23,13 +23,9 @@
  */
 package emojicodeeditor;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,10 +35,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.Attributes;
@@ -59,7 +51,7 @@ public class CheckStyleAnalyzer {
     private final String reportFilename;
     
     
-    public CheckStyleAnalyzer(String aFilename, String aReportFilename) {
+    public CheckStyleAnalyzer(final String aFilename, final String aReportFilename) {
         this.filename = aFilename;
         this.reportFilename = aReportFilename;
     }
@@ -98,7 +90,7 @@ public class CheckStyleAnalyzer {
         private Map<String, AtomicInteger> currentFileErrorCount = new HashMap<>();
         
         
-        UserHandler(PrintWriter aWriter) {
+        UserHandler(final PrintWriter aWriter) {
             this.writer = aWriter;
         }
         
@@ -130,6 +122,7 @@ public class CheckStyleAnalyzer {
             writer.println("</head>");
             writer.println("<body>");
             
+            writer.format("<p>%d errors in %d files</p>\n", numErrors, numFiles);
             System.out.format("%d errors in %d files\n", numErrors, numFiles);
             
 //            for (Map.Entry<String, Map<String, AtomicInteger>> entry : fileErrorCount.entrySet()) {
