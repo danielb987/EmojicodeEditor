@@ -3,15 +3,18 @@ Contributions are welcome.
 
 # Code contributions
 If you want to add new features, please open an Issue there you describe the
-feature you would like to add.
+feature you would like to add. That will allow us to discuss the desired change
+before doing the work on the contribution.
 
 ## Code checking
 The EmojicodeEditor project uses Travis CI to run some tests and code validation
 to ensure the quality of the code. These tests are:
 - JUnit tests: Run the tests in the test packages.
-- Jacoco: Checks how much of the code that is covered by tests. The result is
-published on Coverall.
+- Jacoco: Checks how much of the code that is covered by tests.
 - Checkstyle: Check the coding style.
+
+[![Build Status](https://travis-ci.org/danielb987/EmojicodeEditor.svg?branch=master)](https://travis-ci.org/danielb987/EmojicodeEditor) [![Coverage Status](https://coveralls.io/repos/github/danielb987/EmojicodeEditor/badge.svg?branch=master)](https://coveralls.io/github/danielb987/EmojicodeEditor?branch=master)
+[Checkstyle](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_errors.xml) - [Checkstyle summary](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_report.html)
 
 ## Coding style
 EmojicodeEditor uses [checkstyle](http://checkstyle.sourceforge.net/) to enforce
