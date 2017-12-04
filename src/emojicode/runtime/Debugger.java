@@ -24,21 +24,14 @@
 package emojicode.runtime;
 
 import emojicode.SourcePosition;
-import emojicode.code.EmojiPackage;
 import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.code.Parent;
-import emojicode.code.predifined_packages.s.StandardIO;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Daniel Bergqvist
  */
-public class Debugger {
+public final class Debugger {
     
     private static final Debugger instance = new Debugger();
     
@@ -99,12 +92,14 @@ public class Debugger {
     }
     
     
-    public void setPauseOnEveryStep(boolean pauseOnEveryStep) {
-        this.pauseOnEveryStep = pauseOnEveryStep;
+    public void setPauseOnEveryStep(final boolean doPauseOnEveryStep) {
+        this.pauseOnEveryStep = doPauseOnEveryStep;
     }
     
     
-    public void runProgram(EmojiPackageUserDefinied emojiPackage, DebugActions debugActions) throws DebuggerException {
+    public void runProgram(final EmojiPackageUserDefinied emojiPackage,
+                           final DebugActions debugActions)
+            throws DebuggerException {
         if (programIsRunning)
             throw new DebuggerException.DebuggerException_ProgramIsRunning();
         this.debugActions = debugActions;
@@ -122,7 +117,11 @@ public class Debugger {
     }
     
     
-    public void runProgramToCursor(EmojiPackageUserDefinied emojiPackage, DebugActions debugActions, int runToCursor) throws DebuggerException {
+    public void runProgramToCursor(final EmojiPackageUserDefinied emojiPackage,
+                                   final DebugActions debugActions,
+                                   final int runToCursor)
+            throws DebuggerException {
+        
         if (programIsRunning)
             throw new DebuggerException.DebuggerException_ProgramIsRunning();
         this.debugActions = debugActions;
@@ -140,7 +139,10 @@ public class Debugger {
     }
     
     
-    public void step(Parent parent, SourcePosition startPosition, SourcePosition middlePosition, SourcePosition endPosition) {
+    public void step(final Parent parent,
+                     final SourcePosition startPosition,
+                     final SourcePosition middlePosition,
+                     final SourcePosition endPosition) {
         
         if (startPosition == null)
             throw new IllegalArgumentException("startPosition must not be null");
@@ -167,33 +169,50 @@ public class Debugger {
     }
     
     
-    public void continueRunToCursor(int runToCursor) {
+    public void continueRunToCursor(final int runToCursor) {
         this.runToCursor = runToCursor;
         doNotify();
     }
     
     
+    
     public interface DebugActions {
-        public void next(Parent parent, SourcePosition startPosition, SourcePosition middlePosition, SourcePosition endPosition);
+        
+        public void next(Parent parent,
+                         SourcePosition startPosition,
+                         SourcePosition middlePosition,
+                         SourcePosition endPosition);
+        
         public void programEnded();
+        
         public void programAborted(SourcePosition position);
+        
         public void programError(SourcePosition position);
+        
     }
+    
     
     
     public class DebugActions_SwingSafe {
         
         private final DebugActions debugActions;
         
-        public DebugActions_SwingSafe(DebugActions debugActions) {
+        
+        public DebugActions_SwingSafe(final DebugActions debugActions) {
             this.debugActions = debugActions;
         }
         
-        public void next(Parent parent, SourcePosition startPosition, SourcePosition middlePosition, SourcePosition endPosition) {
+        
+        public void next(final Parent parent,
+                         final SourcePosition startPosition,
+                         final SourcePosition middlePosition,
+                         final SourcePosition endPosition) {
+            
             java.awt.EventQueue.invokeLater(() -> {
                 debugActions.next(parent, startPosition, middlePosition, endPosition);
             });
         }
+        
         
         public void programEnded() {
             java.awt.EventQueue.invokeLater(() -> {
@@ -201,13 +220,15 @@ public class Debugger {
             });
         }
         
-        public void programAborted(SourcePosition position) {
+        
+        public void programAborted(final SourcePosition position) {
             java.awt.EventQueue.invokeLater(() -> {
                 debugActions.programAborted(position);
             });
         }
         
-        public void programError(SourcePosition position) {
+        
+        public void programError(final SourcePosition position) {
             java.awt.EventQueue.invokeLater(() -> {
                 debugActions.programError(position);
             });
@@ -223,6 +244,8 @@ public class Debugger {
     // a catch statment catches Throwable or Exception, but it should not be
     // done.
     private class StopProgramException extends RuntimeException {
+        
+        private static final long serialVersionUID = 1L;
     }
     
     
