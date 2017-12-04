@@ -31,10 +31,10 @@ import java.util.logging.Logger;
 
 /**
  * The starting point of the program.
- * 
+ *
  * @author Daniel Bergqvist
  */
-public class Main {
+public final class Main {
     
     /**
      * Private constructor since this class should never be instanced.
@@ -44,13 +44,13 @@ public class Main {
     
     /**
      * The starting point of the program.
-     * 
+     *
      * @param args the command line arguments
      */
-    public static void main(final String args[]) {
+    public static void main(final String[] args) {
         
         if ((args.length == 3) && (args[0].toLowerCase().equals("checkstyle"))) {
-            new CheckStyleAnalyzer(args[1],args[2]).analyze();
+            new CheckStyleAnalyzer(args[1], args[2]).analyze();
             System.exit(0);
         }
         
@@ -83,7 +83,8 @@ public class Main {
 //                int code = "🔡".codePointAt(0);
 //                System.out.format("🔡 : 0x%X\n", code);
 //                new TestCompiler().testFile_new("test/emojicode_tests/compilation/hello.emojic");
-////////////////////                new TestCompiler().testCompileAndRun("test/emojicode_tests/compilation/hello.emojic");
+////////                new TestCompiler().testCompileAndRun(
+////////                                        "test/emojicode_tests/compilation/hello.emojic");
 //                new TestCompiler().testFile("test/emojicode_tests/compilation/hello.emojic");
                 if (1 == 0) {
                     throw new IOException("");
@@ -92,7 +93,8 @@ public class Main {
 //                new TestCompiler().testAllFiles("test/emojicode_tests/reject");
 //            } catch (CompilerError | LogicError | IOException ex) {
             } catch (Throwable ex) {
-                Logger.getLogger(emojicode.compiler.Compiler.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(emojicode.compiler.Compiler.class.getName())
+                        .log(Level.SEVERE, null, ex);
             } finally {
                 System.exit(0);
             }
