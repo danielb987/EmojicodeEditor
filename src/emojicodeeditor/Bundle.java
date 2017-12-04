@@ -38,14 +38,31 @@ import java.util.logging.Logger;
  *
  * @author Daniel Bergqvist
  */
-public class Bundle {
+public final class Bundle {
     
+    /**
+     * The name of the property file with the bundle data.
+     */
     private final String name = "/emojicodeeditor/Bundle.properties";
     
+    /**
+     * List of all the keys in the bundle.
+     */
     private final List<String> keys = new ArrayList<>();
+    
+    /**
+     * Map of the keys and values in the bundle.
+     */
     private final Map<String, String> map = new HashMap<>();
     
+    /**
+     * The instance of this singleton class.
+     */
     private static volatile Bundle bundle;
+    
+    /**
+     * A lock that protects this class.
+     */
     private static final Object lock = new Object();
     
     /**
@@ -69,9 +86,13 @@ public class Bundle {
         return bundle;
     }
     
+    
+    /**
+     * Private constructor since this class is a singleton.
+     */
     private Bundle() {
         
-        ClassLoader cl = this.getClass().getClassLoader();
+//        ClassLoader cl = this.getClass().getClassLoader();
 /*        
         try {
 //            Enumeration<URL> r = cl.getResources(name);
@@ -126,6 +147,10 @@ public class Bundle {
         return map.get(key);
     }
     
+    /**
+     * Get all the keys in the bundle.
+     * @return a list with the keys in the bundle
+     */
     public List<String> getKeys() {
         return new ArrayList<>(keys);
     }
