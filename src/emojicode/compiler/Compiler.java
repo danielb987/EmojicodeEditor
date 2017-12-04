@@ -26,13 +26,13 @@ package emojicode.compiler;
 import emojicode.Token;
 
 /**
- * An emojicode compiler
+ * An emojicode compiler.
  * @author Daniel Bergqvist
  */
 public final class Compiler {
     
     /**
-     * An emojicode compiler
+     * An emojicode compiler.
      * @param string the emojicode program that is to be compiled
      * @param filename the filename of the file that is to be compiled
      * @throws CompilerError a compiler error
