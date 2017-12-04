@@ -336,7 +336,7 @@ public class CheckStyleAnalyzer {
          * @throws SAXException Any SAX exception, possibly wrapping another exception
          */
         @Override
-        public void characters(final char ch[], final int start, final int length)
+        public void characters(final char[] ch, final int start, final int length)
                 throws SAXException {
         }
         
