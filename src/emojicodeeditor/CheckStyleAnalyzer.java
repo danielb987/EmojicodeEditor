@@ -206,6 +206,7 @@ public class CheckStyleAnalyzer {
             if ("error".equalsIgnoreCase(qName)) {
 //                System.out.format("error tag\n");
                 numErrors++;
+                currentFileHasErrors = true;
                 String error = attributes.getValue("source");
                 String errorMessage = attributes.getValue("message");
                 if (error == null) {
