@@ -95,18 +95,18 @@
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right">86</td>
-<td align="right">6.96</td>
+<td align="right">84</td>
+<td align="right">6.80</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>104</b>
+<b>102</b>
 </td>
 <td align="right">
-<b>8.41</b>
+<b>8.25</b>
 </td>
 </tr>
 </table>
@@ -154,7 +154,7 @@
 <td>
 <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
 </td>
-<td align="right">45</td>
+<td align="right">43</td>
 </tr>
 <tr class="tablerow1">
 <td>
@@ -197,7 +197,7 @@
 <b>Total</b>
 </td>
 <td align="right">
-<b>104</b>
+<b>102</b>
 </td>
 </tr>
 </table>
@@ -211,7 +211,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68306');">
+<tr class="tablerow1" onclick="toggleRow('N68152');">
 <td>
 <span class="priority-2">Dm</span>
 </td>
@@ -220,12 +220,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68306" style="display: none;">
+<p id="N68152" style="display: none;">
 <a href="#DM_EXIT">Bug type DM_EXIT (click for details)</a>
 <br/>In class junit.textui.TestRunner<br/>In method junit.textui.TestRunner.runFailed(String)<br/>At TestRunner.java:[line 198]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N71268');">
+<tr class="tablerow0" onclick="toggleRow('N71114');">
 <td>
 <span class="priority-2">Dm</span>
 </td>
@@ -234,40 +234,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N71268" style="display: none;">
+<p id="N71114" style="display: none;">
 <a href="#DM_EXIT">Bug type DM_EXIT (click for details)</a>
 <br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.startElement(String, String, String, Attributes)<br/>At CheckStyleAnalyzer.java:[line 316]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67061');">
-<td>
-<span class="priority-2">FS</span>
-</td>
-<td>Format string should use %n rather than \n in emojicodeeditor.EmojicodeDocumentation.readStandardPackages()</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N67061" style="display: none;">
-<a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class emojicodeeditor.EmojicodeDocumentation<br/>In method emojicodeeditor.EmojicodeDocumentation.readStandardPackages()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "Package: %s\n"<br/>At EmojicodeDocumentation.java:[line 234]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N67693');">
-<td>
-<span class="priority-2">FS</span>
-</td>
-<td>Format string should use %n rather than \n in new emojicodeeditor.MainWindow()</td>
-</tr>
-<tr class="detailrow0">
-<td/>
-<td>
-<p id="N67693" style="display: none;">
-<a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class emojicodeeditor.MainWindow<br/>In method new emojicodeeditor.MainWindow()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "%d: %d, %s\n"<br/>At MainWindow.java:[line 186]</p>
-</td>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N70062');">
+<tr class="tablerow1" onclick="toggleRow('N69908');">
 <td>
 <span class="priority-2">FS</span>
 </td>
@@ -276,9 +248,37 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70062" style="display: none;">
+<p id="N69908" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
 <br/>In class org.junit.runners.model.MultipleFailureException<br/>In method org.junit.runners.model.MultipleFailureException.getMessage()<br/>Called method String.format(String, Object[])<br/>Format string "\n  %s(%s)"<br/>At MultipleFailureException.java:[line 37]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N71171');">
+<td>
+<span class="priority-2">FS</span>
+</td>
+<td>Format string should use %n rather than \n in util.CheckStyleAnalyzer$UserHandler.createReport()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N71171" style="display: none;">
+<a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
+<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "%d errors in %d files\n"<br/>At CheckStyleAnalyzer.java:[line 218]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N71248');">
+<td>
+<span class="priority-2">FS</span>
+</td>
+<td>Format string should use %n rather than \n in util.CheckStyleAnalyzer$UserHandler.createReport()</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N71248" style="display: none;">
+<a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
+<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "Error: %s, count: %d\n"<br/>At CheckStyleAnalyzer.java:[line 233]</p>
 </td>
 </tr>
 <tr class="tablerow0" onclick="toggleRow('N71325');">
@@ -292,7 +292,7 @@
 <td>
 <p id="N71325" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "%d errors in %d files\n"<br/>At CheckStyleAnalyzer.java:[line 218]</p>
+<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "Error: %s, count: %d\n"<br/>At CheckStyleAnalyzer.java:[line 255]</p>
 </td>
 </tr>
 <tr class="tablerow1" onclick="toggleRow('N71402');">
@@ -306,7 +306,7 @@
 <td>
 <p id="N71402" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "Error: %s, count: %d\n"<br/>At CheckStyleAnalyzer.java:[line 233]</p>
+<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "Filename: %s\n"<br/>At CheckStyleAnalyzer.java:[line 249]</p>
 </td>
 </tr>
 <tr class="tablerow0" onclick="toggleRow('N71479');">
@@ -320,7 +320,7 @@
 <td>
 <p id="N71479" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "Error: %s, count: %d\n"<br/>At CheckStyleAnalyzer.java:[line 255]</p>
+<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintWriter.format(String, Object[])<br/>Format string "&lt;p&gt;%d errors in %d files. %d files in total.&lt;/p&gt;\n"<br/>At CheckStyleAnalyzer.java:[line 215]</p>
 </td>
 </tr>
 <tr class="tablerow1" onclick="toggleRow('N71556');">
@@ -334,7 +334,7 @@
 <td>
 <p id="N71556" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "Filename: %s\n"<br/>At CheckStyleAnalyzer.java:[line 249]</p>
+<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintWriter.format(String, Object[])<br/>Format string "&lt;tr style="background-color: coral;"&gt;&lt;td&gt;%d&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n"<br/>At CheckStyleAnalyzer.java:[line 244]</p>
 </td>
 </tr>
 <tr class="tablerow0" onclick="toggleRow('N71633');">
@@ -348,7 +348,7 @@
 <td>
 <p id="N71633" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintWriter.format(String, Object[])<br/>Format string "&lt;p&gt;%d errors in %d files. %d files in total.&lt;/p&gt;\n"<br/>At CheckStyleAnalyzer.java:[line 215]</p>
+<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintWriter.format(String, Object[])<br/>Format string "&lt;tr&gt;&lt;td&gt;%d&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n"<br/>At CheckStyleAnalyzer.java:[line 230]</p>
 </td>
 </tr>
 <tr class="tablerow1" onclick="toggleRow('N71710');">
@@ -362,38 +362,10 @@
 <td>
 <p id="N71710" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintWriter.format(String, Object[])<br/>Format string "&lt;tr style="background-color: coral;"&gt;&lt;td&gt;%d&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n"<br/>At CheckStyleAnalyzer.java:[line 244]</p>
-</td>
-</tr>
-<tr class="tablerow0" onclick="toggleRow('N71787');">
-<td>
-<span class="priority-2">FS</span>
-</td>
-<td>Format string should use %n rather than \n in util.CheckStyleAnalyzer$UserHandler.createReport()</td>
-</tr>
-<tr class="detailrow0">
-<td/>
-<td>
-<p id="N71787" style="display: none;">
-<a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
-<br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintWriter.format(String, Object[])<br/>Format string "&lt;tr&gt;&lt;td&gt;%d&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n"<br/>At CheckStyleAnalyzer.java:[line 230]</p>
-</td>
-</tr>
-<tr class="tablerow1" onclick="toggleRow('N71864');">
-<td>
-<span class="priority-2">FS</span>
-</td>
-<td>Format string should use %n rather than \n in util.CheckStyleAnalyzer$UserHandler.createReport()</td>
-</tr>
-<tr class="detailrow1">
-<td/>
-<td>
-<p id="N71864" style="display: none;">
-<a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
 <br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.createReport()<br/>Called method java.io.PrintWriter.format(String, Object[])<br/>Format string "&lt;tr&gt;&lt;td&gt;%d&lt;/td&gt;&lt;td&gt;%s&lt;/td&gt;&lt;/tr&gt;\n"<br/>At CheckStyleAnalyzer.java:[line 252]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N71941');">
+<tr class="tablerow0" onclick="toggleRow('N71787');">
 <td>
 <span class="priority-2">FS</span>
 </td>
@@ -402,12 +374,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N71941" style="display: none;">
+<p id="N71787" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
 <br/>In class util.CheckStyleAnalyzer$UserHandler<br/>In method util.CheckStyleAnalyzer$UserHandler.startElement(String, String, String, Attributes)<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "-- %s: %s\n"<br/>At CheckStyleAnalyzer.java:[line 314]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N72018');">
+<tr class="tablerow1" onclick="toggleRow('N71864');">
 <td>
 <span class="priority-2">FS</span>
 </td>
@@ -416,12 +388,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N72018" style="display: none;">
+<p id="N71864" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
 <br/>In class util.FindFilesWithNullChar<br/>In method util.FindFilesWithNullChar.scanFile(String)<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "%d: %s\n"<br/>At FindFilesWithNullChar.java:[line 125]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N72095');">
+<tr class="tablerow0" onclick="toggleRow('N71941');">
 <td>
 <span class="priority-2">FS</span>
 </td>
@@ -430,12 +402,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N72095" style="display: none;">
+<p id="N71941" style="display: none;">
 <a href="#VA_FORMAT_STRING_USES_NEWLINE">Bug type VA_FORMAT_STRING_USES_NEWLINE (click for details)</a>
 <br/>In class util.FindFilesWithNullChar<br/>In method util.FindFilesWithNullChar.scanFile(String)<br/>Called method java.io.PrintStream.format(String, Object[])<br/>Format string "File: %s\n"<br/>At FindFilesWithNullChar.java:[line 122]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70560');">
+<tr class="tablerow1" onclick="toggleRow('N70406');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -444,12 +416,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70560" style="display: none;">
+<p id="N70406" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPDouble<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPDouble.equals(Object)<br/>At ConstantPool.java:[lines 559-563]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70613');">
+<tr class="tablerow0" onclick="toggleRow('N70459');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -458,12 +430,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70613" style="display: none;">
+<p id="N70459" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPFieldref<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPFieldref.equals(Object)<br/>At ConstantPool.java:[lines 309-313]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70666');">
+<tr class="tablerow1" onclick="toggleRow('N70512');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -472,12 +444,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70666" style="display: none;">
+<p id="N70512" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPFloat<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPFloat.equals(Object)<br/>At ConstantPool.java:[lines 475-478]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70719');">
+<tr class="tablerow0" onclick="toggleRow('N70565');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -486,12 +458,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70719" style="display: none;">
+<p id="N70565" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPInteger<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPInteger.equals(Object)<br/>At ConstantPool.java:[lines 437-440]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70772');">
+<tr class="tablerow1" onclick="toggleRow('N70618');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -500,12 +472,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70772" style="display: none;">
+<p id="N70618" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPInterfaceMethodref<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPInterfaceMethodref.equals(Object)<br/>At ConstantPool.java:[lines 387-391]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70825');">
+<tr class="tablerow0" onclick="toggleRow('N70671');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -514,12 +486,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70825" style="display: none;">
+<p id="N70671" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPInvokeDynamic<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPInvokeDynamic.equals(Object)<br/>At ConstantPool.java:[lines 766-770]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70878');">
+<tr class="tablerow1" onclick="toggleRow('N70724');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -528,12 +500,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70878" style="display: none;">
+<p id="N70724" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPLong<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPLong.equals(Object)<br/>At ConstantPool.java:[lines 516-520]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70931');">
+<tr class="tablerow0" onclick="toggleRow('N70777');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -542,12 +514,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70931" style="display: none;">
+<p id="N70777" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPMethodHandle<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPMethodHandle.equals(Object)<br/>At ConstantPool.java:[lines 694-698]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N71037');">
+<tr class="tablerow1" onclick="toggleRow('N70883');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -556,12 +528,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N71037" style="display: none;">
+<p id="N70883" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPMethodref<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPMethodref.equals(Object)<br/>At ConstantPool.java:[lines 348-352]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70984');">
+<tr class="tablerow0" onclick="toggleRow('N70830');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -570,12 +542,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70984" style="display: none;">
+<p id="N70830" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPMethodType<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPMethodType.equals(Object)<br/>At ConstantPool.java:[lines 730-733]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N71090');">
+<tr class="tablerow1" onclick="toggleRow('N70936');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -584,12 +556,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N71090" style="display: none;">
+<p id="N70936" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPNameAndType<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPNameAndType.equals(Object)<br/>At ConstantPool.java:[lines 597-601]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N71143');">
+<tr class="tablerow0" onclick="toggleRow('N70989');">
 <td>
 <span class="priority-2">HE</span>
 </td>
@@ -598,12 +570,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N71143" style="display: none;">
+<p id="N70989" style="display: none;">
 <a href="#HE_EQUALS_NO_HASHCODE">Bug type HE_EQUALS_NO_HASHCODE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPUtf8<br/>In method org.netbeans.modules.java.j2seproject.moduletask.classfile.ConstantPool$CPUtf8.equals(Object)<br/>At ConstantPool.java:[lines 657-661]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68421');">
+<tr class="tablerow1" onclick="toggleRow('N68267');">
 <td>
 <span class="priority-2">It</span>
 </td>
@@ -612,12 +584,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68421" style="display: none;">
+<p id="N68267" style="display: none;">
 <a href="#IT_NO_SUCH_ELEMENT">Bug type IT_NO_SUCH_ELEMENT (click for details)</a>
 <br/>In class org.hamcrest.internal.ArrayIterator<br/>In method org.hamcrest.internal.ArrayIterator.next()<br/>At ArrayIterator.java:[line 24]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69044');">
+<tr class="tablerow0" onclick="toggleRow('N68890');">
 <td>
 <span class="priority-1">Nm</span>
 </td>
@@ -626,12 +598,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69044" style="display: none;">
+<p id="N68890" style="display: none;">
 <a href="#NM_SAME_SIMPLE_NAME_AS_SUPERCLASS">Bug type NM_SAME_SIMPLE_NAME_AS_SUPERCLASS (click for details)</a>
 <br/>In class org.junit.AssumptionViolatedException<br/>In class org.junit.internal.AssumptionViolatedException<br/>At AssumptionViolatedException.java:[lines 22-45]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N69471');">
+<tr class="tablerow1" onclick="toggleRow('N69317');">
 <td>
 <span class="priority-1">Nm</span>
 </td>
@@ -640,12 +612,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N69471" style="display: none;">
+<p id="N69317" style="display: none;">
 <a href="#NM_SAME_SIMPLE_NAME_AS_SUPERCLASS">Bug type NM_SAME_SIMPLE_NAME_AS_SUPERCLASS (click for details)</a>
 <br/>In class org.junit.internal.runners.model.MultipleFailureException<br/>In class org.junit.runners.model.MultipleFailureException<br/>At MultipleFailureException.java:[lines 10-11]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69518');">
+<tr class="tablerow0" onclick="toggleRow('N69364');">
 <td>
 <span class="priority-2">Nm</span>
 </td>
@@ -654,12 +626,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69518" style="display: none;">
+<p id="N69364" style="display: none;">
 <a href="#NM_CLASS_NOT_EXCEPTION">Bug type NM_CLASS_NOT_EXCEPTION (click for details)</a>
 <br/>In class org.junit.internal.runners.statements.ExpectException<br/>At ExpectException.java:[lines 10-35]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N69553');">
+<tr class="tablerow1" onclick="toggleRow('N69399');">
 <td>
 <span class="priority-2">Nm</span>
 </td>
@@ -668,12 +640,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N69553" style="display: none;">
+<p id="N69399" style="display: none;">
 <a href="#NM_CLASS_NOT_EXCEPTION">Bug type NM_CLASS_NOT_EXCEPTION (click for details)</a>
 <br/>In class org.junit.rules.ExpectedException<br/>At ExpectedException.java:[lines 106-268]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67531');">
+<tr class="tablerow0" onclick="toggleRow('N67454');">
 <td>
 <span class="priority-2">OS</span>
 </td>
@@ -682,12 +654,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N67531" style="display: none;">
+<p id="N67454" style="display: none;">
 <a href="#OS_OPEN_STREAM">Bug type OS_OPEN_STREAM (click for details)</a>
 <br/>In class emojicodeeditor.MainWindow<br/>In method emojicodeeditor.MainWindow.jMenuItem_CompileActionPerformed(ActionEvent)<br/>Need to close java.io.Reader <br/>At MainWindow.java:[line 349]<br/>Another occurrence at MainWindow.java:[line 350]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67612');">
+<tr class="tablerow1" onclick="toggleRow('N67535');">
 <td>
 <span class="priority-2">OS</span>
 </td>
@@ -696,12 +668,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67612" style="display: none;">
+<p id="N67535" style="display: none;">
 <a href="#OS_OPEN_STREAM">Bug type OS_OPEN_STREAM (click for details)</a>
 <br/>In class emojicodeeditor.MainWindow<br/>In method emojicodeeditor.MainWindow.jMenuItem_RunActionPerformed(ActionEvent)<br/>Need to close java.io.Reader <br/>At MainWindow.java:[line 377]<br/>Another occurrence at MainWindow.java:[line 378]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69178');">
+<tr class="tablerow0" onclick="toggleRow('N69024');">
 <td>
 <span class="priority-2">RV</span>
 </td>
@@ -710,12 +682,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69178" style="display: none;">
+<p id="N69024" style="display: none;">
 <a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
 <br/>In class org.junit.experimental.max.MaxHistory<br/>In method org.junit.experimental.max.MaxHistory.forFolder(File)<br/>Called method java.io.File.delete()<br/>At MaxHistory.java:[line 39]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N69588');">
+<tr class="tablerow1" onclick="toggleRow('N69434');">
 <td>
 <span class="priority-2">RV</span>
 </td>
@@ -724,12 +696,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N69588" style="display: none;">
+<p id="N69434" style="display: none;">
 <a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
 <br/>In class org.junit.rules.TemporaryFolder<br/>In method org.junit.rules.TemporaryFolder.createTemporaryFolderIn(File)<br/>Called method java.io.File.delete()<br/>At TemporaryFolder.java:[line 135]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69658');">
+<tr class="tablerow0" onclick="toggleRow('N69504');">
 <td>
 <span class="priority-2">RV</span>
 </td>
@@ -738,12 +710,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69658" style="display: none;">
+<p id="N69504" style="display: none;">
 <a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
 <br/>In class org.junit.rules.TemporaryFolder<br/>In method org.junit.rules.TemporaryFolder.createTemporaryFolderIn(File)<br/>Called method java.io.File.mkdir()<br/>At TemporaryFolder.java:[line 136]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N69728');">
+<tr class="tablerow1" onclick="toggleRow('N69574');">
 <td>
 <span class="priority-2">RV</span>
 </td>
@@ -752,12 +724,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N69728" style="display: none;">
+<p id="N69574" style="display: none;">
 <a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
 <br/>In class org.junit.rules.TemporaryFolder<br/>In method org.junit.rules.TemporaryFolder.recursiveDelete(File)<br/>Called method java.io.File.delete()<br/>At TemporaryFolder.java:[line 168]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70275');">
+<tr class="tablerow0" onclick="toggleRow('N70121');">
 <td>
 <span class="priority-2">RV</span>
 </td>
@@ -766,12 +738,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70275" style="display: none;">
+<p id="N70121" style="display: none;">
 <a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs<br/>In method org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs.execute()<br/>Called method java.io.File.createNewFile()<br/>At CopyLibs.java:[line 177]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70345');">
+<tr class="tablerow1" onclick="toggleRow('N70191');">
 <td>
 <span class="priority-2">RV</span>
 </td>
@@ -780,12 +752,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70345" style="display: none;">
+<p id="N70191" style="display: none;">
 <a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs<br/>In method org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs.execute()<br/>Called method java.io.File.delete()<br/>At CopyLibs.java:[line 217]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70415');">
+<tr class="tablerow0" onclick="toggleRow('N70261');">
 <td>
 <span class="priority-2">RV</span>
 </td>
@@ -794,12 +766,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70415" style="display: none;">
+<p id="N70261" style="display: none;">
 <a href="#RV_RETURN_VALUE_IGNORED_BAD_PRACTICE">Bug type RV_RETURN_VALUE_IGNORED_BAD_PRACTICE (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs<br/>In method org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs.execute()<br/>Called method java.io.File.mkdir()<br/>At CopyLibs.java:[line 190]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N69798');">
+<tr class="tablerow1" onclick="toggleRow('N69644');">
 <td>
 <span class="priority-2">Se</span>
 </td>
@@ -808,12 +780,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N69798" style="display: none;">
+<p id="N69644" style="display: none;">
 <a href="#SE_BAD_FIELD">Bug type SE_BAD_FIELD (click for details)</a>
 <br/>In class org.junit.runner.Description<br/>Field org.junit.runner.Description.fAnnotations<br/>Actual type annotation.Annotation<br/>In Description.java</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N70136');">
+<tr class="tablerow0" onclick="toggleRow('N69982');">
 <td>
 <span class="priority-2">Se</span>
 </td>
@@ -822,12 +794,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N70136" style="display: none;">
+<p id="N69982" style="display: none;">
 <a href="#SE_COMPARATOR_SHOULD_BE_SERIALIZABLE">Bug type SE_COMPARATOR_SHOULD_BE_SERIALIZABLE (click for details)</a>
 <br/>In class org.junit.runners.model.TestClass$FieldComparator<br/>At TestClass.java:[lines 298-300]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70171');">
+<tr class="tablerow1" onclick="toggleRow('N70017');">
 <td>
 <span class="priority-2">Se</span>
 </td>
@@ -836,7 +808,7 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70171" style="display: none;">
+<p id="N70017" style="display: none;">
 <a href="#SE_COMPARATOR_SHOULD_BE_SERIALIZABLE">Bug type SE_COMPARATOR_SHOULD_BE_SERIALIZABLE (click for details)</a>
 <br/>In class org.junit.runners.model.TestClass$MethodComparator<br/>At TestClass.java:[lines 307-310]</p>
 </td>
@@ -850,7 +822,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68474');">
+<tr class="tablerow1" onclick="toggleRow('N68320');">
 <td>
 <span class="priority-1">BC</span>
 </td>
@@ -859,12 +831,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68474" style="display: none;">
+<p id="N68320" style="display: none;">
 <a href="#BC_IMPOSSIBLE_DOWNCAST_OF_TOARRAY">Bug type BC_IMPOSSIBLE_DOWNCAST_OF_TOARRAY (click for details)</a>
 <br/>In class org.json.simple.ItemList<br/>In method org.json.simple.ItemList.getArray()<br/>Actual type Object[]<br/>Expected String[]<br/>Return value of java.util.List.toArray() of type Object[]<br/>At ItemList.java:[line 43]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69856');">
+<tr class="tablerow0" onclick="toggleRow('N69702');">
 <td>
 <span class="priority-2">GC</span>
 </td>
@@ -873,12 +845,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69856" style="display: none;">
+<p id="N69702" style="display: none;">
 <a href="#GC_UNRELATED_TYPES">Bug type GC_UNRELATED_TYPES (click for details)</a>
 <br/>In class org.junit.runners.BlockJUnit4ClassRunner<br/>In method org.junit.runners.BlockJUnit4ClassRunner.withMethodRules(FrameworkMethod, List, Object, Statement)<br/>Actual type org.junit.rules.MethodRule<br/>Expected org.junit.rules.TestRule<br/>Called method java.util.List.contains(Object)<br/>Invoked on testRules<br/>each passed as argument<br/>Object.equals(Object) used to determine equality<br/>At BlockJUnit4ClassRunner.java:[line 364]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67990');">
+<tr class="tablerow1" onclick="toggleRow('N67836');">
 <td>
 <span class="priority-2">NP</span>
 </td>
@@ -887,12 +859,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67990" style="display: none;">
+<p id="N67836" style="display: none;">
 <a href="#NP_NULL_ON_SOME_PATH_EXCEPTION">Bug type NP_NULL_ON_SOME_PATH_EXCEPTION (click for details)</a>
 <br/>In class emojicodeeditor.TestDebuggerWindow<br/>In method emojicodeeditor.TestDebuggerWindow.jButtonTokensActionPerformed(ActionEvent)<br/>Value contained in emojicodeeditor.TestDebuggerWindow.testTokenStream<br/>Dereferenced at TestDebuggerWindow.java:[line 379]<br/>Null value at TestDebuggerWindow.java:[line 369]<br/>Known null at TestDebuggerWindow.java:[line 374]<br/>Known null at TestDebuggerWindow.java:[line 375]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69091');">
+<tr class="tablerow0" onclick="toggleRow('N68937');">
 <td>
 <span class="priority-1">NP</span>
 </td>
@@ -901,7 +873,7 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69091" style="display: none;">
+<p id="N68937" style="display: none;">
 <a href="#NP_NULL_PARAM_DEREF_NONVIRTUAL">Bug type NP_NULL_PARAM_DEREF_NONVIRTUAL (click for details)</a>
 <br/>In class org.junit.experimental.max.MaxCore$1<br/>In method org.junit.experimental.max.MaxCore$1.getRunner()<br/>Called method new org.junit.internal.runners.ErrorReportingRunner(Class, Throwable)<br/>At MaxCore.java:[line 117]<br/>Argument 1 is definitely null but must not be null</p>
 </td>
@@ -943,7 +915,7 @@
 <br/>In class emojicodeeditor.Bundle<br/>In method new emojicodeeditor.Bundle()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Bundle.java:[line 111]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67363');">
+<tr class="tablerow0" onclick="toggleRow('N67286');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -952,12 +924,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N67363" style="display: none;">
+<p id="N67286" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class emojicodeeditor.MainWindow<br/>In method emojicodeeditor.MainWindow.jMenuItem_CompileActionPerformed(ActionEvent)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At MainWindow.java:[line 349]<br/>Another occurrence at MainWindow.java:[line 350]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67447');">
+<tr class="tablerow1" onclick="toggleRow('N67370');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -966,12 +938,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67447" style="display: none;">
+<p id="N67370" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class emojicodeeditor.MainWindow<br/>In method emojicodeeditor.MainWindow.jMenuItem_RunActionPerformed(ActionEvent)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At MainWindow.java:[line 377]<br/>Another occurrence at MainWindow.java:[line 378]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N68769');">
+<tr class="tablerow0" onclick="toggleRow('N68615');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -980,12 +952,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N68769" style="display: none;">
+<p id="N68615" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class org.json.simple.parser.Yylex<br/>In method new org.json.simple.parser.Yylex(InputStream)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Yylex.java:[line 292]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N69248');">
+<tr class="tablerow1" onclick="toggleRow('N69094');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -994,12 +966,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N69248" style="display: none;">
+<p id="N69094" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class org.junit.experimental.results.PrintableResult<br/>In method org.junit.experimental.results.PrintableResult.toString()<br/>Called method java.io.ByteArrayOutputStream.toString()<br/>At PrintableResult.java:[line 61]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69317');">
+<tr class="tablerow0" onclick="toggleRow('N69163');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -1008,12 +980,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69317" style="display: none;">
+<p id="N69163" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class org.junit.experimental.results.PrintableResult<br/>In method org.junit.experimental.results.PrintableResult.toString()<br/>Called method new java.io.PrintStream(OutputStream)<br/>At PrintableResult.java:[line 60]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70206');">
+<tr class="tablerow1" onclick="toggleRow('N70052');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -1022,12 +994,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70206" style="display: none;">
+<p id="N70052" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs<br/>In method org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs.execute()<br/>Called method new java.io.FileWriter(File)<br/>At CopyLibs.java:[line 179]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N71196');">
+<tr class="tablerow0" onclick="toggleRow('N71042');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -1036,7 +1008,7 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N71196" style="display: none;">
+<p id="N71042" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class util.CheckStyleAnalyzer<br/>In method util.CheckStyleAnalyzer.analyze()<br/>Called method new java.io.FileWriter(String)<br/>At CheckStyleAnalyzer.java:[line 79]</p>
 </td>
@@ -1050,7 +1022,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N70485');">
+<tr class="tablerow1" onclick="toggleRow('N70331');">
 <td>
 <span class="priority-2">EI2</span>
 </td>
@@ -1059,7 +1031,7 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N70485" style="display: none;">
+<p id="N70331" style="display: none;">
 <a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
 <br/>In class org.netbeans.modules.java.j2seproject.moduletask.classfile.Attribute<br/>In method new org.netbeans.modules.java.j2seproject.moduletask.classfile.Attribute(int, byte[])<br/>Field org.netbeans.modules.java.j2seproject.moduletask.classfile.Attribute.info<br/>Local variable named info<br/>At Attribute.java:[line 36]</p>
 </td>
@@ -1115,7 +1087,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68170');">
+<tr class="tablerow1" onclick="toggleRow('N68016');">
 <td>
 <span class="priority-1">LI</span>
 </td>
@@ -1124,12 +1096,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68170" style="display: none;">
+<p id="N68016" style="display: none;">
 <a href="#LI_LAZY_INIT_UPDATE_STATIC">Bug type LI_LAZY_INIT_UPDATE_STATIC (click for details)</a>
 <br/>In class junit.runner.BaseTestRunner<br/>In method junit.runner.BaseTestRunner.getPreferences()<br/>On field junit.runner.BaseTestRunner.fPreferences<br/>At BaseTestRunner.java:[lines 47-48]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N69973');">
+<tr class="tablerow0" onclick="toggleRow('N69819');">
 <td>
 <span class="priority-1">RV</span>
 </td>
@@ -1138,12 +1110,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N69973" style="display: none;">
+<p id="N69819" style="display: none;">
 <a href="#RV_RETURN_VALUE_OF_PUTIFABSENT_IGNORED">Bug type RV_RETURN_VALUE_OF_PUTIFABSENT_IGNORED (click for details)</a>
 <br/>In class org.junit.runners.BlockJUnit4ClassRunner<br/>In method org.junit.runners.BlockJUnit4ClassRunner.describeChild(FrameworkMethod)<br/>Called method java.util.concurrent.ConcurrentHashMap.putIfAbsent(Object, Object)<br/>Type org.junit.runner.Description<br/>Value loaded from description<br/>At BlockJUnit4ClassRunner.java:[line 98]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68103');">
+<tr class="tablerow1" onclick="toggleRow('N67949');">
 <td>
 <span class="priority-2">VO</span>
 </td>
@@ -1152,7 +1124,7 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68103" style="display: none;">
+<p id="N67949" style="display: none;">
 <a href="#VO_VOLATILE_INCREMENT">Bug type VO_VOLATILE_INCREMENT (click for details)</a>
 <br/>In class junit.extensions.ActiveTestSuite<br/>In method junit.extensions.ActiveTestSuite.runFinished()<br/>Field junit.extensions.ActiveTestSuite.fActiveTestDeathCount<br/>At ActiveTestSuite.java:[line 67]</p>
 </td>
@@ -1236,7 +1208,7 @@
 <br/>In class emojicode.runtime.Debugger$StopProgramException<br/>At Debugger.java:[line 255]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67770');">
+<tr class="tablerow0" onclick="toggleRow('N67616');">
 <td>
 <span class="priority-2">SIC</span>
 </td>
@@ -1245,12 +1217,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N67770" style="display: none;">
+<p id="N67616" style="display: none;">
 <a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
 <br/>In class emojicodeeditor.MainWindow$ComboboxActionListener<br/>At MainWindow.java:[lines 422-436]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67807');">
+<tr class="tablerow1" onclick="toggleRow('N67653');">
 <td>
 <span class="priority-2">SIC</span>
 </td>
@@ -1259,7 +1231,7 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67807" style="display: none;">
+<p id="N67653" style="display: none;">
 <a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
 <br/>In class emojicodeeditor.MainWindow$ToolbarClickAction<br/>At MainWindow.java:[lines 400-418]</p>
 </td>
@@ -1404,7 +1376,7 @@
 <br/>In class emojicode.runtime.Debugger$MyWaitNotify<br/>Field emojicode.runtime.Debugger$MyWaitNotify.wasSignalled<br/>At Debugger.java:[line 266]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N68838');">
+<tr class="tablerow0" onclick="toggleRow('N68684');">
 <td>
 <span class="priority-2">UrF</span>
 </td>
@@ -1413,12 +1385,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N68838" style="display: none;">
+<p id="N68684" style="display: none;">
 <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
 <br/>In class org.json.simple.parser.Yylex<br/>Field org.json.simple.parser.Yylex.yycolumn<br/>At Yylex.java:[line 396]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68889');">
+<tr class="tablerow1" onclick="toggleRow('N68735');">
 <td>
 <span class="priority-2">UrF</span>
 </td>
@@ -1427,12 +1399,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68889" style="display: none;">
+<p id="N68735" style="display: none;">
 <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
 <br/>In class org.json.simple.parser.Yylex<br/>Field org.json.simple.parser.Yylex.yyline<br/>At Yylex.java:[line 396]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N68940');">
+<tr class="tablerow0" onclick="toggleRow('N68786');">
 <td>
 <span class="priority-2">UrF</span>
 </td>
@@ -1441,7 +1413,7 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N68940" style="display: none;">
+<p id="N68786" style="display: none;">
 <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
 <br/>In class org.json.simple.parser.Yylex<br/>Field org.json.simple.parser.Yylex.zzAtBOL<br/>At Yylex.java:[line 261]</p>
 </td>
@@ -1539,7 +1511,7 @@
 <br/>In class emojicode.code.Statement<br/>In method emojicode.code.Statement.parse(TokenStream)<br/>Local variable named superInitToken<br/>At Statement.java:[line 94]<br/>Another occurrence at Statement.java:[line 92]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67138');">
+<tr class="tablerow1" onclick="toggleRow('N67061');">
 <td>
 <span class="priority-2">DLS</span>
 </td>
@@ -1548,12 +1520,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67138" style="display: none;">
+<p id="N67061" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class emojicodeeditor.GenerateTests<br/>In method emojicodeeditor.GenerateTests.generateCompilerTest(String, String)<br/>Local variable named emojiSource<br/>At GenerateTests.java:[line 69]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67214');">
+<tr class="tablerow0" onclick="toggleRow('N67137');">
 <td>
 <span class="priority-2">DLS</span>
 </td>
@@ -1562,12 +1534,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N67214" style="display: none;">
+<p id="N67137" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class emojicodeeditor.GenerateTests<br/>In method emojicodeeditor.GenerateTests.generateRuntimeTest(String, String, String)<br/>Local variable named source<br/>At GenerateTests.java:[line 85]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67290');">
+<tr class="tablerow1" onclick="toggleRow('N67213');">
 <td>
 <span class="priority-1">DLS</span>
 </td>
@@ -1576,12 +1548,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67290" style="display: none;">
+<p id="N67213" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class emojicodeeditor.MainWindow<br/>In method new emojicodeeditor.MainWindow()<br/>Local variable named font<br/>At MainWindow.java:[line 109]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67844');">
+<tr class="tablerow0" onclick="toggleRow('N67690');">
 <td>
 <span class="priority-2">DLS</span>
 </td>
@@ -1590,12 +1562,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N67844" style="display: none;">
+<p id="N67690" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class emojicodeeditor.TestDebuggerWindow<br/>In method emojicodeeditor.TestDebuggerWindow.jButtonTokensActionPerformed(ActionEvent)<br/>Local variable named attrBlack<br/>At TestDebuggerWindow.java:[line 389]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67917');">
+<tr class="tablerow1" onclick="toggleRow('N67763');">
 <td>
 <span class="priority-2">DLS</span>
 </td>
@@ -1604,12 +1576,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67917" style="display: none;">
+<p id="N67763" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class emojicodeeditor.TestDebuggerWindow<br/>In method emojicodeeditor.TestDebuggerWindow.testStyle()<br/>Local variable named attrTail<br/>At TestDebuggerWindow.java:[line 152]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N68550');">
+<tr class="tablerow0" onclick="toggleRow('N68396');">
 <td>
 <span class="priority-2">DLS</span>
 </td>
@@ -1618,12 +1590,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N68550" style="display: none;">
+<p id="N68396" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class org.json.simple.parser.Yylex<br/>In method org.json.simple.parser.Yylex.zzUnpackAction()<br/>Local variable named offset<br/>At Yylex.java:[line 57]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68623');">
+<tr class="tablerow1" onclick="toggleRow('N68469');">
 <td>
 <span class="priority-2">DLS</span>
 </td>
@@ -1632,12 +1604,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68623" style="display: none;">
+<p id="N68469" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class org.json.simple.parser.Yylex<br/>In method org.json.simple.parser.Yylex.zzUnpackAttribute()<br/>Local variable named offset<br/>At Yylex.java:[line 204]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N68696');">
+<tr class="tablerow0" onclick="toggleRow('N68542');">
 <td>
 <span class="priority-2">DLS</span>
 </td>
@@ -1646,12 +1618,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N68696" style="display: none;">
+<p id="N68542" style="display: none;">
 <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
 <br/>In class org.json.simple.parser.Yylex<br/>In method org.json.simple.parser.Yylex.zzUnpackRowMap()<br/>Local variable named offset<br/>At Yylex.java:[line 90]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N69386');">
+<tr class="tablerow1" onclick="toggleRow('N69232');">
 <td>
 <span class="priority-1">IA</span>
 </td>
@@ -1660,12 +1632,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N69386" style="display: none;">
+<p id="N69232" style="display: none;">
 <a href="#IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD">Bug type IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD (click for details)</a>
 <br/>In class org.junit.experimental.theories.Theories$TheoryAnchor$1<br/>In method org.junit.experimental.theories.Theories$TheoryAnchor$1.createTest()<br/>Inherited method org.junit.runners.ParentRunner.getTestClass()<br/>Did you intend to invoke org.junit.experimental.theories.Theories$TheoryAnchor.getTestClass()<br/>At Theories.java:[line 258]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N68360');">
+<tr class="tablerow0" onclick="toggleRow('N68206');">
 <td>
 <span class="priority-2">NP</span>
 </td>
@@ -1674,7 +1646,7 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N68360" style="display: none;">
+<p id="N68206" style="display: none;">
 <a href="#NP_LOAD_OF_KNOWN_NULL_VALUE">Bug type NP_LOAD_OF_KNOWN_NULL_VALUE (click for details)</a>
 <br/>In class org.hamcrest.TypeSafeMatcher<br/>In method org.hamcrest.TypeSafeMatcher.describeMismatch(Object, Description)<br/>Value loaded from item<br/>At TypeSafeMatcher.java:[line 74]</p>
 </td>
@@ -1693,7 +1665,7 @@
 <br/>In class emojicode.code.MethodCall<br/>In method emojicode.code.MethodCall.parse(TokenStream)<br/>Value loaded from field emojicode.code.MethodCall.emojiMethod<br/>Redundant null check at MethodCall.java:[line 163]<br/>Another occurrence at MethodCall.java:[line 127]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N68991');">
+<tr class="tablerow0" onclick="toggleRow('N68837');">
 <td>
 <span class="priority-2">SF</span>
 </td>
@@ -1702,12 +1674,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N68991" style="display: none;">
+<p id="N68837" style="display: none;">
 <a href="#SF_SWITCH_NO_DEFAULT">Bug type SF_SWITCH_NO_DEFAULT (click for details)</a>
 <br/>In class org.json.simple.parser.Yytoken<br/>In method org.json.simple.parser.Yytoken.toString()<br/>At Yytoken.java:[lines 30-53]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N68239');">
+<tr class="tablerow1" onclick="toggleRow('N68085');">
 <td>
 <span class="priority-2">ST</span>
 </td>
@@ -1716,7 +1688,7 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N68239" style="display: none;">
+<p id="N68085" style="display: none;">
 <a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
 <br/>In class junit.runner.BaseTestRunner<br/>In method junit.runner.BaseTestRunner.processArguments(String[])<br/>Field junit.runner.BaseTestRunner.fgFilterStack<br/>At BaseTestRunner.java:[line 159]</p>
 </td>
