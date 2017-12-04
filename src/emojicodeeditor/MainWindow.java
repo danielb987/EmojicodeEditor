@@ -32,6 +32,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Level;
@@ -179,7 +180,7 @@ public final class MainWindow extends javax.swing.JFrame {
         byte[] encoded;
         try {
             encoded = Files.readAllBytes(Paths.get("greeter.emojic"));
-            jTextPaneEditor.setText(new String(encoded, Charset.forName("UTF-8")));
+            jTextPaneEditor.setText(new String(encoded, StandardCharsets.UTF_8));
             String text = jTextPaneEditor.getText();
             for (int i = 0; i < text.length(); i++) {
                 String str = text.substring(i, i + Character.charCount(text.codePointAt(i)));
@@ -346,8 +347,8 @@ public final class MainWindow extends javax.swing.JFrame {
             InputStream in = process.getInputStream();
 //            OutputStream out = process.getOutputStream();
             InputStream err = process.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            BufferedReader error = new BufferedReader(new InputStreamReader(err));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+            BufferedReader error = new BufferedReader(new InputStreamReader(err, StandardCharsets.UTF_8));
 //            PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out)));
 //            writer.println("ls -al");
 //            writer.close();
@@ -374,8 +375,8 @@ public final class MainWindow extends javax.swing.JFrame {
             InputStream in = process.getInputStream();
 //            OutputStream out = process.getOutputStream();
             InputStream err = process.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            BufferedReader error = new BufferedReader(new InputStreamReader(err));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+            BufferedReader error = new BufferedReader(new InputStreamReader(err, StandardCharsets.UTF_8));
 //            PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out)));
 //            writer.println("ls -al");
 //            writer.close();

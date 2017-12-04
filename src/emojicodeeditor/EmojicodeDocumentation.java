@@ -25,6 +25,7 @@ package emojicodeeditor;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -70,8 +71,7 @@ public class EmojicodeDocumentation {
         System.out.println("Filename: "+fileName);
         byte[] encoded;
         encoded = Files.readAllBytes(Paths.get(fileName));
-        Object obj = parser.parse(new String(encoded, Charset.forName("UTF-8")));
-////        print(obj, "");
+        Object obj = parser.parse(new String(encoded, StandardCharsets.UTF_8));
         return obj;
     }
     

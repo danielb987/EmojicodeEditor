@@ -52,7 +52,7 @@ public class GenerateTests {
     private static String readFile(String filename) throws IOException {
         byte[] encoded;
         encoded = Files.readAllBytes(Paths.get(filename));
-        return new String(encoded, Charset.forName("UTF-8"));
+        return new String(encoded, StandardCharsets.UTF_8);
     }
     
     

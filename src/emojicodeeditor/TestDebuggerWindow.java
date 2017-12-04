@@ -29,13 +29,13 @@ import emojicode.code.Parent;
 import emojicode.code.predifined_packages.s.StandardIO;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.Lexer;
-import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 import emojicode.runtime.Debugger;
 import emojicode.runtime.DebuggerException;
 import java.awt.Color;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Level;
@@ -108,7 +108,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         try {
             byte[] encoded;
             encoded = Files.readAllBytes(Paths.get(aFilename));
-            source = new String(encoded, Charset.forName("UTF-8"));
+            source = new String(encoded, StandardCharsets.UTF_8);
             jTextPaneSourceCode.setText(source);
             jTextPaneSourceCode.setCaretPosition(0);
         } catch (IOException ex) {

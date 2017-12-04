@@ -23,18 +23,14 @@
  */
 package emojicode.code;
 
-import emojicode.test_templates.*;
-import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -135,7 +131,8 @@ public class CompilerTest {
     private static String readFile(String filename) throws IOException {
         byte[] encoded;
         encoded = Files.readAllBytes(Paths.get(filename));
-        return new String(encoded, Charset.forName("UTF-8"));
+        return new String(encoded, StandardCharsets.UTF_8);
+//        return new String(encoded, Charset.forName("UTF-8"));
     }
     
 }
