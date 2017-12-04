@@ -1,5 +1,18 @@
 #!/bin/bash
 
+echo -e ""
+echo -e "==============================="
+echo -e ""
+printenv
+echo -e ""
+echo -e "==============================="
+echo -e ""
+env
+echo -e ""
+echo -e "==============================="
+echo -e ""
+
+
 echo -e "Generate Findbugs report"
 
 export FINDBUGS_HOME=./findbugs/findbugs-3.0.1
