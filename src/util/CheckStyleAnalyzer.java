@@ -204,10 +204,31 @@ public class CheckStyleAnalyzer {
             writer.println("</head>");
             writer.println("<body>");
             
+            
             writer.format("<p>%d errors in %d files. %d files in total.</p>\n",
                           numErrors, numFilesWithError, numFiles);
             
             System.out.format("%d errors in %d files\n", numErrors, numFiles);
+            
+            
+            writer.println("<table>");
+//            writer.format(
+//                    "<tr style=\"background-color: coral;\"><td>%</td><td>%s</td></tr>\n",
+//                    item.getValue().get(),
+//                    item.getKey());
+
+//            System.out.format("Filename: %s\n", item.getKey());
+            
+            for (Map.Entry<String, AtomicInteger> subEntry : totalErrorCount.entrySet()) {
+                writer.format("<tr><td>%d</td><td>%s</td></tr>\n",
+                              subEntry.getValue().get(),
+                              subEntry.getKey());
+                System.out.format("Error: %s, count: %d\n",
+                                  subEntry.getKey(),
+                                  subEntry.getValue().get());
+            }
+            writer.println("</table>");
+            
             
             for (Map.Entry<String, AtomicInteger> item : sortedFileTotalErrorCount) {
                 
