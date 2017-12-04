@@ -105,9 +105,6 @@ public class CompilerTest {
             } catch (CompilerError ex) {
                 failureMessage += file.getName() + ": Compiler error: "+ex.getMessage()+"\n";
                 numFailures++;
-            } catch (LogicError ex) {
-                failureMessage += file.getName() + ": Logic error: "+ex.getMessage()+"\n";
-                numFailures++;
             } catch (IOException ex) {
                 failureMessage += file.getName() + ": IO error: "+ex.getMessage()+"\n";
                 numFailures++;
@@ -127,7 +124,7 @@ public class CompilerTest {
     }
     
     
-    public void testCompileFile(String filename) throws IOException, CompilerError, LogicError {
+    public void testCompileFile(String filename) throws IOException, CompilerError {
 //        System.out.println("testCompile: "+filename);
         String source = readFile(filename);
         EmojiPackageUserDefinied emojiPackage = new EmojiPackageUserDefinied("daniel", filename, source);

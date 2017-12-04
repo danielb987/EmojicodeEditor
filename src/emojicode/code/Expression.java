@@ -27,7 +27,6 @@ import emojicode.Emojicode;
 import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 
 /**
@@ -50,7 +49,7 @@ public class Expression extends Parent {
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError, LogicError {
+    public void parse(TokenStream tokenStream) throws CompilerError {
         
         Token token = tokenStream.nextToken();
         

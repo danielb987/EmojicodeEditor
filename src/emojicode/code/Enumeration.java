@@ -55,7 +55,7 @@ public class Enumeration extends Parent {
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError, LogicError {
+    public void parse(TokenStream tokenStream) throws CompilerError {
         
         tokenStream.consumeIdentifierToken(Emojicode.E_TURKEY);     // 🦃 - enumeration
         

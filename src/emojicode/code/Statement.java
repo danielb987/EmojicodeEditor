@@ -26,26 +26,37 @@ package emojicode.code;
 import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 
 /**
- * Statement
+ * Emojicode Statement.
  * http://www.emojicode.org/docs/reference/syntax.html#srule-statement
- * 
+ *
  * @author Daniel Bergqvist
  */
-public class Statement extends Parent {
+public final class Statement extends Parent {
     
+    /**
+     * An emojicode expression.
+     */
     private Expression expression;
     
     
+    /**
+     * Create an instance.
+     * @param parent The parent
+     */
     public Statement(final Parent parent) {
         super(parent);
     }
     
     
-    public void parse(final TokenStream tokenStream) throws CompilerError, LogicError {
+    /**
+     * Parse this statement.
+     * @param tokenStream the stream of tokens.
+     * @throws CompilerError thrown on compilation error
+     */
+    public void parse(final TokenStream tokenStream) throws CompilerError {
         
         Token token = tokenStream.nextToken();
         

@@ -71,8 +71,6 @@ public class TestCompilerTemplate {
             emojiPackage.parse();
         } catch (CompilerError ex) {
             fail("Compiler error: "+ex.getMessage());
-        } catch (LogicError ex) {
-            fail("Logic error: "+ex.getMessage());
         }
     }
 

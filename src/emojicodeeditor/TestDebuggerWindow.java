@@ -334,8 +334,6 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
             jTextPaneSourceCode.setCaretPosition(ex.sourcePosition.getIndex());
             jTextPaneSourceCode.requestFocusInWindow();
             throw new RuntimeException(ex);
-        } catch (LogicError ex) {
-            ex.printStackTrace(StandardIO.getInstance().getOutput());
         }
     }//GEN-LAST:event_jButtonCompileActionPerformed
 
@@ -373,7 +371,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
 
             try {
                 testTokenStream = lexer.lex();
-            } catch (CompilerError | LogicError ex) {
+            } catch (CompilerError ex) {
                 ex.printStackTrace();
             }
         }
@@ -487,7 +485,8 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
             emojiPackage = new emojicode.code.EmojiPackageUserDefinied("daniel", filename, source);
             emojiPackage.parse();
 //            emojiPackage.run();
-        } catch (CompilerError | LogicError ex) {
+        } catch (CompilerError ex) {
+//        } catch (CompilerError | LogicError ex) {
             ex.printStackTrace(StandardIO.getInstance().getOutput());
             enableDebugButtons(true);
             return;

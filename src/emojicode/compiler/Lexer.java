@@ -272,7 +272,7 @@ public final class Lexer {
     
     
     /// Lexes the string and returns a TokenStream
-    public TokenStream lex() throws CompilerError, LogicError {
+    public TokenStream lex() throws CompilerError {
         nextCharOrEnd();
         while (continueToken) {
             if (detectWhitespace()) {

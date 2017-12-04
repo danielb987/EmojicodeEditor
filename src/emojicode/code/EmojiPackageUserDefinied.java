@@ -52,7 +52,7 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
     }
     
     
-    public void parse() throws CompilerError, LogicError {
+    public void parse() throws CompilerError {
         
         Lexer lexer = new Lexer(source, filename);
 
@@ -62,7 +62,7 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError, LogicError {
+    public void parse(TokenStream tokenStream) throws CompilerError {
         
         while (tokenStream.hasMoreTokens()) {
             Token token = tokenStream.nextToken();

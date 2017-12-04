@@ -27,7 +27,6 @@ import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.code.predifined_packages.s.EmojiString;
 import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 import emojicode.runtime.Debugger;
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class MethodCall extends Parent {
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError, LogicError {
+    public void parse(TokenStream tokenStream) throws CompilerError {
         
 //        System.out.format("MethodCall\n");
         

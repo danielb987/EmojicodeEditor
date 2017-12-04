@@ -48,7 +48,7 @@ public class CodeBlock extends Parent {
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError, LogicError {
+    public void parse(TokenStream tokenStream) throws CompilerError {
         
         Token token = tokenStream.consumeToken(TokenType.BlockBegin);
         
@@ -68,8 +68,9 @@ public class CodeBlock extends Parent {
     
     public void run() {
         Debugger.getInstance().step(this, startPosition, middlePosition, endPosition);
-        for (Statement statement : statements)
+        for (Statement statement : statements) {
             statement.run();
+        }
     }
     
 }

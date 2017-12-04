@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Compiler {
     
-    public static void compile(String string, String filename) throws CompilerError, LogicError {
+    public static void compile(String string, String filename) throws CompilerError {
         
         System.out.format("\n\nCompile file: %s\n", filename);
 

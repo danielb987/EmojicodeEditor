@@ -57,7 +57,7 @@ public class EmojiClassUserDefined extends EmojiClass {
     private void parseMethod(   TokenStream tokenStream,
                                 DocumentationComment documentationComment,
                                 EmojiMethod.MethodType methodType,
-                                SourcePosition startPosition) throws CompilerError, LogicError {
+                                SourcePosition startPosition) throws CompilerError {
         
         switch (methodType) {
             case REQUIRED_INITIALIZER:
@@ -119,7 +119,7 @@ public class EmojiClassUserDefined extends EmojiClass {
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError, LogicError {
+    public void parse(TokenStream tokenStream) throws CompilerError {
         
         DocumentationComment documentationComment = null;
         
