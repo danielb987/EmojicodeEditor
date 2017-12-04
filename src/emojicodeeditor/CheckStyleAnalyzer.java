@@ -76,7 +76,8 @@ public class CheckStyleAnalyzer {
      */
     public void analyze() {
         
-        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(reportFilename)))) {
+        try (PrintWriter writer = new PrintWriter(
+                                        new BufferedWriter(new FileWriter(reportFilename)))) {
             File inputFile = new File(filename);
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
@@ -172,10 +173,15 @@ public class CheckStyleAnalyzer {
          */
         public void createReport() {
             
-            List<Map.Entry<String, AtomicInteger>> sortedFileTotalErrorCount = new LinkedList<>(fileTotalErrorCount.entrySet());
-            Collections.sort(sortedFileTotalErrorCount, new Comparator<Map.Entry<String, AtomicInteger>>() {
+            List<Map.Entry<String, AtomicInteger>> sortedFileTotalErrorCount =
+                    new LinkedList<>(fileTotalErrorCount.entrySet());
+            
+            Collections.sort(sortedFileTotalErrorCount,
+                             new Comparator<Map.Entry<String, AtomicInteger>>() {
+                
                 @Override
-                public int compare(Map.Entry<String, AtomicInteger> o1, Map.Entry<String, AtomicInteger> o2) {
+                public int compare(final Map.Entry<String, AtomicInteger> o1,
+                                   final Map.Entry<String, AtomicInteger> o2) {
                     int a = o1.getValue().get();
                     int b = o2.getValue().get();
                     
@@ -198,19 +204,29 @@ public class CheckStyleAnalyzer {
             writer.println("</head>");
             writer.println("<body>");
             
-            writer.format("<p>%d errors in %d files. %d files in total.</p>\n", numErrors, numFilesWithError, numFiles);
+            writer.format("<p>%d errors in %d files. %d files in total.</p>\n",
+                          numErrors, numFilesWithError, numFiles);
+            
             System.out.format("%d errors in %d files\n", numErrors, numFiles);
             
-//            for (Map.Entry<String, Map<String, AtomicInteger>> entry : fileErrorCount.entrySet()) {
             for (Map.Entry<String, AtomicInteger> item : sortedFileTotalErrorCount) {
                 
                 Map<String, AtomicInteger> entry = fileErrorCount.get(item.getKey());
                 writer.println("<table>");
-                writer.format("<tr style=\"background-color: coral;\"><td>%d</td><td>%s</td></tr>\n", item.getValue().get(), item.getKey());
+                writer.format(
+                        "<tr style=\"background-color: coral;\"><td>%d</td><td>%s</td></tr>\n",
+                        item.getValue().get(),
+                        item.getKey());
+                
                 System.out.format("Filename: %s\n", item.getKey());
+                
                 for (Map.Entry<String, AtomicInteger> subEntry : entry.entrySet()) {
-                    writer.format("<tr><td>%d</td><td>%s</td></tr>\n", subEntry.getValue().get(), subEntry.getKey());
-                    System.out.format("Error: %s, count: %d\n", subEntry.getKey(), subEntry.getValue().get());
+                    writer.format("<tr><td>%d</td><td>%s</td></tr>\n",
+                                  subEntry.getValue().get(),
+                                  subEntry.getKey());
+                    System.out.format("Error: %s, count: %d\n",
+                                      subEntry.getKey(),
+                                      subEntry.getValue().get());
                 }
                 writer.println("</table>");
             }
@@ -233,8 +249,10 @@ public class CheckStyleAnalyzer {
          * @throws SAXException Any SAX exception, possibly wrapping another exception.
          */
         @Override
-        public void startElement(
-                String uri, String localName, String qName, Attributes attributes)
+        public void startElement(final String uri,
+                                 final String localName,
+                                 final String qName,
+                                 final Attributes attributes)
                 throws SAXException {
             
 //            System.out.println();
@@ -258,7 +276,6 @@ public class CheckStyleAnalyzer {
                 fileTotalErrorCount.put(currentFilename, currentFileTotalErrorCount);
             }
             if ("error".equalsIgnoreCase(qName)) {
-//                System.out.format("error tag\n");
                 numErrors++;
                 currentFileHasErrors = true;
                 String error = attributes.getValue("source");
@@ -266,11 +283,11 @@ public class CheckStyleAnalyzer {
                 if (error == null) {
                     System.out.println("Error is null");
                     for (int i=0;  i < attributes.getLength(); i++) {
-                        System.out.format("-- %s: %s\n", attributes.getQName(i), attributes.getValue(i));
-                        System.exit(0);
+                        System.out.format("-- %s: %s\n",
+                                          attributes.getQName(i), attributes.getValue(i));
+                        System.exit(1);
                     }
                 }
-//                System.out.format("File: %s, error: %s, message: %s\n", currentFilename, error, errorMessage);
                 
                 currentFileTotalErrorCount.addAndGet(1);
                 
@@ -300,8 +317,8 @@ public class CheckStyleAnalyzer {
          * are not available.
          */
         @Override
-        public void endElement(
-                String uri, String localName, String qName) throws SAXException {
+        public void endElement(final String uri, final String localName, final String qName)
+                throws SAXException {
             
             if ("file".equalsIgnoreCase(qName)) {
                 if (currentFileHasErrors) {
@@ -319,7 +336,8 @@ public class CheckStyleAnalyzer {
          * @throws SAXException Any SAX exception, possibly wrapping another exception
          */
         @Override
-        public void characters(char ch[], int start, int length) throws SAXException {
+        public void characters(final char ch[], final int start, final int length)
+                throws SAXException {
         }
         
     }
