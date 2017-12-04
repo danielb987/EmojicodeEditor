@@ -39,7 +39,7 @@ public final class Compiler {
      */
     public static void compile(final String string, final String filename) throws CompilerError {
         
-        System.out.format("\n\nCompile file: %s\n", filename);
+        System.out.format("%n%nCompile file: %s%n", filename);
 
         Lexer lexer = new Lexer(string, filename);
 
@@ -51,7 +51,7 @@ public final class Compiler {
 
         while (tokenStream.hasMoreTokens()) {
             Token token = tokenStream.nextToken();
-            System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
+            System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
             tokenStream.consumeToken();
         }
     }

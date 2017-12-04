@@ -28,7 +28,6 @@ import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.Lexer;
-import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 
 /**
@@ -66,7 +65,7 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
         
         while (tokenStream.hasMoreTokens()) {
             Token token = tokenStream.nextToken();
-//            System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
+//            System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
             
             if (token.type == TokenType.Identifier) {
                 switch (token.toString()) {
@@ -95,7 +94,7 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
                 }
             }
             else {
-                System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
+                System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
                 throw new CompilerError(token.startPosition, token.endPosition, "Token Identifier expected, found token "+token.type.name());
             }
 //            tokenStream.consumeToken();
@@ -137,10 +136,10 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
             else if (token.toString().equals(Emojicode.E_SCROLL))   // 📜 - include source file
                 ;
             else
-                System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
+                System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
         }
         else
-            System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
+            System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
         
         
         tokenStream.consumeToken();
