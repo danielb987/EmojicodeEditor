@@ -41,8 +41,8 @@ public final class StringHelper {
      * Return the last unicode codepoint in the string.
      * A unicode character may take two Java characters so this method is needed to find the last
      * unicode character in the string.
-     * @param str
-     * @return 
+     * @param str the string to be searched
+     * @return the unicode codepoint of the last character in the string
      */
     public static int getLastUnicodeChar(final String str) {
         
