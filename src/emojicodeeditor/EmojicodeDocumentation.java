@@ -79,7 +79,7 @@ public class EmojicodeDocumentation {
         // Return null if we don't have any documentation
         if (str == null)
             return null;
-//        System.out.format("Str: %s\n", str.trim().replaceAll("\\s+", " "));
+//        System.out.format("Str: %s%n", str.trim().replaceAll("\\s+", " "));
 //        StringBuilder string = new StringBuilder("<html>"+str.trim().replaceAll("\\n", "<br />")+"</html>");
         StringBuilder string = new StringBuilder("<html>");
         string.append("<b>Description</b><br />");
@@ -231,7 +231,7 @@ public class EmojicodeDocumentation {
             JSONArray jsonArray = (JSONArray)obj;
             
             for (Object o : jsonArray) {
-                System.out.format("Package: %s\n", o);
+                System.out.format("Package: %s%n", o);
                 readPackage((String)o, packagesPath+((String)o)+"/package.json");
             }
         } catch (ParseException | IOException ex) {

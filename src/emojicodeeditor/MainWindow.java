@@ -183,7 +183,7 @@ public final class MainWindow extends javax.swing.JFrame {
             String text = jTextPaneEditor.getText();
             for (int i = 0; i < text.length(); i++) {
                 String str = text.substring(i, i + Character.charCount(text.codePointAt(i)));
-                System.out.format("%d: %d, %s\n", i, text.codePointAt(i), str);
+                System.out.format("%d: %d, %s%n", i, text.codePointAt(i), str);
             }
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
