@@ -56,6 +56,7 @@ public class FindFilesWithNullChar {
     public static boolean find(String folder) {
         
         final Set<String> fileExtensionsToIgnore = new HashSet<>();
+        final Set<String> foldersToIgnore = new HashSet<>();
         
         fileExtensionsToIgnore.add("emojic");
         fileExtensionsToIgnore.add("emojib");
@@ -67,6 +68,8 @@ public class FindFilesWithNullChar {
         fileExtensionsToIgnore.add("jpeg");
         fileExtensionsToIgnore.add("gif");
         
+        foldersToIgnore.add("");
+        
         final Flag foundError = new Flag();
         
         File f = new File(folder);
@@ -76,7 +79,8 @@ public class FindFilesWithNullChar {
                 return false;
             File file = new File(dir+"/"+name);
             if (file.isDirectory()) {
-                foundError.flag |= find(dir+"/"+name);
+                System.out.println("AAAAA: Folder: "+dir+"/"+name);
+////DANIEL                foundError.flag |= find(dir+"/"+name);
                 return false;
             }
             return ! fileExtensionsToIgnore.contains(name.substring(name.lastIndexOf('.')+1));
