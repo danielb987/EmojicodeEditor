@@ -63,11 +63,11 @@ public final class Bundle {
     /**
      * A lock that protects this class.
      */
-    private static final Object lock = new Object();
+    private static final Object LOCK = new Object();
     
     /**
      * Get an instance of Bundle.
-     * 
+     *
      * @return instance
      */
     // We need to chech bundle outside the synchronized block for performance
@@ -78,9 +78,10 @@ public final class Bundle {
     @SuppressWarnings("DoubleCheckedLocking")
     public static Bundle getInstance() {
         if (bundle == null) {
-            synchronized(lock) {
-                if (bundle == null)
+            synchronized (LOCK) {
+                if (bundle == null) {
                     bundle = new Bundle();
+                }
             }
         }
         return bundle;
@@ -93,7 +94,7 @@ public final class Bundle {
     private Bundle() {
         
 //        ClassLoader cl = this.getClass().getClassLoader();
-/*        
+/*
         try {
 //            Enumeration<URL> r = cl.getResources(name);
             Enumeration<URL> r = cl.getResources(Resources);
@@ -104,18 +105,18 @@ public final class Bundle {
         }
         if (1==1)
             System.exit(1);
-*/        
+*/
 //        InputStream in = cl.getResourceAsStream(name);
         InputStream in = Bundle.class.getResourceAsStream(name);
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
-//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, Charset.forName("UTF-8")))) {
             String str;
             while ((str = reader.readLine()) != null) {
                 str = str.trim();
-                if ((! str.startsWith("#")) && (! str.isEmpty())) {    // Ignore comments and empty lines
+                
+                // Check that the line is not empty
+                if ((!str.startsWith("#")) && (!str.isEmpty())) {
                     System.out.println(str);
-                    int pos = str.indexOf("=");
-                    String parts[] = str.split("=",2);
+                    String[] parts = str.split("=", 2);
                     String key = parts[0].trim();
                     keys.add(key);
                     map.put(key, parts[1].trim());
@@ -125,7 +126,7 @@ public final class Bundle {
             Logger.getLogger(Bundle.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-/*    
+/*
     public String getMessage(Locale locale, String key) {
         ResourceBundle rb = ResourceBundle.getBundle(name, locale);
         if (rb.containsKey(key))
@@ -137,13 +138,13 @@ public final class Bundle {
     public String getMessage(String key) {
         return getMessage(Locale.getDefault(), key);
     }
-*/    
+*/
     /**
-     * Get a message from the bundle
+     * Get a message from the bundle.
      * @param key the key to the message
      * @return the message
      */
-    public String getMessage(String key) {
+    public String getMessage(final String key) {
         return map.get(key);
     }
     
