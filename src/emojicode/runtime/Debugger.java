@@ -166,8 +166,9 @@ public final class Debugger {
             doWait();
             
             // The user might have decided to stop the program while we have waited
-            if (stopProgram)
+            if (stopProgram) {
                 throw new StopProgramException();
+            }
         }
     }
     
@@ -206,7 +207,7 @@ public final class Debugger {
         private final DebugActions debugActions;
         
         
-        public DebugActionsSwingSafe(final DebugActions aDebugActions) {
+        public DebugActionsSwingSafe(final DebugActions debugActions) {
             this.debugActions = aDebugActions;
         }
         
