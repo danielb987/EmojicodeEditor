@@ -440,7 +440,6 @@
 <error line="20" column="73" severity="error" message="&apos;position&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/package-info.java">
-<error line="24" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/predifined_packages/s/EmojiString.java">
 <error line="47" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
@@ -494,7 +493,6 @@
 <error line="95" column="49" severity="error" message="Parameter len should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/predifined_packages/s/package-info.java">
-<error line="24" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/compiler/Compiler.java">
 </file>
@@ -583,10 +581,8 @@
 <error line="207" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/compiler/package-info.java">
-<error line="24" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/package-info.java">
-<error line="24" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/runtime/Debugger.java">
 <error line="36" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
@@ -642,7 +638,6 @@
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/runtime/RuntimeEnvironment.java">
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/runtime/package-info.java">
-<error line="24" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/Bundle.java">
 </file>
@@ -983,7 +978,6 @@
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/WrapLayout.java">
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/package-info.java">
-<error line="24" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/util/CheckStyleAnalyzer.java">
 </file>
@@ -1018,6 +1012,5 @@
 <error line="137" column="17" severity="error" message="Variable &apos;flag&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/util/package-info.java">
-<error line="24" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 </file>
 </checkstyle>
