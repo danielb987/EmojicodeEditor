@@ -80,7 +80,7 @@ public class FindFilesWithNullChar {
             
             File file = new File(dir+"/"+name);
             if (file.isDirectory()) {
-                System.out.println("AAAAA: Folder: "+dir+"/"+name);
+//                System.out.println("AAAAA: Folder: "+dir+"/"+name);
                 
                 if (!foldersToIgnore.contains(dir+"/"+name)) {
                     foundError.flag |= find(dir+"/"+name);
