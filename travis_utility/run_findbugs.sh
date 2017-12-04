@@ -3,7 +3,7 @@
 export FINDBUGS_HOME=./findbugs/findbugs-3.0.1
 
 # export CLASSPATH=$FINDBUGS_HOME/lib/*:$FINDBUGS_HOME/apache-ant-1.10.1/lib/*
-export CLASSPATH=$FINDBUGS_HOME/lib:$FINDBUGS_HOME/apache-ant-1.10.1/lib
+export CLASSPATH=$FINDBUGS_HOME/lib:./findbugs/apache-ant-1.10.1/lib
 
 echo -e ""
 echo -e "==============================="
