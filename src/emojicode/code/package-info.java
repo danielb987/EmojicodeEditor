@@ -21,4 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+/**
+ * Classes that defines classes, methods, statements, and so on, in the emojicode language.
+ */
 package emojicode.code;

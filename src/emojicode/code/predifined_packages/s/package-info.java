@@ -21,4 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+/**
+ * Emulation of the emojicode "s" package.
+ */
 package emojicode.code.predifined_packages.s;
