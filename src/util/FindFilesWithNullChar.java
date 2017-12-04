@@ -82,7 +82,7 @@ public class FindFilesWithNullChar {
             if (file.isDirectory()) {
                 System.out.println("AAAAA: Folder: "+dir+"/"+name);
                 
-                if (!fileExtensionsToIgnore.contains(dir+"/"+name)) {
+                if (!foldersToIgnore.contains(dir+"/"+name)) {
                     foundError.flag |= find(dir+"/"+name);
                 }
                 return false;
