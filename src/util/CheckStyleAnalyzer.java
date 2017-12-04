@@ -173,28 +173,35 @@ public class CheckStyleAnalyzer {
          */
         public void createReport() {
             
+            Comparator<Map.Entry<String, AtomicInteger>> comparator =
+                new Comparator<Map.Entry<String, AtomicInteger>>() {
+                    @Override
+                    public int compare(final Map.Entry<String, AtomicInteger> o1,
+                                       final Map.Entry<String, AtomicInteger> o2) {
+                        int a = o1.getValue().get();
+                        int b = o2.getValue().get();
+                        
+                        // Sort reverse order
+                        if (a > b) {
+                            return -1;
+                        } else if (a < b) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    }
+                };
+
+            List<Map.Entry<String, AtomicInteger>> sortedTotalErrorCount =
+                    new LinkedList<>(totalErrorCount.entrySet());
+            
+            Collections.sort(sortedTotalErrorCount, comparator);
+            
+            
             List<Map.Entry<String, AtomicInteger>> sortedFileTotalErrorCount =
                     new LinkedList<>(fileTotalErrorCount.entrySet());
             
-            Collections.sort(sortedFileTotalErrorCount,
-                             new Comparator<Map.Entry<String, AtomicInteger>>() {
-                
-                @Override
-                public int compare(final Map.Entry<String, AtomicInteger> o1,
-                                   final Map.Entry<String, AtomicInteger> o2) {
-                    int a = o1.getValue().get();
-                    int b = o2.getValue().get();
-                    
-                    // Sort reverse order
-                    if (a > b) {
-                        return -1;
-                    } else if (a < b) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
-                }
-            });
+            Collections.sort(sortedFileTotalErrorCount, comparator);
             
             writer.println("<!DOCTYPE html>");
             writer.println("<html dir=\"ltr\" lang=\"en\">");
@@ -219,7 +226,7 @@ public class CheckStyleAnalyzer {
 
 //            System.out.format("Filename: %s\n", item.getKey());
             
-            for (Map.Entry<String, AtomicInteger> subEntry : totalErrorCount.entrySet()) {
+            for (Map.Entry<String, AtomicInteger> subEntry : sortedTotalErrorCount) {
                 writer.format("<tr><td>%d</td><td>%s</td></tr>\n",
                               subEntry.getValue().get(),
                               subEntry.getKey());
