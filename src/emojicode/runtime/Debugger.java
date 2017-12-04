@@ -208,7 +208,7 @@ public final class Debugger {
         
         
         public DebugActionsSwingSafe(final DebugActions debugActions) {
-            this.debugActions = aDebugActions;
+            this.debugActions = debugActions;
         }
         
         
