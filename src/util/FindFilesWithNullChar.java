@@ -68,7 +68,7 @@ public class FindFilesWithNullChar {
         fileExtensionsToIgnore.add("jpeg");
         fileExtensionsToIgnore.add("gif");
         
-        foldersToIgnore.add("");
+        foldersToIgnore.add("./findbugs");
         
         final Flag foundError = new Flag();
         
@@ -77,13 +77,18 @@ public class FindFilesWithNullChar {
 //            System.out.format("File: %s, %s\n", name, dir.getAbsolutePath());
             if (name.equals(".") || name.equals("..") || name.equals(".git"))
                 return false;
+            
             File file = new File(dir+"/"+name);
             if (file.isDirectory()) {
                 System.out.println("AAAAA: Folder: "+dir+"/"+name);
-////DANIEL                foundError.flag |= find(dir+"/"+name);
+                
+                if (!fileExtensionsToIgnore.contains(dir+"/"+name)) {
+                    foundError.flag |= find(dir+"/"+name);
+                }
                 return false;
             }
-            return ! fileExtensionsToIgnore.contains(name.substring(name.lastIndexOf('.')+1));
+            
+            return !fileExtensionsToIgnore.contains(name.substring(name.lastIndexOf('.')+1));
 //            if (filesToIgnore.contains(name))
 //                return false;
 //            return name.endsWith(".emojic");
