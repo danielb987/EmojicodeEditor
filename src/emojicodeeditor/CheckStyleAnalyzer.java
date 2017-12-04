@@ -262,9 +262,9 @@ public class CheckStyleAnalyzer {
 //                        attributes.getValue(i));
 //            }
             
-            if ("checkstyle".equalsIgnoreCase(qName)) {
+//            if ("checkstyle".equalsIgnoreCase(qName)) {
 //                System.out.format("checkstyle tag\n");
-            }
+//            }
             if ("file".equalsIgnoreCase(qName)) {
 //                System.out.format("file tag\n");
                 numFiles++;
@@ -282,7 +282,7 @@ public class CheckStyleAnalyzer {
                 String errorMessage = attributes.getValue("message");
                 if (error == null) {
                     System.out.println("Error is null");
-                    for (int i=0;  i < attributes.getLength(); i++) {
+                    for (int i = 0;  i < attributes.getLength(); i++) {
                         System.out.format("-- %s: %s\n",
                                           attributes.getQName(i), attributes.getValue(i));
                         System.exit(1);
