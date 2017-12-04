@@ -33,7 +33,7 @@ import emojicode.code.Parent;
  */
 public final class Debugger {
     
-    private static final Debugger instance = new Debugger();
+    private static final Debugger INSTANCE = new Debugger();
     
     private final Object lock = new Object();
     private boolean wasSignalled = false;
@@ -50,7 +50,7 @@ public final class Debugger {
     
     
     public static Debugger getInstance() {
-        return instance;
+        return INSTANCE;
     }
     
     
@@ -186,28 +186,28 @@ public final class Debugger {
     
     public interface DebugActions {
         
-        public void next(Parent parent,
-                         SourcePosition startPosition,
-                         SourcePosition middlePosition,
-                         SourcePosition endPosition);
+        void next(Parent parent,
+                  SourcePosition startPosition,
+                  SourcePosition middlePosition,
+                  SourcePosition endPosition);
         
-        public void programEnded();
+        void programEnded();
         
-        public void programAborted(SourcePosition position);
+        void programAborted(SourcePosition position);
         
-        public void programError(SourcePosition position);
+        void programError(SourcePosition position);
         
     }
     
     
     
-    public class DebugActions_SwingSafe {
+    public final class DebugActionsSwingSafe {
         
         private final DebugActions debugActions;
         
         
-        public DebugActions_SwingSafe(final DebugActions debugActions) {
-            this.debugActions = debugActions;
+        public DebugActionsSwingSafe(final DebugActions aDebugActions) {
+            this.debugActions = aDebugActions;
         }
         
         
