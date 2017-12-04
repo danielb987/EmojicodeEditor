@@ -33,29 +33,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Method call
+ * Emojicode method call.
  * http://www.emojicode.org/docs/reference/classes-valuetypes.html#srule-method-call
  * 
  * @author Daniel Bergqvist
  */
-public class MethodCall extends Parent {
+public final class MethodCall extends Parent {
     
+    /**
+     * The type of method.
+     */
     final EmojiMethod.MethodType methodType;
+    
+    /**
+     * The name of the method.
+     */
     String methodName;
+    
+    /**
+     * The name of the class that the method is declared in.
+     */
     String className;
+    
+    /**
+     * The emojicode class that the method is declared in.
+     */
     EmojiClass emojiClass;
-    Parent.Variable variable;
+    
+//    Parent.Variable variable;
+    
+    /**
+     * If this method call is on a constant string, the method call is for this string, or this
+     * string is null.
+     */
     String constantString;
+    
+    /**
+     * The emojicode method that this method call expression should call.
+     */
     EmojiMethod emojiMethod;
     
     
-    public MethodCall(Parent parent, EmojiMethod.MethodType methodType) {
+    /**
+     * Create a emojicode method call.
+     * @param parent The parent
+     * @param methodType The type of method
+     */
+    public MethodCall(final Parent parent, final EmojiMethod.MethodType methodType) {
         super(parent);
         this.methodType = methodType;
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError {
+    /**
+     * Parse this method call.
+     * @param tokenStream the token stream
+     * @throws CompilerError compiler error
+     */
+    public void parse(final TokenStream tokenStream) throws CompilerError {
         
 //        System.out.format("MethodCall\n");
         
@@ -109,11 +144,16 @@ public class MethodCall extends Parent {
     }
     
     
+    /**
+     * Run this method call.
+     */
     public void run() {
 //        System.out.println("MethodCall.execute()");
         Debugger.getInstance().step(this, startPosition, middlePosition, endPosition);
         List<EmojiArgument> arguments = new ArrayList<>();
         EmojiReturnValue returnValue = new EmojiReturnValue();
+        
+/* Arbeta om denna kod. Den är inte färdig.        
         EmojiClassInstance instance;
         if (variable != null)
             instance = variable.instance;
@@ -122,6 +162,7 @@ public class MethodCall extends Parent {
         else
             throw new RuntimeException("Method has no class instance to run on");
         emojiMethod.execute(instance, arguments, returnValue);
+*/
     }
     
 }
