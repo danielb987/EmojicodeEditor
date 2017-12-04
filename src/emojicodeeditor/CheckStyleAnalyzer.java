@@ -41,12 +41,20 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 /**
- * Analyze the report from CheckStyle
+ * Analyze the report from CheckStyle.
  * @author Daniel Bergqvist
  */
 public class CheckStyleAnalyzer {
     
+    /**
+     * The file name of the xml file that checkstyle has generated and that this class will
+     * analyze.
+     */
     private final String filename;
+    
+    /**
+     * The file name of the report that this class generates.
+     */
     private final String reportFilename;
     
     
@@ -87,20 +95,66 @@ public class CheckStyleAnalyzer {
      */
     private static class UserHandler extends DefaultHandler {
         
+        /**
+         * The writer that the report is written to.
+         */
         private final PrintWriter writer;
         
+        /**
+         * The file name of the file that is currently analyzed in the checkstyle report.
+         */
         private String currentFilename = "";
+        
+        /**
+         * The number of errors in the current file in the checkstyle report.
+         */
         private AtomicInteger currentFileTotalErrorCount;
         
+        /**
+         * The total number of files in the checkstyle report.
+         */
         private int numFiles = 0;
+        
+        /**
+         * The number of files in the checkstyle report that has errors.
+         */
         private int numFilesWithError = 0;
+        
+        /**
+         * The total number of errors in the checkstyle report.
+         */
         private int numErrors = 0;
+        
+        /**
+         * true if the current file in the checkstyle report has any errors.
+         */
         private boolean currentFileHasErrors = false;
         
+        /**
+         * A map of the error messages for each error in the checkstyle report.
+         */
         private final Map<String, String> errorMessages = new HashMap<>();
+        
+        /**
+         * A map of the total number of errors for each error in the checkstyle report.
+         */
         private final Map<String, AtomicInteger> totalErrorCount = new HashMap<>();
+        
+        /**
+         * A map of the total number of errors for each file name in the checkstyle report.
+         */
         private final Map<String, AtomicInteger> fileTotalErrorCount = new HashMap<>();
+        
+        /**
+         * A map of a map of the total number of errors for each error for each file name in the
+         * checkstyle report.
+         */
         private final Map<String, Map<String, AtomicInteger>> fileErrorCount = new HashMap<>();
+        
+        /**
+         * A map of the total number of errors for each error in the the current file in the
+         * checkstyle report.
+         */
         private Map<String, AtomicInteger> currentFileErrorCount = new HashMap<>();
         
         
@@ -257,9 +311,17 @@ public class CheckStyleAnalyzer {
         }
         
         
+        /**
+         * Receive notification of character data inside an element.
+         * @param ch The characters
+         * @param start The start position in the character array
+         * @param length The number of characters to use from the character array
+         * @throws SAXException Any SAX exception, possibly wrapping another exception
+         */
         @Override
         public void characters(char ch[], int start, int length) throws SAXException {
         }
+        
     }
     
 }
