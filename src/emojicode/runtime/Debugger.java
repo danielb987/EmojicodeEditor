@@ -100,11 +100,14 @@ public final class Debugger {
     public void runProgram(final EmojiPackageUserDefinied emojiPackage,
                            final DebugActions debugActions)
             throws DebuggerException {
-        if (programIsRunning)
+        
+        if (programIsRunning) {
             throw new DebuggerException.DebuggerException_ProgramIsRunning();
+        }
         this.debugActions = debugActions;
         stopProgram = false;
         this.runToCursor = -1;
+        
         new Thread(() -> {
             try {
                 programIsRunning = true;
@@ -122,11 +125,13 @@ public final class Debugger {
                                    final int runToCursor)
             throws DebuggerException {
         
-        if (programIsRunning)
+        if (programIsRunning) {
             throw new DebuggerException.DebuggerException_ProgramIsRunning();
+        }
         this.debugActions = debugActions;
         stopProgram = false;
         this.runToCursor = runToCursor;
+        
         new Thread(() -> {
             try {
                 programIsRunning = true;
@@ -144,13 +149,16 @@ public final class Debugger {
                      final SourcePosition middlePosition,
                      final SourcePosition endPosition) {
         
-        if (startPosition == null)
+        if (startPosition == null) {
             throw new IllegalArgumentException("startPosition must not be null");
-        if (endPosition == null)
+        }
+        if (endPosition == null) {
             throw new IllegalArgumentException("endPosition must not be null");
+        }
         
-        if (stopProgram)
+        if (stopProgram) {
             throw new StopProgramException();
+        }
         
         if (pauseOnEveryStep || ((runToCursor >= 0) && runToCursor == startPosition.getIndex())) {
             debugActions.next(parent, startPosition, middlePosition, endPosition);
