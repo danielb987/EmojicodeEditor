@@ -137,7 +137,7 @@ public final class MethodCall extends Parent {
             tokenStream.consumeToken();
             EmojiPackage emojiPackage = getPackage();
             emojiClass = emojiPackage.classes.get(classIdentifierToken.toString());
-            if (emojiClass == null)
+            if (emojiClass == null) {
                 throw new CompilerError(classIdentifierToken.startPosition,
                                         classIdentifierToken.endPosition,
                                         String.format("Class %s in package %s is not found",
@@ -149,6 +149,7 @@ public final class MethodCall extends Parent {
 //            System.out.format("AAAA Class: %s, method: %s, type: %s\n",
 //                              emojiClass.name, emojiMethod.name, emojiMethod.methodType.name());
 //            System.out.flush();
+            }
             
             if (methodType == EmojiMethod.MethodType.TYPE_METHOD) {
                 emojiMethod = emojiClass.getTypeMethod(methodName,
@@ -194,7 +195,7 @@ public final class MethodCall extends Parent {
         List<EmojiArgument> arguments = new ArrayList<>();
         EmojiReturnValue returnValue = new EmojiReturnValue();
         
-/* Arbeta om denna kod. Den är inte färdig.        
+/* Arbeta om denna kod. Den är inte färdig.
         EmojiClassInstance instance;
         if (variable != null)
             instance = variable.instance;
