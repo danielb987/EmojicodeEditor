@@ -28,7 +28,6 @@ import emojicode.TokenType;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
-import emojicode.runtime.Debugger;
 
 /**
  * Statement
@@ -41,12 +40,12 @@ public class Statement extends Parent {
     private Expression expression;
     
     
-    public Statement(Parent parent) {
+    public Statement(final Parent parent) {
         super(parent);
     }
     
     
-    public void parse(TokenStream tokenStream) throws CompilerError, LogicError {
+    public void parse(final TokenStream tokenStream) throws CompilerError, LogicError {
         
         Token token = tokenStream.nextToken();
         
@@ -56,41 +55,42 @@ public class Statement extends Parent {
         
         switch (token.type) {
             case If:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case ForIn:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case RepeatWhile:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case Return:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case Declaration:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case Assignment:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case SuperInit:
 //                System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
                 tokenStream.consumeToken(TokenType.SuperInit);
                 Token superInitToken;
-                if (tokenStream.nextTokenIs(TokenType.New))
+                if (tokenStream.nextTokenIs(TokenType.New)) {
                     superInitToken = tokenStream.consumeToken(TokenType.New);
-                else
+                } else {
                     superInitToken = tokenStream.consumeToken(TokenType.SuperInit);
+                }
 //                if (1==1) throw new CompilerError(token.startPosition, token.endPosition, "Code not implemented yet");
                 break;
             case ErrorHandler:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case Error:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case FrozenDeclaration:
-                if (1==1) throw new RuntimeException("Code not implemented yet");
+                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
                 break;
             case Identifier:
                 expression = new Expression(this);
@@ -117,19 +117,14 @@ public class Statement extends Parent {
 //        error
 //        frozen-declaration
         
-
-
-
-        switch (token.type) {
-            
-        }
     }
     
     
     public void run() {
 //        Debugger.getInstance().step(startPosition, middlePosition, endPosition);
-        if (expression != null)
+        if (expression != null) {
             expression.run();
+        }
     }
     
 }
