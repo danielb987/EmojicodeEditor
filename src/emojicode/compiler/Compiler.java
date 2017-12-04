@@ -32,10 +32,10 @@ import emojicode.Token;
 public final class Compiler {
     
     /**
-     * Compile 
-     * @param string
-     * @param filename
-     * @throws CompilerError 
+     * An emojicode compiler
+     * @param string the emojicode program that is to be compiled
+     * @param filename the filename of the file that is to be compiled
+     * @throws CompilerError a compiler error
      */
     public static void compile(final String string, final String filename) throws CompilerError {
         
