@@ -55,7 +55,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/EmojicodeEditor" ] && [ "$TRAVIS_PULL_RE
   ls -al checkstyle/
 
   # Copy the checkstyle report
-  cp $DIR/findbugs/findbugs.html .
+  cp $DIR/build/findbugs/findbugs.html .
 
   # Upload the distribution and javadoc to the gh-pages branch at GitHub
   git add -f .
