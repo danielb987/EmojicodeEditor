@@ -66,25 +66,26 @@ public final class Statement extends Parent {
         
         switch (token.type) {
             case If:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case ForIn:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case RepeatWhile:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case Return:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case Declaration:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case Assignment:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case SuperInit:
-//                System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
+//                System.out.format("Token: %s, value: %s\n", token.type.toString(),
+//                                  token.toString());
                 tokenStream.consumeToken(TokenType.SuperInit);
                 Token superInitToken;
                 if (tokenStream.nextTokenIs(TokenType.New)) {
@@ -92,17 +93,18 @@ public final class Statement extends Parent {
                 } else {
                     superInitToken = tokenStream.consumeToken(TokenType.SuperInit);
                 }
-//                if (1==1) throw new CompilerError(token.startPosition, token.endPosition, "Code not implemented yet");
+//                if (1==1) throw new CompilerError(token.startPosition, token.endPosition,
+//                                                  "Code not implemented yet");
                 break;
             case ErrorHandler:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case Error:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case FrozenDeclaration:
-                if (1 == 1) { throw new RuntimeException("Code not implemented yet"); }
-                break;
+                throw new RuntimeException("Code not implemented yet");
+//                break;
             case Identifier:
                 expression = new Expression(this);
                 expression.parse(tokenStream);
@@ -110,7 +112,8 @@ public final class Statement extends Parent {
                 this.endPosition = expression.endPosition;
                 break;
             default:
-                throw new RuntimeException("Why did we get here??? TokenType: "+token.type.name());
+                throw new RuntimeException("Why did we get here??? TokenType: "
+                                            + token.type.name());
 //                break;
         }
         
@@ -131,6 +134,9 @@ public final class Statement extends Parent {
     }
     
     
+    /**
+     * Run the emojicode statement.
+     */
     public void run() {
 //        Debugger.getInstance().step(startPosition, middlePosition, endPosition);
         if (expression != null) {
