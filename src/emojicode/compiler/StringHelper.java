@@ -24,22 +24,32 @@
 package emojicode.compiler;
 
 /**
- *
+ * A helper class for strings.
  * @author Daniel Bergqvist
  */
 public final class StringHelper {
     
+    /**
+     * Private constructor since this class should never be instanced.
+     */
     private StringHelper() {
         // This class should never be instanced
     }
     
     
-    public static int getLastUnicodeChar(String str) {
+    /**
+     * Return the last unicode codepoint in the string.
+     * A unicode character may take two Java characters so this method is needed to find the last
+     * unicode character in the string.
+     * @param str
+     * @return 
+     */
+    public static int getLastUnicodeChar(final String str) {
         
         final int length = str.length();
         
         int codePoint = -1;
-        for (int offset=0; offset < length; ) {
+        for (int offset = 0; offset < length;) {
             codePoint = str.codePointAt(offset);
             offset += Character.charCount(codePoint);
         }
