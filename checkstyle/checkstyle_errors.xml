@@ -792,7 +792,6 @@
 <error line="129" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/CheckStyleAnalyzer.java">
-<error line="339" column="45" severity="error" message="Array brackets at illegal position." source="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/EditorToolTip.java">
 <error line="26" column="8" severity="error" message="Unused import - java.awt.BorderLayout." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
