@@ -23,6 +23,8 @@
  */
 package emojicodeeditor;
 
+import util.CheckStyleAnalyzer;
+import util.FindFilesWithNullChar;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package emojicodeeditor;
+package util;
 
 import java.io.BufferedWriter;
 import java.io.File;

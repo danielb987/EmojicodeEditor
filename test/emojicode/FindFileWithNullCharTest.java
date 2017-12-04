@@ -1,6 +1,6 @@
 package emojicode;
 
-import emojicodeeditor.FindFilesWithNullChar;
+import util.FindFilesWithNullChar;
 import org.junit.Assert;
 import org.junit.Test;
 
