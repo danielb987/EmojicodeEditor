@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 daniel.
+ * Copyright 2017 Daniel Bergqvist.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -39,6 +39,8 @@ import javax.swing.Timer;
  * @author Daniel Bergqvist
  */
 public final class EmojiTextPane extends JTextPane implements MouseListener, MouseMotionListener {
+
+    private static final long serialVersionUID = 1L;
     
     private final MainWindow jFrameMain;
     private final Timer timer;
