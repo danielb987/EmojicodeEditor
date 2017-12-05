@@ -21,6 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+/*
+Links to check out later:
+
+JavaBeans:
+https://en.wikipedia.org/wiki/JavaBeans
+
+EditorKit: Table of Content
+http://java-sl.com/articles.html
+
+Tables in the JEditorPane/JTextPane
+http://java-sl.com/JEditorPaneTables.html
+
+Tips: Small code snippets with short descriptions
+http://java-sl.com/tips.html
+
+Hyphenation in the JEditorPane/JTextPane
+http://java-sl.com/Hyphenation_In_JEditorPane.html
+
+Hyphenation in the JEditorPane/JTextPane
+http://java-sl.com/Hyphenation_In_JEditorPane.html
+
+Fix for java 7 text wrapping bug
+http://java-sl.com/tip_java7_text_wrapping_bug_fix.html
+
+"Forced line wrap" and "No wrap" in the JEditorPane/JTextPane
+http://java-sl.com/wrap.html
+
+Downloads: Articles examples
+http://java-sl.com/downloads.html
+
+
+*/
 package emojicodeeditor;
 
 import util.CheckStyleAnalyzer;
