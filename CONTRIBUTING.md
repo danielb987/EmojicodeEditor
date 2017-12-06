@@ -19,6 +19,36 @@ to ensure the quality of the code. These tests are:
 [![Build Status](https://travis-ci.org/danielb987/EmojicodeEditor.svg?branch=master)](https://travis-ci.org/danielb987/EmojicodeEditor) [![Coverage Status](https://coveralls.io/repos/github/danielb987/EmojicodeEditor/badge.svg?branch=master)](https://coveralls.io/github/danielb987/EmojicodeEditor?branch=master)
 [Checkstyle](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_errors.xml) - [Checkstyle summary](https://danielb987.github.io/EmojicodeEditor/checkstyle/checkstyle_report.html)
 
+## Compiler warnings
+EmojicodeEditor uses the additional compiler options [-Xlint:all](http://marxsoftware.blogspot.se/2010/10/javacs-xlint-options.html) and -Werror. The compiler option -Werror results in that every warning is treated as an error. Therefore each warning must either be fixed or suppressed in order to compile the program. Suppressing a warning is not recommended.
+
+# serialVersionUID
+Some standard Java classes implements the [Serializable](https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html) interface which means that the class could be serialized. That also means that a class that inherits this class could also be serialized. And therefore any class that inherits a class that implement Serializable should declare a constant serialVersionUID.
+
+The problem is that serialVersionUID should be changed every time the class signature is changed, for example if a new property is added. And it's very easy to forget this. Since there is no plan for EmojicodeEditor to be serialized in any way we have choosen another solution.
+
+For every class that inherits another class that implements Serializable, two steps are taken and both are important.
+
+* Suppress the warning by adding these two lines before the declaration of the class.
+```
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+```
+
+* Override the method writeObject() and throw an exception.
+That way, there is no way that the class is serialized by misstake.
+
+```
+/**
+ * This class may not be serialized so throw an exception.
+ * @param oos the object stream
+ * @throws IOException this method always throws an IOException
+ */
+private void writeObject(ObjectOutputStream oos) throws IOException {
+    throw new IOException("This class is NOT serializable.");
+}
+```
+
 ## Coding style
 EmojicodeEditor uses [checkstyle](http://checkstyle.sourceforge.net/) to enforce
 [Sun coding style](http://checkstyle.sourceforge.net/sun_style.html).
