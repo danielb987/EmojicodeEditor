@@ -1,5 +1,7 @@
 # Contribution
-Contributions are welcome.
+Contributions are welcome. If you want to add new features, please open an Issue first.
+
+EmojicodeEditor is written in Java using NetBeans IDE. Other IDE:s may work, but it could cause problems so it's highly recommended to use NetBeans for development of EmojicodeEditor.
 
 # Code contributions
 If you want to add new features, please open an Issue there you describe the
