@@ -24,13 +24,21 @@
 package emojicode.compiler;
 
 import emojicode.SourcePosition;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
- *
+ * Logic error in the emojicode program.
+ * This exception may be thrown when the emojicode program is executed.
+ * 
  * @author Daniel Bergqvist
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public class LogicError extends Exception {
-    
+
     public final SourcePosition sourcePosition;
 
     /**
@@ -61,6 +69,16 @@ public class LogicError extends Exception {
     public LogicError(SourcePosition sourcePosition, String msg) {
         super(msg);
         this.sourcePosition = sourcePosition;
+    }
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
     }
     
 }

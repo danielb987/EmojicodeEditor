@@ -23,16 +23,20 @@
  */
 package emojicodeeditor;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.JComponent;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import javax.swing.JTextArea;
 
 /**
- *
+ * A tool tip in the editor.
  * @author daniel
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public final class EditorToolTip extends JTextArea {
     
 //    private final JTextArea tipArea;
@@ -61,4 +65,15 @@ public final class EditorToolTip extends JTextArea {
     boolean alwaysOnTop() {
         return true;
     }
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
+    }
+    
 }

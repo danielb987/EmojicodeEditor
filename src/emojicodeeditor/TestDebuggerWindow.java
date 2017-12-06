@@ -34,6 +34,7 @@ import emojicode.runtime.Debugger;
 import emojicode.runtime.DebuggerException;
 import java.awt.Color;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -52,10 +53,12 @@ import javax.swing.text.StyleContext;
  *
  * @author Daniel Bergqvist
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public final class TestDebuggerWindow extends javax.swing.JFrame implements Debugger.DebugActions {
 
-    private static final long serialVersionUID = 1L;
-    
     private final Style defaultStyle =
                     StyleContext.getDefaultStyleContext().getStyle(StyleContext.DEFAULT_STYLE);
     
@@ -365,6 +368,8 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
 
     private void jButtonTokensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTokensActionPerformed
         
+        if (1==1) throw new RuntimeException("Hejsan");
+        
         if (testTokenStream == null) {
             Lexer lexer = new Lexer(source, filename);
 
@@ -592,4 +597,15 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     //CHECKSTYLE.ON: FinalParametersCheck - Several methods in this class is created by the
     // NetBeans IDE and we cannot change them.
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
+    }
+    
 }

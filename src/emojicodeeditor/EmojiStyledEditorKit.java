@@ -29,6 +29,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.Stroke;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.BoxView;
 import javax.swing.text.ComponentView;
@@ -47,6 +49,10 @@ import javax.swing.text.ViewFactory;
  * 
  * @author Daniel Bergqvist
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public class EmojiStyledEditorKit extends StyledEditorKit {
     
     public static final String ERROR_UNDERLINE_ATTRIBUTE_NAME="error-underline";
@@ -179,6 +185,16 @@ public class EmojiStyledEditorKit extends StyledEditorKit {
         public float getMinimumSpan(int axis) {
             return super.getPreferredSpan(axis);
         }
+    }
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
     }
     
 }

@@ -24,13 +24,19 @@
 package emojicode.compiler;
 
 import emojicode.SourcePosition;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
- *
+ * A syntax error in the emojicode program.
  * @author Daniel Bergqvist
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public class CompilerError extends Exception {
-    
+
     public final SourcePosition sourcePosition;
     public final SourcePosition endPosition;
 
@@ -62,6 +68,16 @@ public class CompilerError extends Exception {
         super(msg);
         this.sourcePosition = sourcePosition;
         this.endPosition = endPosition;
+    }
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
     }
     
 }

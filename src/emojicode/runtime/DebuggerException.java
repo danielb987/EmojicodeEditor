@@ -23,10 +23,17 @@
  */
 package emojicode.runtime;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 /**
- *
+ * An exception that may occur in the debugger.
  * @author Daniel Bergqvist
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public class DebuggerException extends Exception {
     
     public DebuggerException(String msg) {
@@ -40,6 +47,16 @@ public class DebuggerException extends Exception {
             super("Program is already running");
         }
         
+    }
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
     }
     
 }

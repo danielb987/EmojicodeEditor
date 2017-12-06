@@ -30,18 +30,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextPane;
 import javax.swing.Timer;
 
 /**
- *
+ * The control with the editor.
  * @author Daniel Bergqvist
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public final class EmojiTextPane extends JTextPane implements MouseListener, MouseMotionListener {
 
-    private static final long serialVersionUID = 1L;
-    
     private final MainWindow jFrameMain;
     private final Timer timer;
 //    private final EditorToolTip editorToolTip;
@@ -187,6 +191,16 @@ public final class EmojiTextPane extends JTextPane implements MouseListener, Mou
         hideToolTip();
         lastMousePos.setLocation(e.getPoint());
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
     }
     
 }

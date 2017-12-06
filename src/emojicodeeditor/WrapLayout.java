@@ -24,15 +24,19 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Insets;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
 /**
  *  FlowLayout subclass that fully supports wrapping of components.
  */
-public class WrapLayout extends FlowLayout {
 
-    private static final long serialVersionUID = 1L;
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
+public class WrapLayout extends FlowLayout {
 
     /**
     * Constructs a new <code>WrapLayout</code> with a left
@@ -212,6 +216,16 @@ public class WrapLayout extends FlowLayout {
         }
 
         dim.height += rowHeight;
+    }
+    
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
     }
     
 }

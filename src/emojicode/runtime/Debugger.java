@@ -26,6 +26,8 @@ package emojicode.runtime;
 import emojicode.SourcePosition;
 import emojicode.code.EmojiPackageUserDefinied;
 import emojicode.code.Parent;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -247,14 +249,26 @@ public final class Debugger {
     
     
     
-    // This exception is thrown by the debugger when the program is aborted.
-    // This exception should never be catched by anyone else than the debugger
-    // itself. It is therefore private. However, it is possible to catch it if
-    // a catch statment catches Throwable or Exception, but it should not be
-    // done.
+    /**
+     * An exeption thrown when the program is aborted.
+     * This exception should never be catched by anyone else than the debugger
+     * itself. It is therefore private. However, it is possible to catch it if
+     * a catch statment catches Throwable or Exception, but it should not be
+     * done.
+     */
+    
+    // This class may never be serialized. It throws an exception in writeObject.
+    @SuppressWarnings("serial")
     private class StopProgramException extends RuntimeException {
         
-        private static final long serialVersionUID = 1L;
+        /**
+         * This class may not be serialized so throw an exception.
+         * @param oos the object stream
+         * @throws IOException this method always throws an IOException
+         */
+        private void writeObject(ObjectOutputStream oos) throws IOException {
+            throw new IOException("This class is NOT serializable.");
+        }
     }
     
     

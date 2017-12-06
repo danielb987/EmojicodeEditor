@@ -47,30 +47,27 @@ public final class Token {
     
     
     public void validate() throws CompilerError {
-        switch (type) {
-            case Integer:
-                if (StringHelper.getLastUnicodeChar(toString()) == 'x') {
-                    throw new CompilerError(startPosition,
-                                            endPosition,
-                                            "Expected a digit after integer literal prefix.");
-                }
-                break;
-            case Double:
-                if (StringHelper.getLastUnicodeChar(toString()) == '.') {
-                    throw new CompilerError(startPosition,
-                                            endPosition,
-                                            "Expected a digit after decimal seperator.");
-                }
-                break;
-            case Identifier:
-                if (!EmojiTokenization.isValidEmoji(toString())) {
-                    throw new CompilerError(startPosition, endPosition, "Invalid emoji.");
-                }
-            default:
-                // No need to validate anything here.
-                break;
+        if (type == TokenType.Integer) {
+            if (StringHelper.getLastUnicodeChar(toString()) == 'x') {
+                throw new CompilerError(startPosition,
+                                        endPosition,
+                                        "Expected a digit after integer literal prefix.");
+            }
+        }
+        if (type == TokenType.Double) {
+            if (StringHelper.getLastUnicodeChar(toString()) == '.') {
+                throw new CompilerError(startPosition,
+                                        endPosition,
+                                        "Expected a digit after decimal seperator.");
+            }
+        }
+        if (type == TokenType.Identifier) {
+            if (!EmojiTokenization.isValidEmoji(toString())) {
+                throw new CompilerError(startPosition, endPosition, "Invalid emoji.");
+            }
         }
     }
+    
     
     public boolean isIdentifier(final int ch) {
         return (type == TokenType.Identifier)

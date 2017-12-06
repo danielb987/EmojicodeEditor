@@ -31,6 +31,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -41,14 +42,15 @@ import javax.swing.JFrame;
 import javax.swing.ToolTipManager;
 
 /**
- *
+ * The main window of the program.
  * @author Daniel Bergqvist
  */
+
+// This class may never be serialized. It throws an exception in writeObject.
+@SuppressWarnings("serial")
+
 public final class MainWindow extends javax.swing.JFrame {
 
-    private static final long serialVersionUID = 1L;
-    
-    
     //CHECKSTYLE.OFF: FinalParametersCheck - Several methods in this class is created by the
     // NetBeans IDE and we cannot change them.
     
@@ -470,4 +472,14 @@ public final class MainWindow extends javax.swing.JFrame {
     
     //CHECKSTYLE.ON: FinalParametersCheck - Several methods in this class is created by the
     // NetBeans IDE and we cannot change them.
+    
+    /**
+     * This class may not be serialized so throw an exception.
+     * @param oos the object stream
+     * @throws IOException this method always throws an IOException
+     */
+    private void writeObject(ObjectOutputStream oos) throws IOException {
+        throw new IOException("This class is NOT serializable.");
+    }
+    
 }
