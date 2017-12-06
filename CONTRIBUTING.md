@@ -22,7 +22,7 @@ to ensure the quality of the code. These tests are:
 ## Compiler warnings
 EmojicodeEditor uses the additional compiler options [-Xlint:all](http://marxsoftware.blogspot.se/2010/10/javacs-xlint-options.html) and -Werror. The compiler option -Werror results in that every warning is treated as an error. Therefore each warning must either be fixed or suppressed in order to compile the program. Suppressing a warning is not recommended.
 
-# serialVersionUID
+### serialVersionUID
 Some standard Java classes implements the [Serializable](https://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html) interface which means that the class could be serialized. That also means that a class that inherits this class could also be serialized. And therefore any class that inherits a class that implement Serializable should declare a constant serialVersionUID.
 
 The problem is that serialVersionUID should be changed every time the class signature is changed, for example if a new property is added. And it's very easy to forget this. Since there is no plan for EmojicodeEditor to be serialized in any way we have choosen another solution.
