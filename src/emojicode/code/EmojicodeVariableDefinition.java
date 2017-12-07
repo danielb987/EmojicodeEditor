@@ -27,7 +27,7 @@ package emojicode.code;
  *
  * @author Daniel Bergqvist
  */
-public class EmojicodeVariable {
+public class EmojicodeVariableDefinition {
     
     public enum EmojicodeVariableType { INTEGER, FLOAT, STRING, OBJECT };
     
@@ -35,7 +35,7 @@ public class EmojicodeVariable {
     final EmojicodeVariableType variableType;
     
     
-    public EmojicodeVariable(String aName, EmojicodeVariableType aVariableType) {
+    public EmojicodeVariableDefinition(String aName, EmojicodeVariableType aVariableType) {
         this.name = aName;
         this.variableType = aVariableType;
     }

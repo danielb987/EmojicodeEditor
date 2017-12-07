@@ -29,4 +29,20 @@ package emojicode.code;
  */
 public class EmojicodeStack {
     
+    /**
+     * Parent stack.
+     * Instead of creating our own garbage collector, we uses Java:s garbage collector. Therefore
+     * we have a stack of stacks, to be able to throw away the current stack when it's not needed
+     * any more.
+     */
+    private EmojicodeStack parentStack;
+    
+    
+    public EmojicodeStack(EmojicodeStack aParentStack) {
+        this.parentStack = aParentStack;
+    }
+    
+    
+    public 
+    
 }
