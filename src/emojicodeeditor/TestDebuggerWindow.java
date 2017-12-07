@@ -64,7 +64,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     private final DefaultStyledDocument sourceCodeDocument = new DefaultStyledDocument();
     
-    private final String source;
+    private String source;
     
     private final String filename;
     
@@ -101,7 +101,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
             });
         });
         
-        if (1 == 1) {
+        if (1 == 0) {
             jTextPaneSourceCode.setText("Testar Daniel 123123");
             source = "";
             return;
@@ -115,6 +115,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
             jTextPaneSourceCode.setCaretPosition(0);
         } catch (IOException ex) {
             Logger.getLogger(TestDebuggerWindow.class.getName()).log(Level.SEVERE, null, ex);
+            source = "";
         }
         
 //        testStyle();
@@ -329,8 +330,9 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
         try {
             jTextAreaOutput.setText("");
             emojicode.code.EmojiPackageUserDefinied emojiPackage =
-                    new emojicode.code.EmojiPackageUserDefinied("daniel", filename, source);
+                    new emojicode.code.EmojiPackageUserDefinied("Test", filename, source);
             emojiPackage.parse();
+            jTextAreaOutput.append("Compiling done.");
         } catch (CompilerError ex) {
             ex.printStackTrace(StandardIO.getInstance().getOutput());
             jTextPaneSourceCode.setCaretPosition(ex.sourcePosition.getIndex());
@@ -367,8 +369,6 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     }//GEN-LAST:event_jButtonStopProgramActionPerformed
 
     private void jButtonTokensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTokensActionPerformed
-        
-        if (1==1) throw new RuntimeException("Hejsan");
         
         if (testTokenStream == null) {
             Lexer lexer = new Lexer(source, filename);
