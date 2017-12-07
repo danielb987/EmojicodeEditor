@@ -80,7 +80,7 @@ public final class MethodCall extends Parent {
      * @param aMethodType The type of method
      */
     public MethodCall(final Parent parent, final EmojiMethod.MethodType aMethodType) {
-        super(parent);
+        super(parent, Parent.HasVariables.NO);
         this.methodType = aMethodType;
     }
     

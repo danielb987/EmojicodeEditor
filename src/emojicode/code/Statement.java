@@ -47,7 +47,7 @@ public final class Statement extends Parent {
      * @param parent The parent
      */
     public Statement(final Parent parent) {
-        super(parent);
+        super(parent, Parent.HasVariables.NO);
     }
     
     

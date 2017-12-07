@@ -26,7 +26,6 @@ package emojicode.code;
 import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 import emojicode.runtime.Debugger;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class CodeBlock extends Parent {
     
     
     public CodeBlock(Parent parent) {
-        super(parent);
+        super(parent, Parent.HasVariables.YES);
     }
     
     

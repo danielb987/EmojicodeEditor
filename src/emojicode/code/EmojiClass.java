@@ -44,7 +44,7 @@ public abstract class EmojiClass extends Parent {
     
     
     public EmojiClass(String name, Parent parent) {
-        super(parent);
+        super(parent, Parent.HasVariables.YES);
         this.name = name;
     }
     

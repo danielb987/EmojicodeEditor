@@ -23,55 +23,22 @@
  */
 package emojicode.code;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  *
  * @author Daniel Bergqvist
  */
-public class EmojiPackage extends Parent {
+public class EmojicodeVariable {
     
-    public static final Map<String, EmojiPackage> packages = new HashMap<>();
-    
-    public static final String DEFAULT_PACKAGE_NAME = "_";
+    public enum EmojicodeVariableType { INTEGER, FLOAT, STRING, OBJECT };
     
     final String name;
-    String namespace;
-    public final Map<String, EmojiPackage> importedPackages = new HashMap<>();
-    public final Map<String, EmojiClass> classes = new HashMap<>();
+    final EmojicodeVariableType variableType;
     
     
-    // Read all predifined packages
-    static {
-        emojicode.code.predifined_packages.s.RegisterClasses.register();
+    public EmojicodeVariable(String aName, EmojicodeVariableType aVariableType) {
+        this.name = aName;
+        this.variableType = aVariableType;
     }
     
-    
-    public EmojiPackage(String name) {
-        super(null, Parent.HasVariables.NO);
-        this.name = name;
-    }
-    
-    
-    @Override
-    protected EmojiPackage getPackage() {
-        return this;
-    }
-    
-    
-    public static void add(EmojiPackage emojiPackage) {
-        packages.put(emojiPackage.name, emojiPackage);
-    }
-    
-    public void add(EmojiClass emojiClass) {
-        classes.put(emojiClass.name, emojiClass);
-    }
-    
-    public void add(List<EmojiClass> emojiClasses) {
-        for (EmojiClass emojiClass : emojiClasses)
-            classes.put(emojiClass.name, emojiClass);
-    }
     
 }

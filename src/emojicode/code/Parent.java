@@ -34,14 +34,28 @@ import java.util.Map;
  */
 public class Parent {
     
+    protected enum HasVariables { YES, NO };
+    
     private final Parent parent;
     protected SourcePosition startPosition;
     protected SourcePosition middlePosition;
     protected SourcePosition endPosition;
-    private final Map<String, Variable> variables = new HashMap<>();
+    private final Map<String, Variable> variables;
     
-    protected Parent(final Parent aParent) {
+    
+    protected Parent(final Parent aParent, final HasVariables hasVariables) {
         this.parent = aParent;
+        
+        switch (hasVariables) {
+            case YES:
+                this.variables = new HashMap<>();
+                break;
+            case NO:
+                this.variables = null;
+                break;
+            default:
+                throw new RuntimeException("hasVariables has invalid value");
+        }
     }
     
     
@@ -65,11 +79,18 @@ public class Parent {
                                      final Variable variable)
             throws CompilerError {
         
-        if (variables.putIfAbsent(variable.name, variable) != null) {
-            throw new CompilerError(aStartPosition,
-                                    aEndPosition,
-                                    String.format("Variable %s already exists in this context",
-                                            variable.name));
+        if (variables != null) {
+            if (variables.putIfAbsent(variable.name, variable) != null) {
+                throw new CompilerError(aStartPosition,
+                                        aEndPosition,
+                                        String.format("Variable %s already exists in this context",
+                                                variable.name));
+            }
+        } else {
+            if (parent == null) {
+                throw new RuntimeException("Variables cannot be created in this scope");
+            }
+            parent.addVariable(aStartPosition, aEndPosition, variable);
         }
     }
     
@@ -79,17 +100,24 @@ public class Parent {
                                          final String name)
             throws CompilerError {
         
-        Variable variable = variables.get(name);
-        
-        if ((variable == null) && (parent != null)) {
-            variable = parent.getVariable(aStartPosition, aEndPosition, name);
+        if (variables != null) {
+            Variable variable = variables.get(name);
+            if (variable != null) {
+                return variable;
+            } else {
+                if (parent == null) {
+                    throw new CompilerError(aStartPosition,
+                                            aEndPosition,
+                                            String.format("Variable %s does not exists", name));
+                }
+                return parent.getVariable(aStartPosition, aEndPosition, name);
+            }
+        } else {
+            if (parent == null) {
+                throw new RuntimeException("Variables cannot be exist in this scope");
+            }
+            return parent.getVariable(aStartPosition, aEndPosition, name);
         }
-        if (variable == null) {
-            throw new CompilerError(aStartPosition,
-                                    aEndPosition,
-                                    String.format("Variable %s does not exists", name));
-        }
-        return variable;
     }
     
     

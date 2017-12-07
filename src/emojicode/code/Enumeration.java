@@ -50,7 +50,7 @@ public class Enumeration extends Parent {
     
     
     public Enumeration(DocumentationComment documentationComment, Parent parent) {
-        super(parent);
+        super(parent, Parent.HasVariables.NO);
         this.documentationComment = documentationComment;
     }
     

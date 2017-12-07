@@ -49,7 +49,7 @@ public abstract class EmojiMethod extends Parent {
                         List<EmojiMethodArgumentType> argumentTypes,
                         EmojiArgument returnType
                         ) {
-        super(parent);
+        super(parent, Parent.HasVariables.YES);
         this.documentationComment = documentationComment;
         this.methodType = methodType;
         this.name = name;

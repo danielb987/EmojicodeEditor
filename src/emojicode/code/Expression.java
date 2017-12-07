@@ -45,7 +45,7 @@ public class Expression extends Parent {
     
     
     public Expression(Parent parent) {
-        super(parent);
+        super(parent, Parent.HasVariables.NO);
     }
     
     

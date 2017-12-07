@@ -44,7 +44,7 @@ public class MainBlock extends Parent {
     
     
     public MainBlock(DocumentationComment documentationComment, Parent parent) {
-        super(parent);
+        super(parent, Parent.HasVariables.NO);
         this.documentationComment = documentationComment;
     }
     
