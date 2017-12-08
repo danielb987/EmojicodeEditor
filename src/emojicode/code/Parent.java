@@ -45,6 +45,9 @@ public class Parent {
     protected SourcePosition endPosition;
     private final Map<String, LocalVariableDefinition> variables;
     
+    protected int currentStackBlockIndex;
+    protected int currentStackVariableIndex;
+    
     
     protected Parent(final Parent aParent, final HasVariables hasVariables) {
         this.parent = aParent;
@@ -137,16 +140,19 @@ public class Parent {
     
     public static final class LocalVariableDefinition {
         public final String name;
+        public final EmojicodeVariableType type;
         public final boolean isFrozen;
 //        public final EmojiClassInstance instance;
         public final int stackBlockIndex;
         public final int stackVariableIndex;
         
         public LocalVariableDefinition(final String aName,
+                                       final EmojicodeVariableType aType,
                                        final boolean isFrozen,
                                        final int aStackBlockIndex,
                                        final int aStackVariableIndex) {
             this.name = aName;
+            this.type = aType;
             this.isFrozen = isFrozen;
             this.stackBlockIndex = aStackBlockIndex;
             this.stackVariableIndex = aStackVariableIndex;

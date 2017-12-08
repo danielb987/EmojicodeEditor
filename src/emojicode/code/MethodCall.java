@@ -56,9 +56,9 @@ public final class MethodCall extends Parent {
     private String className;
     
     /**
-     * The emojicode class that the method is declared in.
+     * The variable that has the class instance that the method is declared in.
      */
-    private EmojiClass emojiClass;
+    private LocalVariableDefinition variableDefinition;
     
 //    Parent.LocalVariableDefinition variable;
     
@@ -93,6 +93,8 @@ public final class MethodCall extends Parent {
     public void parse(final TokenStream tokenStream) throws CompilerError {
         
 //        System.out.format("MethodCall\n");
+        
+        EmojiClass emojiClass;
         
         Token methodIdentifierToken = tokenStream.consumeToken(TokenType.Identifier);
         methodName = methodIdentifierToken.toString();
@@ -196,16 +198,19 @@ public final class MethodCall extends Parent {
         List<EmojiArgument> arguments = new ArrayList<>();
         EmojiReturnValue returnValue = new EmojiReturnValue();
         
-/* Arbeta om denna kod. Den är inte färdig.
         EmojiClassInstance instance;
-        if (variable != null)
+        if (variableDefinition != null) {
+            Variable variable = variableStack
+                                    .get(variableDefinition.stackBlockIndex)
+                                        .get(variableDefinition.stackVariableIndex);
             instance = variable.instance;
-        else if (constantString != null)
+        }
+        else if (constantString != null) {
             instance = EmojiString.getInstance().createInstance(constantString);
-        else
+        } else {
             throw new RuntimeException("Method has no class instance to run on");
+        }
         emojiMethod.execute(instance, arguments, returnValue);
-*/
     }
     
 }

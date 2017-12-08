@@ -32,6 +32,8 @@ import java.util.List;
  */
 public class ExpressionCreateVariable extends Expression {
     
+    LocalVariableDefinition variable2;
+    
     public ExpressionCreateVariable(Parent parent) {
         super(parent);
     }
@@ -40,13 +42,23 @@ public class ExpressionCreateVariable extends Expression {
     public void test() throws CompilerError {
         startPosition = null;
         endPosition = null;
-        LocalVariableDefinition variable = getVariable(startPosition, endPosition, "Testar");
+        
+        LocalVariableDefinition variable = new LocalVariableDefinition("Kalle",
+                                                                       EmojicodeVariableType.OBJECT,
+                                                                       false,
+                                                                       currentStackBlockIndex,
+                                                                       currentStackVariableIndex);
+        
+        addVariable(startPosition, endPosition, variable);
+        
+        variable2 = getVariable(startPosition, endPosition, "Testar");
     }
     
     
     @Override
     public void run(List<List<Variable>> variableStack) {
-        
+        variableStack.get(variable2.stackBlockIndex).add(new Variable(variable2.type, null));
+//        Variable variable = variableStack.get(variable2.stackBlockIndex).get(variable2.stackVariableIndex);
     }
     
 }
