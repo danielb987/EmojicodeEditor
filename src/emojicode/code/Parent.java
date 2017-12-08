@@ -137,14 +137,17 @@ public class Parent {
     
     public static final class LocalVariableDefinition {
         public final String name;
+        public final boolean isFrozen;
 //        public final EmojiClassInstance instance;
         public final int stackBlockIndex;
         public final int stackVariableIndex;
         
         public LocalVariableDefinition(final String aName,
-                             final int aStackBlockIndex,
-                             final int aStackVariableIndex) {
+                                       final boolean isFrozen,
+                                       final int aStackBlockIndex,
+                                       final int aStackVariableIndex) {
             this.name = aName;
+            this.isFrozen = isFrozen;
             this.stackBlockIndex = aStackBlockIndex;
             this.stackVariableIndex = aStackVariableIndex;
         }
