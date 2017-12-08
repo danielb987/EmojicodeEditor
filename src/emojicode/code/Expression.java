@@ -28,6 +28,7 @@ import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.TokenStream;
+import java.util.List;
 
 /**
  * Expression
@@ -93,9 +94,9 @@ public class Expression extends Parent {
     }
     
     
-    public void run() {
+    public void run(List<List<Variable>> variableStack) {
         if (methodCall != null)
-            methodCall.run();
+            methodCall.run(variableStack);
     }
     
 }

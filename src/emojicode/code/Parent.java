@@ -43,7 +43,7 @@ public class Parent {
     protected SourcePosition startPosition;
     protected SourcePosition middlePosition;
     protected SourcePosition endPosition;
-    private final Map<String, Variable> variables;
+    private final Map<String, LocalVariableDefinition> variables;
     
     
     protected Parent(final Parent aParent, final HasVariables hasVariables) {
@@ -79,7 +79,7 @@ public class Parent {
     
     protected final void addVariable(final SourcePosition aStartPosition,
                                      final SourcePosition aEndPosition,
-                                     final Variable variable)
+                                     final LocalVariableDefinition variable)
             throws CompilerError {
         
         if (variables != null) {
@@ -98,13 +98,13 @@ public class Parent {
     }
     
     
-    protected final Variable getVariable(final SourcePosition aStartPosition,
+    protected final LocalVariableDefinition getVariable(final SourcePosition aStartPosition,
                                          final SourcePosition aEndPosition,
                                          final String name)
             throws CompilerError {
         
         if (variables != null) {
-            Variable variable = variables.get(name);
+            LocalVariableDefinition variable = variables.get(name);
             if (variable != null) {
                 return variable;
             } else {
@@ -125,13 +125,35 @@ public class Parent {
     
     
     public static final class Variable {
-        public final String name;
+        public final EmojicodeVariableType type;
         public final EmojiClassInstance instance;
         
-        public Variable(final String aName, final EmojiClassInstance aInstance) {
+        public Variable(final EmojicodeVariableType aType, final EmojiClassInstance aInstance) {
+            this.type = aType;
+            this.instance = aInstance;
+        }
+    }
+    
+    
+    public static final class LocalVariableDefinition {
+        public final String name;
+//        public final EmojiClassInstance instance;
+        public final int stackBlockIndex;
+        public final int stackVariableIndex;
+        
+        public LocalVariableDefinition(final String aName,
+                             final int aStackBlockIndex,
+                             final int aStackVariableIndex) {
+            this.name = aName;
+            this.stackBlockIndex = aStackBlockIndex;
+            this.stackVariableIndex = aStackVariableIndex;
+        }
+/*        
+        public LocalVariableDefinition(final String aName, final EmojiClassInstance aInstance) {
             this.name = aName;
             this.instance = aInstance;
         }
+*/        
     }
     
 }

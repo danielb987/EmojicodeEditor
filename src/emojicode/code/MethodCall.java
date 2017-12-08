@@ -60,7 +60,7 @@ public final class MethodCall extends Parent {
      */
     private EmojiClass emojiClass;
     
-//    Parent.Variable variable;
+//    Parent.LocalVariableDefinition variable;
     
     /**
      * If this method call is on a constant string, the method call is for this string, or this
@@ -188,8 +188,9 @@ public final class MethodCall extends Parent {
     
     /**
      * Run this method call.
+     * @param variableStack 
      */
-    public void run() {
+    public void run(List<List<Variable>> variableStack) {
 //        System.out.println("MethodCall.execute()");
         Debugger.getInstance().step(this, startPosition, middlePosition, endPosition);
         List<EmojiArgument> arguments = new ArrayList<>();

@@ -27,6 +27,7 @@ import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.TokenStream;
+import java.util.List;
 
 /**
  * Emojicode Statement.
@@ -136,11 +137,12 @@ public final class Statement extends Parent {
     
     /**
      * Run the emojicode statement.
+     * @param variableStack 
      */
-    public void run() {
+    public void run(List<List<Variable>> variableStack) {
 //        Debugger.getInstance().step(startPosition, middlePosition, endPosition);
         if (expression != null) {
-            expression.run();
+            expression.run(variableStack);
         }
     }
     

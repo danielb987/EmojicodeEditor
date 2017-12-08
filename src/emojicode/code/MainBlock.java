@@ -29,6 +29,7 @@ import emojicode.compiler.CompilerError;
 import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 import emojicode.runtime.Debugger;
+import java.util.ArrayList;
 
 /**
  * The main block
@@ -68,7 +69,7 @@ public class MainBlock extends Parent {
     
     public void run() {
         Debugger.getInstance().step(this, startPosition, middlePosition, endPosition);
-        codeBlock.run();
+        codeBlock.run(new ArrayList<>());
     }
     
 }
