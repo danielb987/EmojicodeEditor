@@ -35,6 +35,7 @@ import java.util.Map;
 public class Parent {
     
     protected enum HasVariables { YES, NO };
+    protected enum IsFrozen { YES, NO };
     
     public enum EmojicodeVariableType { INTEGER, FLOAT, STRING, OBJECT };
     
@@ -129,9 +130,16 @@ public class Parent {
     
     public static final class Variable {
         public final EmojicodeVariableType type;
-        public final EmojiClassInstance instance;
         
-        public Variable(final EmojicodeVariableType aType, final EmojiClassInstance aInstance) {
+        /**
+         * An instance of the variable.
+         * This can be a Float, Integer or a EmojiClassInstance.
+         */
+        public Object instance;
+//        public final EmojiClassInstance instance;
+        
+        public Variable(final EmojicodeVariableType aType, final Object aInstance) {
+//        public Variable(final EmojicodeVariableType aType, final EmojiClassInstance aInstance) {
             this.type = aType;
             this.instance = aInstance;
         }
@@ -141,14 +149,14 @@ public class Parent {
     public static final class LocalVariableDefinition {
         public final String name;
         public final EmojicodeVariableType type;
-        public final boolean isFrozen;
+        public final IsFrozen isFrozen;
 //        public final EmojiClassInstance instance;
         public final int stackBlockIndex;
         public final int stackVariableIndex;
         
         public LocalVariableDefinition(final String aName,
                                        final EmojicodeVariableType aType,
-                                       final boolean isFrozen,
+                                       final IsFrozen isFrozen,
                                        final int aStackBlockIndex,
                                        final int aStackVariableIndex) {
             this.name = aName;

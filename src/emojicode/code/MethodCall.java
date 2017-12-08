@@ -203,7 +203,7 @@ public final class MethodCall extends Parent {
             Variable variable = variableStack
                                     .get(variableDefinition.stackBlockIndex)
                                         .get(variableDefinition.stackVariableIndex);
-            instance = variable.instance;
+            instance = (EmojiClassInstance) variable.instance;
         }
         else if (constantString != null) {
             instance = EmojiString.getInstance().createInstance(constantString);

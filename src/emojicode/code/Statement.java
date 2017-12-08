@@ -38,6 +38,11 @@ import java.util.List;
 public final class Statement extends Parent {
     
     /**
+     * An emojicode statement.
+     */
+    private SubStatement subStatement;
+    
+    /**
      * An emojicode expression.
      */
     private Expression expression;
@@ -70,8 +75,9 @@ public final class Statement extends Parent {
                 throw new RuntimeException("Code not implemented yet");
 //                break;
             case ForIn:
-                throw new RuntimeException("Code not implemented yet");
-//                break;
+                subStatement = new StatementForIn(this);
+                subStatement.parse(tokenStream);
+                break;
             case RepeatWhile:
                 throw new RuntimeException("Code not implemented yet");
 //                break;
@@ -141,6 +147,10 @@ public final class Statement extends Parent {
      */
     public void run(List<List<Variable>> variableStack) {
 //        Debugger.getInstance().step(startPosition, middlePosition, endPosition);
+        if (subStatement != null) {
+            subStatement.run(variableStack);
+        }
+        
         if (expression != null) {
             expression.run(variableStack);
         }

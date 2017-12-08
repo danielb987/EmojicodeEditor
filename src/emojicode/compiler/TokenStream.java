@@ -204,6 +204,27 @@ public final class TokenStream {
     }
     
     
+    public int getIntegerToken() throws CompilerError {
+        Token token = consumeToken();
+        if (token.type != TokenType.Integer) {
+            throw new CompilerError(token.startPosition,
+                                    token.endPosition,
+                                    "Unexpected token. Expected token "
+                                            + TokenType.Integer.name()
+                                            + " but found token "
+                                            + token.type.name());
+        }
+        
+        try {
+            return Integer.parseInt(token.toString());
+        } catch (NumberFormatException ex) {
+            throw new CompilerError(token.startPosition,
+                                    token.endPosition,
+                                    String.format("Invalid number %s", token.toString()));
+        }
+    }
+    
+    
     public Token consumeIdentifierToken(final String identifier) throws CompilerError {
         Token token = consumeToken();
         if (token.type != TokenType.Identifier) {

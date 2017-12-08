@@ -24,41 +24,32 @@
 package emojicode.code;
 
 import emojicode.compiler.CompilerError;
+import emojicode.compiler.TokenStream;
 import java.util.List;
 
 /**
  *
  * @author Daniel Bergqvist
  */
-public class ExpressionCreateVariable extends Expression {
+public abstract class SubStatement extends Parent {
     
-    LocalVariableDefinition variable2;
-    
-    public ExpressionCreateVariable(Parent parent) {
-        super(parent);
+    public SubStatement(Parent aParent, HasVariables hasVariables) {
+        super(aParent, hasVariables);
     }
     
     
-    public void test() throws CompilerError {
-        startPosition = null;
-        endPosition = null;
-        
-        LocalVariableDefinition variable = new LocalVariableDefinition("Kalle",
-                                                                       EmojicodeVariableType.OBJECT,
-                                                                       IsFrozen.NO,
-                                                                       currentStackBlockIndex,
-                                                                       currentStackVariableIndex);
-        
-        addVariable(startPosition, endPosition, variable);
-        
-        variable2 = getVariable(startPosition, endPosition, "Testar");
-    }
+    /**
+     * Parse this statement.
+     * @param tokenStream the stream of tokens.
+     * @throws CompilerError thrown on compilation error
+     */
+    public abstract void parse(final TokenStream tokenStream) throws CompilerError;
     
     
-    @Override
-    public void run(List<List<Variable>> variableStack) {
-        variableStack.get(variable2.stackBlockIndex).add(new Variable(variable2.type, null));
-//        Variable variable = variableStack.get(variable2.stackBlockIndex).get(variable2.stackVariableIndex);
-    }
+    /**
+     * Run the statement.
+     * @param variableStack 
+     */
+    public abstract void run(List<List<Variable>> variableStack);
     
 }

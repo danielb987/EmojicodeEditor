@@ -26,7 +26,6 @@ package emojicode.code;
 import emojicode.Emojicode;
 import emojicode.Token;
 import emojicode.compiler.CompilerError;
-import emojicode.compiler.LogicError;
 import emojicode.compiler.TokenStream;
 import emojicode.runtime.Debugger;
 import java.util.ArrayList;

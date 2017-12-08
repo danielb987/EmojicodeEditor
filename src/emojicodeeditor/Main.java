@@ -104,7 +104,8 @@ public final class Main {
             java.awt.EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    String filename = "emojicode_test/compilation/hello.emojic";
+                    String filename = "emojicode_test/compilation/variableInitAndScoping.emojic";
+//                    String filename = "emojicode_test/compilation/hello.emojic";
 //                    filename = "emojicode_test/compilation/extension.emojic";
 //                    filename = "emojicode_test/compilation/class.emojic";
 ////                    filename = "emojicode_test/compilation/class.emojic";
