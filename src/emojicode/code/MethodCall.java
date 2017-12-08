@@ -23,9 +23,11 @@
  */
 package emojicode.code;
 
+import emojicode.Emojicode;
 import emojicode.Token;
 import emojicode.TokenType;
 import emojicode.code.predifined_packages.s.EmojiString;
+import static emojicode.code.predifined_packages.s.EmojiString.STRING_EMOJI;
 import emojicode.compiler.CompilerError;
 import emojicode.compiler.TokenStream;
 import emojicode.runtime.Debugger;
@@ -39,6 +41,43 @@ import java.util.List;
  * @author Daniel Bergqvist
  */
 public final class MethodCall extends Parent {
+    
+    /**
+     * Type of method call.
+     */
+    public enum MethodCallType {
+        /**
+         * Undefined value.
+         * Used to catch if the value is not set.
+         */
+        UNDEFINED,
+        
+        /**
+         * Concatenate two or more strings.
+         */
+        CONCATENATE_STRINGS,
+        
+        /**
+         * Convert an integer to a string.
+         */
+        CONVERT_INTEGER_TO_STRING,
+        
+        /**
+         * Call a method on an object.
+         */
+        CALL_METHOD,
+        
+        /**
+         * Call a method on a constant string.
+         */
+        CALL_METHOD_ON_CONSTANT_STRING
+    };
+    
+    
+    /**
+     * The type of method call.
+     */
+    MethodCallType methodCallType = MethodCallType.UNDEFINED;
     
     /**
      * The type of method.
@@ -73,6 +112,16 @@ public final class MethodCall extends Parent {
      */
     private EmojiMethod emojiMethod;
     
+    /**
+     * The variable to use if we shall create a string from an integer.
+     */
+    private LocalVariableDefinition createStringFromIntegerVariable;
+    
+    /**
+     * The strings to concatenate if we shall concatenate strings.
+     */
+    private List<Expression> stringsToConcatenate;
+    
     
     /**
      * Create a emojicode method call.
@@ -101,88 +150,135 @@ public final class MethodCall extends Parent {
         
         this.startPosition = methodIdentifierToken.startPosition;
         
-        Token classIdentifierToken = tokenStream.nextToken();
-        
-        if (classIdentifierToken.type == TokenType.String) {
-            constantString = classIdentifierToken.toString();
-            this.middlePosition = classIdentifierToken.endPosition;
-            this.endPosition = classIdentifierToken.endPosition;
-            emojiClass = EmojiPackage
-                            .packages
-                                .get("s")
-                                    .classes
-                                        .get(EmojiString.getStringClassEmoji());
+        if (EmojiString.STRING_EMOJI.equals(methodIdentifierToken)) {
             
-            tokenStream.consumeToken();
+            // Convert an integer to a string
             
-            if (emojiClass == null) {
-                throw new CompilerError(classIdentifierToken.startPosition,
-                                        classIdentifierToken.endPosition,
-                                        String.format("Class %s in package s is not found",
-                                                      classIdentifierToken.toString()));
-            }
+            Token variableNameToken = tokenStream.consumeToken(TokenType.Identifier);
+            createStringFromIntegerVariable = getVariable(variableNameToken.startPosition,
+                                                          variableNameToken.endPosition,
+                                                          variableNameToken.toString());
             
-            emojiMethod = emojiClass.getMethod(methodName,
-                                               methodIdentifierToken.startPosition,
-                                               classIdentifierToken.endPosition);
+            methodCallType = MethodCallType.CONVERT_INTEGER_TO_STRING;
+//DANIEL            createStringFromIntegerBase = tokenStream.getIntegerToken();
+            createStringFromIntegerVariable = null;
             
-            if (emojiMethod == null) {
-                throw new CompilerError(methodIdentifierToken.startPosition,
-                                        classIdentifierToken.endPosition,
-                                        String.format(
-                                                "Method %s in class %s in package s is not found",
-                                                methodName,
-                                                classIdentifierToken.toString()));
-            }
+        } else {
+            System.out.println("aaa");
             
-        } else if (classIdentifierToken.type == TokenType.Identifier) {
-            tokenStream.consumeToken();
-            EmojiPackage emojiPackage = getPackage();
-            emojiClass = emojiPackage.classes.get(classIdentifierToken.toString());
-            if (emojiClass == null) {
-                throw new CompilerError(classIdentifierToken.startPosition,
-                                        classIdentifierToken.endPosition,
-                                        String.format("Class %s in package %s is not found",
-                                                      classIdentifierToken.toString(),
-                                                      emojiPackage.name));
+            Token classIdentifierToken = tokenStream.nextToken();
             
-//DANIEL            System.out.format("AAAA Class: %s, method: %s, type: %s\n",
-//DANIEL                              emojiClass.name, methodName, methodType.name());
-//            System.out.format("AAAA Class: %s, method: %s, type: %s\n",
-//                              emojiClass.name, emojiMethod.name, emojiMethod.methodType.name());
-//            System.out.flush();
-            }
+            if (Emojicode.E_COOKIE.equals(classIdentifierToken.toString())) {
+                
+                tokenStream.consumeToken();
+                
+                System.out.println("bbb");
+                
+                // Concatenate strings
+                methodCallType = MethodCallType.CONCATENATE_STRINGS;
+                stringsToConcatenate = new ArrayList<>();
+
+                Token token = tokenStream.nextToken();
+                while ((token.type != TokenType.Identifier) || (!Emojicode.E_COOKIE.equals(token.toString()))) {
+                    System.out.println("ccc");
+                    Expression expression = new Expression(this);
+                    expression.parse(tokenStream);
+                    stringsToConcatenate.add(expression);
+                    System.out.println("ddd");
+                }
+
+                tokenStream.consumeIdentifierToken(Emojicode.E_COOKIE);
+                
+                System.out.println("eee");
+                
+            } else if (classIdentifierToken.type == TokenType.String) {
+                
+                methodCallType = MethodCallType.CALL_METHOD_ON_CONSTANT_STRING;
             
-            if (methodType == EmojiMethod.MethodType.TYPE_METHOD) {
-                emojiMethod = emojiClass.getTypeMethod(methodName,
-                                                       methodIdentifierToken.startPosition,
-                                                       classIdentifierToken.endPosition);
-            } else {
+                constantString = classIdentifierToken.toString();
+                this.middlePosition = classIdentifierToken.endPosition;
+                this.endPosition = classIdentifierToken.endPosition;
+                emojiClass = EmojiPackage
+                                .packages
+                                    .get("s")
+                                        .classes
+                                            .get(EmojiString.STRING_EMOJI);
+    //                                        .get(EmojiString.getStringClassEmoji());
+
+                tokenStream.consumeToken();
+
+                if (emojiClass == null) {
+                    throw new CompilerError(classIdentifierToken.startPosition,
+                                            classIdentifierToken.endPosition,
+                                            String.format("Class %s in package s is not found",
+                                                          classIdentifierToken.toString()));
+                }
+
                 emojiMethod = emojiClass.getMethod(methodName,
                                                    methodIdentifierToken.startPosition,
                                                    classIdentifierToken.endPosition);
-            }
-            if (emojiMethod == null) {
-                throw new CompilerError(methodIdentifierToken.startPosition,
+
+                if (emojiMethod == null) {
+                    throw new CompilerError(methodIdentifierToken.startPosition,
+                                            classIdentifierToken.endPosition,
+                                            String.format(
+                                                    "Method %s in class %s in package s is not found",
+                                                    methodName,
+                                                    classIdentifierToken.toString()));
+                }
+                
+            } else if (classIdentifierToken.type == TokenType.Identifier) {
+                
+                methodCallType = MethodCallType.CALL_METHOD;
+                
+                tokenStream.consumeToken();
+                EmojiPackage emojiPackage = getPackage();
+                emojiClass = emojiPackage.classes.get(classIdentifierToken.toString());
+                if (emojiClass == null) {
+                    throw new CompilerError(classIdentifierToken.startPosition,
+                                            classIdentifierToken.endPosition,
+                                            String.format("Class %s in package %s is not found",
+                                                          classIdentifierToken.toString(),
+                                                          emojiPackage.name));
+
+    //DANIEL            System.out.format("AAAA Class: %s, method: %s, type: %s\n",
+    //DANIEL                              emojiClass.name, methodName, methodType.name());
+    //            System.out.format("AAAA Class: %s, method: %s, type: %s\n",
+    //                              emojiClass.name, emojiMethod.name, emojiMethod.methodType.name());
+    //            System.out.flush();
+                }
+
+                if (methodType == EmojiMethod.MethodType.TYPE_METHOD) {
+                    emojiMethod = emojiClass.getTypeMethod(methodName,
+                                                           methodIdentifierToken.startPosition,
+                                                           classIdentifierToken.endPosition);
+                } else {
+                    emojiMethod = emojiClass.getMethod(methodName,
+                                                       methodIdentifierToken.startPosition,
+                                                       classIdentifierToken.endPosition);
+                }
+                if (emojiMethod == null) {
+                    throw new CompilerError(methodIdentifierToken.startPosition,
+                                            classIdentifierToken.endPosition,
+                                            String.format(
+                                                    "Method %s in class %s in package s is not found",
+                                                    methodName,
+                                                    classIdentifierToken.toString()));
+                }
+
+                List<EmojiMethodArgumentType> argumentTypes = emojiMethod.argumentTypes;
+                for (EmojiMethodArgumentType argumentType : argumentTypes) {
+    //                Token token = tokenStream.nextToken();
+                }
+                
+            } else {
+                throw new CompilerError(classIdentifierToken.startPosition,
                                         classIdentifierToken.endPosition,
-                                        String.format(
-                                                "Method %s in class %s in package s is not found",
-                                                methodName,
-                                                classIdentifierToken.toString()));
+                                        "Why did we get here??? TokenType: "
+                                                + classIdentifierToken.type.name());
+
+    //            throw new CompilerError("Method call has no class instance");
             }
-            
-            List<EmojiMethodArgumentType> argumentTypes = emojiMethod.argumentTypes;
-            for (EmojiMethodArgumentType argumentType : argumentTypes) {
-//                Token token = tokenStream.nextToken();
-            }
-            
-        } else {
-            throw new CompilerError(classIdentifierToken.startPosition,
-                                    classIdentifierToken.endPosition,
-                                    "Why did we get here??? TokenType: "
-                                            + classIdentifierToken.type.name());
-            
-//            throw new CompilerError("Method call has no class instance");
         }
         
     }

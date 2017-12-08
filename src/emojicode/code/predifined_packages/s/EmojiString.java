@@ -44,7 +44,8 @@ import java.util.List;
  */
 public final class EmojiString extends EmojiClassPredefinied {
     
-    private static final int STRING_EMOJI_CODEPOINT = 0x1F521;    // 🔡
+    public static final String STRING_EMOJI = "🔡";
+    public static final int STRING_EMOJI_CODEPOINT = 0x1F521;    // 🔡
     
     private static EmojiString instance;
     
@@ -61,7 +62,8 @@ public final class EmojiString extends EmojiClassPredefinied {
     
     
     private EmojiString(final EmojiPackage emojiPackage) {
-        super(getStringClassEmoji(), emojiPackage);
+        super(STRING_EMOJI, emojiPackage);
+//        super(getStringClassEmoji(), emojiPackage);
         
         registerMethods();
     }

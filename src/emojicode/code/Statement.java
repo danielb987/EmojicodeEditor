@@ -119,8 +119,12 @@ public final class Statement extends Parent {
                 this.endPosition = expression.endPosition;
                 break;
             default:
-                throw new RuntimeException("Why did we get here??? TokenType: "
+                throw new CompilerError(token.startPosition,
+                                        token.endPosition,
+                                        "Why did we get here??? TokenType: "
                                             + token.type.name());
+//                throw new RuntimeException("Why did we get here??? TokenType: "
+//                                            + token.type.name());
 //                break;
         }
         
