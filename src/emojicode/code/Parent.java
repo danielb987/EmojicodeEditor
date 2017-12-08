@@ -36,6 +36,9 @@ public class Parent {
     
     protected enum HasVariables { YES, NO };
     
+    public enum EmojicodeVariableType { INTEGER, FLOAT, STRING, OBJECT };
+    
+    
     private final Parent parent;
     protected SourcePosition startPosition;
     protected SourcePosition middlePosition;
