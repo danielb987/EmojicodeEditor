@@ -49,3 +49,11 @@ a debugger step by step to see exactly what every step does in the
 program. The native emojicode compiler and runtime environment
 doesn't support a debugger at this time. So instead, a debugger
 is developed for the editor.
+
+***
+
+# What not to do
+The project is not intended to be a generic programming editor for
+other languages too. There are many good editors for other
+programming languages so there is no need to create yet another
+editor for other languages.
