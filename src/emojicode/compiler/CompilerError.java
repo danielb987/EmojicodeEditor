@@ -37,31 +37,23 @@ import java.io.ObjectOutputStream;
 
 public class CompilerError extends Exception {
 
+    /**
+     * The position in the emojicode source where the error is located.
+     */
     public final SourcePosition sourcePosition;
+
+    /**
+     * The position in the emojicode source where the error ends.
+     */
     public final SourcePosition endPosition;
-
-    /**
-     * Creates a new instance of <code>CompilerError</code> without detail
-     * message.
-     */
-//    public CompilerError() {
-//    }
-
+    
+    
     /**
      * Constructs an instance of <code>CompilerError</code> with the specified
      * detail message.
      *
-     * @param msg the detail message.
-     */
-//    public CompilerError(String msg) {
-//        super(msg);
-//    }
-
-    /**
-     * Constructs an instance of <code>CompilerError</code> with the specified
-     * detail message.
-     *
-     * @param sourcePosition
+     * @param sourcePosition the position in the emojicode source where the error is located.
+     * @param endPosition the position in the emojicode source where the error ends.
      * @param msg the detail message.
      */
     public CompilerError(SourcePosition sourcePosition, SourcePosition endPosition, String msg) {

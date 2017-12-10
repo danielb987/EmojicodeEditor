@@ -39,15 +39,12 @@ import java.io.ObjectOutputStream;
 
 public class LogicError extends Exception {
 
-    public final SourcePosition sourcePosition;
-
     /**
-     * Creates a new instance of <code>CompilerError</code> without detail
-     * message.
+     * The position in the emojicode source where the error is located.
      */
-//    public CompilerError() {
-//    }
-
+    public final SourcePosition sourcePosition;
+    
+    
     /**
      * Constructs an instance of <code>LogicError</code> with the specified
      * detail message.
@@ -63,7 +60,7 @@ public class LogicError extends Exception {
      * Constructs an instance of <code>CompilerError</code> with the specified
      * detail message.
      *
-     * @param sourcePosition
+     * @param sourcePosition the position in the emojicode source where the error is located.
      * @param msg the detail message.
      */
     public LogicError(SourcePosition sourcePosition, String msg) {

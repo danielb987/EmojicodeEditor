@@ -511,7 +511,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     /**
      * Step to next part in the emojicode program.
-     * @param parent 
+     * @param parent the parent
      * @param startPosition 
      * @param middlePosition 
      * @param endPosition 
@@ -556,7 +556,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
      * Called then the emojicode program ends.
      */
     @Override
-    public void programEnded() {
+    public void programFinished() {
         enableDebugButtons(true);
         sourceCodeDocument.setCharacterAttributes(0,
                                                   sourceCodeDocument.getLength(),

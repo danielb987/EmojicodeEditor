@@ -114,7 +114,7 @@ public final class Debugger {
             try {
                 programIsRunning = true;
                 emojiPackage.run();
-                this.debugActions.programEnded();
+                this.debugActions.programFinished();
             } finally {
                 programIsRunning = false;
             }
@@ -138,14 +138,22 @@ public final class Debugger {
             try {
                 programIsRunning = true;
                 emojiPackage.run();
-                this.debugActions.programEnded();
+                this.debugActions.programFinished();
             } finally {
                 programIsRunning = false;
             }
         }).start();
     }
     
-    
+    /**
+     * Called at every step when an emojicode program is run.
+     * @param parent the parent of the current emojicode part that is to be executed.
+     * @param startPosition the start position of the emojicode part that is to be executed now.
+     * @param middlePosition the middle position of the emojicode part that is to be executed now.
+     * This could for example be a method call, there the method and the class is on the left and
+     * the parameter list is on the right of this point.
+     * @param endPosition the end position of the emojicode part that is to be executed now.
+     */
     public void step(final Parent parent,
                      final SourcePosition startPosition,
                      final SourcePosition middlePosition,
@@ -187,17 +195,41 @@ public final class Debugger {
     
     
     
+    /**
+     * Actions to do when debugging the program.
+     */
     public interface DebugActions {
         
+        /**
+         * Called at every step when an emojicode program is run.
+         * @param parent the parent of the current emojicode part that is to be executed.
+         * @param startPosition the start position of the emojicode part that is to be executed now.
+         * @param middlePosition the middle position of the emojicode part that is to be executed now.
+         * This could for example be a method call, there the method and the class is on the left and
+         * the parameter list is on the right of this point.
+         * @param endPosition the end position of the emojicode part that is to be executed now.
+         */
         void next(Parent parent,
                   SourcePosition startPosition,
                   SourcePosition middlePosition,
                   SourcePosition endPosition);
         
-        void programEnded();
+        /**
+         * Called if the program has finished.
+         * The program has not finished if it is aborted or if there is a program error.
+         */
+        void programFinished();
         
+        /**
+         * Called if the program is aborted.
+         * @param position
+         */
         void programAborted(SourcePosition position);
         
+        /**
+         * Called if the program is stopped by an error.
+         * @param position
+         */
         void programError(SourcePosition position);
         
     }
@@ -208,12 +240,24 @@ public final class Debugger {
         
         private final DebugActions debugActions;
         
-        
+        /**
+         *
+         * @param debugActions
+         */
         public DebugActionsSwingSafe(final DebugActions debugActions) {
             this.debugActions = debugActions;
         }
         
         
+        /**
+         * Called at every step when an emojicode program is run.
+         * @param parent the parent of the current emojicode part that is to be executed.
+         * @param startPosition the start position of the emojicode part that is to be executed now.
+         * @param middlePosition the middle position of the emojicode part that is to be executed now.
+         * This could for example be a method call, there the method and the class is on the left and
+         * the parameter list is on the right of this point.
+         * @param endPosition the end position of the emojicode part that is to be executed now.
+         */
         public void next(final Parent parent,
                          final SourcePosition startPosition,
                          final SourcePosition middlePosition,
@@ -227,7 +271,7 @@ public final class Debugger {
         
         public void programEnded() {
             java.awt.EventQueue.invokeLater(() -> {
-                debugActions.programEnded();
+                debugActions.programFinished();
             });
         }
         

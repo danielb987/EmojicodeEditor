@@ -66,8 +66,10 @@ public class CodeBlock extends Parent {
     
     
     public void run(List<List<Variable>> variableStack) {
-        variableStack.add(new ArrayList<>());
+        
         Debugger.getInstance().step(this, startPosition, middlePosition, endPosition);
+        
+        variableStack.add(new ArrayList<>());
         for (Statement statement : statements) {
             statement.run(variableStack);
         }
