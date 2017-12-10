@@ -475,7 +475,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     /**
      * Start the emojicode program.
      * @param pauseOnEveryStep true if the debugger shall stop the program after every program step
-     * @param runToCursor if >= 0, run the program to the point in the emojicode, measured in
+     * @param runToCursor if &gt;= 0, run the program to the point in the emojicode, measured in
      * unicode codepoints
      */
     private void startProgram(final boolean pauseOnEveryStep, final int runToCursor) {
@@ -553,7 +553,7 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
     
     
     /**
-     * Called then the emojicode program ends.
+     * Called then the emojicode program finishes.
      */
     @Override
     public void programFinished() {
