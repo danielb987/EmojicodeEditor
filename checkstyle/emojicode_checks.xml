@@ -193,7 +193,7 @@
         <!-- has contributed to the source code. -->
         <!-- -->
         <!-- This question is discussed in this video: -->
-        <!-- https://youtu.be/-F-3E8pyjFo?t=1173  -->
+        <!-- https://youtu.be/-F-3E8pyjFo?t=1173 -->
         <!-- -->
         <module name="WriteTag"> 
             <property name="tag" value="@author"/> 
