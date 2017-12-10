@@ -4,7 +4,7 @@
 <error line="34" severity="error" message="Type Javadoc comment is missing an @author tag." source="com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/SourcePosition.java">
-<error line="30" severity="error" message="@author=Daniel Bergqvist" source="com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheck"/>
+<error line="31" severity="error" message="Type Javadoc comment is missing an @author tag." source="com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/Token.java">
 <error line="34" severity="error" message="@author=Daniel Bergqvist" source="com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheck"/>
