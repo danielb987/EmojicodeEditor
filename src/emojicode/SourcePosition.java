@@ -27,7 +27,6 @@ package emojicode;
 
 /**
  * A position in the emojicode source.
- * @author
  */
 public final class SourcePosition {
     
