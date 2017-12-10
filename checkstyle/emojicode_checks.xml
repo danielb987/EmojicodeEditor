@@ -201,18 +201,6 @@
             <property name="maximum" value="0" />
             <property name="message" value="Javadoc has illegal ''author'' tag." />
         </module>
-<!--        
-        <module name="WriteTag">
-            <!- The tag to check ->
-            <property name="tag" value="@author"/>
-            <!- The format of the tag ->
-            <property name="tagFormat" value="\S"/>
-            <!- What to do if the tag does not exists? ->
-            <property name="severity" value="ignore"/>
-            <!- What to do if the tag exists? ->
-            <property name="tagSeverity" value="error"/>
-        </module>
--->        
 
     </module>
 
