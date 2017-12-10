@@ -32,8 +32,6 @@ import java.util.List;
 /**
  * Emojicode Statement.
  * http://www.emojicode.org/docs/reference/syntax.html#srule-statement
- *
- * @author Daniel Bergqvist
  */
 public final class Statement extends Parent {
     

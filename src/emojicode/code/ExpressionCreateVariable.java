@@ -27,8 +27,7 @@ import emojicode.compiler.CompilerError;
 import java.util.List;
 
 /**
- *
- * @author Daniel Bergqvist
+ * 
  */
 public class ExpressionCreateVariable extends Expression {
     

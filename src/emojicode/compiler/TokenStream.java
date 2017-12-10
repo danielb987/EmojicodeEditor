@@ -29,8 +29,7 @@ import emojicode.Token;
 import java.util.List;
 
 /**
- *
- * @author Daniel Bergqvist
+ * A stream of tokens.
  */
 public final class TokenStream {
     

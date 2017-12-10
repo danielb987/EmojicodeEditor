@@ -28,8 +28,8 @@ import emojicode.compiler.TokenStream;
 import java.util.List;
 
 /**
- *
- * @author Daniel Bergqvist
+ * Base class for statements like ForIn.
+ * It is used by the Statement class.
  */
 public abstract class SubStatement extends Parent {
     

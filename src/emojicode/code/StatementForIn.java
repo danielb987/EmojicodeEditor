@@ -31,8 +31,8 @@ import emojicode.compiler.TokenStream;
 import java.util.List;
 
 /**
- *
- * @author Daniel Bergqvist
+ * ForIn statement.
+ * Loops thru a list of items.
  */
 public class StatementForIn extends SubStatement {
     

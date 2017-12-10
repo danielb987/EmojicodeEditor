@@ -31,8 +31,10 @@ import emojicode.compiler.Lexer;
 import emojicode.compiler.TokenStream;
 
 /**
- *
- * @author Daniel Bergqvist
+ * An user defined package.
+ * The difference between a user defined package and a predefined package
+ * is that a predefined package is defined in Java code, but a user defined
+ * package is defined in Emojicode.
  */
 public class EmojiPackageUserDefinied extends EmojiPackage {
     

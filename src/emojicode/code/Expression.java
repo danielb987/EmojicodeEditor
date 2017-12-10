@@ -33,8 +33,6 @@ import java.util.List;
 /**
  * Expression
  * http://www.emojicode.org/docs/reference/syntax.html#srule-expression
- * 
- * @author Daniel Bergqvist
  */
 public class Expression extends Parent {
     

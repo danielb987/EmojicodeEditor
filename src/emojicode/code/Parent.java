@@ -29,8 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Rot class of the emojicode code tree.
- * @author Daniel Bergqvist
+ * Root class of the emojicode code tree.
  */
 public class Parent {
     

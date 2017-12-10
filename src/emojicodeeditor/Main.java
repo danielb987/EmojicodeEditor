@@ -64,8 +64,6 @@ import java.util.logging.Logger;
 
 /**
  * The starting point of the program.
- *
- * @author Daniel Bergqvist
  */
 public final class Main {
     

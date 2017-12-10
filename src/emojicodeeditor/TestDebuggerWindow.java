@@ -50,8 +50,6 @@ import javax.swing.text.StyleContext;
 
 /**
  * Tests the debugger.
- *
- * @author Daniel Bergqvist
  */
 
 // This class may never be serialized. It throws an exception in writeObject.

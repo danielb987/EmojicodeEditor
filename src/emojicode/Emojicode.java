@@ -29,8 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
- * @author Daniel Bergqvist
+ * Definition of many of the emojis used by Emojicode.
  */
 public interface Emojicode {
     
