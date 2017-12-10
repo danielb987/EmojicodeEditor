@@ -35,6 +35,8 @@ import emojicode.compiler.TokenStream;
  * The difference between a user defined package and a predefined package
  * is that a predefined package is defined in Java code, but a user defined
  * package is defined in Emojicode.
+ * 
+ * @author Test <test@test.com>
  */
 public class EmojiPackageUserDefinied extends EmojiPackage {
     
