@@ -195,10 +195,15 @@
         <!-- This question is discussed in this video: -->
         <!-- https://youtu.be/-F-3E8pyjFo?t=1173 -->
         <!-- -->
-        <module name="WriteTag"> 
-            <property name="tag" value="@author"/> 
-            <property name="tagFormat" value="\S"/> 
-            <property name="tagSeverity" value="error"/> 
+        <module name="WriteTag">
+            <!-- The tag to check -->
+            <property name="tag" value="@author"/>
+            <!-- The format of the tag -->
+            <property name="tagFormat" value="\S"/>
+            <!-- What to do if the tag does not exists? -->
+            <property name="severity" value="ignore"/>
+            <!-- What to do if the tag exists? -->
+            <property name="tagSeverity" value="error"/>
         </module>
 
     </module>
