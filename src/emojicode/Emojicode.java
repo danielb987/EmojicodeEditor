@@ -270,6 +270,11 @@ public interface Emojicode {
     //CHECKSTYLE.ON: JavadocVariableCheck
     
     
+    // These are fetched from the source code of the Emoji compiler
+    // https://github.com/emojicode/emojicode/blob/master/Compiler/Emojis.h
+    /**
+     * Array of emojis.
+     */
     String[] EMOJI_ARRAY = {
         "🏠", "🍇", "🍬", "🔶", "↩", "🍰", "🍮", "🍌", "🍪", "🍨", "🍯", "🍆",
         "🍊", "🍋", "🍓", "🍉", "🔁", "🔂", "🐕", "🔷", "⚡", "☁", "🐚", "📻",
@@ -283,6 +288,10 @@ public interface Emojicode {
         "🆕"
     };
     
+    
+    /**
+     * Unicode codepoints that are white space.
+     */
     Integer[] EMOJI_WHITESPACES_ARRAY = {
         0x9,
         0xA,
@@ -312,6 +321,10 @@ public interface Emojicode {
         0xFE0F
     };
     
+    
+    /**
+     * A list of the unicode codepoints that are white space.
+     */
     List<Integer> EMOJI_WHITESPACES_LIST =
                     Arrays.asList(EMOJI_WHITESPACES_ARRAY);
     
