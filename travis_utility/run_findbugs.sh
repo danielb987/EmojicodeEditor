@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Abort on error
+set -e
+
 echo -e "Generate Findbugs report"
 
 export FINDBUGS_HOME=./findbugs/findbugs-3.0.1
