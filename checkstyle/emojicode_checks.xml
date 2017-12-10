@@ -70,14 +70,34 @@
        <property name="maximum" value="0"/>
        <property name="message" value="Line has trailing spaces."/>
     </module>
+    
+    
+    <!-- Emojicode: Enforcing no author tags in javadocs -->
+    <!-- -->
+    <!-- It's problematic to have author tags in source code. -->
+    <!-- -->
+    <!-- What is the barrier of placing your name in the source code? -->
+    <!-- * After writing four lines? -->
+    <!-- * After writing a function? -->
+    <!-- * After adding a new class? -->
+    <!-- -->
+    <!-- What happens if you delete the code someone else has written in this file? -->
+    <!-- Do you then delete his name in the source file? -->
+    <!-- -->
+    <!-- Therefore, this project has a CONTRIBUTORS.md file which lists anyone that -->
+    <!-- has contributed to the source code. -->
+    <!-- -->
+    <!-- This question is discussed in this video: -->
+    <!-- https://youtu.be/-F-3E8pyjFo?t=1173 -->
+    <!-- -->
     <module name="RegexpSingleline">
-       <property name="format" value="\S+aaa\s+$"/>    <!-- EmojicodeEditor: Allow empty line to have white space -->
-       <!-- <property name="format" value="\s+$"/> -->
-       <property name="minimum" value="0"/>
-       <property name="maximum" value="0"/>
-       <property name="message" value="Line has aaa trailing spaces."/>
+        <property name="format" value="^\s*\*\s*@author" />
+        <property name="minimum" value="0" />
+        <property name="maximum" value="0" />
+        <property name="message" value="Javadoc has illegal ''author'' tag." />
     </module>
-
+    
+    
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sf.net/config_header.html   -->
     <!-- <module name="Header"> -->
@@ -184,33 +204,6 @@
             <property name="checkFormat" value="$1"/>
         </module>
         
-        <!-- Emojicode: Enforcing no author tags in javadocs -->
-        <!-- -->
-        <!-- It's problematic to have author tags in source code. -->
-        <!-- -->
-        <!-- What is the barrier of placing your name in the source code? -->
-        <!-- * After writing four lines? -->
-        <!-- * After writing a function? -->
-        <!-- * After adding a new class? -->
-        <!-- -->
-        <!-- What happens if you delete the code someone else has written in this file? -->
-        <!-- Do you then delete his name in the source file? -->
-        <!-- -->
-        <!-- Therefore, this project has a CONTRIBUTORS.md file which lists anyone that -->
-        <!-- has contributed to the source code. -->
-        <!-- -->
-        <!-- This question is discussed in this video: -->
-        <!-- https://youtu.be/-F-3E8pyjFo?t=1173 -->
-        <!-- -->
-<!--        
-        <module name="RegexpSingleline">
-            <property name="format" value="^\s*\*\s*@author" />
-            <property name="minimum" value="0" />
-            <property name="maximum" value="0" />
-            <property name="message" value="Javadoc has illegal ''author'' tag." />
-        </module>
--->                
-
     </module>
 
 </module>
