@@ -70,6 +70,13 @@
        <property name="maximum" value="0"/>
        <property name="message" value="Line has trailing spaces."/>
     </module>
+    <module name="RegexpSingleline">
+       <property name="format" value="\S+aaa\s+$"/>    <!-- EmojicodeEditor: Allow empty line to have white space -->
+       <!-- <property name="format" value="\s+$"/> -->
+       <property name="minimum" value="0"/>
+       <property name="maximum" value="0"/>
+       <property name="message" value="Line has aaa trailing spaces."/>
+    </module>
 
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sf.net/config_header.html   -->
