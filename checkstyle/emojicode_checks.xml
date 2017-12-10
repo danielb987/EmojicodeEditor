@@ -176,6 +176,30 @@
             <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)"/>
             <property name="checkFormat" value="$1"/>
         </module>
+        
+        <!-- Emojicode: Enforcing no author tags in javadocs -->
+        <!-- -->
+        <!-- It's problematic to have author tags in source code. -->
+        <!-- -->
+        <!-- What is the barrier of placing your name in the source code? -->
+        <!-- * After writing four lines? -->
+        <!-- * After writing a function? -->
+        <!-- * After adding a new class? -->
+        <!-- -->
+        <!-- What happens if you delete the code someone else has written in this file? -->
+        <!-- Do you then delete his name in the source file? -->
+        <!-- -->
+        <!-- Therefore, this project has a CONTRIBUTORS.md file which lists anyone that -->
+        <!-- has contributed to the source code. -->
+        <!-- -->
+        <!-- This question is discussed in this video: -->
+        <!-- https://youtu.be/-F-3E8pyjFo?t=1173  -->
+        <!-- -->
+        <module name="WriteTag"> 
+            <property name="tag" value="@author"/> 
+            <property name="tagFormat" value="\S"/> 
+            <property name="tagSeverity" value="error"/> 
+        </module>
 
     </module>
 
