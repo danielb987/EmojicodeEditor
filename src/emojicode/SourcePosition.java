@@ -26,8 +26,7 @@
 package emojicode;
 
 /**
- *
- * @author Daniel Bergqvist
+ * A position in the emojicode source.
  */
 public final class SourcePosition {
     
