@@ -103,7 +103,7 @@
         <property name="format" value="^\s*\*\s*Copyright 2017 Daniel Bergqvist\.$" />
         <property name="minimum" value="1" />
         <property name="maximum" value="1" />
-        <property name="message" value="Missing correct Javadoc copyright holder." />
+        <property name="message" value="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." />
     </module>
     
     
@@ -111,10 +111,10 @@
     <!-- This is to get consistency thru the code since there is no organization yet that is -->
     <!-- copyright holder of the project. -->
     <module name="RegexpSingleline">
-        <property name="format" value="^\s*\*\s*Copyright 2017 (?:Daniel Bergqvist){0}.*?$" />
-        <property name="minimum" value="0" />
-        <property name="maximum" value="0" />
-        <property name="message" value="Javadoc has illegal copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." />
+        <property name="format" value="^\s*\*\s*Copyright\s+" />
+        <property name="minimum" value="1" />
+        <property name="maximum" value="1" />
+        <property name="message" value="Javadoc must have exactly one copyright holder." />
     </module>
     
     
