@@ -103,7 +103,7 @@
         <property name="format" value="^\s*\*\s*Copyright 2017 Daniel Bergqvist\.$" />
         <property name="minimum" value="1" />
         <property name="maximum" value="1" />
-        <property name="message" value="Missing Javadoc copyright holder." />
+        <property name="message" value="Missing correct Javadoc copyright holder." />
     </module>
     
     
@@ -114,7 +114,7 @@
         <property name="format" value="^\s*\*\s*Copyright 2017 (?:Daniel Bergqvist){0}.*$" />
         <property name="minimum" value="0" />
         <property name="maximum" value="0" />
-        <property name="message" value="Javadoc has illegal copyright holder." />
+        <property name="message" value="Javadoc has illegal copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." />
     </module>
     
     
