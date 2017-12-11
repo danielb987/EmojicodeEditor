@@ -51,10 +51,12 @@
 <error line="76" column="51" severity="error" message="&apos;-&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/DocumentationComment.java">
+<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="30" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/EmojiArgument.java">
-<error line="28" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="23" severity="error" message="Javadoc must have exactly one copyright holder." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="29" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/EmojiClass.java">
 <error line="31" severity="error" message="First sentence should end with a period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
