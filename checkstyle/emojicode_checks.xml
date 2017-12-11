@@ -95,6 +95,7 @@
         <property name="minimum" value="0" />
         <property name="maximum" value="0" />
         <property name="message" value="Javadoc has illegal ''author'' tag." />
+        <property name="fileExtensions" value="java" />
     </module>
     
     
@@ -104,6 +105,7 @@
         <property name="minimum" value="1" />
         <property name="maximum" value="1" />
         <property name="message" value="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." />
+        <property name="fileExtensions" value="java" />
     </module>
     
     
@@ -115,6 +117,7 @@
         <property name="minimum" value="1" />
         <property name="maximum" value="1" />
         <property name="message" value="Javadoc must have exactly one copyright holder." />
+        <property name="fileExtensions" value="java" />
     </module>
     
     
