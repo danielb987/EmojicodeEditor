@@ -343,13 +343,15 @@ public final class MainWindow extends javax.swing.JFrame {
     
     private void jMenuItem_CompileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_CompileActionPerformed
         String[] commandAndParameters = {"emojicodec", "-j greeter.emojic"};
+        BufferedReader reader = null;
+        BufferedReader error = null;
         try {
             Process process = Runtime.getRuntime().exec(commandAndParameters);
             InputStream in = process.getInputStream();
 //            OutputStream out = process.getOutputStream();
             InputStream err = process.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
-            BufferedReader error = new BufferedReader(new InputStreamReader(err, StandardCharsets.UTF_8));
+            reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+            error = new BufferedReader(new InputStreamReader(err, StandardCharsets.UTF_8));
 //            PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out)));
 //            writer.println("ls -al");
 //            writer.close();
@@ -366,18 +368,36 @@ public final class MainWindow extends javax.swing.JFrame {
             }
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if (error != null) {
+                try {
+                    error.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }//GEN-LAST:event_jMenuItem_CompileActionPerformed
 
     private void jMenuItem_RunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_RunActionPerformed
         String[] commandAndParameters = {"emojicode", "greeter.emojib"};
+        BufferedReader reader = null;
+        BufferedReader error = null;
         try {
             Process process = Runtime.getRuntime().exec(commandAndParameters);
             InputStream in = process.getInputStream();
 //            OutputStream out = process.getOutputStream();
             InputStream err = process.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
-            BufferedReader error = new BufferedReader(new InputStreamReader(err, StandardCharsets.UTF_8));
+            reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
+            error = new BufferedReader(new InputStreamReader(err, StandardCharsets.UTF_8));
 //            PrintWriter writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out)));
 //            writer.println("ls -al");
 //            writer.close();
@@ -394,6 +414,22 @@ public final class MainWindow extends javax.swing.JFrame {
             }
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if (error != null) {
+                try {
+                    error.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }//GEN-LAST:event_jMenuItem_RunActionPerformed
 
