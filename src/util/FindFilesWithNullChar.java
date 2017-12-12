@@ -53,7 +53,7 @@ public class FindFilesWithNullChar {
     }
     
     
-    public static boolean find(String folder) {
+    public static boolean find(final String folder) {
         
         final Set<String> fileExtensionsToIgnore = new HashSet<>();
         final Set<String> foldersToIgnore = new HashSet<>();
@@ -74,9 +74,10 @@ public class FindFilesWithNullChar {
         
         File f = new File(folder);
         File[] matchingFiles = f.listFiles((File dir, String name) -> {
-//            System.out.format("File: %s, %s\n", name, dir.getAbsolutePath());
-            if (name.equals(".") || name.equals("..") || name.equals(".git"))
+//            System.out.format("File: %s, %s%n", name, dir.getAbsolutePath());
+            if (name.equals(".") || name.equals("..") || name.equals(".git")) {
                 return false;
+            }
             
             File file = new File(dir+"/"+name);
             if (file.isDirectory()) {
@@ -95,8 +96,9 @@ public class FindFilesWithNullChar {
 //                return name.startsWith("temp") && name.endsWith("txt");
         });
         
-        if (matchingFiles == null)
+        if (matchingFiles == null) {
             return false;
+        }
         
         for (File file : matchingFiles) {
             foundError.flag |= scanFile(file.getAbsolutePath());
@@ -108,9 +110,9 @@ public class FindFilesWithNullChar {
     }
     
     
-    private static boolean scanFile(String filename) {
+    private static boolean scanFile(final String filename) {
         
-//        System.out.format("File: %s\n", filename);
+//        System.out.format("File: %s%n", filename);
         boolean foundError = false;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filename), StandardCharsets.UTF_8))) {
             
@@ -118,11 +120,12 @@ public class FindFilesWithNullChar {
             int lineNo = 1;
             while ((line = reader.readLine()) != null) {
                 if (line.indexOf(0) >= 0) {
-                    if (! foundError)
-                        System.out.format("File: %s\n", filename);
+                    if (! foundError) {
+                        System.out.format("File: %s%n", filename);
+                    }
 //                    String line2 = line.replaceAll("/\\000/", "###");
                     String line2 = line.replaceAll("\\000", "§§§§§");
-                    System.out.format("%d: %s\n", lineNo, line2);
+                    System.out.format("%d: %s%n", lineNo, line2);
                     foundError = true;
                 }
                 lineNo++;

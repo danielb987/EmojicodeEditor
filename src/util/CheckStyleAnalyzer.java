@@ -212,25 +212,25 @@ public class CheckStyleAnalyzer {
             writer.println("<body>");
             
             
-            writer.format("<p>%d errors in %d files. %d files in total.</p>\n",
+            writer.format("<p>%d errors in %d files. %d files in total.</p>%n",
                           numErrors, numFilesWithError, numFiles);
             
-            System.out.format("%d errors in %d files\n", numErrors, numFiles);
+            System.out.format("%d errors in %d files%n", numErrors, numFiles);
             
             
             writer.println("<table>");
 //            writer.format(
-//                    "<tr style=\"background-color: coral;\"><td>%</td><td>%s</td></tr>\n",
+//                    "<tr style=\"background-color: coral;\"><td>%</td><td>%s</td></tr>%n",
 //                    item.getValue().get(),
 //                    item.getKey());
 
-//            System.out.format("Filename: %s\n", item.getKey());
+//            System.out.format("Filename: %s%n", item.getKey());
             
             for (Map.Entry<String, AtomicInteger> subEntry : sortedTotalErrorCount) {
-                writer.format("<tr><td>%d</td><td>%s</td></tr>\n",
+                writer.format("<tr><td>%d</td><td>%s</td></tr>%n",
                               subEntry.getValue().get(),
                               subEntry.getKey());
-                System.out.format("Error: %s, count: %d\n",
+                System.out.format("Error: %s, count: %d%n",
                                   subEntry.getKey(),
                                   subEntry.getValue().get());
             }
@@ -242,17 +242,17 @@ public class CheckStyleAnalyzer {
                 Map<String, AtomicInteger> entry = fileErrorCount.get(item.getKey());
                 writer.println("<table>");
                 writer.format(
-                        "<tr style=\"background-color: coral;\"><td>%d</td><td>%s</td></tr>\n",
+                        "<tr style=\"background-color: coral;\"><td>%d</td><td>%s</td></tr>%n",
                         item.getValue().get(),
                         item.getKey());
                 
-                System.out.format("Filename: %s\n", item.getKey());
+                System.out.format("Filename: %s%n", item.getKey());
                 
                 for (Map.Entry<String, AtomicInteger> subEntry : entry.entrySet()) {
-                    writer.format("<tr><td>%d</td><td>%s</td></tr>\n",
+                    writer.format("<tr><td>%d</td><td>%s</td></tr>%n",
                                   subEntry.getValue().get(),
                                   subEntry.getKey());
-                    System.out.format("Error: %s, count: %d\n",
+                    System.out.format("Error: %s, count: %d%n",
                                       subEntry.getKey(),
                                       subEntry.getValue().get());
                 }
@@ -286,15 +286,15 @@ public class CheckStyleAnalyzer {
 //            System.out.println();
             
 //            for (int i=0;  i < attributes.getLength(); i++) {
-//                System.out.format("%s: %s: %s\n", qName, attributes.getQName(i),
+//                System.out.format("%s: %s: %s%n", qName, attributes.getQName(i),
 //                        attributes.getValue(i));
 //            }
             
 //            if ("checkstyle".equalsIgnoreCase(qName)) {
-//                System.out.format("checkstyle tag\n");
+//                System.out.format("checkstyle tag%n");
 //            }
             if ("file".equalsIgnoreCase(qName)) {
-//                System.out.format("file tag\n");
+//                System.out.format("file tag%n");
                 numFiles++;
                 currentFileHasErrors = false;
                 currentFilename = attributes.getValue("name");
@@ -311,7 +311,7 @@ public class CheckStyleAnalyzer {
                 if (error == null) {
                     System.out.println("Error is null");
                     for (int i = 0;  i < attributes.getLength(); i++) {
-                        System.out.format("-- %s: %s\n",
+                        System.out.format("-- %s: %s%n",
                                           attributes.getQName(i), attributes.getValue(i));
                         System.exit(1);
                     }
