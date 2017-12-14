@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.5">
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/Emojicode.java">
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/SourcePosition.java">
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/Token.java">
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="14" severity="error" message="First sentence should end with a period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
 <error line="19" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
 <error line="19" column="22" severity="error" message="Variable &apos;type&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
@@ -26,7 +23,6 @@
 <error line="79" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/TokenType.java">
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="65" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="76" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="80" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
@@ -50,11 +46,9 @@
 <error line="76" column="51" severity="error" message="&apos;-&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/DocumentationComment.java">
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="30" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/EmojiArgument.java">
-<error line="23" severity="error" message="Javadoc must have exactly one copyright holder." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="29" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/EmojiClass.java">
@@ -491,8 +485,6 @@
 <error line="51" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/code/TypeIdentifier.java">
-<error line="0" severity="error" message="Javadoc must have exactly one copyright holder." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="12" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="16" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
 <error line="16" column="12" severity="error" message="Variable &apos;name&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
@@ -660,8 +652,6 @@
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/compiler/package-info.java">
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/package-info.java">
-<error line="0" severity="error" message="Javadoc must have exactly one copyright holder." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicode/runtime/Debugger.java">
 <error line="34" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
@@ -726,7 +716,6 @@
 <error line="112" severity="error" message="Line is longer than 100 characters (found 109)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/EditorToolTip.java">
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="34" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="45" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="47" column="40" severity="error" message="&apos;100&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
@@ -1068,8 +1057,6 @@
 <error line="28" severity="error" message="Javadoc has illegal &apos;author&apos; tag." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/WrapLayout.java">
-<error line="0" severity="error" message="Javadoc must have exactly one copyright holder." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="0" severity="error" message="Missing correct Javadoc copyright holder. The copyright holder for EmojicodeEditor is Daniel Bergqvist." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="227" column="30" severity="error" message="Parameter oos should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
 <file name="/home/travis/build/danielb987/EmojicodeEditor/src/emojicodeeditor/package-info.java">
