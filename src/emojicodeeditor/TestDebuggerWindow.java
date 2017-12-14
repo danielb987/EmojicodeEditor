@@ -397,10 +397,10 @@ public final class TestDebuggerWindow extends javax.swing.JFrame implements Debu
                                                           defaultStyle,
                                                           true);
                 
-                int length = token.endPosition.getIndex() - token.startPosition.getIndex();
+                int length = token.fEndPosition.getIndex() - token.fStartPosition.getIndex();
 //                System.out.format("Token: %s, %s. Start: %d, end: %d\n", token.type.name(),
 //                    token.toString(), token.startPosition.index, token.endPosition.index);
-                sourceCodeDocument.setCharacterAttributes(token.startPosition.getIndex(),
+                sourceCodeDocument.setCharacterAttributes(token.fStartPosition.getIndex(),
                                                           length,
                                                           attr,
                                                           false);

@@ -81,9 +81,9 @@ public class Expression extends Parent {
         
 //        System.out.format("TokenType: %s, token: %s\n", token.type.name(), token.toString());
         
-        this.startPosition = token.startPosition;
+        this.startPosition = token.fStartPosition;
         
-        switch (token.type) {
+        switch (token.fType) {
             
             case Identifier:
                 
@@ -140,7 +140,7 @@ public class Expression extends Parent {
                 break;
                 
             default:
-                throw new RuntimeException("Why did we get here??? TokenType: "+token.type.name());
+                throw new RuntimeException("Why did we get here??? TokenType: "+token.fType.name());
         }
     }
     

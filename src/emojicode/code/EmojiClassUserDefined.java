@@ -125,7 +125,7 @@ public class EmojiClassUserDefined extends EmojiClass {
         
         Token token = tokenStream.nextToken();
         
-        while ((token.type == TokenType.Identifier) && (token.toString().equals(Emojicode.E_SPIRAL_SHELL))) {   // 🐚 = Generic type
+        while ((token.fType == TokenType.Identifier) && (token.toString().equals(Emojicode.E_SPIRAL_SHELL))) {   // 🐚 = Generic type
             tokenStream.consumeToken();
             Token genericVariableToken = tokenStream.consumeToken(TokenType.Identifier);
             Token genericTypeToken = tokenStream.consumeToken(TokenType.Identifier);
@@ -145,26 +145,26 @@ public class EmojiClassUserDefined extends EmojiClass {
             token = tokenStream.nextToken();
 //            System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
             
-            if (token.type == TokenType.Identifier) {
+            if (token.fType == TokenType.Identifier) {
                 switch (token.toString()) {
                     case Emojicode.E_KEY:      // 🔑 = required initializer
                         tokenStream.consumeToken();
-                        parseMethod(tokenStream, documentationComment, EmojiMethod.MethodType.REQUIRED_INITIALIZER, token.startPosition);
+                        parseMethod(tokenStream, documentationComment, EmojiMethod.MethodType.REQUIRED_INITIALIZER, token.fStartPosition);
                         break;
                     case "🐈":       // 🐈 = initializer
-                        parseMethod(tokenStream, documentationComment, EmojiMethod.MethodType.INITIALIZER, token.startPosition);
+                        parseMethod(tokenStream, documentationComment, EmojiMethod.MethodType.INITIALIZER, token.fStartPosition);
                         break;
                     case Emojicode.E_RABBIT:      // 🐇 = type method
                         tokenStream.consumeToken();
-                        parseMethod(tokenStream, documentationComment, EmojiMethod.MethodType.TYPE_METHOD, token.startPosition);
+                        parseMethod(tokenStream, documentationComment, EmojiMethod.MethodType.TYPE_METHOD, token.fStartPosition);
                         break;
                     default:
-                        throw new CompilerError(token.startPosition, token.endPosition, "Unknown identifier found: "+token.toString());
+                        throw new CompilerError(token.fStartPosition, token.fEndPosition, "Unknown identifier found: "+token.toString());
                 }
             }
             else {
 //                System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
-                throw new CompilerError(token.startPosition, token.endPosition, "Token Identifier expected, found token "+token.type.name());
+                throw new CompilerError(token.fStartPosition, token.fEndPosition, "Token Identifier expected, found token "+token.fType.name());
             }
         }
         

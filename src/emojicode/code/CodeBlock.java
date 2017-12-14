@@ -28,8 +28,8 @@ public class CodeBlock extends Parent {
         
         Token token = tokenStream.consumeToken(TokenType.BlockBegin);
         
-        this.startPosition = token.startPosition;
-        this.middlePosition = token.endPosition;
+        this.startPosition = token.fStartPosition;
+        this.middlePosition = token.fEndPosition;
         
         while (! tokenStream.nextTokenIs(TokenType.BlockEnd)) {
             Statement statement = new Statement(this);
@@ -38,7 +38,7 @@ public class CodeBlock extends Parent {
         }
         
         token = tokenStream.consumeToken(TokenType.BlockEnd);
-        this.endPosition = token.endPosition;
+        this.endPosition = token.fEndPosition;
     }
     
     

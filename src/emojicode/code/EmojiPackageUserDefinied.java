@@ -69,7 +69,7 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
             Token token = tokenStream.nextToken();
 //            System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
             
-            if (token.type == TokenType.Identifier) {
+            if (token.fType == TokenType.Identifier) {
                 switch (token.toString()) {
                     case Emojicode.E_TURKEY:      // 🦃 - enumeration
                         Enumeration enumeration = new Enumeration(lastDocumentationComment, this);
@@ -92,12 +92,12 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
                         lastDocumentationComment = null;
                         break;
                     default:
-                        throw new CompilerError(token.startPosition, token.endPosition, "Unknown identifier found: "+token.toString());
+                        throw new CompilerError(token.fStartPosition, token.fEndPosition, "Unknown identifier found: "+token.toString());
                 }
             }
             else {
-                System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
-                throw new CompilerError(token.startPosition, token.endPosition, "Token Identifier expected, found token "+token.type.name());
+                System.out.format("Token: %s, value: %s%n", token.fType.toString(), token.toString());
+                throw new CompilerError(token.fStartPosition, token.fEndPosition, "Token Identifier expected, found token "+token.fType.name());
             }
 //            tokenStream.consumeToken();
             
@@ -115,7 +115,7 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
         
         Token token = tokenStream.nextToken();
         
-        if (token.type == TokenType.Identifier) {
+        if (token.fType == TokenType.Identifier) {
             
             if (token.toString().equals(Emojicode.E_CHEQUERED_FLAG))    // 🏁 - start flag = start of program
                 ;
@@ -138,10 +138,10 @@ public class EmojiPackageUserDefinied extends EmojiPackage {
             else if (token.toString().equals(Emojicode.E_SCROLL))   // 📜 - include source file
                 ;
             else
-                System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
+                System.out.format("Token: %s, value: %s%n", token.fType.toString(), token.toString());
         }
         else
-            System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
+            System.out.format("Token: %s, value: %s%n", token.fType.toString(), token.toString());
         
         
         tokenStream.consumeToken();

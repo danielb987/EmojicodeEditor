@@ -66,12 +66,12 @@ public final class TokenStream {
         
         Token token = nextToken();
         
-        if (token.type != tokenType) {
+        if (token.fType != tokenType) {
             throw new CompilerError(
-                    token.startPosition,
-                    token.endPosition,
+                    token.fStartPosition,
+                    token.fEndPosition,
                     String.format("Expected %s but instead found %s (%s).",
-                            tokenType.name(), nextToken().type.name(), nextToken().toString()));
+                            tokenType.name(), nextToken().fType.name(), nextToken().toString()));
         }
         
         index++;
@@ -101,7 +101,7 @@ public final class TokenStream {
     
     
     public boolean nextTokenIs(final TokenType tokenType) {
-        return (hasMoreTokens() && nextToken().type == tokenType);
+        return (hasMoreTokens() && nextToken().fType == tokenType);
     }
     
     
@@ -118,27 +118,27 @@ public final class TokenStream {
     
     public boolean nextTokenIs(final int ch, final TokenType tokenType) {
         return hasMoreTokens()
-                && (nextToken().type == tokenType)
-                && (nextToken().getFirstChar() == ch);
+                && (nextToken().fType == tokenType)
+                && (nextToken().getFirstCodepoint() == ch);
     }
     
     
     public boolean nextTokenOperatorIs(final String operator) {
         return hasMoreTokens()
-                && (nextToken().type == TokenType.Operator)
+                && (nextToken().fType == TokenType.Operator)
                 && (nextToken().toString().equals(operator));
     }
     
     
     public boolean nextTokenIsEverythingBut(final TokenType tokenType) {
-        return hasMoreTokens() && (nextToken().type != tokenType);
+        return hasMoreTokens() && (nextToken().fType != tokenType);
     }
     
     
     public boolean nextTokenIsEverythingBut(final int ch, final TokenType tokenType) {
         return hasMoreTokens()
-                && (!(nextToken().type == tokenType)
-                && (nextToken().getFirstChar() == ch));
+                && (!(nextToken().fType == tokenType)
+                && (nextToken().getFirstCodepoint() == ch));
     }
     
     
@@ -176,7 +176,7 @@ public final class TokenStream {
     
     public Token nextToken() {
         Token token = tokens.get(index);
-        lastPosition = token.startPosition;
+        lastPosition = token.fStartPosition;
         return token;
     }
     
@@ -190,13 +190,13 @@ public final class TokenStream {
     
     public String getIdentifierToken() throws CompilerError {
         Token token = consumeToken();
-        if (token.type != TokenType.Identifier) {
-            throw new CompilerError(token.startPosition,
-                                    token.endPosition,
+        if (token.fType != TokenType.Identifier) {
+            throw new CompilerError(token.fStartPosition,
+                                    token.fEndPosition,
                                     "Unexpected token. Expected token "
                                             + TokenType.Identifier.name()
                                             + " but found token "
-                                            + token.type.name());
+                                            + token.fType.name());
         }
         
         return token.toString();
@@ -205,20 +205,20 @@ public final class TokenStream {
     
     public int getIntegerToken() throws CompilerError {
         Token token = consumeToken();
-        if (token.type != TokenType.Integer) {
-            throw new CompilerError(token.startPosition,
-                                    token.endPosition,
+        if (token.fType != TokenType.Integer) {
+            throw new CompilerError(token.fStartPosition,
+                                    token.fEndPosition,
                                     "Unexpected token. Expected token "
                                             + TokenType.Integer.name()
                                             + " but found token "
-                                            + token.type.name());
+                                            + token.fType.name());
         }
         
         try {
             return Integer.parseInt(token.toString());
         } catch (NumberFormatException ex) {
-            throw new CompilerError(token.startPosition,
-                                    token.endPosition,
+            throw new CompilerError(token.fStartPosition,
+                                    token.fEndPosition,
                                     String.format("Invalid number %s", token.toString()));
         }
     }
@@ -226,18 +226,18 @@ public final class TokenStream {
     
     public Token consumeIdentifierToken(final String identifier) throws CompilerError {
         Token token = consumeToken();
-        if (token.type != TokenType.Identifier) {
-            throw new CompilerError(token.startPosition,
-                                    token.endPosition,
+        if (token.fType != TokenType.Identifier) {
+            throw new CompilerError(token.fStartPosition,
+                                    token.fEndPosition,
                                     "Unexpected token. Expected token "
                                             + TokenType.Identifier.name()
                                             + " but found token "
-                                            + token.type.name());
+                                            + token.fType.name());
         }
         
         if (!token.toString().equals(identifier)) {
-            throw new CompilerError(token.startPosition,
-                                    token.endPosition,
+            throw new CompilerError(token.fStartPosition,
+                                    token.fEndPosition,
                                     "Unexpected identifier. Expected identifier "
                                             + identifier
                                             + " but found token "

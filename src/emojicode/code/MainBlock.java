@@ -53,8 +53,8 @@ public class MainBlock extends Parent {
         
         Token token = tokenStream.consumeIdentifierToken(Emojicode.E_CHEQUERED_FLAG);     // 🏁 - start flag = start of program
         
-        this.startPosition = token.startPosition;
-        this.middlePosition = token.endPosition;
+        this.startPosition = token.fStartPosition;
+        this.middlePosition = token.fEndPosition;
         // A main block may have a return type
         // http://www.emojicode.org/docs/reference/classes-valuetypes.html#srule-return-type
         

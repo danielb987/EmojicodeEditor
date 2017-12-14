@@ -77,7 +77,7 @@ public class Enumeration extends Parent {
             Token token = tokenStream.nextToken();
 //            System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
             
-            if (token.type == TokenType.Identifier) {
+            if (token.fType == TokenType.Identifier) {
                 switch (token.toString()) {
                     case Emojicode.E_RABBIT:      // 🐇 - type method
                         throw new RuntimeException("Not implemented yet. See EmojiClass for how to do this");
@@ -85,12 +85,12 @@ public class Enumeration extends Parent {
 //                        typeMethod.parse(tokenStream);
 //                        break;
                     default:
-                        throw new CompilerError(token.startPosition, token.endPosition, "Unknown identifier found: "+token.toString());
+                        throw new CompilerError(token.fStartPosition, token.fEndPosition, "Unknown identifier found: "+token.toString());
                 }
             }
             else {
 //                System.out.format("Token: %s, value: %s\n", token.type.toString(), token.toString());
-                throw new CompilerError(token.startPosition, token.endPosition, "Token Identifier expected, found token "+token.type.name());
+                throw new CompilerError(token.fStartPosition, token.fEndPosition, "Token Identifier expected, found token "+token.fType.name());
             }
 //            tokenStream.consumeToken();
         }

@@ -148,15 +148,15 @@ public final class MethodCall extends Parent {
         Token methodIdentifierToken = tokenStream.consumeToken(TokenType.Identifier);
         methodName = methodIdentifierToken.toString();
         
-        this.startPosition = methodIdentifierToken.startPosition;
+        this.startPosition = methodIdentifierToken.fStartPosition;
         
         if (EmojiString.STRING_EMOJI.equals(methodIdentifierToken)) {
             
             // Convert an integer to a string
             
             Token variableNameToken = tokenStream.consumeToken(TokenType.Identifier);
-            createStringFromIntegerVariable = getVariable(variableNameToken.startPosition,
-                                                          variableNameToken.endPosition,
+            createStringFromIntegerVariable = getVariable(variableNameToken.fStartPosition,
+                                                          variableNameToken.fEndPosition,
                                                           variableNameToken.toString());
             
             methodCallType = MethodCallType.CONVERT_INTEGER_TO_STRING;
@@ -179,7 +179,7 @@ public final class MethodCall extends Parent {
                 stringsToConcatenate = new ArrayList<>();
 
                 Token token = tokenStream.nextToken();
-                while ((token.type != TokenType.Identifier) || (!Emojicode.E_COOKIE.equals(token.toString()))) {
+                while ((token.fType != TokenType.Identifier) || (!Emojicode.E_COOKIE.equals(token.toString()))) {
                     System.out.println("ccc");
                     Expression expression = new Expression(this);
                     expression.parse(tokenStream);
@@ -191,13 +191,13 @@ public final class MethodCall extends Parent {
                 
                 System.out.println("eee");
                 
-            } else if (classIdentifierToken.type == TokenType.String) {
+            } else if (classIdentifierToken.fType == TokenType.String) {
                 
                 methodCallType = MethodCallType.CALL_METHOD_ON_CONSTANT_STRING;
             
                 constantString = classIdentifierToken.toString();
-                this.middlePosition = classIdentifierToken.endPosition;
-                this.endPosition = classIdentifierToken.endPosition;
+                this.middlePosition = classIdentifierToken.fEndPosition;
+                this.endPosition = classIdentifierToken.fEndPosition;
                 emojiClass = EmojiPackage
                                 .packages
                                     .get("s")
@@ -208,26 +208,26 @@ public final class MethodCall extends Parent {
                 tokenStream.consumeToken();
 
                 if (emojiClass == null) {
-                    throw new CompilerError(classIdentifierToken.startPosition,
-                                            classIdentifierToken.endPosition,
+                    throw new CompilerError(classIdentifierToken.fStartPosition,
+                                            classIdentifierToken.fEndPosition,
                                             String.format("Class %s in package s is not found",
                                                           classIdentifierToken.toString()));
                 }
 
                 emojiMethod = emojiClass.getMethod(methodName,
-                                                   methodIdentifierToken.startPosition,
-                                                   classIdentifierToken.endPosition);
+                                                   methodIdentifierToken.fStartPosition,
+                                                   classIdentifierToken.fEndPosition);
 
                 if (emojiMethod == null) {
-                    throw new CompilerError(methodIdentifierToken.startPosition,
-                                            classIdentifierToken.endPosition,
+                    throw new CompilerError(methodIdentifierToken.fStartPosition,
+                                            classIdentifierToken.fEndPosition,
                                             String.format(
                                                     "Method %s in class %s in package s is not found",
                                                     methodName,
                                                     classIdentifierToken.toString()));
                 }
                 
-            } else if (classIdentifierToken.type == TokenType.Identifier) {
+            } else if (classIdentifierToken.fType == TokenType.Identifier) {
                 
                 methodCallType = MethodCallType.CALL_METHOD;
                 
@@ -235,8 +235,8 @@ public final class MethodCall extends Parent {
                 EmojiPackage emojiPackage = getPackage();
                 emojiClass = emojiPackage.classes.get(classIdentifierToken.toString());
                 if (emojiClass == null) {
-                    throw new CompilerError(classIdentifierToken.startPosition,
-                                            classIdentifierToken.endPosition,
+                    throw new CompilerError(classIdentifierToken.fStartPosition,
+                                            classIdentifierToken.fEndPosition,
                                             String.format("Class %s in package %s is not found",
                                                           classIdentifierToken.toString(),
                                                           emojiPackage.name));
@@ -250,16 +250,16 @@ public final class MethodCall extends Parent {
 
                 if (methodType == EmojiMethod.MethodType.TYPE_METHOD) {
                     emojiMethod = emojiClass.getTypeMethod(methodName,
-                                                           methodIdentifierToken.startPosition,
-                                                           classIdentifierToken.endPosition);
+                                                           methodIdentifierToken.fStartPosition,
+                                                           classIdentifierToken.fEndPosition);
                 } else {
                     emojiMethod = emojiClass.getMethod(methodName,
-                                                       methodIdentifierToken.startPosition,
-                                                       classIdentifierToken.endPosition);
+                                                       methodIdentifierToken.fStartPosition,
+                                                       classIdentifierToken.fEndPosition);
                 }
                 if (emojiMethod == null) {
-                    throw new CompilerError(methodIdentifierToken.startPosition,
-                                            classIdentifierToken.endPosition,
+                    throw new CompilerError(methodIdentifierToken.fStartPosition,
+                                            classIdentifierToken.fEndPosition,
                                             String.format(
                                                     "Method %s in class %s in package s is not found",
                                                     methodName,
@@ -272,10 +272,10 @@ public final class MethodCall extends Parent {
                 }
                 
             } else {
-                throw new CompilerError(classIdentifierToken.startPosition,
-                                        classIdentifierToken.endPosition,
+                throw new CompilerError(classIdentifierToken.fStartPosition,
+                                        classIdentifierToken.fEndPosition,
                                         "Why did we get here??? TokenType: "
-                                                + classIdentifierToken.type.name());
+                                                + classIdentifierToken.fType.name());
 
     //            throw new CompilerError("Method call has no class instance");
             }

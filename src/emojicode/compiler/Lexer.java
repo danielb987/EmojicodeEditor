@@ -100,26 +100,26 @@ public final class Lexer {
         TokenType it = TokenType.getTokenType(codePoint());
         if (it != null) {
 //            System.out.format("Begin token. Token: %s\n", it.toString());
-            token.type = it;
+            token.fType = it;
             token.append(Character.toChars(codePoint()));
             return false;
         }
 
         switch (codePoint()) {
             case Emojicode.E_INPUT_SYMBOL_LATIN_LETTERS_CODEPOINT:
-                token.type = TokenType.String;
+                token.fType = TokenType.String;
                 return true;
             case Emojicode.E_OLDER_WOMAN_CODEPOINT:
-                token.type = TokenType.MultilineComment;
+                token.fType = TokenType.MultilineComment;
                 return true;
             case Emojicode.E_OLDER_MAN_CODEPOINT:
-                token.type = TokenType.SinglelineComment;
+                token.fType = TokenType.SinglelineComment;
                 return true;
             case Emojicode.E_TACO_CODEPOINT:
-                token.type = TokenType.DocumentationComment;
+                token.fType = TokenType.DocumentationComment;
                 return true;
             case Emojicode.E_KEYCAP_10_CODEPOINT:
-                token.type = TokenType.Symbol;
+                token.fType = TokenType.Symbol;
                 return true;
             default:
                 // Do nothing
@@ -128,12 +128,12 @@ public final class Lexer {
         if (('0' <= codePoint() && codePoint() <= '9')
                 || codePoint() == '-'
                 || codePoint() == '+') {
-            token.type = TokenType.Integer;
+            token.fType = TokenType.Integer;
             isHex = false;
         } else if (EmojiTokenization.isEmoji(codePoint())) {
-            token.type = TokenType.Identifier;
+            token.fType = TokenType.Identifier;
         } else {
-            token.type = TokenType.Variable;
+            token.fType = TokenType.Variable;
         }
 //        System.out.format("Begin token. Append chars: %s. Codepoint: %d\n",
 //                new String(Character.toChars(codePoint())), codePoint());
@@ -151,7 +151,7 @@ public final class Lexer {
      * @throws CompilerError compiler error
      */
     TokenState continueToken(final Token token) throws CompilerError {
-        switch (token.type) {
+        switch (token.fType) {
             case Identifier:
                 if (foundZWJ && EmojiTokenization.isEmoji(codePoint())) {
                     token.append(codePoint());
@@ -218,8 +218,8 @@ public final class Lexer {
                             token.append('\r');
                             break;
                         default:
-                            throw new CompilerError(token.startPosition,
-                                                    token.endPosition,
+                            throw new CompilerError(token.fStartPosition,
+                                                    token.fEndPosition,
                                                     "Unrecognized escape sequence ���"
                                                         + new String(
                                                             Character.toChars(codePoint())) + ".");
@@ -258,7 +258,7 @@ public final class Lexer {
                     token.append(codePoint());
                     return TokenState.Continues;
                 } else if (codePoint() == '.') {
-                    token.type = TokenType.Double;
+                    token.fType = TokenType.Double;
                     token.append(codePoint());
                     return TokenState.Continues;
                 } else if ((codePoint() == 'x' || codePoint() == 'X')
@@ -299,7 +299,7 @@ public final class Lexer {
             }
             
             Token token = new Token(lastSourcePosition);
-            token.endPosition = new SourcePosition(index, line, column, filename);
+            token.fEndPosition = new SourcePosition(index, line, column, filename);
             tokens.add(token);
             readToken(token);
         }
@@ -337,9 +337,9 @@ public final class Lexer {
             }
             nextChar();
             if (Emojicode.isWhitespace(codePoint)) {
-                token.endPosition = lastSourcePosition;
+                token.fEndPosition = lastSourcePosition;
             } else {
-                token.endPosition = new SourcePosition(index, line, column, filename);
+                token.fEndPosition = new SourcePosition(index, line, column, filename);
             }
             state = continueToken(token);
             if (state == TokenState.NextBegun) {

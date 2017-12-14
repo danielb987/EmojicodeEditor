@@ -16,80 +16,134 @@ import emojicode.compiler.StringHelper;
  */
 public final class Token {
     
-    public TokenType type;
-    public final SourcePosition startPosition;
-    public SourcePosition endPosition;
-    private final StringBuilder value = new StringBuilder();   // The value of this token
-    private String valueString;    // The value of this token
+    /**
+     * The type of this token.
+     */
+    public TokenType fType;
     
+    /**
+     * The start position of this token.
+     */
+    public final SourcePosition fStartPosition;
+    
+    /**
+     * The end position of this token.
+     */
+    public SourcePosition fEndPosition;
+    
+    /**
+     * The value of this token.
+     */
+    private final StringBuilder fValue = new StringBuilder(50);
+    
+    /**
+     * The value of this token.
+     */
+    private String fValueString;
+    
+    
+    /**
+     * Create a new token.
+     * @param aStartPosition the start position of this token.
+     */
     public Token(final SourcePosition aStartPosition) {
-        this.startPosition = aStartPosition;
+        this.fStartPosition = aStartPosition;
     }
     
     
+    /**
+     * Validate this token.
+     * @throws CompilerError if the token is not valid
+     */
     public void validate() throws CompilerError {
-        if (type == TokenType.Integer) {
+        if (fType == TokenType.Integer) {
             if (StringHelper.getLastUnicodeChar(toString()) == 'x') {
-                throw new CompilerError(startPosition,
-                                        endPosition,
+                throw new CompilerError(fStartPosition,
+                                        fEndPosition,
                                         "Expected a digit after integer literal prefix.");
             }
         }
-        if (type == TokenType.Double) {
+        if (fType == TokenType.Double) {
             if (StringHelper.getLastUnicodeChar(toString()) == '.') {
-                throw new CompilerError(startPosition,
-                                        endPosition,
+                throw new CompilerError(fStartPosition,
+                                        fEndPosition,
                                         "Expected a digit after decimal seperator.");
             }
         }
-        if (type == TokenType.Identifier) {
+        if (fType == TokenType.Identifier) {
             if (!EmojiTokenization.isValidEmoji(toString())) {
-                throw new CompilerError(startPosition, endPosition, "Invalid emoji.");
+                throw new CompilerError(fStartPosition, fEndPosition, "Invalid emoji.");
             }
         }
     }
     
     
+    /**
+     * Is this token an identifier which starts with the character ch?
+     * @param ch the character the identifier must start with
+     * @return true if the token is an identifier that starts with the character ch
+     */
     public boolean isIdentifier(final int ch) {
-        return (type == TokenType.Identifier)
-                && (value.length() == 1)
-                && (value.codePointAt(0) == ch);
-    }
-    
-    public int getFirstChar() {
-        return value.codePointAt(0);
+        return (fType == TokenType.Identifier)
+                && (fValue.length() == 1)
+                && (fValue.codePointAt(0) == ch);
     }
     
     
+    /**
+     * Return the first unicode codepoint in the token.
+     * @return the first unicode codepoint in the token
+     */
+    public int getFirstCodepoint() {
+        return fValue.codePointAt(0);
+    }
+    
+    
+    /**
+     * Append a string to the token.
+     * @param string the string to be appended to the token
+     */
     public void append(final String string) {
 //        System.out.format("Token.append string: %s\n", string);
-        value.append(string);
-        valueString = null;
+        fValue.append(string);
+        fValueString = null;
     }
     
     
+    /**
+     * Append an array of characters to the token.
+     * @param chars the characters to be appended to the token
+     */
     public void append(final char[] chars) {
-        value.append(chars);
-        valueString = null;
+        fValue.append(chars);
+        fValueString = null;
 //        System.out.format("Token.append chars: %s. After: %s\n", new String(chars),
 //                value.toString());
     }
     
     
+    /**
+     * Append an unicode codepoint to the token.
+     * @param codePoint the characters to be appended to the token
+     */
     public void append(final int codePoint) {
-        value.append(Character.toChars(codePoint));
-        valueString = null;
+        fValue.append(Character.toChars(codePoint));
+        fValueString = null;
 //        System.out.format("Token.append codePoint: %s. After: %s\n",
 //                new String(Character.toChars(codePoint)), value.toString());
     }
     
     
+    /**
+     * Return the value of the token.
+     * @return the value of the token
+     */
     @Override
     public String toString() {
-        if (valueString == null) {
-            valueString = value.toString();
+        if (fValueString == null) {
+            fValueString = fValue.toString();
         }
-        return valueString;
+        return fValueString;
     }
     
     

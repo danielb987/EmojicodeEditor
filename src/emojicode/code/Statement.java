@@ -64,11 +64,11 @@ public final class Statement extends Parent {
         
         Token token = tokenStream.nextToken();
         
-        this.startPosition = token.startPosition;
+        this.startPosition = token.fStartPosition;
         
 //        System.out.format("Token %s: %s\n", token.type.name(), token.toString());
         
-        switch (token.type) {
+        switch (token.fType) {
             case If:
                 throw new RuntimeException("Code not implemented yet");
 //                break;
@@ -117,10 +117,10 @@ public final class Statement extends Parent {
                 this.endPosition = expression.endPosition;
                 break;
             default:
-                throw new CompilerError(token.startPosition,
-                                        token.endPosition,
+                throw new CompilerError(token.fStartPosition,
+                                        token.fEndPosition,
                                         "Why did we get here??? TokenType: "
-                                            + token.type.name());
+                                            + token.fType.name());
 //                throw new RuntimeException("Why did we get here??? TokenType: "
 //                                            + token.type.name());
 //                break;

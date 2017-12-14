@@ -66,7 +66,7 @@ public class StatementForIn extends SubStatement {
         
         Token token = tokenStream.consumeToken(TokenType.ForIn);
         
-        this.startPosition = token.startPosition;
+        this.startPosition = token.fStartPosition;
         
         token = tokenStream.consumeToken(TokenType.Variable);
         forInVariableName = token.toString();
@@ -81,7 +81,7 @@ public class StatementForIn extends SubStatement {
         
         token = tokenStream.nextToken();
         
-        if ((token.type == TokenType.Identifier)
+        if ((token.fType == TokenType.Identifier)
                 && (Emojicode.E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE.equals(token.toString()))) {
             
             tokenStream.consumeToken();
@@ -90,7 +90,7 @@ public class StatementForIn extends SubStatement {
             rangeStart = tokenStream.getIntegerToken();
             rangeStep = 1;
             rangeStop = tokenStream.getIntegerToken();
-        } else if ((token.type == TokenType.Identifier)
+        } else if ((token.fType == TokenType.Identifier)
                 && (Emojicode.E_BLACK_RIGHT_POINTING_DOUBLE_TRIANGLE_WITH_VERTICAL_BAR.equals(token.toString()))) {
             
             tokenStream.consumeToken();

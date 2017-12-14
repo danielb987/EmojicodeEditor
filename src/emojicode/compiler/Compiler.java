@@ -51,7 +51,7 @@ public final class Compiler {
 
         while (tokenStream.hasMoreTokens()) {
             Token token = tokenStream.nextToken();
-            System.out.format("Token: %s, value: %s%n", token.type.toString(), token.toString());
+            System.out.format("Token: %s, value: %s%n", token.fType.toString(), token.toString());
             tokenStream.consumeToken();
         }
     }

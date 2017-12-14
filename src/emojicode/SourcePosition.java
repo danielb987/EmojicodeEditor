@@ -15,29 +15,29 @@ public final class SourcePosition {
     /**
      * The unicode codepoint index in the string that is compiled.
      */
-    private final int index;
+    private final int fIndex;
     
     /**
      * The line number.
      */
-    private final int line;
+    private final int fLine;
     
     /**
      * The column number.
      */
-    private final int column;
+    private final int fColumn;
     
     /**
      * The file name.
      */
-    private final String filename;
+    private final String fFilename;
     
     
     /**
      * Create an instance.
      *
-     * @param aIndex the unicode codepoint index in the string that is compiled
-     * @param aLine the line number
+     * @param aIndex the unicode codepoint fIndex in the string that is compiled
+     * @param aLine the fLine number
      * @param aColumn the column number
      * @param aFileName the file name
      */
@@ -45,30 +45,30 @@ public final class SourcePosition {
                           final int aLine,
                           final int aColumn,
                           final String aFileName) {
-        this.index = aIndex;
-        this.line = aLine;
-        this.column = aColumn;
-        this.filename = aFileName;
+        this.fIndex = aIndex;
+        this.fLine = aLine;
+        this.fColumn = aColumn;
+        this.fFilename = aFileName;
     }
     
     
     /**
-     * Get the unicode codepoint index in the string that is compiled.
+     * Get the unicode codepoint fIndex in the string that is compiled.
      *
-     * @return the codepoint index
+     * @return the codepoint fIndex
      */
     public int getIndex() {
-        return index;
+        return fIndex;
     }
     
     
     /**
-     * Get the line number.
+     * Get the fLine number.
      *
-     * @return the line number
+     * @return the fLine number
      */
     public int getLine() {
-        return line;
+        return fLine;
     }
     
     
@@ -78,7 +78,7 @@ public final class SourcePosition {
      * @return the column number
      */
     public int getColumn() {
-        return column;
+        return fColumn;
     }
     
     
@@ -88,7 +88,7 @@ public final class SourcePosition {
      * @return the file name
      */
     public String getFilename() {
-        return filename;
+        return fFilename;
     }
     
 }
