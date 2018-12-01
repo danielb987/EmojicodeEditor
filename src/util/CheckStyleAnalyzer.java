@@ -287,7 +287,7 @@ public class CheckStyleAnalyzer {
             
 //            for (int i=0;  i < attributes.getLength(); i++) {
 //                System.out.format("%s: %s: %s%n", qName, attributes.getQName(i),
-//                        attributes.getValue(i));
+//                         attributes.getValue(i));
 //            }
             
 //            if ("checkstyle".equalsIgnoreCase(qName)) {
